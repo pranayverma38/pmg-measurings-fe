@@ -93,6 +93,7 @@ interface LayoutProps {
     footerStyle?: number;
     mainClass?: string;
     noFooter?: boolean;
+    noHeader?: boolean;
     headerProps?: HeaderProps;
 }
 
@@ -102,13 +103,14 @@ export default function Layout({
     footerStyle,
     mainClass = "bg-neutral-0",
     noFooter = false,
+    noHeader = false,
     headerProps,
 }: LayoutProps) {
     return (
         <MobileMenuCloneProvider>
             <ServerEffects />
             <div id="top" />
-            <Header style={headerStyle} headerProps={headerProps} />
+            {!noHeader && <Header style={headerStyle} headerProps={headerProps} />}
             <div id="smooth-wrapper">
                 <div id="smooth-content" className="z-index-3">
                     <main className={mainClass}>{children}</main>
