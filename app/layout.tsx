@@ -12,6 +12,7 @@ import "@/public/assets/css/sticky-cards.css";
 
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
+import WebsiteActiveGuard from "@/components/WebsiteActiveGuard";
 
 const dmSans = DM_Sans({
     subsets: ["latin"],
@@ -29,9 +30,18 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const redirectToComingSoon = process.env.WEBSITE_ACTIVE === "true";
+
     return (
         <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
             <head>
+                {redirectToComingSoon && (
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `if(window.location.pathname!=="/coming-soon"){window.location.replace("/coming-soon");}`,
+                        }}
+                    />
+                )}
                 {/* Vendor bundle path; matches original HTML template */}
                 {/* eslint-disable-next-line @next/next/no-css-tags */}
                 <link
@@ -44,7 +54,9 @@ export default function RootLayout({
             </head>
             <body className={`${dmSans.variable}`}>
                 <div className="px-blur-bottom"></div>
-                {children}
+                <WebsiteActiveGuard redirectToComingSoon={redirectToComingSoon}>
+                    {children}
+                </WebsiteActiveGuard>
             </body>
         </html>
     );
