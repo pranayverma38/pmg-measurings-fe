@@ -12,6 +12,7 @@ import "@/public/assets/css/sticky-cards.css";
 
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
+import WebsiteActiveGuard from "@/components/WebsiteActiveGuard";
 
 const dmSans = DM_Sans({
     subsets: ["latin"],
@@ -29,6 +30,8 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const isWebsiteActive = process.env.WEBSITE_ACTIVE !== "false";
+
     return (
         <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
             <head>
@@ -38,13 +41,22 @@ export default function RootLayout({
                     href="/assets/css/vendors/font-awesome-pro.css"
                     rel="stylesheet"
                 />
+                {!isWebsiteActive && (
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `if(window.location.pathname!=="/coming-soon"){window.location.replace("/coming-soon");}`,
+                        }}
+                    />
+                )}
                 {/* Blocking theme init before paint; App Router has no pages/_document for beforeInteractive Script */}
                 {/* eslint-disable-next-line @next/next/no-sync-scripts */}
                 <script src="/scripts/theme-init.js" />
             </head>
             <body className={`${dmSans.variable}`}>
                 <div className="px-blur-bottom"></div>
-                {children}
+                <WebsiteActiveGuard isWebsiteActive={isWebsiteActive}>
+                    {children}
+                </WebsiteActiveGuard>
             </body>
         </html>
     );
