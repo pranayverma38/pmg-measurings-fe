@@ -15,12 +15,12 @@ export default function About_1() {
             <Layout headerStyle={16} footerStyle={16} headerProps={{ textStyle: "dark" }}>
                 <Section1 />
                 <Section2 />
-                <Section3 />
-                <Section4 />
+                {/* <Section3 /> */}
+                {/* <Section4 /> */}
                 <Section5 />
                 <Section6 classList="bg-neutral-50" />
-                <Section7 />
-                <Section8 />
+                {/* <Section7 /> */}
+                {/* <Section8 /> */}
             </Layout>
         </>
     );

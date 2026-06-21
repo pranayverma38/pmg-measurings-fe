@@ -8212,6 +8212,161 @@ input.footer-15__form-input:focus {
 }
 .sec-4-about-form__link {
   color: var(--at-neutral-900);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+.sec-4-about-form__link:hover {
+  opacity: 0.7;
+}
+
+/* Boxed variant — About 1 Section 4 */
+.sec-4-about__inner {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+.sec-4-about__inner > .row {
+  margin-inline: 0;
+}
+@media (max-width: 991.98px) {
+  .sec-4-about__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .sec-4-about__office {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .sec-4-about__social {
+    justify-content: center;
+  }
+}
+@media (min-width: 992px) {
+  .sec-4-about__social {
+    justify-content: flex-start;
+  }
+}
+.sec-4-about-form-wrap {
+  width: 100%;
+  max-width: 100%;
+}
+.sec-4-about-form--boxed {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: clamp(28px, 4vw, 48px);
+  background: var(--at-neutral-0, #fefefe);
+  border: 1px solid var(--at-neutral-100, #dfdfdf);
+  border-radius: 20px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 12px 40px rgba(0, 0, 0, 0.06);
+}
+.sec-4-about-form--boxed .sec-4-about-form__header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--at-neutral-100, #dfdfdf);
+}
+.sec-4-about-form--boxed .sec-4-about-form__title {
+  font-family: var(--at-ff-heading);
+  font-weight: 600;
+  font-size: clamp(22px, 2.5vw, 28px);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--at-neutral-900);
+}
+.sec-4-about-form--boxed .sec-4-about-form__subtitle {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--at-neutral-500);
+}
+.sec-4-about-form--boxed .sec-4-about-form__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 576px) {
+  .sec-4-about-form--boxed .sec-4-about-form__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 24px;
+  }
+}
+.sec-4-about-form--boxed .sec-4-about-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sec-4-about-form--boxed .sec-4-about-form__field--full {
+  grid-column: 1 / -1;
+}
+.sec-4-about-form--boxed .sec-4-about-form__label {
+  font-family: var(--at-ff-heading);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--at-neutral-700);
+}
+.sec-4-about-form--boxed .sec-4-about-form__input {
+  padding: 14px 16px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--at-neutral-900);
+  background: var(--at-neutral-50, #f8f8f8);
+  border: 1px solid var(--at-neutral-100, #dfdfdf);
+  border-radius: 12px;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.sec-4-about-form--boxed .sec-4-about-form__input::-moz-placeholder {
+  color: var(--at-neutral-400, #b0b0b0);
+  font-weight: 400;
+}
+.sec-4-about-form--boxed .sec-4-about-form__input::placeholder {
+  color: var(--at-neutral-400, #b0b0b0);
+  font-weight: 400;
+}
+.sec-4-about-form--boxed .sec-4-about-form__input:hover {
+  border-color: var(--at-neutral-200, #c8c8c8);
+  background: var(--at-neutral-0, #fefefe);
+}
+.sec-4-about-form--boxed .sec-4-about-form__input:focus {
+  border-color: var(--at-neutral-900);
+  background: var(--at-neutral-0, #fefefe);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+.sec-4-about-form--boxed .sec-4-about-form__textarea {
+  min-height: 140px;
+  padding-top: 14px;
+  resize: vertical;
+}
+.sec-4-about-form--boxed .sec-4-about-form__actions {
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+.sec-4-about-form--boxed .sec-4-about-form__disclaimer {
+  padding-top: 4px;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+}
+@media (min-width: 576px) {
+  .sec-4-about-form--boxed .sec-4-about-form__disclaimer {
+    text-align: left;
+  }
 }
 
 /*----------------------------------------*/

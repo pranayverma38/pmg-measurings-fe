@@ -12,17 +12,6 @@ const ARROW_SVG = (
     </svg>
 );
 
-const SCROLL_ROTATE_SVG = (
-    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
-        <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M53.5715 0H46.4286V41.3778L17.17 12.1193L12.1193 17.17L41.3778 46.4286H0V53.5715H41.3778L12.1193 82.83L17.17 87.8805L46.4286 58.622V100H53.5715V58.622L82.83 87.8805L87.8805 82.83L58.622 53.5715H100V46.4286H58.622L87.8805 17.17L82.83 12.1193L53.5715 41.3778V0Z"
-            fill="currentColor"
-        />
-    </svg>
-);
-
 const OFFICE_ICON_1 = (
     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
         <path d="M20 40V20H0L20 0L40 20V40H20Z" fill="currentColor" />
@@ -30,59 +19,10 @@ const OFFICE_ICON_1 = (
     </svg>
 );
 
-const OFFICE_ICON_2 = (
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <path d="M20 20V10L30 0H40V10L30 20H20Z" fill="currentColor" />
-        <path d="M20 30V20H10L20 10L10 0H0V20H10L0 30V40H10L20 30Z" fill="currentColor" />
-        <path d="M20 30L30 40H40V20H30L20 30Z" fill="currentColor" />
-    </svg>
-);
-
 const SOCIAL_ITEMS = [
     {
-        label: "Twitter",
-        href: "#",
-        ariaLabel: "Twitter",
-        icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 15" fill="none" aria-hidden>
-                <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M0 0H5.25L8.98421 5.21053L13.5 0H15.5L9.8895 6.47368L16 15H10.75L7.01579 9.7895L2.5 15H0.5L6.11053 8.52632L0 0ZM11.5204 13.5L2.92043 1.5H4.47957L13.0796 13.5H11.5204Z"
-                    fill="currentColor"
-                />
-            </svg>
-        ),
-    },
-    {
-        label: "Facebook",
-        href: "#",
-        ariaLabel: "Facebook",
-        icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
-                <path
-                    d="M12.4024 18V11.0344H14.7347L15.0838 8.3265H12.4024V6.59765C12.4024 5.81364 12.62 5.27934 13.7443 5.27934L15.1783 5.27867V2.85676C14.9302 2.82382 14.0791 2.75006 13.0888 2.75006C11.0213 2.75006 9.606 4.01198 9.606 6.32952V8.3265H7.2677V11.0344H9.606V18H1C0.44772 18 0 17.5523 0 17V1C0 0.44772 0.44772 0 1 0H17C17.5523 0 18 0.44772 18 1V17C18 17.5523 17.5523 18 17 18H12.4024Z"
-                    fill="currentColor"
-                />
-            </svg>
-        ),
-    },
-    {
-        label: "LinkedIn",
-        href: "#",
-        ariaLabel: "LinkedIn",
-        icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
-                <path
-                    d="M15.3352 15.339H12.6697V11.1622C12.6697 10.1662 12.6495 8.8845 11.2807 8.8845C9.89102 8.8845 9.67872 9.9683 9.67872 11.0887V15.339H7.01322V6.75H9.57372V7.9207H9.60822C9.96602 7.2457 10.836 6.53325 12.1357 6.53325C14.8365 6.53325 15.336 8.3108 15.336 10.6245L15.3352 15.339ZM4.00275 5.57475C3.14475 5.57475 2.4555 4.88025 2.4555 4.026C2.4555 3.1725 3.1455 2.47875 4.00275 2.47875C4.85775 2.47875 5.55075 3.1725 5.55075 4.026C5.55075 4.88025 4.857 5.57475 4.00275 5.57475ZM5.33925 15.339H2.66625V6.75H5.33925V15.339ZM16.6687 0H1.32825C0.594 0 0 0.5805 0 1.29675V16.7033C0 17.4202 0.594 18 1.32825 18H16.6665C17.4 18 18 17.4202 18 16.7033V1.29675C18 0.5805 17.4 0 16.6665 0H16.6687Z"
-                    fill="currentColor"
-                />
-            </svg>
-        ),
-    },
-    {
         label: "Instagram",
-        href: "#",
+        href: "https://www.instagram.com/pmg.tapes?igsh=MXEwMG1sMTQ4Y3h3bQ%3D%3D&utm_source=qr",
         ariaLabel: "Instagram",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
@@ -95,7 +35,7 @@ const SOCIAL_ITEMS = [
     },
     {
         label: "Youtube",
-        href: "#",
+        href: "https://youtube.com/@primemistrigold?si=xp9u-5_G9FvX-Lod",
         ariaLabel: "Youtube",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 18 13" fill="none" aria-hidden>
@@ -121,53 +61,21 @@ const OFFICES = [
         email: "hello@orisa.com",
         emailHref: "mailto:hello@orisa.com",
     },
-    {
-        icon: OFFICE_ICON_2,
-        title: "Office",
-        address: "245 Fifth Avenue, Suite 1800",
-        city: "New York, NY 10016, USA",
-        phone: "+2125557398",
-        phoneHref: "tel:+2125557398",
-        email: "sale@orisa.com",
-        emailHref: "mailto:sale@orisa.com",
-    },
 ];
 
 export default function Section4({ classList = "" }: { classList?: string }) {
     return (
         <section className={`sec-4-about pt-120 pb-120 ${classList}`.trim()}>
-            <div className="container">
-                <div className="row g-4 align-items-end mb-50">
-                    <div className="col-lg-6">
-                        <span className="at-btn common-black bg-transparent mb-10 rounded-0 p-0">
-                            <span className="text-uppercase">
-                                <span className="text-1">cONTACT US</span>
-                                <span className="text-2">cONTACT US</span>
-                            </span>
-                            <i>
-                                {ARROW_SVG}
-                                {ARROW_SVG}
-                            </i>
-                        </span>
-                        <h1 className="alt-section-title fz-ds-1 lh-1 fw-500 mb-30 reveal-text mb-0">
+            <div className="sec-4-about__inner">
+                <div className="row g-4 align-items-start">
+                    <div className="col-xxl-4 col-lg-5 sec-4-about__info">
+                        <h1 className="alt-section-title fz-ds-1 lh-1 fw-500 mb-40 reveal-text">
                             <RevealText>Get in touch</RevealText>
                         </h1>
-                    </div>
-                    <div className="col-xxl-4 col-lg-6 col-md-8 ms-lg-auto text-lg-end">
-                        <div className="scroll-rotate d-lg-inline-block d-none">{SCROLL_ROTATE_SVG}</div>
-                        <p className="fz-font-lg pt-lg-4 mb-0">
-                            Start the conversation by sharing your vision. <br />
-                            Our team will respond within 1–2 business days.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="row">
-                    <div className="col-xxl-4 col-lg-5">
                         <div className="row g-4">
                             {OFFICES.map((office, i) => (
                                 <div key={i} className="col-lg-12 col-md-6">
-                                    <div className={`d-flex gap-4 ${i === 1 ? "pt-lg-5" : ""}`}>
+                                    <div className="sec-4-about__office d-flex gap-4">
                                         <div className="icon">{office.icon}</div>
                                         <div>
                                             <h6 className="fw-600">{office.title}</h6>
@@ -193,92 +101,113 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                                 </div>
                             ))}
                         </div>
-                        <div className="row">
-                            <div className="col-xxl-6 col-lg-8 mx-auto">
-                                <ul className="at-social-list list-unstyled d-flex flex-wrap gap-md-4 gap-3 pt-50">
-                                    {SOCIAL_ITEMS.map((item, i) => (
-                                        <li key={i}>
-                                            <Link
-                                                href={item.href}
-                                                className="at-social__link d-flex align-items-center gap-2"
-                                                aria-label={item.ariaLabel}
-                                            >
-                                                {item.icon}
-                                                <span className="fw-500">{item.label}</span>
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="col-lg-3 col-md-4" />
-                        </div>
+                        <ul className="at-social-list list-unstyled d-flex flex-wrap gap-md-4 gap-3 pt-50 sec-4-about__social">
+                            {SOCIAL_ITEMS.map((item, i) => (
+                                <li key={i}>
+                                    <Link
+                                        href={item.href}
+                                        className="at-social__link d-flex align-items-center gap-2"
+                                        aria-label={item.ariaLabel}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {item.icon}
+                                        <span className="fw-500">{item.label}</span>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                    <div className="col-xxl-8 col-lg-7 ms-auto pt-lg-0 pt-30">
-                        <form className="sec-4-about-form" action="#" method="post">
-                            <div className="sec-4-about-form__field">
-                                <input
-                                    type="text"
-                                    className="sec-4-about-form__input"
-                                    name="name"
-                                    placeholder="Your name *"
-                                    required
-                                    aria-label="Your name"
-                                />
-                            </div>
-                            <div className="sec-4-about-form__field">
-                                <input
-                                    type="email"
-                                    className="sec-4-about-form__input"
-                                    name="email"
-                                    placeholder="Your email *"
-                                    required
-                                    aria-label="Your email"
-                                />
-                            </div>
-                            <div className="sec-4-about-form__field">
-                                <input
-                                    type="tel"
-                                    className="sec-4-about-form__input"
-                                    name="phone"
-                                    placeholder="Your phone *"
-                                    required
-                                    aria-label="Your phone"
-                                />
-                            </div>
-                            <div className="sec-4-about-form__field">
-                                <textarea
-                                    className="sec-4-about-form__input sec-4-about-form__textarea"
-                                    name="message"
-                                    placeholder="Your message *"
-                                    rows={5}
-                                    required
-                                    aria-label="Your message"
-                                />
-                            </div>
-                            <div className="sec-4-about-form__actions">
-                                <button type="submit" className="sec-4-about-form__btn at-btn">
-                                    <span>
-                                        <span className="text-1 text-capitalize">Send Message</span>
-                                        <span className="text-2 text-capitalize">Send Message</span>
-                                    </span>
-                                    <i>
-                                        {ARROW_SVG}
-                                        {ARROW_SVG}
-                                    </i>
-                                </button>
-                            </div>
-                            <p className="sec-4-about-form__disclaimer">
-                                By submitting, you agree to our{" "}
-                                <Link href="#" className="sec-4-about-form__link">
-                                    Terms
-                                </Link>{" "}
-                                and{" "}
-                                <Link href="#" className="sec-4-about-form__link">
-                                    Privacy Policy
-                                </Link>
-                                .
-                            </p>
-                        </form>
+                    <div className="col-xxl-8 col-lg-7 ms-auto">
+                        <div className="sec-4-about-form-wrap">
+                            <form className="sec-4-about-form sec-4-about-form--boxed" action="#" method="post">
+                                <div className="sec-4-about-form__header">
+                                    <h4 className="sec-4-about-form__title mb-0">Send us a message</h4>
+                                    <p className="sec-4-about-form__subtitle mb-0">
+                                        Tell us about your project and we&apos;ll reply within 1–2 business days.
+                                    </p>
+                                </div>
+
+                                <div className="sec-4-about-form__grid">
+                                    <div className="sec-4-about-form__field">
+                                        <label className="sec-4-about-form__label" htmlFor="about-name">
+                                            Full name
+                                        </label>
+                                        <input
+                                            id="about-name"
+                                            type="text"
+                                            className="sec-4-about-form__input"
+                                            name="name"
+                                            placeholder="John Doe"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="sec-4-about-form__field">
+                                        <label className="sec-4-about-form__label" htmlFor="about-email">
+                                            Email address
+                                        </label>
+                                        <input
+                                            id="about-email"
+                                            type="email"
+                                            className="sec-4-about-form__input"
+                                            name="email"
+                                            placeholder="you@company.com"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="sec-4-about-form__field sec-4-about-form__field--full">
+                                        <label className="sec-4-about-form__label" htmlFor="about-phone">
+                                            Phone number
+                                        </label>
+                                        <input
+                                            id="about-phone"
+                                            type="tel"
+                                            className="sec-4-about-form__input"
+                                            name="phone"
+                                            placeholder="+1 (555) 000-0000"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="sec-4-about-form__field sec-4-about-form__field--full">
+                                        <label className="sec-4-about-form__label" htmlFor="about-message">
+                                            Message
+                                        </label>
+                                        <textarea
+                                            id="about-message"
+                                            className="sec-4-about-form__input sec-4-about-form__textarea"
+                                            name="message"
+                                            placeholder="How can we help you?"
+                                            rows={5}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="sec-4-about-form__actions">
+                                    <button type="submit" className="sec-4-about-form__btn at-btn">
+                                        <span>
+                                            <span className="text-1 text-capitalize">Send Message</span>
+                                            <span className="text-2 text-capitalize">Send Message</span>
+                                        </span>
+                                        <i>
+                                            {ARROW_SVG}
+                                            {ARROW_SVG}
+                                        </i>
+                                    </button>
+                                </div>
+                                <p className="sec-4-about-form__disclaimer">
+                                    By submitting, you agree to our{" "}
+                                    <Link href="#" className="sec-4-about-form__link">
+                                        Terms
+                                    </Link>{" "}
+                                    and{" "}
+                                    <Link href="#" className="sec-4-about-form__link">
+                                        Privacy Policy
+                                    </Link>
+                                    .
+                                </p>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -13,26 +13,39 @@ export type TeamCard1Props = {
     name: string;
     position: string;
     classList?: string;
+    hideContent?: boolean;
 };
 
-export default function TeamCard1({ linkPost, img, name, position, classList = "" }: TeamCard1Props) {
+export default function TeamCard1({ linkPost, img, name, position, classList = "", hideContent = false }: TeamCard1Props) {
     return (
         <div className={[classList, "changeless"].filter(Boolean).join(" ")}>
             <div className="team-card">
-                <div className="team-card-image">
-                    <div className="anim-zoomin">
-                        <Image src={img} alt={name} className="img-cover" width={450} height={550} />
+                <div
+                    className="team-card-image"
+                    style={hideContent ? { aspectRatio: "1 / 1", width: "100%" } : undefined}
+                >
+                    <div className={`anim-zoomin${hideContent ? " position-relative h-100 w-100" : ""}`}>
+                        <Image
+                            src={img}
+                            alt={name}
+                            className="img-cover object-fit-cover"
+                            {...(hideContent
+                                ? { fill: true, sizes: "(max-width: 768px) 50vw, 25vw" }
+                                : { width: 450, height: 550 })}
+                        />
                     </div>
                 </div>
                 <Link href={linkPost} className="team-card-icon">
                     {ARROW_ICON_SVG}
                 </Link>
-                <div className="team-card-content">
-                    <Link href={linkPost} className="team-card-name">
-                        <h6 className="text-white fz-font-2xl">{name}</h6>
-                    </Link>
-                    <p className="team-card-position fz-font-sm m-0 common-white">{position}</p>
-                </div>
+                {!hideContent && (
+                    <div className="team-card-content">
+                        <Link href={linkPost} className="team-card-name">
+                            <h6 className="text-white fz-font-2xl">{name}</h6>
+                        </Link>
+                        <p className="team-card-position fz-font-sm m-0 common-white">{position}</p>
+                    </div>
+                )}
             </div>
         </div>
     );
