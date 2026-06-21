@@ -12,7 +12,7 @@ import Section8 from "@/components/sections/about-1/Section5";
 export default function About_1() {
     return (
         <>
-            <Layout headerStyle={2} footerStyle={2}>
+            <Layout headerStyle={16} footerStyle={16} headerProps={{ textStyle: "dark" }}>
                 <Section1 />
                 <Section2 />
                 <Section3 />

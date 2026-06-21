@@ -16,6 +16,7 @@ import Footer12 from "@/components/layout/footer/Footer12";
 import Footer13 from "@/components/layout/footer/Footer13";
 import Footer14 from "@/components/layout/footer/Footer14";
 import Footer15 from "@/components/layout/footer/Footer15";
+import FooterHome from "@/components/layout/footer/FooterHome";
 import Header1 from "@/components/layout/header/Header1";
 import Header2 from "@/components/layout/header/Header2";
 import Header3 from "@/components/layout/header/Header3";
@@ -29,10 +30,12 @@ import Header12 from "@/components/layout/header/Header12";
 import Header13 from "@/components/layout/header/Header13";
 import Header14 from "@/components/layout/header/Header14";
 import Header15 from "@/components/layout/header/Header15";
+import HeaderHome from "@/components/layout/header/HeaderHome";
 import ServerEffects from "@/components/layout/ServerEffects";
 
 interface HeaderProps {
     style?: string;
+    textStyle?: "light" | "dark";
 }
 
 const HEADER_COMPONENTS: Record<number, React.ComponentType<HeaderProps>> = {
@@ -51,6 +54,7 @@ const HEADER_COMPONENTS: Record<number, React.ComponentType<HeaderProps>> = {
     13: Header13,
     14: Header14,
     15: Header15,
+    16: HeaderHome,
 };
 
 const FOOTER_COMPONENTS = {
@@ -69,6 +73,7 @@ const FOOTER_COMPONENTS = {
     13: Footer13,
     14: Footer14,
     15: Footer15,
+    16: FooterHome,
 } as const;
 
 function Header({ style, headerProps }: { style?: number; headerProps?: HeaderProps }) {
