@@ -54,12 +54,9 @@ const OFFICES = [
     {
         icon: OFFICE_ICON_1,
         title: "Office",
-        address: "205 North Michigan Avenue, Suite 810",
-        city: "Chicago, 60601, USA",
-        phone: "+1234567890",
-        phoneHref: "tel:+1234567890",
-        email: "hello@orisa.com",
-        emailHref: "mailto:hello@orisa.com",
+        address: "123 Precision Way, Industrial District, London",
+        email: "support@pmprecision.com",
+        emailHref: "mailto:support@pmprecision.com",
     },
 ];
 
@@ -82,13 +79,6 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                                             <div className="d-flex flex-wrap gap-md-5 gap-4">
                                                 <span className="fz-font-md neutral-500">
                                                     {office.address}
-                                                    <br className="d-block" />
-                                                    {office.city}
-                                                    <br className="d-block" />
-                                                    Phone:{" "}
-                                                    <span className="neutral-900">
-                                                        <Link href={office.phoneHref}>{office.phone}</Link>
-                                                    </span>
                                                     <br className="d-block" />
                                                     Email:{" "}
                                                     <span className="neutral-900">
@@ -152,19 +142,6 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                                             className="sec-4-about-form__input"
                                             name="email"
                                             placeholder="you@company.com"
-                                            required
-                                        />
-                                    </div>
-                                    <div className="sec-4-about-form__field sec-4-about-form__field--full">
-                                        <label className="sec-4-about-form__label" htmlFor="about-phone">
-                                            Phone number
-                                        </label>
-                                        <input
-                                            id="about-phone"
-                                            type="tel"
-                                            className="sec-4-about-form__input"
-                                            name="phone"
-                                            placeholder="+1 (555) 000-0000"
                                             required
                                         />
                                     </div>

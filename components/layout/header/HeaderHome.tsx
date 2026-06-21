@@ -95,25 +95,31 @@ export default function HeaderHome({ style, textStyle = "light" }: HeaderHomePro
                         .header-home.at-header-spacing {
                             padding-top: 22px;
                         }
-                        .header-home:not(.header-home--dark) .at-main-menu nav ul li a,
-                        .header-home:not(.header-home--dark) .at-main-menu nav ul li a:hover,
-                        .header-home:not(.header-home--dark) .at-main-menu nav ul li:hover.has-dropdown > a,
-                        .header-home:not(.header-home--dark) .at-main-menu nav ul li.has-dropdown > a {
+                        .header-home:not(.header-home--dark) .at-main-menu nav > ul > li > a,
+                        .header-home:not(.header-home--dark) .at-main-menu nav > ul > li > a:hover,
+                        .header-home:not(.header-home--dark) .at-main-menu nav > ul > li:hover.has-dropdown > a,
+                        .header-home:not(.header-home--dark) .at-main-menu nav > ul > li.has-dropdown > a {
                             color: #fff;
                         }
-                        .header-home:not(.header-home--dark) .at-main-menu nav ul li.has-dropdown > a::after {
+                        .header-home:not(.header-home--dark) .at-main-menu nav > ul > li.has-dropdown > a::after {
                             filter: invert(1);
+                        }
+                        .header-home:not(.header-home--dark) .at-main-menu nav ul li .submenu li a {
+                            color: var(--at-neutral-700, #333);
+                        }
+                        .header-home:not(.header-home--dark) .at-main-menu nav ul li .submenu li:hover > a {
+                            color: var(--at-neutral-900, #000) !important;
                         }
                         .header-home:not(.header-home--dark) .at-header-logo a {
                             color: #fff;
                         }
-                        .header-home--dark .at-main-menu nav ul li a,
-                        .header-home--dark .at-main-menu nav ul li a:hover,
-                        .header-home--dark .at-main-menu nav ul li:hover.has-dropdown > a,
-                        .header-home--dark .at-main-menu nav ul li.has-dropdown > a {
+                        .header-home--dark .at-main-menu nav > ul > li > a,
+                        .header-home--dark .at-main-menu nav > ul > li > a:hover,
+                        .header-home--dark .at-main-menu nav > ul > li:hover.has-dropdown > a,
+                        .header-home--dark .at-main-menu nav > ul > li.has-dropdown > a {
                             color: var(--at-common-black, #000);
                         }
-                        .header-home--dark .at-main-menu nav ul li.has-dropdown > a::after {
+                        .header-home--dark .at-main-menu nav > ul > li.has-dropdown > a::after {
                             filter: none;
                         }
                         .header-home--dark .at-header-logo a,
