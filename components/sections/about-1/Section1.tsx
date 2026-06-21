@@ -50,14 +50,14 @@ export default function Section1() {
                     <div className="col-lg-7 h-100">
                         <h2 className="section-title fw-600 lh-1 reveal-text">
                             <RevealText>
-                                We are a creative digital agency shaping meaningful experiences
+                                We are a precision tools brand crafting durable & accurate measuring solutions.
                             </RevealText>
                         </h2>
                     </div>
                     <div className="col-lg-5 ms-auto">
                         <h6 className="mb-4 fw-600">
-                            We blend strategy, creativity, and technology to help brands grow, connect, and stand out
-                            in an ever-evolving digital world.
+                        Precision, durability, and innovation come together to deliver reliable measuring tools for every task.
+
                         </h6>
                         <div className="sec-2-home-5__avatars-row d-flex gap-2">
                             {AVATARS.map((avatar, i) => (

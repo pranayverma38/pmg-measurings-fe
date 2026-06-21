@@ -84,16 +84,14 @@ export default function SideBarHome() {
                 <div className="at-offcanvas">
                     <div className="at-offcanvas-top d-flex align-items-center justify-content-between">
                         <div className="at-offcanvas-logo">
-                            <Link href="/home">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    data-width="30"
-                                    src="/assets/imgs/template/logo/favicon.svg"
-                                    alt="Orisa"
-                                    width={30}
-                                    height={30}
+                            <Link href="/home" className="text-decoration-none">
+                                <Image
+                                    width={1109}
+                                    height={290}
+                                    src="/assets/imgs/logopmg/pmglogo.png"
+                                    alt="PMG"
+                                    className="sidebar-home__logo"
                                 />
-                                <h6 className="fw-700 fz-24 mb-0">Orisa</h6>
                             </Link>
                         </div>
                         <div className="at-offcanvas-close-btn">
@@ -143,17 +141,14 @@ export default function SideBarHome() {
                 <div className="at-offcanvas-2-wrapper offcanvas-menu sidebar-left">
                     <div className="at-offcanvas-2-left">
                         <div className="at-header-logo d-flex justify-content-between align-items-center mb-50">
-                            <Link href="/home">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    className="dark-mode-invert"
-                                    data-width="30"
-                                    src="/assets/imgs/template/logo/favicon.svg"
-                                    alt="Orisa"
-                                    width={30}
-                                    height={30}
+                            <Link href="/home" className="text-decoration-none">
+                                <Image
+                                    width={1109}
+                                    height={290}
+                                    src="/assets/imgs/logopmg/pmglogo.png"
+                                    alt="PMG"
+                                    className="sidebar-home__logo sidebar-home__logo--mobile"
                                 />
-                                <h6 className="fw-700 fz-24 mb-0">Orisa</h6>
                             </Link>
                             <span className="hamburger-close-btn close-sidebar" role="button" tabIndex={0} aria-label="Close">
                                 <CloseIconSvg />
@@ -172,6 +167,22 @@ export default function SideBarHome() {
                     </div>
                 </div>
             </div>
+            <style
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        .sidebar-home__logo {
+                            object-fit: contain;
+                            width: auto;
+                            height: 30px;
+                            max-width: 115px;
+                        }
+                        .sidebar-home__logo--mobile {
+                            height: 24px;
+                            max-width: 96px;
+                        }
+                    `,
+                }}
+            />
         </OffcanvasMenuMount>
     );
 }

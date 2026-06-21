@@ -38,7 +38,6 @@ export default function HeaderHome({ style, textStyle = "light" }: HeaderHomePro
                                             alt="PMG"
                                             priority
                                             className="header-home__logo"
-                                            style={{ width: "auto", height: "40px", maxWidth: "min(160px, 42vw)" }}
                                         />
                                     </Link>
                                 </div>
@@ -93,6 +92,9 @@ export default function HeaderHome({ style, textStyle = "light" }: HeaderHomePro
             <style
                 dangerouslySetInnerHTML={{
                     __html: `
+                        .header-home.at-header-spacing {
+                            padding-top: 22px;
+                        }
                         .header-home:not(.header-home--dark) .at-main-menu nav ul li a,
                         .header-home:not(.header-home--dark) .at-main-menu nav ul li a:hover,
                         .header-home:not(.header-home--dark) .at-main-menu nav ul li:hover.has-dropdown > a,
@@ -120,6 +122,15 @@ export default function HeaderHome({ style, textStyle = "light" }: HeaderHomePro
                         }
                         .header-home .header-home__logo {
                             object-fit: contain;
+                            width: auto;
+                            height: 28px;
+                            max-width: min(120px, 36vw);
+                        }
+                        @media (min-width: 768px) {
+                            .header-home .header-home__logo {
+                                height: 40px;
+                                max-width: min(160px, 42vw);
+                            }
                         }
                         .header-home:not(.header-home--dark) .hamburger-sticky-menu {
                             color: #fff;
