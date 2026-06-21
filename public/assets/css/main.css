@@ -11792,6 +11792,8 @@ input.footer-15__form-input:focus {
   color: var(--at-neutral-500);
 }
 
+/* Product details pin handled by GSAP ScrollTrigger (ProductDetailsPinEffect) */
+
 /*----------------------------------------*/
 /*  Shop cart – list & items 
 /*----------------------------------------*/

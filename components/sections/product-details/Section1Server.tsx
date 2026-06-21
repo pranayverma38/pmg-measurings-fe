@@ -1,5 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
+import defaultProduct from "@/data/products/default";
+import { getProductDetailsBySeries, type ProductSeries } from "@/data/products";
+import { getProductImages } from "@/lib/productImages";
 import Section1Interactive from "./Section1Interactive";
 
 const GALLERY_IMGS: { src: string; width: number; height: number }[] = [
@@ -11,40 +13,46 @@ const GALLERY_IMGS: { src: string; width: number; height: number }[] = [
     { src: "/assets/imgs/pages/product/product-details-6.webp", width: 407, height: 476 },
 ];
 
-export default function Section1Server() {
+type Section1ServerProps = {
+    series?: ProductSeries;
+};
+
+export default function Section1Server({ series }: Section1ServerProps) {
+    const details = series ? getProductDetailsBySeries(series) : defaultProduct;
+    const productImages = series ? getProductImages(series) : [];
+    const galleryImgs =
+        productImages.length > 0
+            ? productImages.map((src) => ({ src, width: 408, height: 476 }))
+            : GALLERY_IMGS;
+
     return (
-        <section className="sec-1-shop-details overflow-hidden pt-150">
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-6">
+        <section className="sec-1-shop-details pt-150 pb-120">
+            <div className="container product-details-container">
+                <div className="row align-items-start">
+                    <div className="col-lg-5 sec-1-shop-details__gallery">
                         <div className="row g-3">
-                            {GALLERY_IMGS.map((img, i) => (
-                                <div key={i} className="col-md-6">
-                                    <div className="product-card">
-                                        <div className="product-card__inner">
-                                            <div className="product-card__thumb">
-                                                <Link
-                                                    href="#"
-                                                    className="product-card__img-link d-flex justify-content-center align-items-end"
-                                                >
-                                                    <Image
-                                                        className="product-card__img"
-                                                        src={img.src}
-                                                        alt="orisa"
-                                                        width={img.width}
-                                                        height={img.height}
-                                                        style={{ width: "auto", height: "auto" }}
-                                                    />
-                                                </Link>
-                                            </div>
-                                        </div>
+                            {galleryImgs.map((img, i) => (
+                                <div key={img.src} className="col-6">
+                                    <div
+                                        className="position-relative overflow-hidden rounded-4 bg-neutral-50"
+                                        style={{ aspectRatio: `${img.width} / ${img.height}` }}
+                                    >
+                                        <Image
+                                            src={img.src}
+                                            alt={series ? `${details.title} ${i + 1}` : "Product"}
+                                            fill
+                                            sizes="(max-width: 992px) 50vw, 20vw"
+                                            className="object-fit-contain p-2"
+                                        />
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
-                    <div className="col-lg-6">
-                        <Section1Interactive />
+                    <div className="col-lg-7">
+                        <div className="sec-1-shop-details__sticky">
+                            <Section1Interactive details={details} />
+                        </div>
                     </div>
                 </div>
             </div>

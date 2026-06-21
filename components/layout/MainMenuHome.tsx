@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { MainMenuRootList } from "@/components/layout/MobileMenuCloneContext";
+import { PRODUCT_SERIES, productHref } from "@/data/products";
 
-const PRODUCT_LINKS = [
-    { href: "/product-archive", label: "All Products" },
-    { href: "/product-details", label: "Product Details" },
-];
+const PRODUCT_LINKS = PRODUCT_SERIES.map((series) => ({
+    href: productHref(series),
+    label: series,
+}));
 
 function LinkSwap({ label }: { label: string }) {
     return (
@@ -37,7 +38,7 @@ export default function MainMenuHome() {
             </li>
 
             <li className="has-dropdown">
-                <Link href="#">
+                <Link href="/products">
                     <LinkSwap label="Products" />
                 </Link>
                 <ul className="at-submenu submenu">

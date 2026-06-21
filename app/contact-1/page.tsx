@@ -6,7 +6,7 @@ export default function Contact1Page() {
     return (
         <Layout headerStyle={16} footerStyle={16} headerProps={{ textStyle: "dark" }}>
             <Section6 classList="bg-neutral-50" />
-            <Section2 />
+            {/* <Section2 /> */}
         </Layout>
     );
 }
