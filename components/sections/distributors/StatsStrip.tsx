@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import DistributorsContent from "@/components/sections/distributors/DistributorsContent";
 
 const VALUE_DELIVERED_ICON = (
-    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M5 19V7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         <path d="M5 7H9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         <path d="M5 11H19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -20,7 +20,7 @@ const VALUE_DELIVERED_ICON = (
 );
 
 const USERS_ICON = (
-    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <circle cx="9" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.5" />
         <path
             d="M3.5 19.5C3.5 16.1863 5.96243 14 9 14C12.0376 14 14.5 16.1863 14.5 19.5"
@@ -39,7 +39,7 @@ const USERS_ICON = (
 );
 
 const PRODUCTS_ICON = (
-    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path
             d="M12 3L20 7.5V16.5L12 21L4 16.5V7.5L12 3Z"
             stroke="currentColor"
@@ -51,46 +51,89 @@ const PRODUCTS_ICON = (
     </svg>
 );
 
-const STATS: { icon: ReactNode; label: ReactNode }[] = [
+const STATS: { icon: ReactNode; label: string }[] = [
     {
         icon: VALUE_DELIVERED_ICON,
-        label: (
-            <>
-                Value delivered through <br /> precision tools
-            </>
-        ),
+        label: "Value delivered through precision tools",
     },
     {
         icon: USERS_ICON,
-        label: (
-            <>
-                Trusted users and <br /> professionals served
-            </>
-        ),
+        label: "Trusted users and professionals served",
     },
     {
         icon: PRODUCTS_ICON,
-        label: (
-            <>
-                Products engineered for <br /> accuracy and reliability
-            </>
-        ),
+        label: "Products engineered for accuracy and reliability",
     },
 ];
 
 export default function StatsStrip() {
     return (
-        <section className="distributors-stats border-top border-bottom border-100">
-            <DistributorsContent className="py-60">
-                <div className="row g-4 justify-content-center">
+        <section className="distributors-stats">
+            <DistributorsContent>
+                <div className="distributors-stats__grid">
                     {STATS.map((stat, index) => (
-                        <div key={index} className="col-md-4 col-12 text-center">
-                            <div className="d-flex justify-content-center mb-3 neutral-800">{stat.icon}</div>
-                            <h6 className="fw-500 fz-font-md mb-0">{stat.label}</h6>
+                        <div key={index} className="distributors-stats__item">
+                            <div className="distributors-stats__icon">{stat.icon}</div>
+                            <p className="distributors-stats__label mb-0">{stat.label}</p>
                         </div>
                     ))}
                 </div>
             </DistributorsContent>
+            <style
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        .distributors-stats {
+                            background: #fff;
+                            border-top: 1px solid rgba(0, 0, 0, 0.08);
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+                        }
+                        .distributors-stats__grid {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            gap: 0;
+                            padding: 48px 0;
+                        }
+                        .distributors-stats__item {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            padding: 32px 24px;
+                        }
+                        .distributors-stats__item + .distributors-stats__item {
+                            border-top: 1px solid rgba(0, 0, 0, 0.08);
+                        }
+                        .distributors-stats__icon {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin-bottom: 20px;
+                            color: #111;
+                        }
+                        .distributors-stats__label {
+                            max-width: 15rem;
+                            font-size: 0.95rem;
+                            font-weight: 500;
+                            line-height: 1.6;
+                            color: rgba(0, 0, 0, 0.62);
+                        }
+                        @media (min-width: 768px) {
+                            .distributors-stats__grid {
+                                grid-template-columns: repeat(3, 1fr);
+                                padding: 56px 0;
+                            }
+                            .distributors-stats__item {
+                                padding: 16px 32px;
+                            }
+                            .distributors-stats__item + .distributors-stats__item {
+                                border-top: none;
+                                border-left: 1px solid rgba(0, 0, 0, 0.08);
+                            }
+                        }
+                    `,
+                }}
+            />
         </section>
     );
 }
