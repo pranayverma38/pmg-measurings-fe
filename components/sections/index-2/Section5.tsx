@@ -9,17 +9,18 @@ import type { Swiper as SwiperInstance } from "swiper";
 import { Autoplay, FreeMode, Thumbs } from "swiper/modules";
 
 const AVATARS = [
-    { src: "/assets/imgs/template/avatar/avatar-15.webp", alt: "orisa", thumbClass: "thumb-slide-1" },
-    { src: "/assets/imgs/template/avatar/avatar-16.webp", alt: "orisa", thumbClass: "thumb-slide-2" },
-    { src: "/assets/imgs/template/avatar/avatar-17.webp", alt: "orisa", thumbClass: "thumb-slide-3" },
-    { src: "/assets/imgs/template/avatar/avatar-18.webp", alt: "orisa", thumbClass: "thumb-slide-4" },
-    { src: "/assets/imgs/template/avatar/avatar-19.webp", alt: "orisa", thumbClass: "thumb-slide-5" },
+    { src: "/assets/imgs/pmgotherimages/ai-generated-IMAGE (1).jpg", alt: "PMG measuring project", thumbClass: "thumb-slide-1" },
+    { src: "/assets/imgs/pmgotherimages/ai-generated-IMAGE (2).jpg", alt: "PMG measuring project", thumbClass: "thumb-slide-2" },
+    { src: "/assets/imgs/pmgotherimages/ai-generated-IMAGE (10).jpg", alt: "PMG measuring project", thumbClass: "thumb-slide-3" },
+    { src: "/assets/imgs/pmgotherimages/ai-generated-IMAGE (16).jpg", alt: "PMG measuring project", thumbClass: "thumb-slide-4" },
+    { src: "/assets/imgs/pmgotherimages/ai-generated-IMAGE (15).jpg", alt: "PMG measuring project", thumbClass: "thumb-slide-5" },
 ];
 
 const QUOTE_TEXT = (
     <>
-        We design data-driven digital journeys that connect brands with the right
-        audiences and turn strategy into measurable growth.
+        Manufacturing excellence defines PMG, producing industry-grade industrial
+        measurement and hand tools globally trusted for uncompromising durability
+        and performance.
     </>
 );
 
