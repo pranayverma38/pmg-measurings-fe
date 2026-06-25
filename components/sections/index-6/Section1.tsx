@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 // Home 6 Section 1 - Hero
 
@@ -24,43 +24,110 @@ const ARROW_DIAGONAL_SVG = (
   </svg>
 );
 
-const GLOBE_SVG = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="27"
-    height="20"
-    viewBox="0 0 27 20"
-    fill="none"
-  >
-    <path
-      d="M13.3203 20C5.9637 20 0 15.5228 0 10C0 4.47715 5.9637 0 13.3203 0C20.6769 0 26.6406 4.47715 26.6406 10C26.6406 15.5228 20.6769 20 13.3203 20ZM10.27 17.6674C8.98779 15.6259 8.20174 13.3742 8.02857 11H2.7465C3.27413 14.1765 6.28238 16.7747 10.27 17.6674ZM10.6971 11C10.8975 13.4388 11.8255 15.7297 13.3203 17.752C14.8151 15.7297 15.7431 13.4388 15.9435 11H10.6971ZM23.8941 11H18.6121C18.4389 13.3742 17.6529 15.6259 16.3707 17.6674C20.3582 16.7747 23.3665 14.1765 23.8941 11ZM2.7465 9H8.02857C8.20174 6.62577 8.98779 4.37407 10.27 2.33256C6.28238 3.22533 3.27413 5.8235 2.7465 9ZM10.6971 9H15.9435C15.7431 6.56122 14.8151 4.27025 13.3203 2.24799C11.8255 4.27025 10.8975 6.56122 10.6971 9ZM16.3707 2.33256C17.6529 4.37407 18.4389 6.62577 18.6121 9H23.8941C23.3665 5.8235 20.3582 3.22533 16.3707 2.33256Z"
-      fill="#FEFEFE"
-    />
-  </svg>
-);
+const heroTitleStyle: React.CSSProperties = {
+  fontSize: "clamp(2.25rem, 9.5vw, 7.5rem)",
+  lineHeight: 0.95,
+};
 
+const heroTitleInchesStyle: React.CSSProperties = {
+  fontSize: "clamp(2rem, 8vw, 7.5rem)",
+  lineHeight: 0.95,
+  whiteSpace: "nowrap",
+};
+
+const heroTitleRightStyle: React.CSSProperties = {
+  fontSize: "clamp(2rem, 7.5vw, 6.5rem)",
+  lineHeight: 0.95,
+  whiteSpace: "nowrap",
+};
+
+const contentBoxStyle: React.CSSProperties = {
+  maxWidth: 1400,
+  width: "100%",
+  padding: "0 18px",
+  margin: "0 auto",
+};
 const menuItems = [
-  "Brand Strategy",
-  "Visual Identity",
-  "Logo Design",
-  "Packaging",
-  "Brand Guidelines",
+  "Measuring tapes",
+  "spirit levels",
+  "Fibre glass tapes",
 ];
 
 export default function Section1() {
+  const starRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const el = starRef.current;
+    if (!el) return;
+
+    let mounted = true;
+    let scrollTrigger: { kill?: () => void } | null = null;
+
+    const init = async () => {
+      const gsap = (await import("gsap")).default;
+      const ScrollTrigger = (await import("gsap/ScrollTrigger")).default;
+      gsap.registerPlugin(ScrollTrigger);
+
+      if (!mounted || !starRef.current) return;
+
+      const baseRotation = 22;
+      const sensitivity = 0.2;
+
+      const updateRotation = (scrollY: number) => {
+        starRef.current!.style.transform = `rotate(${
+          baseRotation + scrollY * sensitivity
+        }deg)`;
+      };
+
+      scrollTrigger = ScrollTrigger.create({
+        start: 0,
+        end: "max",
+        onUpdate: (self) => updateRotation(self.scroll()),
+      });
+
+      updateRotation(window.scrollY);
+    };
+
+    init();
+
+    return () => {
+      mounted = false;
+      scrollTrigger?.kill?.();
+    };
+  }, []);
+
   return (
-    <div className="at-hero-area-home-6 scene p-relative z-index-1 bg-position fix pt-120 pb-150 bg-neutral-950 changeless">
+    <div className="at-hero-area-home-6 scene p-relative z-index-1 bg-position fix min-vh-100 d-flex flex-column bg-neutral-950 changeless">
       <div
         className="at-hero-area-home-6-bg p-absolute top-0 start-0 w-100 h-100 opacity-50"
-        data-background="/assets/imgs/pages/home-6/image-1.webp"
+        data-background="/assets/imgs/pmgotherimages/ai-generated-IMAGE.jpg"
       />
-      <div className="container p-relative">
+      <div
+        className="p-relative flex-grow-1 d-flex flex-column justify-content-center"
+        style={contentBoxStyle}
+      >
         <div className="row align-items-end">
           <div className="col-12">
-            <h2 className="fz-240 neutral-0 text-uppercase fw-600 d-flex align-items-center flex-wrap">
-              Orisa
-              <span className="d-lg-none d-block"> Studio</span>
-              <sup className="fz-80 fw-400">&reg;</sup>
+            <div className="d-flex justify-content-between align-items-center at-hero-vision-title">
+              <h2
+                className="neutral-0 text-uppercase fw-600 text-nowrap mb-0"
+                style={heroTitleStyle}
+              >
+                New Vision
+              </h2>
+              <div className="sec-1-home-7__star d-none d-lg-flex at-hero-vision-star">
+                <img
+                  ref={starRef}
+                  src="/assets/imgs/pages/home-7/star-asterisk.svg"
+                  alt="decorative star"
+                />
+              </div>
+            </div>
+            <h2
+              className="neutral-0 text-uppercase fw-600 d-lg-none mb-0 at-hero-inches-title"
+              style={heroTitleInchesStyle}
+            >
+              New{"\u00A0"}Inches
             </h2>
           </div>
           <div className="col-xxl-3 col-xl-6 col-md-7 col-12">
@@ -73,25 +140,24 @@ export default function Section1() {
                     className="border-bottom-300 py-3 menu-list__item hasdot"
                     target="_blank"
                   >
-                    <span className="text neutral-0 fw-600 text-uppercase">
-                      {" "}
-                      {item}{" "}
+                    <span className="text neutral-0 fw-600">
+                      {item}
                     </span>
                   </a>
                 ))}
               </div>
               <div
-                className="at-hero-btn d-flex flex-wrap gap-2 pt-20 at_fade_anim"
+                className="at-hero-btn d-flex flex-nowrap align-items-center gap-2 pt-20 at_fade_anim"
                 data-delay="0.5"
                 data-fade-from="bottom"
               >
                 <Link
                   className="at-btn bg-white rounded-0 text-dark"
-                  href="/portfolio-1"
+                  href="/products"
                 >
                   <span>
-                    <span className="text-1">Explore All Work</span>
-                    <span className="text-2">Explore All Work</span>
+                    <span className="text-1">Explore all products</span>
+                    <span className="text-2">Explore all products</span>
                   </span>
                   <i>{ARROW_DIAGONAL_SVG}</i>
                 </Link>
@@ -108,19 +174,41 @@ export default function Section1() {
               </div>
             </div>
           </div>
-          <div className="col-md-5 ms-auto">
-            <div className="d-flex align-items-center gap-3 z-1 p-relative">
-              {GLOBE_SVG}
-              <h6 className="fw-600 neutral-0 m-0">
-                27.1127&deg; S, 109.3497&deg; W
-              </h6>
-            </div>
-            <h2 className="fz-240 neutral-0 text-uppercase fw-600 text-end d-none d-lg-block lh-1">
-              studio
+          <div className="col-lg-6 ms-auto">
+            <h2
+              className="neutral-0 text-uppercase fw-600 text-end d-none d-lg-block"
+              style={heroTitleRightStyle}
+            >
+              New{"\u00A0"}Inches
             </h2>
           </div>
         </div>
       </div>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            .at-hero-vision-star.sec-1-home-7__star {
+              position: static;
+              top: auto;
+              left: auto;
+              transform: none;
+              flex-shrink: 0;
+            }
+            .at-hero-vision-star.sec-1-home-7__star img {
+              width: 100%;
+              height: 100%;
+              will-change: transform;
+            }
+            @media (max-width: 767.98px) {
+              .at-hero-vision-title { margin-bottom: 0 !important; }
+              .at-hero-inches-title { margin-bottom: 56px !important; }
+            }
+            @media (min-width: 768px) {
+              .at-hero-vision-title { margin-bottom: 100px !important; }
+            }
+          `,
+        }}
+      />
     </div>
   );
 }
