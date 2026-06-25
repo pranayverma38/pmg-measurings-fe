@@ -47,6 +47,9 @@ const contentBoxStyle: React.CSSProperties = {
   padding: "0 18px",
   margin: "0 auto",
 };
+
+const HERO_DESCRIPTION =
+  "PMG delivers precision-engineered measuring tools and hardware designed for the most demanding industrial environments. Precision meets durability in every measurement.";
 const menuItems = [
   "Measuring tapes",
   "spirit levels",
@@ -129,6 +132,13 @@ export default function Section1() {
             >
               New{"\u00A0"}Inches
             </h2>
+            <p
+              className="at-hero-description neutral-0 fz-font-md fw-400 mb-0 at_fade_anim"
+              data-delay="0.3"
+              data-fade-from="bottom"
+            >
+              {HERO_DESCRIPTION}
+            </p>
           </div>
           <div className="col-xxl-3 col-xl-6 col-md-7 col-12">
             <div className="at-hero-content mb-30">
@@ -199,12 +209,30 @@ export default function Section1() {
               height: 100%;
               will-change: transform;
             }
+            .at-hero-description {
+              max-width: 32rem;
+              line-height: 1.65;
+              opacity: 0.9;
+            }
             @media (max-width: 767.98px) {
               .at-hero-vision-title { margin-bottom: 0 !important; }
-              .at-hero-inches-title { margin-bottom: 56px !important; }
+              .at-hero-inches-title { margin-bottom: 20px !important; }
+              .at-hero-description {
+                max-width: 100%;
+                margin-bottom: 40px;
+                line-height: 1.6;
+              }
             }
             @media (min-width: 768px) {
-              .at-hero-vision-title { margin-bottom: 100px !important; }
+              .at-hero-vision-title { margin-bottom: 48px !important; }
+              .at-hero-description { margin-bottom: 56px; }
+            }
+            @media (min-width: 992px) {
+              .at-hero-vision-title { margin-bottom: 56px !important; }
+              .at-hero-description { max-width: 28rem; }
+            }
+            @media (min-width: 1200px) {
+              .at-hero-vision-title { margin-bottom: 72px !important; }
             }
           `,
         }}
