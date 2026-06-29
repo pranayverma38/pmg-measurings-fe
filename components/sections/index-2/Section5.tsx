@@ -8,12 +8,17 @@ import Swiper from "swiper";
 import type { Swiper as SwiperInstance } from "swiper";
 import { Autoplay, FreeMode, Thumbs } from "swiper/modules";
 
+const PMG_PRODUCTS_BASE = "/assets/imgs/pmgproducts";
+
+const productSrc = (series: string, file: string) =>
+    `${PMG_PRODUCTS_BASE}/${encodeURIComponent(series)}/${file}`;
+
 const AVATARS = [
-    { src: "/assets/imgs/pmgotherimages/ai-generated-IMAGE (1).jpg", alt: "PMG measuring project", thumbClass: "thumb-slide-1" },
-    { src: "/assets/imgs/pmgotherimages/ai-generated-IMAGE (2).jpg", alt: "PMG measuring project", thumbClass: "thumb-slide-2" },
-    { src: "/assets/imgs/pmgotherimages/ai-generated-IMAGE (10).jpg", alt: "PMG measuring project", thumbClass: "thumb-slide-3" },
-    { src: "/assets/imgs/pmgotherimages/ai-generated-IMAGE (16).jpg", alt: "PMG measuring project", thumbClass: "thumb-slide-4" },
-    { src: "/assets/imgs/pmgotherimages/ai-generated-IMAGE (15).jpg", alt: "PMG measuring project", thumbClass: "thumb-slide-5" },
+    { src: productSrc("ECO SERIES", "IMG_8242.png"), alt: "PMG Eco Series measuring tape", thumbClass: "thumb-slide-1" },
+    { src: productSrc("GLASS SERIES", "IMG_8075.png"), alt: "PMG Glass Series measuring tape", thumbClass: "thumb-slide-2" },
+    { src: productSrc("GRIP SERIES", "IMG_8010.png"), alt: "PMG Grip Series measuring tape", thumbClass: "thumb-slide-3" },
+    { src: productSrc("LOCKLIINE SERIES", "IMG_8119.png"), alt: "PMG Lockline Series measuring tape", thumbClass: "thumb-slide-4" },
+    { src: productSrc("SIGNATURE SERIES", "IMG_8196.png"), alt: "PMG Signature Series measuring tape", thumbClass: "thumb-slide-5" },
 ];
 
 const QUOTE_TEXT = (
@@ -186,13 +191,16 @@ export default function Section5() {
                                         key={index}
                                         className={`swiper-slide d-flex justify-content-center ${avatar.thumbClass}`}
                                     >
-                                        <div className="avatar-thumbnail">
+                                        <div
+                                            className="avatar-thumbnail d-flex align-items-center justify-content-center"
+                                            style={{ background: "var(--at-neutral-100, #f5f5f5)" }}
+                                        >
                                             <Image
                                                 src={avatar.src}
                                                 alt={avatar.alt}
                                                 width={150}
                                                 height={150}
-                                                className="img-cover"
+                                                className="w-100 h-100 object-fit-contain p-2"
                                             />
                                         </div>
                                     </div>

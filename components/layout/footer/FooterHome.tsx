@@ -76,7 +76,7 @@ export default function FooterHome() {
                 <div className="footer-10__hero position-relative">
                     <div className="footer-10__cta-block position-relative z-1 d-flex flex-column flex-md-row justify-content-md-between align-items-start align-items-md-center gap-4">
                         <h2 className="footer-10__headline mb-0 mx-0 at_fade_anim reveal-text text-md-start" data-delay="0.05">
-                            Ready to step beyond the flat screen?
+                            Ready to bring precision tools to your business?
                         </h2>
                         <div className="sec-5-home-9__cta-wrap ms-md-auto">
                             <div

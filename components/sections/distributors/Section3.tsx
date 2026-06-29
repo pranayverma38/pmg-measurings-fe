@@ -45,7 +45,7 @@ export default function Section3({ classList = "" }: { classList?: string }) {
                     </i>
                 </span>
                 <h2 className="alt-section-title fz-ds-1 lh-1 fw-500 mb-20 reveal-text">
-                    <RevealText>Begin your partnership</RevealText>
+                    <RevealText>Start today</RevealText>
                 </h2>
                 <p className="fz-font-md neutral-600 mb-50">
                     Expand your hardware network with PMG. Submit your business details below to begin our

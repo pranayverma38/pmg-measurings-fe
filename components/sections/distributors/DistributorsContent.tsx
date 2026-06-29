@@ -1,12 +1,7 @@
 import type { ReactNode } from "react";
+import PageContent, { PAGE_CONTENT_STYLE } from "@/components/shared/PageContent";
 
-export const DISTRIBUTORS_CONTENT_STYLE: React.CSSProperties = {
-    maxWidth: 1100,
-    width: "100%",
-    padding: "0 18px",
-    margin: "0 auto",
-    boxSizing: "border-box",
-};
+export const DISTRIBUTORS_CONTENT_STYLE = PAGE_CONTENT_STYLE;
 
 export default function DistributorsContent({
     children,
@@ -16,8 +11,8 @@ export default function DistributorsContent({
     className?: string;
 }) {
     return (
-        <div className={`distributors-content ${className}`.trim()} style={DISTRIBUTORS_CONTENT_STYLE}>
+        <PageContent className={`distributors-content ${className}`.trim()}>
             {children}
-        </div>
+        </PageContent>
     );
 }

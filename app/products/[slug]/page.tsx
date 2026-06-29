@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Layout from "@/components/layout/Layout";
-import Section1 from "@/components/sections/product-details/Section1";
+import ProductDetailsSection from "@/components/sections/product-details/ProductDetails";
 import { PRODUCT_SERIES, getProductBySlug, productSlug } from "@/data/products";
 
 type ProductSeriesPageProps = {
@@ -23,7 +23,7 @@ export default async function ProductSeriesPage({ params }: ProductSeriesPagePro
 
     return (
         <Layout headerStyle={16} footerStyle={16} headerProps={{ textStyle: "dark" }}>
-            <Section1 series={series} />
+            <ProductDetailsSection series={series} />
         </Layout>
     );
 }

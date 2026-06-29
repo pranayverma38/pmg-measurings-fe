@@ -5,18 +5,18 @@ import { useEffect, useRef } from "react";
 type GsapContext = { revert: () => void };
 
 /**
- * Pin product info panel while gallery images scroll (desktop only).
+ * Pin product info panel while gallery scrolls (desktop only).
  * CSS sticky does not work with ScrollSmoother's transform on #smooth-content.
  */
 export default function ProductDetailsPinEffect() {
     const ctxRef = useRef<GsapContext | null>(null);
 
     useEffect(() => {
-        const section = document.querySelector<HTMLElement>(".sec-1-shop-details");
-        if (!section) return;
+        const hero = document.querySelector<HTMLElement>(".pd-page__hero");
+        if (!hero) return;
 
-        const galleryCol = section.querySelector<HTMLElement>(".sec-1-shop-details__gallery");
-        const infoPanel = section.querySelector<HTMLElement>(".sec-1-shop-details__sticky");
+        const galleryCol = hero.querySelector<HTMLElement>(".pd-page__gallery");
+        const infoPanel = hero.querySelector<HTMLElement>(".pd-page__info-panel");
         if (!galleryCol || !infoPanel) return;
 
         const reduceMotion =

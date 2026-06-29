@@ -1,5 +1,6 @@
 import Link from "next/link";
 import RevealText from "@/components/effects/RevealText";
+import PageContent from "@/components/shared/PageContent";
 
 // About 1 Section 4 - Contact Us / Get in touch
 
@@ -62,13 +63,27 @@ const OFFICES = [
 
 export default function Section4({ classList = "" }: { classList?: string }) {
     return (
-        <section className={`sec-4-about pt-120 pb-120 ${classList}`.trim()}>
-            <div className="sec-4-about__inner">
-                <div className="row g-4 align-items-start">
-                    <div className="col-xxl-4 col-lg-5 sec-4-about__info">
-                        <h1 className="alt-section-title fz-ds-1 lh-1 fw-500 mb-40 reveal-text">
+        <section className={`sec-4-about pt-80 pb-100 ${classList}`.trim()}>
+            <PageContent>
+                <span className="at-btn common-black bg-transparent mb-10 rounded-0 p-0">
+                    <span className="text-uppercase">
+                        <span className="text-1">Contact us</span>
+                        <span className="text-2">Contact us</span>
+                    </span>
+                    <i>
+                        {ARROW_SVG}
+                        {ARROW_SVG}
+                    </i>
+                </span>
+                <div className="row g-5 align-items-start">
+                    <div className="col-lg-5 sec-4-about__info">
+                        <h2 className="alt-section-title fz-ds-1 lh-1 fw-500 mb-20 reveal-text">
                             <RevealText>Get in touch</RevealText>
-                        </h1>
+                        </h2>
+                        <p className="fz-font-md neutral-600 mb-40">
+                            Have a question about our products or want to discuss a partnership? Reach out
+                            and our team will respond within 1–2 business days.
+                        </p>
                         <div className="row g-4">
                             {OFFICES.map((office, i) => (
                                 <div key={i} className="col-lg-12 col-md-6">
@@ -108,7 +123,7 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                             ))}
                         </ul>
                     </div>
-                    <div className="col-xxl-8 col-lg-7 ms-auto">
+                    <div className="col-lg-7">
                         <div className="sec-4-about-form-wrap">
                             <form className="sec-4-about-form sec-4-about-form--boxed" action="#" method="post">
                                 <div className="sec-4-about-form__header">
@@ -187,7 +202,7 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </PageContent>
         </section>
     );
 }

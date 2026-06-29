@@ -1,11 +1,11 @@
 import Layout from "@/components/layout/Layout";
-import Section1 from "@/components/sections/product-details/Section1";
+import ProductDetailsSection from "@/components/sections/product-details/ProductDetails";
 
 export default function ShopDetailsPage() {
     return (
         <>
             <Layout headerStyle={16} footerStyle={16} headerProps={{ textStyle: "dark" }}>
-                <Section1 />
+                <ProductDetailsSection />
             </Layout>
         </>
     );
