@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "build": "next build && node scripts/prune-static-export.mjs",
         "start": "next start",
         "lint": "eslint .",
         "refactor-imports": "node scripts/refactor-react-imports.js",

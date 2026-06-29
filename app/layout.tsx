@@ -12,6 +12,7 @@ import "@/public/assets/css/sticky-cards.css";
 
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
+import RouteAllowlistGuard from "@/components/RouteAllowlistGuard";
 import WebsiteActiveGuard from "@/components/WebsiteActiveGuard";
 
 const dmSans = DM_Sans({
@@ -74,7 +75,9 @@ export default function RootLayout({
             <body className={`${dmSans.variable}`}>
                 <div className="px-blur-bottom"></div>
                 <WebsiteActiveGuard isWebsiteActive={isWebsiteActive}>
-                    {children}
+                    <RouteAllowlistGuard isWebsiteActive={isWebsiteActive}>
+                        {children}
+                    </RouteAllowlistGuard>
                 </WebsiteActiveGuard>
             </body>
         </html>

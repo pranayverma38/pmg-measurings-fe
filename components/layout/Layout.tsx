@@ -36,6 +36,7 @@ import ServerEffects from "@/components/layout/ServerEffects";
 interface HeaderProps {
     style?: string;
     textStyle?: "light" | "dark";
+    logoVariant?: "home" | "white";
 }
 
 const HEADER_COMPONENTS: Record<number, React.ComponentType<HeaderProps>> = {

@@ -1,18 +1,20 @@
-import HomeLayout from "@/components/layout/HomeLayout";
-import HomeProductRange from "@/components/sections/home/HomeProductRange";
-import HomeSection8 from "@/components/sections/home/HomeSection8";
-import HomeTestimonials from "@/components/sections/home/HomeTestimonials";
-import Section1 from "@/components/sections/index-6/Section1";
-import Section5 from "@/components/sections/index-2/Section5";
+"use client";
 
-export default function HomePage() {
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function HomeRedirect() {
+    const router = useRouter();
+
+    useEffect(() => {
+        router.replace("/");
+    }, [router]);
+
     return (
-        <HomeLayout>
-            <Section1 />
-            <Section5 />
-            <HomeTestimonials />
-            <HomeProductRange />
-            <HomeSection8 />
-        </HomeLayout>
+        <main style={{ padding: "2rem", textAlign: "center" }}>
+            <p>
+                Redirecting to <a href="/">home</a>…
+            </p>
+        </main>
     );
 }

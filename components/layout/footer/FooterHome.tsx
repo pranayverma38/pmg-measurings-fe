@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-// Footer for /home — cloned from Footer10 (index-10 footer)
+// Footer for home page — cloned from Footer10 (index-10 footer)
 
 const NAV_LINKS_1 = [
-    { label: "Home", href: "/home" },
+    { label: "Home", href: "/" },
     { label: "About Us", href: "/about-1" },
     { label: "Distributors", href: "/distributors" },
 ];
@@ -85,13 +85,13 @@ export default function FooterHome() {
                                 data-fade-from="bottom"
                                 data-ease="bounce"
                             >
-                                <Link className="at-btn-circle" href="/portfolio-1">
+                                <Link className="at-btn-circle" href="/contact-1">
                                     {CTA_ARROW_SVG}
                                 </Link>
-                                <Link className="at-btn z-index-1" href="/portfolio-1">
+                                <Link className="at-btn z-index-1" href="/contact-1">
                                     DROP ENQUIRY
                                 </Link>
-                                <Link className="at-btn-circle" href="/portfolio-1">
+                                <Link className="at-btn-circle" href="/contact-1">
                                     {CTA_ARROW_SVG}
                                 </Link>
                             </div>
