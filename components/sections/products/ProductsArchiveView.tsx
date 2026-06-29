@@ -25,7 +25,7 @@ const HIGHLIGHTS = [
 ];
 
 const STATS = [
-    { value: "17+", label: "Product series in our full catalogue" },
+    { value: "20+", label: "Product series in our full catalogue" },
     { value: "100%", label: "Field-tested for accuracy and reliability" },
     { value: "Global", label: "Trusted by distributors worldwide" },
 ];

@@ -3,27 +3,31 @@ import type { ProductDetails } from "./types";
 const product: ProductDetails = {
     slug: "steel-tape",
     series: "STEEL TAPE",
-    title: "PMG Steel Measuring Tape",
+    title: "PMG STEEL TAPE",
+    tagline: "Made of steel. Made to last.",
     excerpt:
-        "Heavy-duty steel blade measuring tape for maximum rigidity and precision on structural and industrial jobs.",
+        "Crafted with a durable steel body, STEEL TAPE delivers reliable accuracy, smooth blade action, and long-lasting performance in a compact design.",
     description: [
-        "STEEL TAPE models use a hardened steel blade that offers superior rigidity compared to fibreglass alternatives.",
-        "This makes them ideal for measuring long spans, steel fabrication, and industrial applications where blade stability matters.",
-        "Built with a robust case and reliable lock system to handle tough environments day after day.",
+        "Crafted with a durable steel body, the STEEL TAPE delivers reliable accuracy, smooth blade action, and long-lasting performance in a compact design.",
+        "The compact pocket design makes it easy to carry for quick measurements, while the secure metal hook holds position reliably.",
+        "A smooth retraction mechanism and high-accuracy blade ensure dependable results in a tool built to endure daily use.",
+    ],
+    highlights: [
+        "Durable steel body",
+        "Compact pocket design",
+        "Smooth retraction mechanism",
+        "High accuracy blade",
+        "Secure metal hook",
     ],
     additionalInfo: [
-        { label: "Blade Material", value: "Hardened steel" },
-        { label: "Available Lengths", value: "3m, 5m, 8m, 10m" },
-        { label: "Blade Coating", value: "Anti-rust lacquer" },
-        { label: "Lock Type", value: "Heavy-duty lock" },
+        { label: "Available Size", value: "2m (13mm)" },
+        { label: "Body", value: "Durable steel" },
+        { label: "Design", value: "Compact pocket format" },
+        { label: "Hook", value: "Secure metal hook" },
         { label: "Series", value: "STEEL TAPE" },
     ],
-    sizes: ["3m", "5m", "8m", "10m"],
-    colors: [
-        { hex: "#607D8B", title: "Steel Grey" },
-        { hex: "#F5C518", title: "Yellow" },
-        { hex: "#1A1A1A", title: "Black" },
-    ],
+    sizes: ["2m (13mm)"],
+    colors: [{ hex: "#78909C", title: "Steel" }],
 };
 
 export default product;

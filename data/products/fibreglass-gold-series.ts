@@ -3,27 +3,31 @@ import type { ProductDetails } from "./types";
 const product: ProductDetails = {
     slug: "fibreglass-gold-series",
     series: "FIBREGLASS GOLD SERIES",
-    title: "FIBREGLASS GOLD SERIES Measuring Tape",
+    title: "PMG FIBREGLASS GOLD SERIES",
+    tagline: "Measure far. Measure right.",
     excerpt:
-        "Premium fibreglass blade with gold-accent styling, built for accuracy and long-lasting performance in demanding environments.",
+        "Built with high-quality fibreglass for accurate long-distance measuring, designed for professionals who demand durability and reliability.",
     description: [
-        "The FIBREGLASS GOLD SERIES features a high-grade fibreglass blade designed to resist moisture, abrasion, and everyday job-site wear.",
-        "Bold gold-accent detailing makes this series easy to identify on site, while the secure locking system holds measurements firmly in place.",
-        "A trusted choice for professionals who want premium build quality with consistent, readable markings.",
+        "Built with high quality fibreglass for accurate long distance measuring. The FIBREGLASS GOLD SERIES is designed for professionals who demand durability and reliability in every measure.",
+        "A smooth rewind system and lightweight, compact design make extended measuring sessions more manageable on large sites.",
+        "Heavy-duty ABS housing and a durable metal hook ensure this long-reach tape stands up to demanding outdoor and industrial environments.",
+    ],
+    highlights: [
+        "Heavy-duty ABS housing",
+        "Smooth rewind system",
+        "Lightweight & compact design",
+        "High accuracy blade",
+        "Durable metal hook",
     ],
     additionalInfo: [
-        { label: "Blade Material", value: "Premium fibreglass" },
-        { label: "Available Lengths", value: "3m, 5m, 8m, 10m" },
-        { label: "Lock Type", value: "Auto-lock with release button" },
-        { label: "Marking", value: "High-contrast metric/imperial scale" },
+        { label: "Available Sizes", value: "15m, 30m" },
+        { label: "Blade", value: "High-quality fibreglass" },
+        { label: "Rewind", value: "Smooth rewind system" },
+        { label: "Hook", value: "Durable metal" },
         { label: "Series", value: "FIBREGLASS GOLD SERIES" },
     ],
-    sizes: ["3m", "5m", "8m", "10m"],
-    colors: [
-        { hex: "#D4AF37", title: "Gold" },
-        { hex: "#F5C518", title: "Yellow" },
-        { hex: "#1A1A1A", title: "Black" },
-    ],
+    sizes: ["15m", "30m"],
+    colors: [{ hex: "#E3F2FD", title: "Blue & White" }],
 };
 
 export default product;

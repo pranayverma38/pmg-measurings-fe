@@ -18,6 +18,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
             "MASTER SERIES",
             "PRIME SERIES",
             "SIGNATURE SERIES",
+            "SIGNO SERIES",
             "LOCK SERIES",
             "LOCKLIINE SERIES",
             "SIDE LOCK SERIES",
@@ -28,7 +29,14 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
         label: "Everyday & Value",
         shortLabel: "Everyday",
         description: "Reliable, accessible measuring solutions for home, DIY, and general trade.",
-        series: ["ECO SERIES", "NEW ECO SERIES", "POP SERIES", "POP SHINE SERIES", "LOGO SERIES"],
+        series: [
+            "ECO SERIES",
+            "NEW ECO SERIES",
+            "POP SERIES",
+            "POP SHINE SERIES",
+            "LOGO SERIES",
+            "TREND SERIES",
+        ],
     },
     {
         id: "specialty",
@@ -37,6 +45,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
         description: "Material-specific blades designed for unique applications and environments.",
         series: [
             "FIBREGLASS GOLD SERIES",
+            "FIBREGLASS PRIME SERIES",
             "GLASS SERIES",
             "GRIP SERIES",
             "LINEX SERIES",

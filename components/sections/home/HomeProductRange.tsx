@@ -36,7 +36,7 @@ const PRODUCT_SERIES: { series: ProductSeries; img: string }[] = [
 ];
 
 const HIGHLIGHTS = [
-    { value: "17+", label: "Product series" },
+    { value: "20+", label: "Product series" },
     { value: "4", label: "Core categories" },
     { value: "25+", label: "Years of expertise" },
 ];

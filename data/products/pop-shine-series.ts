@@ -3,26 +3,35 @@ import type { ProductDetails } from "./types";
 const product: ProductDetails = {
     slug: "pop-shine-series",
     series: "POP SHINE SERIES",
-    title: "POP SHINE SERIES Measuring Tape",
+    title: "PMG POP SHINE SERIES",
+    tagline: "Transparency meets accuracy.",
     excerpt:
-        "Gloss-finish case with vivid colours and a polished look — precision measuring with standout style.",
+        "Featuring a transparent ABS case and automatic locking system, POP SHINE SERIES delivers precision and reliable performance in a modern design.",
     description: [
-        "POP SHINE SERIES adds a glossy finish to PMG's popular POP design language, creating a premium retail-ready appearance.",
-        "Behind the shine is the same dependable blade and locking system trusted by PMG users worldwide.",
-        "Ideal for gift sets, promotional packs, and professionals who want tools that look as good as they perform.",
+        "Featuring a Transparent ABS Case and Automatic Locking System, POP SHINE SERIES delivers precision, convenience, and reliable performance in a modern, eye-catching design.",
+        "The transparent housing lets you see the mechanism at work, while the smooth retraction mechanism and quick lock release button keep operation effortless.",
+        "Triple-rivet reinforced hook and durable metal clip ensure lasting strength for everyday professional use.",
+    ],
+    highlights: [
+        "Transparent ABS case",
+        "Automatic locking system",
+        "Smooth retraction mechanism",
+        "Quick lock release button",
+        "Durable metal clip & belt",
+        "Triple-rivet reinforced hook",
     ],
     additionalInfo: [
-        { label: "Blade Material", value: "Fibreglass" },
-        { label: "Available Lengths", value: "3m, 5m" },
-        { label: "Finish", value: "High-gloss case coating" },
-        { label: "Lock Type", value: "Push-button lock" },
+        { label: "Available Sizes", value: "3m (16mm), 5m (19mm)" },
+        { label: "Case", value: "Transparent ABS" },
+        { label: "Lock Type", value: "Automatic locking system" },
+        { label: "Release", value: "Quick lock release button" },
         { label: "Series", value: "POP SHINE SERIES" },
     ],
-    sizes: ["3m", "5m"],
+    sizes: ["3m (16mm)", "5m (19mm)"],
     colors: [
-        { hex: "#FF4081", title: "Hot Pink" },
-        { hex: "#7C4DFF", title: "Violet" },
-        { hex: "#FFD740", title: "Amber" },
+        { hex: "#D32F2F", title: "Red" },
+        { hex: "#1E4A8C", title: "Blue" },
+        { hex: "#FFFFFF", title: "White" },
     ],
 };
 

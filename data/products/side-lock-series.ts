@@ -3,27 +3,32 @@ import type { ProductDetails } from "./types";
 const product: ProductDetails = {
     slug: "side-lock-series",
     series: "SIDE LOCK SERIES",
-    title: "SIDE LOCK SERIES Measuring Tape",
+    title: "PMG SIDE LOCK SERIES",
+    tagline: "Effortless control. Reliable precision.",
     excerpt:
-        "Side-mounted lock button for quick one-handed operation — measure, lock, and mark without repositioning your grip.",
+        "Featuring a convenient side-lock design, SIDE LOCK SERIES combine effortless control, smooth operation, and dependable measuring accuracy.",
     description: [
-        "SIDE LOCK SERIES features a conveniently placed side lock button that allows faster one-handed blade control.",
-        "This design is especially useful when holding materials with your other hand or working in tight spaces.",
-        "Combined with PMG's durable blade and clear markings, it is a practical upgrade for efficiency-focused professionals.",
+        "Featuring a convenient side-lock design, the SIDE LOCK SERIES combine effortless control, smooth operation, and dependable measuring accuracy in a compact design.",
+        "A high-accuracy blade and strong ABS case deliver consistent readings, while the smooth retraction mechanism keeps every pull and return fluid.",
+        "Durable metal clip and belt attachment make this compact, lightweight series easy to carry and ready for everyday site work.",
+    ],
+    highlights: [
+        "Side locking system",
+        "Smooth retraction mechanism",
+        "High accuracy blade",
+        "Strong ABS case",
+        "Durable metal clip & belt",
+        "Compact & lightweight design",
     ],
     additionalInfo: [
-        { label: "Blade Material", value: "Fibreglass" },
-        { label: "Available Lengths", value: "3m, 5m, 8m" },
-        { label: "Lock Type", value: "Side-mounted push lock" },
-        { label: "Case", value: "Ergonomic ABS" },
+        { label: "Available Sizes", value: "3m (16mm), 5m (19mm)" },
+        { label: "Lock Type", value: "Side locking system" },
+        { label: "Case", value: "Strong ABS" },
+        { label: "Blade", value: "High accuracy" },
         { label: "Series", value: "SIDE LOCK SERIES" },
     ],
-    sizes: ["3m", "5m", "8m"],
-    colors: [
-        { hex: "#F5C518", title: "Yellow" },
-        { hex: "#1565C0", title: "Blue" },
-        { hex: "#1A1A1A", title: "Black" },
-    ],
+    sizes: ["3m (16mm)", "5m (19mm)"],
+    colors: [{ hex: "#E3F2FD", title: "Blue & White" }],
 };
 
 export default product;

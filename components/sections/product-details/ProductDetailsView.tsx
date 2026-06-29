@@ -15,46 +15,16 @@ const ARROW_SVG = (
     </svg>
 );
 
-const HIGHLIGHTS = [
-    {
-        title: "Precision graduations",
-        text: "Clear, durable markings for accurate readings on every pull.",
-        icon: (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 12h16M12 4v16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
-            </svg>
-        ),
-    },
-    {
-        title: "Built for the job site",
-        text: "Impact-resistant casings designed to withstand daily trade use.",
-        icon: (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                    d="M12 3l7 4v10l-7 4-7-4V7l7-4z"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinejoin="round"
-                />
-            </svg>
-        ),
-    },
-    {
-        title: "Trusted worldwide",
-        text: "Part of PMG's full catalogue of professional measuring tools.",
-        icon: (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
-                <path
-                    d="M3 12h18M12 3c2.5 3 4 6.5 4 9s-1.5 6-4 9M12 3c-2.5 3-4 6.5-4 9s1.5 6 4 9"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                />
-            </svg>
-        ),
-    },
-];
+const HIGHLIGHT_ICON = (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+            d="M9 12l2 2 4-4M12 3l7 4v10l-7 4-7-4V7l7-4z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
 
 export type RelatedProduct = {
     series: string;
@@ -73,7 +43,7 @@ export default function ProductDetailsView({
     images,
     relatedProducts,
 }: ProductDetailsViewProps) {
-    const { title, series, excerpt, description, additionalInfo, sizes, colors } = details;
+    const { title, series, tagline, excerpt, description, highlights, additionalInfo, sizes, colors } = details;
     const [activeImage, setActiveImage] = useState(0);
     const [isSwitching, setIsSwitching] = useState(false);
     const [selectedSize, setSelectedSize] = useState(sizes[0] ?? "");
@@ -144,6 +114,7 @@ export default function ProductDetailsView({
                         </div>
 
                         <div className="pd-page__info pd-page__info-panel">
+                            {tagline && <p className="pd-page__tagline">{tagline}</p>}
                             <h1 className="pd-page__title">{title}</h1>
                             <p className="pd-page__excerpt">{excerpt}</p>
 
@@ -233,21 +204,22 @@ export default function ProductDetailsView({
                 </PageContent>
             </section>
 
+            {highlights.length > 0 && (
             <section className="pd-page__highlights" aria-label="Product highlights">
                 <PageContent>
                     <div className="pd-page__highlights-grid">
-                        {HIGHLIGHTS.map((item) => (
-                            <div key={item.title} className="pd-page__highlight">
-                                <div className="pd-page__highlight-icon">{item.icon}</div>
+                        {highlights.map((item) => (
+                            <div key={item} className="pd-page__highlight">
+                                <div className="pd-page__highlight-icon">{HIGHLIGHT_ICON}</div>
                                 <div>
-                                    <h3 className="pd-page__highlight-title">{item.title}</h3>
-                                    <p className="pd-page__highlight-text">{item.text}</p>
+                                    <h3 className="pd-page__highlight-title">{item}</h3>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </PageContent>
             </section>
+            )}
 
             {relatedProducts.length > 0 && (
                 <section className="pd-page__related" aria-labelledby="related-products-heading">

@@ -3,26 +3,35 @@ import type { ProductDetails } from "./types";
 const product: ProductDetails = {
     slug: "pop-series",
     series: "POP SERIES",
-    title: "POP SERIES Measuring Tape",
+    title: "PMG POP SERIES",
+    tagline: "Locks accuracy in place.",
     excerpt:
-        "Vibrant, eye-catching design with reliable PMG accuracy — built to stand out on any toolbox shelf.",
+        "Designed for professionals who demand precision and convenience, POP SERIES combine an automatic locking system with effortless blade retraction.",
     description: [
-        "POP SERIES brings bold colour and modern styling to PMG's measuring tape lineup without sacrificing function.",
-        "The bright case makes the tool easy to find on cluttered job sites, while the blade delivers clear, dependable readings.",
-        "Popular with retail customers and professionals who want a tape that's as visible as it is accurate.",
+        "Designed for professionals who demand precision and convenience. POP SERIES combine an Automatic Locking System with effortless blade retraction for smooth operation and reliable performance every time.",
+        "Heavy-duty ABS housing and a triple-rivet reinforced hook provide durability on demanding job sites.",
+        "The quick lock release button gives you fast, confident control when measuring and marking.",
+    ],
+    highlights: [
+        "Heavy-duty ABS housing",
+        "Automatic locking system",
+        "Smooth retraction mechanism",
+        "Quick lock release button",
+        "Durable metal clip & belt",
+        "Triple-rivet reinforced hook",
     ],
     additionalInfo: [
-        { label: "Blade Material", value: "Fibreglass" },
-        { label: "Available Lengths", value: "3m, 5m" },
-        { label: "Design", value: "Bold pop-colour casing" },
-        { label: "Lock Type", value: "Slide lock" },
+        { label: "Available Sizes", value: "3m (16mm), 5m (19mm)" },
+        { label: "Lock Type", value: "Automatic locking system" },
+        { label: "Release", value: "Quick lock release button" },
+        { label: "Case", value: "Heavy-duty ABS housing" },
         { label: "Series", value: "POP SERIES" },
     ],
-    sizes: ["3m", "5m"],
+    sizes: ["3m (16mm)", "5m (19mm)"],
     colors: [
-        { hex: "#E91E63", title: "Pink" },
-        { hex: "#9C27B0", title: "Purple" },
-        { hex: "#00BCD4", title: "Cyan" },
+        { hex: "#F57C00", title: "Orange" },
+        { hex: "#D32F2F", title: "Red" },
+        { hex: "#FFFFFF", title: "White" },
     ],
 };
 

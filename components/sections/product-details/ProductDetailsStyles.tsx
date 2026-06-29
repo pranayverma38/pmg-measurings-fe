@@ -105,6 +105,14 @@ export default function ProductDetailsStyles() {
                         border: 1px solid rgba(0, 0, 0, 0.1);
                         border-radius: 999px;
                     }
+                    .pd-page__tagline {
+                        margin: 0 0 10px;
+                        font-size: 0.78rem;
+                        font-weight: 600;
+                        letter-spacing: 0.12em;
+                        text-transform: uppercase;
+                        color: var(--at-theme-primary, #f0460e);
+                    }
                     .pd-page__title {
                         margin: 0;
                         font-size: clamp(1.75rem, 4vw, 2.75rem);

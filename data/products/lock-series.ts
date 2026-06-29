@@ -3,26 +3,34 @@ import type { ProductDetails } from "./types";
 const product: ProductDetails = {
     slug: "lock-series",
     series: "LOCK SERIES",
-    title: "LOCK SERIES Measuring Tape",
+    title: "PMG LOCK SERIES",
+    tagline: "Precision that stays locked.",
     excerpt:
-        "Strong blade lock system that holds firm under pressure — ideal for solo measuring and marking tasks.",
+        "Engineered for reliability, LOCK SERIES delivers secure locking, smooth operation, and dependable performance for everyday measuring tasks.",
     description: [
-        "LOCK SERIES measuring tapes are engineered with a reinforced locking mechanism that keeps the blade securely in position.",
-        "This makes one-person measuring easier, especially when working at height or across long spans.",
-        "Built for reliability, the series delivers consistent performance shift after shift.",
+        "Engineered for reliability. The LOCK SERIES delivers secure locking, smooth operation, and dependable performance for everyday measuring tasks.",
+        "Heavy-duty ABS housing and a strong locking system keep measurements firmly in place, while the high-visibility precision blade ensures clear readings.",
+        "Available in extended lengths up to 10m, LOCK SERIES scales from quick checks to longer layout and surveying work.",
+    ],
+    highlights: [
+        "Heavy-duty ABS housing",
+        "Durable metal clip & belt",
+        "Strong locking system",
+        "Triple-rivet reinforced hook",
+        "High-visibility precision blade",
+        "Smooth retraction mechanism",
     ],
     additionalInfo: [
-        { label: "Blade Material", value: "Fibreglass" },
-        { label: "Available Lengths", value: "3m, 5m, 8m" },
-        { label: "Lock Type", value: "Heavy-duty push lock" },
-        { label: "Case", value: "Impact-resistant ABS" },
+        { label: "Available Sizes", value: "3m (16mm), 5m (19mm), 7.5m (25mm), 10m (25mm)" },
+        { label: "Lock Type", value: "Strong locking system" },
+        { label: "Case", value: "Heavy-duty ABS housing" },
+        { label: "Blade", value: "High-visibility precision" },
         { label: "Series", value: "LOCK SERIES" },
     ],
-    sizes: ["3m", "5m", "8m"],
+    sizes: ["3m (16mm)", "5m (19mm)", "7.5m (25mm)", "10m (25mm)"],
     colors: [
         { hex: "#F5C518", title: "Yellow" },
         { hex: "#1A1A1A", title: "Black" },
-        { hex: "#FF6F00", title: "Orange" },
     ],
 };
 

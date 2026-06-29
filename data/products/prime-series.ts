@@ -3,27 +3,32 @@ import type { ProductDetails } from "./types";
 const product: ProductDetails = {
     slug: "prime-series",
     series: "PRIME SERIES",
-    title: "PRIME SERIES Measuring Tape",
+    title: "PMG PRIME SERIES",
+    tagline: "Precision at its prime.",
     excerpt:
-        "Flagship PMG measuring tape with premium materials, refined ergonomics, and superior blade stability.",
+        "Designed to be the benchmark of everyday measuring, PRIME SERIES combine dependable accuracy, smooth operation, and lasting durability.",
     description: [
-        "PRIME SERIES represents PMG at its best — a flagship range combining premium blade quality with a precision-engineered case.",
-        "The wider blade profile improves rigidity when measuring over distance, reducing blade flex and improving accuracy.",
-        "Designed for master tradespeople and specialists who expect top-tier performance from every tool.",
+        "Designed to be the benchmark of everyday measuring. The PRIME SERIES combine dependable accuracy, smooth operation, and lasting durability in a refined and versatile design.",
+        "Heavy-duty ABS housing and a triple rivet hook provide the strength needed for regular professional use.",
+        "An ergonomic compact design and durable metal clip make PRIME SERIES a refined choice for tradespeople who expect more from their tools.",
+    ],
+    highlights: [
+        "Heavy-duty ABS housing",
+        "Smooth retraction mechanism",
+        "Durable metal clip & belt",
+        "Triple rivet hook",
+        "Ergonomic compact design",
+        "High accuracy blade",
     ],
     additionalInfo: [
-        { label: "Blade Material", value: "Premium fibreglass" },
-        { label: "Available Lengths", value: "5m, 8m, 10m" },
-        { label: "Blade Width", value: "27mm" },
-        { label: "Lock Type", value: "Auto-lock with override" },
+        { label: "Available Sizes", value: "3m (16mm), 5m (19mm)" },
+        { label: "Case", value: "Heavy-duty ABS housing" },
+        { label: "Hook", value: "Triple rivet" },
+        { label: "Blade", value: "High accuracy" },
         { label: "Series", value: "PRIME SERIES" },
     ],
-    sizes: ["5m", "8m", "10m"],
-    colors: [
-        { hex: "#1A1A1A", title: "Black" },
-        { hex: "#B8860B", title: "Dark Gold" },
-        { hex: "#F5C518", title: "Yellow" },
-    ],
+    sizes: ["3m (16mm)", "5m (19mm)"],
+    colors: [{ hex: "#E3F2FD", title: "Blue & White" }],
 };
 
 export default product;

@@ -3,26 +3,36 @@ import type { ProductDetails } from "./types";
 const product: ProductDetails = {
     slug: "new-eco-series",
     series: "NEW ECO SERIES",
-    title: "NEW ECO SERIES Measuring Tape",
+    title: "PMG NEW ECO SERIES",
+    tagline: "Built for everyday precision.",
     excerpt:
-        "Updated eco-friendly design with improved blade coating and smoother retraction for modern job-site workflows.",
+        "A trusted measuring tape engineered for everyday professionals, delivering dependable accuracy, durable construction, and smooth performance.",
     description: [
-        "NEW ECO SERIES builds on the original ECO range with refined materials and an upgraded retraction system.",
-        "The lighter case and improved blade coating make it easier to handle while maintaining PMG's measurement accuracy standards.",
-        "An excellent upgrade for teams looking for efficient, sustainable tooling without compromising durability.",
+        "A trusted measuring tape engineered for everyday professionals. The NEW ECO SERIES delivers dependable accuracy, durable construction, and smooth performance in every measurement.",
+        "Heavy-duty ABS housing and a bottom lock system provide secure, stable readings, while the high-accuracy blade ensures consistent results.",
+        "With a durable metal clip and smooth retraction mechanism, NEW ECO SERIES is engineered for reliable performance day in and day out.",
+    ],
+    highlights: [
+        "Bottom lock system",
+        "Durable metal clip & belt",
+        "Heavy-duty ABS housing",
+        "Smooth retraction mechanism",
+        "High accuracy blade",
+        "Reliable performance",
     ],
     additionalInfo: [
-        { label: "Blade Material", value: "Eco fibreglass blend" },
-        { label: "Available Lengths", value: "3m, 5m, 8m" },
-        { label: "Lock Type", value: "Push-button lock" },
-        { label: "Upgrade", value: "Improved blade coating & spring" },
+        { label: "Available Sizes", value: "3m (16mm), 5m (19mm)" },
+        { label: "Case", value: "Heavy-duty ABS housing" },
+        { label: "Lock Type", value: "Bottom lock system" },
+        { label: "Blade", value: "High accuracy" },
         { label: "Series", value: "NEW ECO SERIES" },
     ],
-    sizes: ["3m", "5m", "8m"],
+    sizes: ["3m (16mm)", "5m (19mm)"],
     colors: [
-        { hex: "#43A047", title: "Green" },
-        { hex: "#A5D6A7", title: "Light Green" },
+        { hex: "#E3F2FD", title: "Blue & White" },
+        { hex: "#D32F2F", title: "Red" },
         { hex: "#F5C518", title: "Yellow" },
+        { hex: "#2E7D32", title: "Green" },
     ],
 };
 

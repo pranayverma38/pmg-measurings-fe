@@ -1,6 +1,7 @@
 export const PRODUCT_SERIES = [
     "ECO SERIES",
     "FIBREGLASS GOLD SERIES",
+    "FIBREGLASS PRIME SERIES",
     "GLASS SERIES",
     "GRIP SERIES",
     "LINEX SERIES",
@@ -14,8 +15,10 @@ export const PRODUCT_SERIES = [
     "PRIME SERIES",
     "SIDE LOCK SERIES",
     "SIGNATURE SERIES",
+    "SIGNO SERIES",
     "SPIRIT LEVEL",
     "STEEL TAPE",
+    "TREND SERIES",
 ] as const;
 
 export type ProductSeries = (typeof PRODUCT_SERIES)[number];

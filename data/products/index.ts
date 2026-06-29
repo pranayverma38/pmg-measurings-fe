@@ -1,6 +1,7 @@
 import defaultProduct from "./default";
 import ecoSeries from "./eco-series";
 import fibreglassGoldSeries from "./fibreglass-gold-series";
+import fibreglassPrimeSeries from "./fibreglass-prime-series";
 import glassSeries from "./glass-series";
 import gripSeries from "./grip-series";
 import linexSeries from "./linex-series";
@@ -14,8 +15,10 @@ import popShineSeries from "./pop-shine-series";
 import primeSeries from "./prime-series";
 import sideLockSeries from "./side-lock-series";
 import signatureSeries from "./signature-series";
+import signoSeries from "./signo-series";
 import spiritLevel from "./spirit-level";
 import steelTape from "./steel-tape";
+import trendSeries from "./trend-series";
 import { productSlug, type ProductSeries } from "./series";
 import type { ProductDetails } from "./types";
 
@@ -31,6 +34,7 @@ export {
 const PRODUCT_DETAILS_BY_SLUG: Record<string, ProductDetails> = {
     [ecoSeries.slug]: ecoSeries,
     [fibreglassGoldSeries.slug]: fibreglassGoldSeries,
+    [fibreglassPrimeSeries.slug]: fibreglassPrimeSeries,
     [glassSeries.slug]: glassSeries,
     [gripSeries.slug]: gripSeries,
     [linexSeries.slug]: linexSeries,
@@ -44,8 +48,10 @@ const PRODUCT_DETAILS_BY_SLUG: Record<string, ProductDetails> = {
     [primeSeries.slug]: primeSeries,
     [sideLockSeries.slug]: sideLockSeries,
     [signatureSeries.slug]: signatureSeries,
+    [signoSeries.slug]: signoSeries,
     [spiritLevel.slug]: spiritLevel,
     [steelTape.slug]: steelTape,
+    [trendSeries.slug]: trendSeries,
 };
 
 export function getProductDetails(slug: string): ProductDetails | undefined {

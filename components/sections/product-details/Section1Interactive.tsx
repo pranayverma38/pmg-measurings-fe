@@ -10,7 +10,7 @@ type Section1InteractiveProps = {
 };
 
 export default function Section1Interactive({ details }: Section1InteractiveProps) {
-    const { title, excerpt, description, additionalInfo, sizes, colors } = details;
+    const { title, tagline, excerpt, description, highlights, additionalInfo, sizes, colors } = details;
     const [selectedSize, setSelectedSize] = useState(sizes[0] ?? "");
     const [selectedColor, setSelectedColor] = useState(colors[0]?.hex ?? "");
 
@@ -53,6 +53,11 @@ export default function Section1Interactive({ details }: Section1InteractiveProp
 
     return (
         <div className="content-product-right px-lg-5 pt-30">
+            {tagline && (
+                <p className="content-product-right__tagline text-uppercase fw-semibold mb-2 small text-primary">
+                    {tagline}
+                </p>
+            )}
             <h5 className="content-product-right__title">{title}</h5>
 
             <div className="content-product-right__excerpt mb-4 w-50">
@@ -63,6 +68,16 @@ export default function Section1Interactive({ details }: Section1InteractiveProp
                     </Link>
                 </p>
             </div>
+
+            {highlights.length > 0 && (
+                <ul className="content-product-right__highlights list-unstyled mb-4">
+                    {highlights.map((item) => (
+                        <li key={item} className="neutral-700 small mb-1">
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            )}
 
             {sizes.length > 0 && (
                 <div className="content-product-right__option mb-4">

@@ -3,26 +3,36 @@ import type { ProductDetails } from "./types";
 const product: ProductDetails = {
     slug: "eco-series",
     series: "ECO SERIES",
-    title: "ECO SERIES Measuring Tape",
+    title: "PMG ECO SERIES",
+    tagline: "Everyday accuracy, everyday value.",
     excerpt:
-        "Lightweight eco-conscious measuring tape with a durable fibreglass blade and smooth retraction for everyday trade use.",
+        "Simple, durable, and engineered for dependable performance — ECO SERIES delivers reliable accuracy for everyday measuring needs.",
     description: [
-        "The ECO SERIES combines reliable measurement accuracy with a lightweight, ergonomic design suited for daily professional tasks.",
-        "Its fibreglass blade resists stretching and wear, while the compact case is easy to carry and comfortable to hold over long work sessions.",
-        "Ideal for carpenters, electricians, and DIY professionals who need a dependable tape without unnecessary bulk.",
+        "Simple, durable, and engineered for dependable performance. ECO SERIES delivers reliable accuracy and lasting functionality, making it an ideal choice for everyday measuring needs.",
+        "A high-accuracy blade, strong ABS case, and smooth retraction mechanism provide consistent results without unnecessary complexity.",
+        "Triple rivet hook reinforcement and a durable metal clip ensure this value-focused series holds up to regular professional use.",
+    ],
+    highlights: [
+        "High accuracy blade",
+        "Strong ABS case",
+        "Smooth retraction mechanism",
+        "Triple rivet hook",
+        "Durable metal clip & belt",
+        "Assured quality",
     ],
     additionalInfo: [
-        { label: "Blade Material", value: "Fibreglass" },
-        { label: "Available Lengths", value: "3m, 5m, 8m" },
-        { label: "Lock Type", value: "Push-button lock" },
-        { label: "Case", value: "Lightweight ABS" },
+        { label: "Available Sizes", value: "3m (16mm), 5m (19mm)" },
+        { label: "Case", value: "Strong ABS" },
+        { label: "Hook", value: "Triple rivet" },
+        { label: "Blade", value: "High accuracy" },
         { label: "Series", value: "ECO SERIES" },
     ],
-    sizes: ["3m", "5m", "8m"],
+    sizes: ["3m (16mm)", "5m (19mm)"],
     colors: [
-        { hex: "#2E7D32", title: "Green" },
+        { hex: "#E3F2FD", title: "Blue & White" },
+        { hex: "#D32F2F", title: "Red" },
         { hex: "#F5C518", title: "Yellow" },
-        { hex: "#1A1A1A", title: "Black" },
+        { hex: "#2E7D32", title: "Green" },
     ],
 };
 
