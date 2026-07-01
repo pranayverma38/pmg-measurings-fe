@@ -71,8 +71,11 @@ export default function RootLayout({
                 {/* Blocking theme init before paint; App Router has no pages/_document for beforeInteractive Script */}
                 {/* eslint-disable-next-line @next/next/no-sync-scripts */}
                 <script src="/scripts/theme-init.js" />
+                {/* Strip extension-injected attrs before React hydrates (see hydration-guard.js) */}
+                {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+                <script src="/scripts/hydration-guard.js" />
             </head>
-            <body className={`${dmSans.variable}`}>
+            <body className={`${dmSans.variable}`} suppressHydrationWarning>
                 <div className="px-blur-bottom"></div>
                 <WebsiteActiveGuard isWebsiteActive={isWebsiteActive}>
                     <RouteAllowlistGuard isWebsiteActive={isWebsiteActive}>

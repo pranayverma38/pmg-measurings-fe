@@ -1,4 +1,93 @@
 import Image from "next/image";
+import { Fragment } from "react";
+
+type MarqueeImage = {
+    src: string;
+    alt: string;
+};
+
+type MarqueePart = string | MarqueeImage;
+
+type MarqueeRow = {
+    direction: "scroll-move-right" | "scroll-move-left";
+    parts: MarqueePart[];
+};
+
+const MARQUEE_ROWS: MarqueeRow[] = [
+    {
+        direction: "scroll-move-right",
+        parts: [
+            "Film",
+            "that",
+            { src: "/assets/imgs/pages/home-11/img-3.webp", alt: "" },
+            "moves",
+            "people",
+            { src: "/assets/imgs/pages/home-11/img-7.webp", alt: "" },
+            "--",
+        ],
+    },
+    {
+        direction: "scroll-move-left",
+        parts: [
+            "--",
+            "Motion",
+            { src: "/assets/imgs/pages/home-11/img-5.webp", alt: "" },
+            "design",
+            "with",
+            { src: "/assets/imgs/pages/home-11/img-9.webp", alt: "" },
+            "soul",
+        ],
+    },
+    {
+        direction: "scroll-move-right",
+        parts: [
+            "From",
+            { src: "/assets/imgs/pages/home-11/img-11.webp", alt: "" },
+            "brief",
+            "to",
+            "premiere",
+            { src: "/assets/imgs/pages/home-11/img-13.webp", alt: "" },
+            "--",
+        ],
+    },
+];
+
+function MarqueeImagePill({ image }: { image: MarqueeImage }) {
+    return (
+        <span className="sec-8-home-11__img-pill">
+            <Image
+                src={image.src}
+                alt={image.alt}
+                width={400}
+                height={267}
+                loading="lazy"
+                decoding="async"
+            />
+        </span>
+    );
+}
+
+function MarqueeRowContent({ row }: { row: MarqueeRow }) {
+    return row.parts.map((part, index) => {
+        const spacer = index > 0 ? "\u00a0\u00a0" : null;
+
+        if (typeof part === "string") {
+            return (
+                <Fragment key={index}>
+                    {spacer}
+                    {part}
+                </Fragment>
+            );
+        }
+
+        return (
+            <Fragment key={index}>
+                {spacer}
+                <MarqueeImagePill image={part} />
+            </Fragment>
+        );
+    });
+}
 
 export default function Section8() {
     return (
@@ -16,92 +105,17 @@ export default function Section8() {
                         style={{ objectFit: "cover" }}
                     />
                 </div>
-                <div className="sec-8-home-11__bg-overlay" aria-hidden="true"></div>
+                <div className="sec-8-home-11__bg-overlay" aria-hidden="true" />
             </div>
 
             <div className="sec-8-home-11__inner">
-                {/* Scroll-driven typography rows */}
-                <div className="sec-8-home-11__type-wrap overflow-hidden" aria-hidden="true">
-                    <p className="sec-8-home-11__big-line scroll-move-right mb-0">
-                        Film &nbsp; that &nbsp;
-                        <span className="sec-8-home-11__img-pill">
-                            <Image
-                                src="/assets/imgs/pages/home-11/img-3.webp"
-                                alt=""
-                                width={400}
-                                height={267}
-                                loading="lazy"
-                                decoding="async"
-                            />
-                        </span>
-                        &nbsp; moves &nbsp; people &nbsp;
-                        <span className="sec-8-home-11__img-pill">
-                            <Image
-                                src="/assets/imgs/pages/home-11/img-7.webp"
-                                alt=""
-                                width={400}
-                                height={267}
-                                loading="lazy"
-                                decoding="async"
-                            />
-                        </span>
-                        &nbsp;--&nbsp;
-                    </p>
-                </div>
-                <div className="sec-8-home-11__type-wrap overflow-hidden" aria-hidden="true">
-                    <p className="sec-8-home-11__big-line scroll-move-left mb-0">
-                        --&nbsp; Motion &nbsp;
-                        <span className="sec-8-home-11__img-pill">
-                            <Image
-                                src="/assets/imgs/pages/home-11/img-5.webp"
-                                alt=""
-                                width={400}
-                                height={267}
-                                loading="lazy"
-                                decoding="async"
-                            />
-                        </span>
-                        &nbsp; design &nbsp; with &nbsp;
-                        <span className="sec-8-home-11__img-pill">
-                            <Image
-                                src="/assets/imgs/pages/home-11/img-9.webp"
-                                alt=""
-                                width={400}
-                                height={267}
-                                loading="lazy"
-                                decoding="async"
-                            />
-                        </span>
-                        &nbsp; soul &nbsp;
-                    </p>
-                </div>
-                <div className="sec-8-home-11__type-wrap overflow-hidden" aria-hidden="true">
-                    <p className="sec-8-home-11__big-line scroll-move-right mb-0">
-                        From &nbsp;
-                        <span className="sec-8-home-11__img-pill">
-                            <Image
-                                src="/assets/imgs/pages/home-11/img-11.webp"
-                                alt=""
-                                width={400}
-                                height={267}
-                                loading="lazy"
-                                decoding="async"
-                            />
-                        </span>
-                        &nbsp; brief &nbsp; to &nbsp; premiere &nbsp;
-                        <span className="sec-8-home-11__img-pill">
-                            <Image
-                                src="/assets/imgs/pages/home-11/img-13.webp"
-                                alt=""
-                                width={400}
-                                height={267}
-                                loading="lazy"
-                                decoding="async"
-                            />
-                        </span>
-                        &nbsp;--&nbsp;
-                    </p>
-                </div>
+                {MARQUEE_ROWS.map((row, index) => (
+                    <div key={index} className="sec-8-home-11__type-wrap overflow-hidden" aria-hidden="true">
+                        <div className={`sec-8-home-11__big-line ${row.direction} mb-0`}>
+                            <MarqueeRowContent row={row} />
+                        </div>
+                    </div>
+                ))}
             </div>
         </section>
     );

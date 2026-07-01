@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Fragment } from "react";
 
 const PMG_PRODUCTS_BASE = "/assets/imgs/pmgproducts";
 
@@ -75,16 +76,25 @@ function MarqueeImagePill({ image }: { image: MarqueeImage }) {
 }
 
 function MarqueeRowContent({ row }: { row: MarqueeRow }) {
-    return (
-        <>
-            {row.parts.map((part, index) => (
-                <span key={index}>
-                    {index > 0 ? "\u00a0" : null}
-                    {typeof part === "string" ? part : <MarqueeImagePill image={part} />}
-                </span>
-            ))}
-        </>
-    );
+    return row.parts.map((part, index) => {
+        const spacer = index > 0 ? "\u00a0\u00a0" : null;
+
+        if (typeof part === "string") {
+            return (
+                <Fragment key={index}>
+                    {spacer}
+                    {part}
+                </Fragment>
+            );
+        }
+
+        return (
+            <Fragment key={index}>
+                {spacer}
+                <MarqueeImagePill image={part} />
+            </Fragment>
+        );
+    });
 }
 
 export default function HomeSection8() {
@@ -109,9 +119,9 @@ export default function HomeSection8() {
             <div className="sec-8-home-11__inner">
                 {MARQUEE_ROWS.map((row, index) => (
                     <div key={index} className="sec-8-home-11__type-wrap overflow-hidden" aria-hidden="true">
-                        <p className={`sec-8-home-11__big-line ${row.direction} mb-0`}>
+                        <div className={`sec-8-home-11__big-line ${row.direction} mb-0`}>
                             <MarqueeRowContent row={row} />
-                        </p>
+                        </div>
                     </div>
                 ))}
             </div>
