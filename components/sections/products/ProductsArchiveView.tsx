@@ -30,6 +30,8 @@ const STATS = [
     { value: "Global", label: "Trusted by distributors worldwide" },
 ];
 
+const CATALOGUE_PDF = "/assets/downloads/pmg-catalogue.pdf";
+
 export type ProductCardData = {
     series: string;
     cover: string;
@@ -158,15 +160,29 @@ export default function ProductsArchiveView({ categories, totalSeries }: Product
                                 ))}
                             </ul>
                         </div>
-                        <div className="products-hero__aside" aria-hidden="true">
-                            <div className="products-hero__stat-card">
+                        <div className="products-hero__aside">
+                            <div className="products-hero__stat-card" aria-hidden="true">
                                 <p className="products-hero__stat-value">{totalSeries}</p>
                                 <p className="products-hero__stat-label">Series across four product families</p>
                             </div>
-                            <div className="products-hero__stat-card products-hero__stat-card--muted">
+                            <div className="products-hero__stat-card products-hero__stat-card--muted" aria-hidden="true">
                                 <p className="products-hero__stat-value">PMG</p>
                                 <p className="products-hero__stat-label">Built for professionals who measure every day</p>
                             </div>
+                            <a
+                                href={CATALOGUE_PDF}
+                                download="PMG-Product-Catalogue.pdf"
+                                className="at-btn products-hero__catalogue-btn"
+                            >
+                                <span>
+                                    <span className="text-1 text-capitalize">Download catalogue</span>
+                                    <span className="text-2 text-capitalize">Download catalogue</span>
+                                </span>
+                                <i>
+                                    {ARROW_SVG}
+                                    {ARROW_SVG}
+                                </i>
+                            </a>
                         </div>
                     </div>
                 </PageContent>

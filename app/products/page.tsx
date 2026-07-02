@@ -65,6 +65,14 @@ export default function ProductsPage() {
                             line-height: 1.55;
                             color: rgba(0, 0, 0, 0.58);
                         }
+                        .products-hero__catalogue-btn {
+                            display: inline-flex;
+                            justify-content: center;
+                            width: 100%;
+                            background: #F0460E !important;
+                            color: #fff !important;
+                            border: 1px solid #F0460E;
+                        }
 
                         .products-stats {
                             background: #fff;
@@ -347,8 +355,11 @@ export default function ProductsPage() {
                             }
                         }
                         @media (max-width: 575px) {
-                            .products-hero__aside {
+                            .products-hero__stat-card {
                                 display: none;
+                            }
+                            .products-hero__aside {
+                                display: grid;
                             }
                             .products-category__header {
                                 grid-template-columns: 1fr auto;
