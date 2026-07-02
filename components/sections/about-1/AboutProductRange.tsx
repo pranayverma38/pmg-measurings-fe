@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import RevealText from "@/components/effects/RevealText";
 import TeamCard1 from "@/components/cards/TeamCard1";
-import { productHref } from "@/data/products/series";
+import { productHref, type ProductSeries } from "@/data/products/series";
 
 const ARROW_SVG = (
     <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,28 +15,17 @@ const ARROW_SVG = (
     </svg>
 );
 
-const PMG_PRODUCTS_BASE = "/assets/imgs/pmgproducts";
-
-const productSrc = (series: string, file: string) =>
-    `${PMG_PRODUCTS_BASE}/${encodeURIComponent(series)}/${file}`;
-
 const INITIAL_VISIBLE = 4;
 
-const PRODUCT_SERIES = [
-    { series: "SIDE LOCK SERIES", img: productSrc("SIDE LOCK SERIES", "IMG_8269.png") },
-    { series: "NEW ECO SERIES", img: productSrc("NEW ECO SERIES", "IMG_8280.png") },
-    { series: "LOCK SERIES", img: productSrc("LOCK SERIES", "IMG_8051.png") },
-    { series: "SIGNATURE SERIES", img: productSrc("SIGNATURE SERIES", "IMG_8162.png") },
-    { series: "GLASS SERIES", img: productSrc("GLASS SERIES", "IMG_8075.png") },
-    { series: "PRIME SERIES", img: productSrc("PRIME SERIES", "IMG_8127.png") },
-    { series: "ECO SERIES", img: productSrc("ECO SERIES", "IMG_8242.png") },
-    { series: "GRIP SERIES", img: productSrc("GRIP SERIES", "IMG_8010.png") },
-];
+type ProductCardItem = {
+    series: ProductSeries;
+    img: string;
+};
 
-export default function AboutProductRange() {
+export default function AboutProductRange({ products }: { products: ProductCardItem[] }) {
     const [expanded, setExpanded] = useState(false);
-    const visibleProducts = expanded ? PRODUCT_SERIES : PRODUCT_SERIES.slice(0, INITIAL_VISIBLE);
-    const hasMore = PRODUCT_SERIES.length > INITIAL_VISIBLE;
+    const visibleProducts = expanded ? products : products.slice(0, INITIAL_VISIBLE);
+    const hasMore = products.length > INITIAL_VISIBLE;
 
     return (
         <>

@@ -5,7 +5,7 @@ import {
     type ProductSeries,
 } from "@/data/products";
 import { getRelatedSeries } from "@/lib/productCategories";
-import { getProductCoverImage, getProductImages } from "@/lib/productImages";
+import { getProductCoverUrl, getProductImagesBySize } from "@/lib/productImages";
 import ProductDetailsPinEffect from "./ProductDetailsPinEffect";
 import ProductDetailsStyles from "./ProductDetailsStyles";
 import ProductDetailsView from "./ProductDetailsView";
@@ -23,14 +23,13 @@ type ProductDetailsSectionProps = {
 
 export default function ProductDetailsSection({ series }: ProductDetailsSectionProps) {
     const details = series ? getProductDetailsBySeries(series) : defaultProduct;
-    const productImages = series ? getProductImages(series) : [];
-    const images = productImages.length > 0 ? productImages : FALLBACK_IMAGES;
+    const imagesBySize = series ? getProductImagesBySize(series, details.sizes) : {};
 
     const relatedProducts = series
         ? getRelatedSeries(series, 4).map((relatedSeries) => ({
               series: relatedSeries,
               href: productHref(relatedSeries),
-              cover: getProductCoverImage(relatedSeries) ?? "/assets/imgs/logopmg/pmglogo.png",
+              cover: getProductCoverUrl(relatedSeries),
           }))
         : [];
 
@@ -38,7 +37,8 @@ export default function ProductDetailsSection({ series }: ProductDetailsSectionP
         <>
             <ProductDetailsView
                 details={details}
-                images={images}
+                imagesBySize={imagesBySize}
+                fallbackImages={FALLBACK_IMAGES}
                 relatedProducts={relatedProducts}
             />
             <ProductDetailsPinEffect />

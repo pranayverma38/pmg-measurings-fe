@@ -1,6 +1,12 @@
 import RevealText from "@/components/effects/RevealText";
 import PageContent from "@/components/shared/PageContent";
 import AboutHeroSlider from "@/components/sections/about-1/AboutHeroSlider";
+import { buildProductCoverSlides } from "@/lib/productImages";
+
+const HERO_SLIDES = buildProductCoverSlides(
+    ["GLASS SERIES", "LOCKLIINE SERIES", "PRIME SERIES", "ECO SERIES", "LINEX SERIES", "SIGNATURE SERIES"],
+    (series) => `PMG ${series}`
+);
 
 const ARROW_SVG = (
     <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +60,7 @@ export default function Section1() {
                 </ul>
             </PageContent>
 
-            <AboutHeroSlider />
+            <AboutHeroSlider slides={HERO_SLIDES} />
         </section>
     );
 }

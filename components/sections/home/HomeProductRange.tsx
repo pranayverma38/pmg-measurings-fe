@@ -17,23 +17,12 @@ const ARROW_SVG = (
     </svg>
 );
 
-const PMG_PRODUCTS_BASE = "/assets/imgs/pmgproducts";
-
-const productSrc = (series: string, file: string) =>
-    `${PMG_PRODUCTS_BASE}/${encodeURIComponent(series)}/${file}`;
-
 const INITIAL_VISIBLE = 4;
 
-const PRODUCT_SERIES: { series: ProductSeries; img: string }[] = [
-    { series: "MASTER SERIES", img: productSrc("MASTER SERIES", "IMG_8282.png") },
-    { series: "SIGNATURE SERIES", img: productSrc("SIGNATURE SERIES", "IMG_8162.png") },
-    { series: "SIDE LOCK SERIES", img: productSrc("SIDE LOCK SERIES", "IMG_8269.png") },
-    { series: "LOCK SERIES", img: productSrc("LOCK SERIES", "IMG_8051.png") },
-    { series: "GLASS SERIES", img: productSrc("GLASS SERIES", "IMG_8075.png") },
-    { series: "GRIP SERIES", img: productSrc("GRIP SERIES", "IMG_8010.png") },
-    { series: "ECO SERIES", img: productSrc("ECO SERIES", "IMG_8242.png") },
-    { series: "NEW ECO SERIES", img: productSrc("NEW ECO SERIES", "IMG_8280.png") },
-];
+type ProductCardItem = {
+    series: ProductSeries;
+    img: string;
+};
 
 const HIGHLIGHTS = [
     { value: "20+", label: "Product series" },
@@ -74,10 +63,10 @@ function ProductCard({
     );
 }
 
-export default function HomeProductRange() {
+export default function HomeProductRange({ products }: { products: ProductCardItem[] }) {
     const [expanded, setExpanded] = useState(false);
-    const visibleProducts = expanded ? PRODUCT_SERIES : PRODUCT_SERIES.slice(0, INITIAL_VISIBLE);
-    const hasMore = PRODUCT_SERIES.length > INITIAL_VISIBLE;
+    const visibleProducts = expanded ? products : products.slice(0, INITIAL_VISIBLE);
+    const hasMore = products.length > INITIAL_VISIBLE;
 
     return (
         <section className="home-product-range changeless" aria-label="PMG product range">

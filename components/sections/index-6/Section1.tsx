@@ -18,9 +18,9 @@ const HERO_STATS = [
 ];
 
 const FEATURED_PRODUCT = {
-    src: "/assets/imgs/pmgproducts/SIGNATURE%20SERIES/IMG_8196.png",
-    alt: "PMG Signature Series measuring tape",
-    series: "Signature Series",
+    src: "/assets/imgs/pmgproducts/SIGNATURE%20SERIES/3mtr/1.png",
+    alt: "PMG Signature Series 3m measuring tape",
+    series: "Signature Series · 3m",
 };
 
 export default function Section1() {
@@ -50,21 +50,44 @@ export default function Section1() {
             </div>
 
             <div className="pmg-hero__body">
-                <div className="pmg-hero__content">
+                <div className="pmg-hero__intro">
                     <div className="pmg-hero__headline at_fade_anim" data-delay="0.15" data-fade-from="bottom">
                         <h1 className="pmg-hero__title">
                             <span className="pmg-hero__title-line">
-                                <RevealText>Precision</RevealText>
+                                <RevealText>New Vision</RevealText>
                             </span>
                             <span className="pmg-hero__title-line pmg-hero__title-line--accent">
-                                <RevealText>Built To</RevealText>
-                            </span>
-                            <span className="pmg-hero__title-line">
-                                <RevealText>Last</RevealText>
+                                <RevealText>New Inches</RevealText>
                             </span>
                         </h1>
                     </div>
 
+                    <div
+                        className="pmg-hero__visual at_fade_anim"
+                        data-delay="0.3"
+                        data-fade-from="right"
+                        aria-hidden="true"
+                    >
+                        <div className="pmg-hero__product-frame">
+                            <div className="pmg-hero__product-ring" />
+                            <Image
+                                src={FEATURED_PRODUCT.src}
+                                alt={FEATURED_PRODUCT.alt}
+                                width={640}
+                                height={640}
+                                priority
+                                className="pmg-hero__product-img"
+                            />
+                            <div className="pmg-hero__product-badge">
+                                <span className="pmg-hero__product-badge-label">Featured</span>
+                                <span className="pmg-hero__product-badge-series">{FEATURED_PRODUCT.series}</span>
+                            </div>
+                        </div>
+                        <div className="pmg-hero__ruler" />
+                    </div>
+                </div>
+
+                <div className="pmg-hero__content">
                     <p
                         className="pmg-hero__desc at_fade_anim"
                         data-delay="0.35"
@@ -110,30 +133,6 @@ export default function Section1() {
                             </Link>
                         ))}
                     </div>
-                </div>
-
-                <div
-                    className="pmg-hero__visual at_fade_anim"
-                    data-delay="0.3"
-                    data-fade-from="right"
-                    aria-hidden="true"
-                >
-                    <div className="pmg-hero__product-frame">
-                        <div className="pmg-hero__product-ring" />
-                        <Image
-                            src={FEATURED_PRODUCT.src}
-                            alt={FEATURED_PRODUCT.alt}
-                            width={520}
-                            height={520}
-                            priority
-                            className="pmg-hero__product-img"
-                        />
-                        <div className="pmg-hero__product-badge">
-                            <span className="pmg-hero__product-badge-label">Featured</span>
-                            <span className="pmg-hero__product-badge-series">{FEATURED_PRODUCT.series}</span>
-                        </div>
-                    </div>
-                    <div className="pmg-hero__ruler" />
                 </div>
             </div>
 
@@ -249,11 +248,25 @@ export default function Section1() {
                             position: relative;
                             z-index: 2;
                             flex: 1;
+                            display: flex;
+                            flex-direction: column;
+                            gap: clamp(24px, 3vw, 36px);
+                            justify-content: center;
+                            padding: clamp(28px, 4vw, 48px) clamp(20px, 5.5vw, 96px);
+                        }
+
+                        .pmg-hero__intro {
                             display: grid;
                             grid-template-columns: 1fr;
-                            gap: 40px;
+                            gap: 32px;
                             align-items: center;
-                            padding: clamp(28px, 4vw, 48px) clamp(20px, 5.5vw, 96px);
+                        }
+
+                        .pmg-hero__headline {
+                            min-width: 0;
+                        }
+                        .pmg-hero__intro .pmg-hero__title {
+                            margin-bottom: 0;
                         }
 
                         .pmg-hero__content {
@@ -320,7 +333,9 @@ export default function Section1() {
                             display: none;
                             position: relative;
                             justify-self: end;
-                            width: min(100%, 520px);
+                            align-self: center;
+                            width: min(100%, 620px);
+                            margin-left: auto;
                         }
                         .pmg-hero__product-frame {
                             position: relative;
@@ -357,11 +372,12 @@ export default function Section1() {
                             height: auto;
                             object-fit: contain;
                             filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.45));
+                            transform: scale(1.12) translateX(-4%);
                             animation: pmg-hero-float 5s ease-in-out infinite;
                         }
                         @keyframes pmg-hero-float {
-                            0%, 100% { transform: translateY(0); }
-                            50% { transform: translateY(-12px); }
+                            0%, 100% { transform: scale(1.12) translateX(-4%) translateY(0); }
+                            50% { transform: scale(1.12) translateX(-4%) translateY(-12px); }
                         }
                         .pmg-hero__product-badge {
                             position: absolute;
@@ -510,7 +526,7 @@ export default function Section1() {
                         }
 
                         @media (min-width: 992px) {
-                            .pmg-hero__body {
+                            .pmg-hero__intro {
                                 grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
                                 gap: clamp(24px, 4vw, 64px);
                             }

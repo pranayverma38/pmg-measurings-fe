@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import RevealText from "@/components/effects/RevealText";
 import PageContent from "@/components/shared/PageContent";
-import ProductsHeroSlider from "@/components/sections/products/ProductsHeroSlider";
 import type { ProductDetails } from "@/data/products/types";
 
 const ARROW_SVG = (
@@ -170,7 +169,6 @@ export default function ProductsArchiveView({ categories, totalSeries }: Product
                         </div>
                     </div>
                 </PageContent>
-                <ProductsHeroSlider />
             </section>
 
             <section className="products-stats" aria-label="Product highlights">

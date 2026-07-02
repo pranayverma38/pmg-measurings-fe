@@ -8,17 +8,16 @@ import Swiper from "swiper";
 import type { Swiper as SwiperInstance } from "swiper";
 import { Autoplay, FreeMode, Thumbs } from "swiper/modules";
 
-const PMG_PRODUCTS_BASE = "/assets/imgs/pmgproducts";
+const CLOSED_FRONT_BASE = `/assets/imgs/${encodeURIComponent("closed front images")}`;
 
-const productSrc = (series: string, file: string) =>
-    `${PMG_PRODUCTS_BASE}/${encodeURIComponent(series)}/${file}`;
+const closedFrontSrc = (file: string) => `${CLOSED_FRONT_BASE}/${file}`;
 
 const AVATARS = [
-    { src: productSrc("ECO SERIES", "IMG_8242.png"), alt: "PMG Eco Series measuring tape", thumbClass: "thumb-slide-1" },
-    { src: productSrc("GLASS SERIES", "IMG_8075.png"), alt: "PMG Glass Series measuring tape", thumbClass: "thumb-slide-2" },
-    { src: productSrc("GRIP SERIES", "IMG_8010.png"), alt: "PMG Grip Series measuring tape", thumbClass: "thumb-slide-3" },
-    { src: productSrc("LOCKLIINE SERIES", "IMG_8119.png"), alt: "PMG Lockline Series measuring tape", thumbClass: "thumb-slide-4" },
-    { src: productSrc("SIGNATURE SERIES", "IMG_8196.png"), alt: "PMG Signature Series measuring tape", thumbClass: "thumb-slide-5" },
+    { src: closedFrontSrc("IMG_8019.png"), alt: "PMG measuring tape - closed front view", thumbClass: "thumb-slide-1" },
+    { src: closedFrontSrc("IMG_8075.png"), alt: "PMG measuring tape - closed front view", thumbClass: "thumb-slide-2" },
+    { src: closedFrontSrc("IMG_8119.PNG"), alt: "PMG measuring tape - closed front view", thumbClass: "thumb-slide-3" },
+    { src: closedFrontSrc("IMG_8162.png"), alt: "PMG measuring tape - closed front view", thumbClass: "thumb-slide-4" },
+    { src: closedFrontSrc("IMG_8196.png"), alt: "PMG measuring tape - closed front view", thumbClass: "thumb-slide-5" },
 ];
 
 const QUOTE_TEXT = (

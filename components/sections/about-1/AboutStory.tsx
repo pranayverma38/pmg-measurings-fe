@@ -2,6 +2,24 @@ import Link from "next/link";
 import RevealText from "@/components/effects/RevealText";
 import PageContent from "@/components/shared/PageContent";
 import AboutProductRange from "@/components/sections/about-1/AboutProductRange";
+import { getProductCoverUrl } from "@/lib/productImages";
+import type { ProductSeries } from "@/data/products/series";
+
+const FEATURED_SERIES = [
+    "SIDE LOCK SERIES",
+    "NEW ECO SERIES",
+    "LOCK SERIES",
+    "SIGNATURE SERIES",
+    "GLASS SERIES",
+    "PRIME SERIES",
+    "ECO SERIES",
+    "GRIP SERIES",
+] as const satisfies readonly ProductSeries[];
+
+const ABOUT_PRODUCTS = FEATURED_SERIES.map((series) => ({
+    series,
+    img: getProductCoverUrl(series),
+}));
 
 const ARROW_SVG = (
     <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,7 +112,7 @@ export default function AboutStory() {
                     ))}
                 </div>
 
-                <AboutProductRange />
+                <AboutProductRange products={ABOUT_PRODUCTS} />
             </PageContent>
         </section>
     );

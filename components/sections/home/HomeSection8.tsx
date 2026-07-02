@@ -1,14 +1,9 @@
 import Image from "next/image";
 import { Fragment } from "react";
-
-const PMG_PRODUCTS_BASE = "/assets/imgs/pmgproducts";
-
-const productSrc = (series: string, file: string) =>
-    `${PMG_PRODUCTS_BASE}/${encodeURIComponent(series)}/${file}`;
+import { getProductCoverUrl } from "@/lib/productImages";
 
 type MarqueeImage = {
     series: string;
-    file: string;
     alt: string;
 };
 
@@ -23,11 +18,11 @@ const MARQUEE_ROWS: MarqueeRow[] = [
         parts: [
             "Tapes",
             "that",
-            { series: "MASTER SERIES", file: "IMG_8282.png", alt: "PMG Master Series measuring tape" },
+            { series: "MASTER SERIES", alt: "PMG Master Series measuring tape" },
             "measure",
             "every",
             "job",
-            { series: "SIGNATURE SERIES", file: "IMG_8196.png", alt: "PMG Signature Series measuring tape" },
+            { series: "SIGNATURE SERIES", alt: "PMG Signature Series measuring tape" },
             "--",
         ],
     },
@@ -36,10 +31,10 @@ const MARQUEE_ROWS: MarqueeRow[] = [
         parts: [
             "--",
             "Precision",
-            { series: "GLASS SERIES", file: "IMG_8075.png", alt: "PMG Glass Series measuring tape" },
+            { series: "GLASS SERIES", alt: "PMG Glass Series measuring tape" },
             "tools",
             "built",
-            { series: "GRIP SERIES", file: "IMG_8010.png", alt: "PMG Grip Series measuring tape" },
+            { series: "GRIP SERIES", alt: "PMG Grip Series measuring tape" },
             "to",
             "last",
         ],
@@ -48,12 +43,12 @@ const MARQUEE_ROWS: MarqueeRow[] = [
         direction: "scroll-move-right",
         parts: [
             "From",
-            { series: "LOCK SERIES", file: "IMG_7983.png", alt: "PMG Lock Series measuring tape" },
+            { series: "LOCK SERIES", alt: "PMG Lock Series measuring tape" },
             "factory",
             "floor",
             "to",
             "field",
-            { series: "ECO SERIES", file: "IMG_8241.png", alt: "PMG Eco Series measuring tape" },
+            { series: "ECO SERIES", alt: "PMG Eco Series measuring tape" },
             "site",
             "--",
         ],
@@ -64,7 +59,7 @@ function MarqueeImagePill({ image }: { image: MarqueeImage }) {
     return (
         <span className="sec-8-home-11__img-pill">
             <Image
-                src={productSrc(image.series, image.file)}
+                src={getProductCoverUrl(image.series)}
                 alt={image.alt}
                 width={400}
                 height={267}

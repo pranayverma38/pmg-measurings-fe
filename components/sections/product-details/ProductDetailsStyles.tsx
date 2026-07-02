@@ -328,42 +328,248 @@ export default function ProductDetailsStyles() {
                     }
 
                     .pd-page__highlights {
+                        position: relative;
                         margin-top: 80px;
-                        padding: 64px 0;
-                        background: #111;
+                        padding: 96px 0;
+                        overflow: hidden;
+                        background: #0a0a0a;
                     }
-                    .pd-page__highlights-grid {
-                        display: grid;
-                        gap: 32px;
+                    .pd-page__highlights-bg {
+                        position: absolute;
+                        inset: 0;
+                        pointer-events: none;
                     }
-                    .pd-page__highlight {
+                    .pd-page__highlights-glow {
+                        position: absolute;
+                        border-radius: 50%;
+                        filter: blur(80px);
+                        opacity: 0.55;
+                    }
+                    .pd-page__highlights-glow--1 {
+                        top: -120px;
+                        left: -80px;
+                        width: 420px;
+                        height: 420px;
+                        background: radial-gradient(circle, rgba(240, 70, 14, 0.35) 0%, transparent 70%);
+                    }
+                    .pd-page__highlights-glow--2 {
+                        right: -100px;
+                        bottom: -140px;
+                        width: 480px;
+                        height: 480px;
+                        background: radial-gradient(circle, rgba(255, 180, 60, 0.18) 0%, transparent 70%);
+                    }
+                    .pd-page__highlights-grid-lines {
+                        position: absolute;
+                        inset: 0;
+                        background-image:
+                            linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+                        background-size: 48px 48px;
+                        mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 20%, transparent 100%);
+                    }
+                    .pd-page__highlights-header {
+                        position: relative;
+                        z-index: 1;
                         display: flex;
+                        flex-wrap: wrap;
+                        align-items: flex-end;
+                        justify-content: space-between;
+                        gap: 32px;
+                        margin-bottom: 48px;
+                    }
+                    .pd-page__highlights-header-copy {
+                        max-width: 36rem;
+                    }
+                    .pd-page__highlights-label {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 10px;
+                        margin-bottom: 16px;
+                        font-size: 0.72rem;
+                        font-weight: 600;
+                        letter-spacing: 0.14em;
+                        text-transform: uppercase;
+                        color: var(--at-theme-primary, #f0460e);
+                    }
+                    .pd-page__highlights-label::before {
+                        content: "";
+                        display: block;
+                        width: 28px;
+                        height: 1px;
+                        background: var(--at-theme-primary, #f0460e);
+                    }
+                    .pd-page__highlights-title {
+                        margin: 0 0 14px;
+                        font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                        font-weight: 600;
+                        line-height: 1.15;
+                        letter-spacing: -0.03em;
+                        color: #fff;
+                    }
+                    .pd-page__highlights-subtitle {
+                        margin: 0;
+                        font-size: 1rem;
+                        font-weight: 500;
+                        line-height: 1.65;
+                        color: rgba(255, 255, 255, 0.58);
+                    }
+                    .pd-page__highlights-count {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        min-width: 112px;
+                        padding: 24px 28px;
+                        text-align: center;
+                        background: rgba(255, 255, 255, 0.04);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        border-radius: 16px;
+                        backdrop-filter: blur(12px);
+                    }
+                    .pd-page__highlights-count-value {
+                        font-size: 2.75rem;
+                        font-weight: 600;
+                        line-height: 1;
+                        letter-spacing: -0.04em;
+                        color: #fff;
+                    }
+                    .pd-page__highlights-count-label {
+                        margin-top: 6px;
+                        font-size: 0.72rem;
+                        font-weight: 600;
+                        letter-spacing: 0.1em;
+                        text-transform: uppercase;
+                        color: rgba(255, 255, 255, 0.45);
+                    }
+                    .pd-page__highlights-bento {
+                        position: relative;
+                        z-index: 1;
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 14px;
+                    }
+                    .pd-page__highlight-card {
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
                         gap: 20px;
-                        align-items: flex-start;
+                        min-height: 160px;
+                        padding: 28px 24px 24px;
+                        overflow: hidden;
+                        background: rgba(255, 255, 255, 0.03);
+                        border: 1px solid rgba(255, 255, 255, 0.08);
+                        border-radius: 18px;
+                        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+                    }
+                    .pd-page__highlight-card::before {
+                        content: "";
+                        position: absolute;
+                        inset: 0;
+                        border-radius: inherit;
+                        padding: 1px;
+                        background: linear-gradient(
+                            135deg,
+                            rgba(240, 70, 14, 0.45) 0%,
+                            rgba(255, 255, 255, 0.08) 40%,
+                            transparent 70%
+                        );
+                        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                        mask-composite: exclude;
+                        opacity: 0;
+                        transition: opacity 0.35s ease;
+                        pointer-events: none;
+                    }
+                    .pd-page__highlight-card:hover {
+                        transform: translateY(-6px);
+                        background: rgba(255, 255, 255, 0.06);
+                        border-color: rgba(240, 70, 14, 0.35);
+                        box-shadow:
+                            0 24px 48px rgba(0, 0, 0, 0.35),
+                            0 0 0 1px rgba(240, 70, 14, 0.12);
+                    }
+                    .pd-page__highlight-card:hover::before {
+                        opacity: 1;
+                    }
+                    .pd-page__highlight-card.is-featured {
+                        min-height: 200px;
+                        padding: 32px 28px;
+                        background: linear-gradient(145deg, rgba(240, 70, 14, 0.14) 0%, rgba(255, 255, 255, 0.04) 55%);
+                        border-color: rgba(240, 70, 14, 0.28);
+                    }
+                    .pd-page__highlight-card.is-featured .pd-page__highlight-num {
+                        font-size: clamp(3.5rem, 8vw, 5rem);
+                        color: rgba(240, 70, 14, 0.22);
+                    }
+                    .pd-page__highlight-card.is-featured .pd-page__highlight-title {
+                        font-size: clamp(1.15rem, 2vw, 1.35rem);
+                    }
+                    .pd-page__highlight-num {
+                        position: absolute;
+                        top: 12px;
+                        right: 16px;
+                        font-size: 2.5rem;
+                        font-weight: 700;
+                        line-height: 1;
+                        letter-spacing: -0.05em;
+                        color: rgba(255, 255, 255, 0.06);
+                        user-select: none;
+                        transition: color 0.35s ease, transform 0.35s ease;
+                    }
+                    .pd-page__highlight-card:hover .pd-page__highlight-num {
+                        color: rgba(240, 70, 14, 0.18);
+                        transform: scale(1.05);
+                    }
+                    .pd-page__highlight-card-body {
+                        position: relative;
+                        z-index: 1;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 16px;
+                        max-width: 22rem;
                     }
                     .pd-page__highlight-icon {
                         flex-shrink: 0;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        width: 48px;
-                        height: 48px;
+                        width: 52px;
+                        height: 52px;
                         color: #fff;
-                        background: rgba(255, 255, 255, 0.08);
-                        border-radius: 12px;
+                        background: linear-gradient(145deg, rgba(240, 70, 14, 0.9) 0%, rgba(255, 120, 50, 0.75) 100%);
+                        border-radius: 14px;
+                        box-shadow: 0 8px 24px rgba(240, 70, 14, 0.28);
+                        transition: transform 0.35s ease, box-shadow 0.35s ease;
+                    }
+                    .pd-page__highlight-card:hover .pd-page__highlight-icon {
+                        transform: scale(1.08) rotate(-3deg);
+                        box-shadow: 0 12px 32px rgba(240, 70, 14, 0.4);
                     }
                     .pd-page__highlight-title {
-                        margin: 0 0 8px;
-                        font-size: 1rem;
+                        margin: 0;
+                        font-size: 1.05rem;
                         font-weight: 600;
+                        line-height: 1.45;
                         color: #fff;
                     }
-                    .pd-page__highlight-text {
-                        margin: 0;
-                        font-size: 0.9rem;
-                        font-weight: 500;
-                        line-height: 1.6;
-                        color: rgba(255, 255, 255, 0.68);
+                    .pd-page__highlight-shine {
+                        position: absolute;
+                        top: 0;
+                        left: -120%;
+                        width: 60%;
+                        height: 100%;
+                        background: linear-gradient(
+                            105deg,
+                            transparent 0%,
+                            rgba(255, 255, 255, 0.06) 45%,
+                            transparent 100%
+                        );
+                        transform: skewX(-18deg);
+                        transition: left 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+                        pointer-events: none;
+                    }
+                    .pd-page__highlight-card:hover .pd-page__highlight-shine {
+                        left: 140%;
                     }
 
                     .pd-page__related {
@@ -505,8 +711,18 @@ export default function ProductDetailsStyles() {
                             gap: 64px;
                             align-items: start;
                         }
-                        .pd-page__highlights-grid {
+                        .pd-page__highlights-bento {
                             grid-template-columns: repeat(3, minmax(0, 1fr));
+                            gap: 16px;
+                        }
+                        .pd-page__highlight-card.is-featured {
+                            grid-column: span 2;
+                        }
+                        .pd-page__highlight-card.is-featured .pd-page__highlight-card-body {
+                            flex-direction: row;
+                            align-items: center;
+                            max-width: none;
+                            gap: 24px;
                         }
                         .pd-page__related-grid {
                             grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -539,6 +755,24 @@ export default function ProductDetailsStyles() {
                         }
                         .pd-page__highlights {
                             margin-top: 56px;
+                            padding: 72px 0;
+                        }
+                        .pd-page__highlights-header {
+                            margin-bottom: 36px;
+                        }
+                        .pd-page__highlights-count {
+                            width: 100%;
+                            flex-direction: row;
+                            justify-content: center;
+                            gap: 12px;
+                            padding: 18px 24px;
+                        }
+                        .pd-page__highlights-count-value {
+                            font-size: 2rem;
+                        }
+                        .pd-page__highlights-count-label {
+                            margin-top: 0;
+                            align-self: center;
                         }
                         .pd-page__related {
                             padding: 56px 0;

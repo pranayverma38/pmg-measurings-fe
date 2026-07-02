@@ -3,21 +3,12 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 
-const PMG_PRODUCTS_BASE = "/assets/imgs/pmgproducts";
+type HeroSlide = {
+    src: string;
+    alt: string;
+};
 
-const productSrc = (series: string, file: string) =>
-    `${PMG_PRODUCTS_BASE}/${encodeURIComponent(series)}/${file}`;
-
-const SLIDES = [
-    { src: productSrc("GLASS SERIES", "IMG_8075.png"), alt: "PMG Glass Series measuring tape" },
-    { src: productSrc("LOCKLIINE SERIES", "IMG_8119.png"), alt: "PMG Lockline Series measuring tape" },
-    { src: productSrc("PRIME SERIES", "IMG_8127.png"), alt: "PMG Prime Series measuring tape" },
-    { src: productSrc("ECO SERIES", "IMG_8242.png"), alt: "PMG Eco Series measuring tape" },
-    { src: productSrc("LINEX SERIES", "IMG_8048.png"), alt: "PMG Linex Series measuring tape" },
-    { src: productSrc("SIGNATURE SERIES", "IMG_8196.png"), alt: "PMG Signature Series measuring tape" },
-];
-
-export default function AboutHeroSlider() {
+export default function AboutHeroSlider({ slides }: { slides: HeroSlide[] }) {
     const areaRef = useRef<HTMLDivElement | null>(null);
     const trackRef = useRef<HTMLDivElement | null>(null);
 
@@ -68,7 +59,7 @@ export default function AboutHeroSlider() {
         <div ref={areaRef} className="about-hero-slider at-item-anime-area mt-60">
             <div className="about-hero-slider__viewport">
                 <div ref={trackRef} className="swiper-wrapper about-hero-slider__track">
-                    {SLIDES.map((slide, index) => (
+                    {slides.map((slide, index) => (
                         <div
                             key={index}
                             className="swiper-slide about-me-slider-thumb about-hero-slider__slide position-relative overflow-hidden rounded-2"

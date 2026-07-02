@@ -4,7 +4,7 @@ import {
     productHref,
 } from "@/data/products";
 import { PRODUCT_CATEGORIES } from "@/lib/productCategories";
-import { getProductCoverImage } from "@/lib/productImages";
+import { getProductCoverUrl } from "@/lib/productImages";
 import ProductsArchiveView, {
     type ProductCategoryData,
 } from "@/components/sections/products/ProductsArchiveView";
@@ -18,7 +18,7 @@ export default function ProductsArchive() {
         index,
         products: category.series.map((series) => ({
             series,
-            cover: getProductCoverImage(series) ?? "/assets/imgs/logopmg/pmglogo.png",
+            cover: getProductCoverUrl(series),
             href: productHref(series),
             details: getProductDetailsBySeries(series),
         })),
