@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import RevealText from "@/components/effects/RevealText";
 import PageContent from "@/components/shared/PageContent";
+import InteractiveHeroSection from "@/components/shared/InteractiveHeroSection";
 import type { ProductDetails } from "@/data/products/types";
 
 const ARROW_SVG = (
@@ -127,8 +128,8 @@ export default function ProductsArchiveView({ categories, totalSeries }: Product
 
     return (
         <div className="products-page">
-            <section className="products-hero overflow-hidden pt-120 pb-60 bg-neutral-50">
-                <PageContent>
+            <InteractiveHeroSection className="products-hero pt-120 pb-60">
+                <PageContent className="p-relative z-1">
                     <div className="products-hero__grid">
                         <div className="products-hero__copy">
                             <span className="at-btn common-black bg-transparent mb-10 rounded-0 p-0">
@@ -169,7 +170,7 @@ export default function ProductsArchiveView({ categories, totalSeries }: Product
                         </div>
                     </div>
                 </PageContent>
-            </section>
+            </InteractiveHeroSection>
 
             <section className="products-stats" aria-label="Product highlights">
                 <PageContent>

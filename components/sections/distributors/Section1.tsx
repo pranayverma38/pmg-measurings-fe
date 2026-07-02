@@ -1,5 +1,6 @@
 import RevealText from "@/components/effects/RevealText";
 import DistributorsContent from "@/components/sections/distributors/DistributorsContent";
+import InteractiveHeroSection from "@/components/shared/InteractiveHeroSection";
 
 // Distributors Section 1 - Partner hero
 
@@ -21,8 +22,8 @@ const HIGHLIGHTS = [
 
 export default function Section1() {
     return (
-        <section className="sec-1-distributors overflow-hidden pt-120 pb-60 bg-neutral-50">
-            <DistributorsContent>
+        <InteractiveHeroSection className="sec-1-distributors pt-120 pb-60">
+            <DistributorsContent className="p-relative z-1">
                 <span className="at-btn common-black bg-transparent mb-10 rounded-0 p-0">
                     <span className="text-uppercase">
                         <span className="text-1">Partner with PMG</span>
@@ -54,6 +55,6 @@ export default function Section1() {
                     ))}
                 </ul>
             </DistributorsContent>
-        </section>
+        </InteractiveHeroSection>
     );
 }

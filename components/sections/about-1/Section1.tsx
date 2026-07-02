@@ -1,6 +1,7 @@
 import RevealText from "@/components/effects/RevealText";
 import PageContent from "@/components/shared/PageContent";
 import AboutHeroSlider from "@/components/sections/about-1/AboutHeroSlider";
+import InteractiveHeroSection from "@/components/shared/InteractiveHeroSection";
 import { buildProductCoverSlides } from "@/lib/productImages";
 
 const HERO_SLIDES = buildProductCoverSlides(
@@ -26,8 +27,8 @@ const HIGHLIGHTS = [
 
 export default function Section1() {
     return (
-        <section className="sec-1-about overflow-hidden pt-120 pb-60 bg-neutral-50">
-            <PageContent>
+        <InteractiveHeroSection className="sec-1-about pt-120 pb-60">
+            <PageContent className="p-relative z-1">
                 <span className="at-btn common-black bg-transparent mb-10 rounded-0 p-0">
                     <span className="text-uppercase">
                         <span className="text-1">About PMG</span>
@@ -61,6 +62,6 @@ export default function Section1() {
             </PageContent>
 
             <AboutHeroSlider slides={HERO_SLIDES} />
-        </section>
+        </InteractiveHeroSection>
     );
 }

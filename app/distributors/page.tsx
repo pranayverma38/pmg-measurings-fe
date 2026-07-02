@@ -19,9 +19,6 @@ export default function DistributorsPage() {
                         .distributors-content > .row {
                             margin-inline: 0;
                         }
-                        .distributors-journey-list .journey-list__item {
-                            padding-inline: 0;
-                        }
                     `,
                 }}
             />

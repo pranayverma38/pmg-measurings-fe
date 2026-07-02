@@ -1,4 +1,4 @@
-﻿import Layout from "@/components/layout/Layout";
+import Layout from "@/components/layout/Layout";
 
 import Section1 from "@/components/sections/about-1/Section1";
 import AboutStory from "@/components/sections/about-1/AboutStory";
@@ -41,16 +41,16 @@ export default function About_1() {
                             height: 420px;
                             border: 1px solid rgba(0, 0, 0, 0.08);
                         }
-                        .about-story__products .team-card-image {
+                        .about-legacy__products .team-card-image {
                             border-radius: 12px;
                             overflow: hidden;
                             border: 1px solid rgba(0, 0, 0, 0.08);
                         }
-                        .about-story__products .team-card-icon {
+                        .about-legacy__products .team-card-icon {
                             opacity: 0;
                             transition: opacity 0.2s ease;
                         }
-                        .about-story__products .team-card:hover .team-card-icon {
+                        .about-legacy__products .team-card:hover .team-card-icon {
                             opacity: 1;
                         }
                     `,
