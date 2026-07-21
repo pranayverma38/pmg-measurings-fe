@@ -26,7 +26,7 @@ type ProductCardItem = {
 
 const HIGHLIGHTS = [
     { value: "20+", label: "Product series" },
-    { value: "4", label: "Core categories" },
+    { value: "3", label: "Core categories" },
     { value: "25+", label: "Years of expertise" },
 ];
 
@@ -87,7 +87,7 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                                 </RevealText>
                             </h2>
                             <p className="home-product-range__lead">
-                                From heavy-duty professional tapes to specialty blades and spirit levels —
+                                Measuring tapes, fiberglass tapes, and spirit levels —
                                 precision tools built for contractors, distributors, and tradespeople worldwide.
                             </p>
                         </div>

@@ -1,92 +1,34 @@
 import Image from "next/image";
 import { Fragment } from "react";
-import { getProductCoverUrl } from "@/lib/productImages";
-
-type MarqueeImage = {
-    series: string;
-    alt: string;
-};
 
 type MarqueeRow = {
     direction: "scroll-move-right" | "scroll-move-left";
-    parts: (string | MarqueeImage)[];
+    parts: string[];
 };
 
 const MARQUEE_ROWS: MarqueeRow[] = [
     {
         direction: "scroll-move-right",
-        parts: [
-            "Tapes",
-            "that",
-            { series: "MASTER SERIES", alt: "PMG Master Series measuring tape" },
-            "measure",
-            "every",
-            "job",
-            { series: "SIGNATURE SERIES", alt: "PMG Signature Series measuring tape" },
-            "--",
-        ],
+        parts: ["Tapes", "that", "measure", "every", "job", "--"],
     },
     {
         direction: "scroll-move-left",
-        parts: [
-            "--",
-            "Precision",
-            { series: "GLASS SERIES", alt: "PMG Glass Series measuring tape" },
-            "tools",
-            "built",
-            { series: "GRIP SERIES", alt: "PMG Grip Series measuring tape" },
-            "to",
-            "last",
-        ],
+        parts: ["--", "Precision", "tools", "built", "to", "last"],
     },
     {
         direction: "scroll-move-right",
-        parts: [
-            "From",
-            { series: "LOCK SERIES", alt: "PMG Lock Series measuring tape" },
-            "factory",
-            "floor",
-            "to",
-            "field",
-            { series: "ECO SERIES", alt: "PMG Eco Series measuring tape" },
-            "site",
-            "--",
-        ],
+        parts: ["From", "factory", "floor", "to", "field", "site", "--"],
     },
 ];
-
-function MarqueeImagePill({ image }: { image: MarqueeImage }) {
-    return (
-        <span className="sec-8-home-11__img-pill">
-            <Image
-                src={getProductCoverUrl(image.series)}
-                alt={image.alt}
-                width={400}
-                height={267}
-                loading="lazy"
-                decoding="async"
-            />
-        </span>
-    );
-}
 
 function MarqueeRowContent({ row }: { row: MarqueeRow }) {
     return row.parts.map((part, index) => {
         const spacer = index > 0 ? "\u00a0\u00a0" : null;
 
-        if (typeof part === "string") {
-            return (
-                <Fragment key={index}>
-                    {spacer}
-                    {part}
-                </Fragment>
-            );
-        }
-
         return (
             <Fragment key={index}>
                 {spacer}
-                <MarqueeImagePill image={part} />
+                {part}
             </Fragment>
         );
     });

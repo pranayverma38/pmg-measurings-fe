@@ -69,7 +69,7 @@ export default function AboutHeroSlider({ slides }: { slides: HeroSlide[] }) {
                                 alt={slide.alt}
                                 fill
                                 sizes="(max-width: 768px) 80vw, 520px"
-                                className="object-fit-cover"
+                                className="object-fit-contain"
                             />
                         </div>
                     ))}

@@ -10,10 +10,10 @@ export type ProductCategory = {
 
 export const PRODUCT_CATEGORIES: ProductCategory[] = [
     {
-        id: "professional",
-        label: "Professional Series",
-        shortLabel: "Professional",
-        description: "Heavy-duty measuring tapes engineered for daily trade and industrial use.",
+        id: "measuring-tapes",
+        label: "Measuring Tapes",
+        shortLabel: "Measuring Tapes",
+        description: "Precision measuring tapes for trade, industry, and everyday use.",
         series: [
             "MASTER SERIES",
             "PRIME SERIES",
@@ -22,30 +22,12 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
             "LOCK SERIES",
             "LOCKLIINE SERIES",
             "SIDE LOCK SERIES",
-        ],
-    },
-    {
-        id: "everyday",
-        label: "Everyday & Value",
-        shortLabel: "Everyday",
-        description: "Reliable, accessible measuring solutions for home, DIY, and general trade.",
-        series: [
             "ECO SERIES",
             "NEW ECO SERIES",
             "POP SERIES",
             "POP SHINE SERIES",
             "LOGO SERIES",
             "TREND SERIES",
-        ],
-    },
-    {
-        id: "specialty",
-        label: "Specialty Tapes",
-        shortLabel: "Specialty",
-        description: "Material-specific blades designed for unique applications and environments.",
-        series: [
-            "FIBREGLASS GOLD SERIES",
-            "FIBREGLASS PRIME SERIES",
             "GLASS SERIES",
             "GRIP SERIES",
             "LINEX SERIES",
@@ -53,9 +35,16 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
         ],
     },
     {
-        id: "levels",
-        label: "Levels & Alignment",
-        shortLabel: "Levels",
+        id: "fiberglass-tapes",
+        label: "Fiberglass Tapes",
+        shortLabel: "Fiberglass Tapes",
+        description: "Long-distance fibreglass measuring tapes for surveying and large-scale layout.",
+        series: ["FIBREGLASS GOLD SERIES", "FIBREGLASS PRIME SERIES"],
+    },
+    {
+        id: "spirit-levels",
+        label: "Spirit Levels",
+        shortLabel: "Spirit Levels",
         description: "Precision levelling tools for construction, cabinetry, and installation work.",
         series: ["SPIRIT LEVEL"],
     },

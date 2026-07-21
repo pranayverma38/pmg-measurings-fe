@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Coming Soon">
+  <rect width="800" height="1000" fill="#F5F5F5"/>
+  <rect x="40" y="40" width="720" height="920" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+  <text x="400" y="500" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" letter-spacing="6" fill="#111111">COMING SOON</text>
+  <text x="400" y="550" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" letter-spacing="2" fill="#777777">Product imagery on the way</text>
+</svg>

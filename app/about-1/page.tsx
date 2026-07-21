@@ -40,11 +40,18 @@ export default function About_1() {
                             width: clamp(280px, 42vw, 520px);
                             height: 420px;
                             border: 1px solid rgba(0, 0, 0, 0.08);
+                            background: #fff;
+                        }
+                        .about-hero-slider__slide.swiper-slide img {
+                            inset: 36px !important;
+                            width: calc(100% - 72px) !important;
+                            height: calc(100% - 72px) !important;
+                            object-fit: contain !important;
                         }
                         .about-legacy__products .team-card-image {
                             border-radius: 12px;
                             overflow: hidden;
-                            border: 1px solid rgba(0, 0, 0, 0.08);
+                            border: 1px solid rgba(137, 62, 62, 0.08);
                         }
                         .about-legacy__products .team-card-icon {
                             opacity: 0;

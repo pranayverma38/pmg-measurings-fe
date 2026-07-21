@@ -12,18 +12,6 @@ const MEGA_ARROW = (
     </svg>
 );
 
-const PRODUCT_MENU_COLUMNS = [
-    PRODUCT_CATEGORIES[0],
-    PRODUCT_CATEGORIES[1],
-    {
-        id: "specialty-levels",
-        label: "Specialty & Levels",
-        shortLabel: "Specialty",
-        description: "Material-specific blades and precision levelling tools for specialised work.",
-        series: [...PRODUCT_CATEGORIES[2].series, ...PRODUCT_CATEGORIES[3].series] as ProductSeries[],
-    },
-];
-
 function ProductsMegaColumn({
     title,
     description,
@@ -89,7 +77,7 @@ export default function MainMenuHome() {
                 </Link>
                 <div className="at-submenu submenu at-megamenu products-megamenu">
                     <div className="row g-4">
-                        {PRODUCT_MENU_COLUMNS.map((column) => (
+                        {PRODUCT_CATEGORIES.map((column) => (
                             <div key={column.id} className="col-xl-4">
                                 <ProductsMegaColumn
                                     title={column.label}

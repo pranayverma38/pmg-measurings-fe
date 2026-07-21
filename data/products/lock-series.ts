@@ -10,7 +10,7 @@ const product: ProductDetails = {
     description: [
         "Engineered for reliability. The LOCK SERIES delivers secure locking, smooth operation, and dependable performance for everyday measuring tasks.",
         "Heavy-duty ABS housing and a strong locking system keep measurements firmly in place, while the high-visibility precision blade ensures clear readings.",
-        "Available in extended lengths up to 10m, LOCK SERIES scales from quick checks to longer layout and surveying work.",
+        "Available in extended lengths up to 7.5m, LOCK SERIES scales from quick checks to longer layout and surveying work.",
     ],
     highlights: [
         "Heavy-duty ABS housing",
@@ -21,13 +21,13 @@ const product: ProductDetails = {
         "Smooth retraction mechanism",
     ],
     additionalInfo: [
-        { label: "Available Sizes", value: "3m (16mm), 5m (19mm), 7.5m (25mm), 10m (25mm)" },
+        { label: "Available Sizes", value: "3m (16mm), 5m (19mm), 7.5m (25mm)" },
         { label: "Lock Type", value: "Strong locking system" },
         { label: "Case", value: "Heavy-duty ABS housing" },
         { label: "Blade", value: "High-visibility precision" },
         { label: "Series", value: "LOCK SERIES" },
     ],
-    sizes: ["3m (16mm)", "5m (19mm)", "7.5m (25mm)", "10m (25mm)"],
+    sizes: ["3m (16mm)", "5m (19mm)", "7.5m (25mm)"],
     colors: [
         { hex: "#F5C518", title: "Yellow" },
         { hex: "#1A1A1A", title: "Black" },

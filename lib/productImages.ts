@@ -5,13 +5,14 @@ import { formatProductSize } from "@/lib/formatProductSize";
 const PMG_PRODUCTS_DIR = path.join(process.cwd(), "public/assets/imgs/pmgproducts");
 
 export const PRODUCT_IMAGE_FALLBACK = "/assets/imgs/logopmg/pmglogo.png";
+export const PRODUCT_COMING_SOON_IMAGE = "/assets/imgs/pmgproducts/coming-soon.svg";
 
-/** Series that reuse another series' product image folder until dedicated assets exist. */
-const PRODUCT_IMAGE_SOURCE: Record<string, string> = {
-    "SIGNO SERIES": "SIGNATURE SERIES",
-    "TREND SERIES": "ECO SERIES",
-    "FIBREGLASS PRIME SERIES": "FIBREGLASS GOLD SERIES",
-};
+/** Series that show a Coming Soon placeholder instead of product photos. */
+const COMING_SOON_SERIES = new Set([
+    "SIGNO SERIES",
+    "TREND SERIES",
+    "FIBREGLASS PRIME SERIES",
+]);
 
 function productImageUrl(series: string, ...segments: string[]): string {
     const parts = [series, ...segments.filter(Boolean)].map((part) => encodeURIComponent(part));
@@ -23,7 +24,7 @@ function readImageFiles(dir: string): string[] {
         return [];
     }
 
-    return fs.readdirSync(dir).filter((file) => /\.(png|jpe?g|webp)$/i.test(file));
+    return fs.readdirSync(dir).filter((file) => /\.(png|jpe?g|webp|svg)$/i.test(file));
 }
 
 function imageNumericKey(filename: string): number {
@@ -64,11 +65,19 @@ function getSizeFolders(seriesDir: string): string[] {
         .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 }
 
+export function isComingSoonSeries(series: string): boolean {
+    return COMING_SOON_SERIES.has(series);
+}
+
 export function resolveProductImageSeries(series: string): string {
-    return PRODUCT_IMAGE_SOURCE[series] ?? series;
+    return series;
 }
 
 export function getProductImagesForSize(series: string, size: string): string[] {
+    if (isComingSoonSeries(series)) {
+        return [PRODUCT_COMING_SOON_IMAGE];
+    }
+
     const imageSeries = resolveProductImageSeries(series);
     const sizeFolder = formatProductSize(size);
     const dir = path.join(PMG_PRODUCTS_DIR, imageSeries, sizeFolder);
@@ -81,6 +90,10 @@ export function getProductImagesBySize(series: string, sizes: string[]): Record<
 }
 
 export function getProductImages(series: string): string[] {
+    if (isComingSoonSeries(series)) {
+        return [PRODUCT_COMING_SOON_IMAGE];
+    }
+
     const imageSeries = resolveProductImageSeries(series);
     const dir = path.join(PMG_PRODUCTS_DIR, imageSeries);
 
@@ -97,6 +110,10 @@ export function getProductImages(series: string): string[] {
 }
 
 export function getProductCoverImage(series: string): string | undefined {
+    if (isComingSoonSeries(series)) {
+        return PRODUCT_COMING_SOON_IMAGE;
+    }
+
     const imageSeries = resolveProductImageSeries(series);
     const dir = path.join(PMG_PRODUCTS_DIR, imageSeries);
 
