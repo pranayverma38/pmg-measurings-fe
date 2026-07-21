@@ -18,7 +18,7 @@ export default function HomeLayout({
         <MobileMenuCloneProvider>
             <ServerEffects />
             <div id="top" />
-            <HeaderHome logoVariant="home" />
+            <HeaderHome textStyle="dark" logoVariant="white" />
             <div id="smooth-wrapper">
                 <div id="smooth-content" className="z-index-3">
                     <main className={mainClass}>{children}</main>
