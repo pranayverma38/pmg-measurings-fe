@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PageContent from "@/components/shared/PageContent";
@@ -74,6 +74,14 @@ export type RelatedProduct = {
 
 function getDefaultColorTitle(colors: ProductDetails["colors"]): string {
     return colors.find(({ title }) => title.toLowerCase() === "yellow")?.title ?? colors[0]?.title ?? "";
+}
+
+function getSwatchBackground(hex: string, secondaryHex?: string): string {
+    if (!secondaryHex) {
+        return hex;
+    }
+
+    return `linear-gradient(90deg, ${hex} 0 calc(50% - 0.5px), rgba(17, 17, 17, 0.18) calc(50% - 0.5px) calc(50% + 0.5px), ${secondaryHex} calc(50% + 0.5px) 100%)`;
 }
 
 type ProductDetailsViewProps = {
@@ -250,12 +258,16 @@ export default function ProductDetailsView({
                                 <div>
                                     <span className="pd-page__option-label">Colour options</span>
                                     <div className="pd-page__colors">
-                                        {colors.map(({ hex, title: colorTitle }) => (
+                                        {colors.map(({ hex, secondaryHex, title: colorTitle }) => (
                                             <button
                                                 key={colorTitle}
                                                 type="button"
                                                 className={`pd-page__color${selectedColor === colorTitle ? " is-active" : ""}`}
-                                                style={{ backgroundColor: hex }}
+                                                style={
+                                                    {
+                                                        "--pd-swatch-bg": getSwatchBackground(hex, secondaryHex),
+                                                    } as CSSProperties
+                                                }
                                                 title={colorTitle}
                                                 aria-label={colorTitle}
                                                 onClick={() => {

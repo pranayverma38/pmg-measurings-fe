@@ -28,7 +28,7 @@ const product: ProductDetails = {
         { label: "Series", value: "SIDE LOCK SERIES" },
     ],
     sizes: ["3m (16mm)", "5m (19mm)"],
-    colors: [{ hex: "#E3F2FD", title: "Blue & White" }],
+    colors: [{ hex: "#1E4A8C", secondaryHex: "#FFFFFF", title: "Blue & White" }],
 };
 
 export default product;

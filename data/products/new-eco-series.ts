@@ -29,7 +29,7 @@ const product: ProductDetails = {
     ],
     sizes: ["3m (16mm)", "5m (19mm)"],
     colors: [
-        { hex: "#E3F2FD", title: "Blue & White" },
+        { hex: "#1E4A8C", secondaryHex: "#FFFFFF", title: "Blue & White" },
         { hex: "#D32F2F", title: "Red" },
         { hex: "#F5C518", title: "Yellow" },
         { hex: "#2E7D32", title: "Green" },

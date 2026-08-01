@@ -2,6 +2,7 @@ import type { ProductSeries } from "./series";
 
 export type ProductColor = {
     hex: string;
+    secondaryHex?: string;
     title: string;
 };
 

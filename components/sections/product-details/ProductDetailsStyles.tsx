@@ -198,20 +198,41 @@ export default function ProductDetailsStyles() {
                         gap: 12px;
                     }
                     .pd-page__color {
+                        position: relative;
                         width: 40px;
                         height: 40px;
                         padding: 0;
-                        border: 3px solid transparent;
+                        box-sizing: border-box;
+                        background: transparent;
+                        border: 2px solid rgba(17, 17, 17, 0.18);
                         border-radius: 50%;
                         cursor: pointer;
-                        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
-                        transition: transform 0.2s ease, box-shadow 0.2s ease;
+                        overflow: visible;
+                        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+                        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+                    }
+                    .pd-page__color::before,
+                    .pd-page__color::after {
+                        content: "";
+                        position: absolute;
+                        border-radius: 50%;
+                        pointer-events: none;
+                    }
+                    .pd-page__color::before {
+                        inset: 3px;
+                        background: var(--pd-swatch-bg, #fff);
+                    }
+                    .pd-page__color::after {
+                        inset: 3px;
+                        box-shadow: inset 0 0 0 1px rgba(17, 17, 17, 0.08);
                     }
                     .pd-page__color:hover {
-                        transform: scale(1.08);
+                        transform: scale(1.05);
+                        border-color: rgba(17, 17, 17, 0.3);
                     }
                     .pd-page__color.is-active {
-                        box-shadow: 0 0 0 2px #fff, 0 0 0 4px #111;
+                        border-color: #111;
+                        box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.12);
                     }
 
                     .pd-page__actions {

@@ -27,7 +27,7 @@ const product: ProductDetails = {
         { label: "Series", value: "FIBREGLASS GOLD SERIES" },
     ],
     sizes: ["15m", "30m"],
-    colors: [{ hex: "#E3F2FD", title: "Blue & White" }],
+    colors: [{ hex: "#1E4A8C", secondaryHex: "#FFFFFF", title: "Blue & White" }],
 };
 
 export default product;

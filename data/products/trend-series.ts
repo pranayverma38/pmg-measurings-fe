@@ -29,8 +29,8 @@ const product: ProductDetails = {
     ],
     sizes: ["3m (19mm)", "5m (19mm)"],
     colors: [
-        { hex: "#8B1A1A", title: "Red & Black" },
-        { hex: "#E3F2FD", title: "Blue & White" },
+        { hex: "#D32F2F", secondaryHex: "#111111", title: "Red & Black" },
+        { hex: "#1E4A8C", secondaryHex: "#FFFFFF", title: "Blue & White" },
     ],
 };
 
