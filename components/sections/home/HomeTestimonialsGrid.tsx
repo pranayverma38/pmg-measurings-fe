@@ -5,7 +5,6 @@ import RevealText from "@/components/effects/RevealText";
 
 interface Testimonial {
     quote: string;
-    avatar: string;
     name: string;
     role: string;
     delay: string;
@@ -16,7 +15,6 @@ const COL1: Testimonial[] = [
     {
         quote:
             "We switched our entire site crew to PMG Master Series tapes. The blade stays rigid at full extension and the lock holds firm — even after months of daily use on concrete and steel framing.",
-        avatar: "/assets/imgs/template/avatar/avatar-6.webp",
         name: "Rajesh Kumar",
         role: "Site Superintendent, BuildRight Infrastructure, Mumbai",
         delay: ".05",
@@ -24,7 +22,6 @@ const COL1: Testimonial[] = [
     {
         quote:
             "As a distributor, consistency matters. PMG measuring tapes arrive well-calibrated, the cases hold up in transit, and our retail customers rarely return them. The Signature Series is our top seller.",
-        avatar: "/assets/imgs/template/avatar/avatar-7.webp",
         name: "Priya Sharma",
         role: "Procurement Manager, Allied Hardware Supplies, Delhi",
         delay: ".15",
@@ -35,7 +32,6 @@ const COL2: Testimonial[] = [
     {
         quote:
             "The Grip Series is exactly what I needed for long days on the job. Comfortable in the hand, easy to read markings, and the standout is impressive for a compact 5m tape.",
-        avatar: "/assets/imgs/template/avatar/avatar-8.webp",
         name: "Arjun Menon",
         role: "Finish Carpenter, Precision Woodworks, Bengaluru",
         delay: ".1",
@@ -44,7 +40,6 @@ const COL2: Testimonial[] = [
     {
         quote:
             "Our glass installation team relies on PMG Glass Series tapes for scratch-free measurement on coated panels. Accurate, durable, and purpose-built for delicate surfaces.",
-        avatar: "/assets/imgs/template/avatar/avatar-9.webp",
         name: "Ananya Reddy",
         role: "Operations Lead, ClearView Glazing, Hyderabad",
         delay: ".2",
@@ -55,7 +50,6 @@ const COL3: Testimonial[] = [
     {
         quote:
             "For everyday trade work, the Eco Series delivers real value — reliable accuracy at a price point that works for bulk orders across our franchise network.",
-        avatar: "/assets/imgs/template/avatar/avatar-10.webp",
         name: "Vikram Patel",
         role: "Regional Buyer, TradeMart Tools, Ahmedabad",
         delay: ".15",
@@ -63,7 +57,6 @@ const COL3: Testimonial[] = [
     {
         quote:
             "The Lockline Series has been a game changer for our fabrication shop. The blade lock is rock solid and the markings stay readable after heavy daily use on oily workshop floors.",
-        avatar: "/assets/imgs/template/avatar/avatar-11.webp",
         name: "Suresh Nair",
         role: "Workshop Foreman, SteelCraft Fabricators, Chennai",
         delay: ".25",
@@ -79,7 +72,6 @@ function Card({ t }: { t: Testimonial }) {
         >
             <p className="card-home-12-testimonial__quote mb-0">{t.quote}</p>
             <footer className="card-home-12-testimonial__author">
-                <img className="card-home-12-testimonial__avatar" src={t.avatar} alt={t.name} />
                 <div className="card-home-12-testimonial__meta">
                     <span className="card-home-12-testimonial__name">{t.name}</span>
                     <span className="card-home-12-testimonial__role">{t.role}</span>

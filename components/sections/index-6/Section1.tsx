@@ -1,11 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { getProductDetailsBySeries, productHref, type ProductSeries } from "@/data/products";
 import Image from "next/image";
 import Link from "next/link";
 import RevealText from "@/components/effects/RevealText";
-import { PRODUCT_CATEGORIES } from "@/lib/productCategories";
 
 type GsapContext = { revert: () => void };
 
@@ -18,11 +16,6 @@ const ARROW_DIAGONAL_SVG = (
     </svg>
 );
 
-const HERO_STATS = [
-    { value: "25+", label: "Years of manufacturing excellence" },
-    { value: "50+", label: "Product variants across series" },
-];
-
 const HERO_ACCENT = "#F0460E";
 
 type FeaturedCategoryProduct = {
@@ -30,8 +23,7 @@ type FeaturedCategoryProduct = {
     categoryLabel: string;
     imageSrc: string;
     imageAlt: string;
-    series: ProductSeries;
-    featuredLabel: string;
+    caption: string;
 };
 
 const FEATURED_CATEGORY_PRODUCTS: FeaturedCategoryProduct[] = [
@@ -39,25 +31,22 @@ const FEATURED_CATEGORY_PRODUCTS: FeaturedCategoryProduct[] = [
         categoryId: "measuring-tapes",
         categoryLabel: "Measuring Tapes",
         imageSrc: "/assets/imgs/pmgproducts/SIGNATURE%20SERIES/3mtr/1.png",
-        imageAlt: "PMG Signature Series 3m measuring tape",
-        series: "SIGNATURE SERIES",
-        featuredLabel: "Top pick for measuring tapes",
+        imageAlt: "PMG measuring tape",
+        caption: "Compact, durable tools for everyday measuring work.",
     },
     {
         categoryId: "fiberglass-tapes",
         categoryLabel: "Fiberglass Tapes",
         imageSrc: "/assets/imgs/pmgproducts/FIBREGLASS%20GOLD%20SERIES/30mtr/1.png",
-        imageAlt: "PMG Fibreglass Gold Series 30m tape",
-        series: "FIBREGLASS GOLD SERIES",
-        featuredLabel: "Long-range site measurement",
+        imageAlt: "PMG fiberglass measuring tape",
+        caption: "Long-range tapes built for outdoor layout and site marking.",
     },
     {
         categoryId: "spirit-levels",
         categoryLabel: "Spirit Levels",
         imageSrc: "/assets/imgs/pmgproducts/SPIRIT%20LEVEL/30cm/1.png",
-        imageAlt: "PMG Spirit Level 30cm",
-        series: "SPIRIT LEVEL",
-        featuredLabel: "Quick alignment favorite",
+        imageAlt: "PMG spirit level",
+        caption: "Clean alignment tools for finishing, fitting, and install work.",
     },
 ];
 
@@ -68,10 +57,6 @@ export default function Section1() {
     const activeFeaturedProduct =
         FEATURED_CATEGORY_PRODUCTS.find((item) => item.categoryId === activeCategoryId) ??
         FEATURED_CATEGORY_PRODUCTS[0];
-    const activeProductDetails = getProductDetailsBySeries(activeFeaturedProduct.series);
-    const activeCategory =
-        PRODUCT_CATEGORIES.find((category) => category.id === activeFeaturedProduct.categoryId) ??
-        PRODUCT_CATEGORIES[0];
 
     useEffect(() => {
         const section = sectionRef.current;
@@ -96,63 +81,42 @@ export default function Section1() {
                 }
             ).context(() => {
                 const introNodes = section.querySelectorAll(
-                    ".pmg-hero-commerce__copy > *, .pmg-hero-commerce__cta-row, .pmg-hero-commerce__category-list, .pmg-hero-commerce__stat, .pmg-hero-commerce__panel-details > *"
+                    ".pmg-hero-catalog__intro-copy > *, .pmg-hero-catalog__rail, .pmg-hero-catalog__visual-note"
                 );
-                const productPanel = section.querySelector<HTMLElement>(".pmg-hero-commerce__product-panel");
-                const spotlight = section.querySelector<HTMLElement>(".pmg-hero-commerce__spotlight");
-                const image = section.querySelector<HTMLElement>(".pmg-hero-commerce__product-image");
+                const stage = section.querySelector<HTMLElement>(".pmg-hero-catalog__visual-stage");
+                const image = section.querySelector<HTMLElement>(".pmg-hero-catalog__product-image");
 
                 gsap.set(introNodes, { opacity: 0, y: 24 });
-                if (productPanel) {
-                    gsap.set(productPanel, { opacity: 0, y: 28, scale: 0.96, rotateX: 6 });
-                }
-                if (spotlight) {
-                    gsap.set(spotlight, { opacity: 0, scale: 0.9 });
+                if (stage) {
+                    gsap.set(stage, { opacity: 0, y: 32, scale: 0.98 });
                 }
 
                 const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
                 timeline
-                    .to(".pmg-hero-commerce__headline, .pmg-hero-commerce__description", {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.55,
-                        stagger: 0.1,
-                    })
-                    .to(".pmg-hero-commerce__cta-row", { opacity: 1, y: 0, duration: 0.45 }, "-=0.15")
-                    .to(".pmg-hero-commerce__category-list", { opacity: 1, y: 0, duration: 0.45 }, "-=0.1")
-                    .to(
-                        ".pmg-hero-commerce__stat, .pmg-hero-commerce__panel-details > *",
-                        { opacity: 1, y: 0, duration: 0.45, stagger: 0.08 },
-                        "-=0.1"
-                    )
-                    .to(
-                        productPanel,
-                        { opacity: 1, y: 0, scale: 1, rotateX: 0, duration: 0.75 },
-                        "-=0.5"
-                    )
-                    .to(spotlight, { opacity: 1, scale: 1, duration: 0.7 }, "-=0.55");
+                    .to(introNodes, { opacity: 1, y: 0, duration: 0.55, stagger: 0.08 })
+                    .to(stage, { opacity: 1, y: 0, scale: 1, duration: 0.7 }, "-=0.3");
 
                 if (image) {
                     gsap.to(image, {
                         y: -10,
-                        duration: 2.6,
+                        duration: 2.8,
                         ease: "sine.inOut",
                         repeat: -1,
                         yoyo: true,
                     });
                 }
 
-                if (productPanel) {
+                if (stage) {
                     const handlePointerMove = (event: PointerEvent) => {
-                        const rect = productPanel.getBoundingClientRect();
+                        const rect = stage.getBoundingClientRect();
                         const offsetX = (event.clientX - rect.left) / rect.width - 0.5;
                         const offsetY = (event.clientY - rect.top) / rect.height - 0.5;
 
-                        gsap.to(productPanel, {
-                            rotateY: offsetX * 8,
-                            rotateX: offsetY * -8,
-                            x: offsetX * 10,
-                            y: offsetY * 10,
+                        gsap.to(stage, {
+                            rotateY: offsetX * 5,
+                            rotateX: offsetY * -5,
+                            x: offsetX * 8,
+                            y: offsetY * 6,
                             duration: 0.35,
                             ease: "power2.out",
                             transformPerspective: 1200,
@@ -161,7 +125,7 @@ export default function Section1() {
                     };
 
                     const handlePointerLeave = () => {
-                        gsap.to(productPanel, {
+                        gsap.to(stage, {
                             rotateY: 0,
                             rotateX: 0,
                             x: 0,
@@ -171,12 +135,12 @@ export default function Section1() {
                         });
                     };
 
-                    productPanel.addEventListener("pointermove", handlePointerMove);
-                    productPanel.addEventListener("pointerleave", handlePointerLeave);
+                    stage.addEventListener("pointermove", handlePointerMove);
+                    stage.addEventListener("pointerleave", handlePointerLeave);
 
                     cleanupPointerEvents = () => {
-                        productPanel.removeEventListener("pointermove", handlePointerMove);
-                        productPanel.removeEventListener("pointerleave", handlePointerLeave);
+                        stage.removeEventListener("pointermove", handlePointerMove);
+                        stage.removeEventListener("pointerleave", handlePointerLeave);
                     };
                 }
             }, section);
@@ -194,247 +158,280 @@ export default function Section1() {
     return (
         <section
             ref={sectionRef}
-            className="pmg-hero-commerce changeless"
-            aria-label="PMG Precision Measuring Tools Hero"
+            className="pmg-hero-catalog changeless"
+            aria-label="PMG precision tools hero"
         >
-            <div className="pmg-hero-commerce__backdrop" aria-hidden="true">
-                <div className="pmg-hero-commerce__mesh" />
-                <div className="pmg-hero-commerce__gradient" />
-                <div className="pmg-hero-commerce__spotlight" />
+            <div className="pmg-hero-catalog__backdrop" aria-hidden="true">
+                <div className="pmg-hero-catalog__grid" />
+                <div className="pmg-hero-catalog__glow pmg-hero-catalog__glow--left" />
+                <div className="pmg-hero-catalog__glow pmg-hero-catalog__glow--right" />
+                <div className="pmg-hero-catalog__wash" />
             </div>
 
             <div className="container-fluid">
-                <div className="pmg-hero-commerce__shell">
-                    <div className="pmg-hero-commerce__layout">
-                        <div className="pmg-hero-commerce__copy">
-                            <div className="pmg-hero-commerce__headline">
-                                <span className="pmg-hero-commerce__eyebrow">Precision tools for every job site</span>
-                                <h1 className="pmg-hero-commerce__title">
-                                    <span className="pmg-hero-commerce__title-line">
+                <div className="pmg-hero-catalog__shell">
+                    <div className="pmg-hero-catalog__layout">
+                        <div className="pmg-hero-catalog__intro">
+                            <div className="pmg-hero-catalog__scale" aria-hidden="true">
+                                <span />
+                                <span />
+                                <span />
+                                <span />
+                                <span />
+                                <span />
+                                <span />
+                                <span />
+                            </div>
+
+                            <div className="pmg-hero-catalog__intro-copy">
+                                <span className="pmg-hero-catalog__eyebrow">PMG precision measuring tools</span>
+
+                                <h1 className="pmg-hero-catalog__title">
+                                    <span className="pmg-hero-catalog__title-line">
                                         <RevealText>New Vision</RevealText>
                                     </span>
-                                    <span className="pmg-hero-commerce__title-line pmg-hero-commerce__title-line--accent">
+                                    <span className="pmg-hero-catalog__title-line pmg-hero-catalog__title-line--accent">
                                         <RevealText>New Inches</RevealText>
                                     </span>
                                 </h1>
-                            </div>
 
-                            <p className="pmg-hero-commerce__description">
-                                PMG engineers measuring tapes, spirit levels, and industrial hand tools for
-                                the toughest job sites where accuracy, durability, and consistency are
-                                non-negotiable.
-                            </p>
+                                <p className="pmg-hero-catalog__description">
+                                    A cleaner, sharper PMG showcase for measuring tapes, fiberglass tapes,
+                                    and spirit levels.
+                                </p>
 
-                            <div className="pmg-hero-commerce__cta-row">
-                                <Link className="pmg-hero-commerce__button pmg-hero-commerce__button--primary" href="/products">
-                                    <span>Explore all products</span>
-                                    <i>{ARROW_DIAGONAL_SVG}</i>
-                                </Link>
-                                <Link className="pmg-hero-commerce__button pmg-hero-commerce__button--secondary" href="/contact-1">
-                                    <span>Get a free quote</span>
-                                    <i>{ARROW_DIAGONAL_SVG}</i>
-                                </Link>
-                            </div>
-
-                            <div className="pmg-hero-commerce__category-list">
-                                {PRODUCT_CATEGORIES.map((category) => (
-                                    <Link
-                                        key={category.id}
-                                        href={`/products#${category.id}`}
-                                        className="pmg-hero-commerce__category-pill"
-                                    >
-                                        <strong>{category.shortLabel}</strong>
-                                        <span>{category.description}</span>
+                                <div className="pmg-hero-catalog__cta-row">
+                                    <Link className="pmg-hero-catalog__button pmg-hero-catalog__button--primary" href="/products">
+                                        <span>Explore products</span>
+                                        <i>{ARROW_DIAGONAL_SVG}</i>
                                     </Link>
-                                ))}
-                            </div>
-
-                            <div className="pmg-hero-commerce__stats">
-                                {HERO_STATS.map((stat) => (
-                                    <div key={stat.label} className="pmg-hero-commerce__stat">
-                                        <span className="pmg-hero-commerce__stat-value">{stat.value}</span>
-                                        <span className="pmg-hero-commerce__stat-label">{stat.label}</span>
-                                    </div>
-                                ))}
+                                    <Link className="pmg-hero-catalog__button pmg-hero-catalog__button--secondary" href="/contact-1">
+                                        <span>Request a quote</span>
+                                        <i>{ARROW_DIAGONAL_SVG}</i>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="pmg-hero-commerce__visual">
-                            <div className="pmg-hero-commerce__product-panel">
-                                <div className="pmg-hero-commerce__panel-top">
-                                    <div className="pmg-hero-commerce__tablist" role="tablist" aria-label="Featured products by category">
-                                        {FEATURED_CATEGORY_PRODUCTS.map((product) => {
-                                            const isActive = product.categoryId === activeCategoryId;
+                        <div className="pmg-hero-catalog__visual">
+                            <div className="pmg-hero-catalog__visual-note">
+                                <span className="pmg-hero-catalog__visual-label">Category focus</span>
+                                <strong>{activeFeaturedProduct.categoryLabel}</strong>
+                                <span>{activeFeaturedProduct.caption}</span>
+                            </div>
 
-                                            return (
-                                                <button
-                                                    key={product.categoryId}
-                                                    type="button"
-                                                    role="tab"
-                                                    id={`pmg-featured-tab-${product.categoryId}`}
-                                                    aria-selected={isActive}
-                                                    aria-controls={`pmg-featured-panel-${product.categoryId}`}
-                                                    className={`pmg-hero-commerce__tab${isActive ? " pmg-hero-commerce__tab--active" : ""}`}
-                                                    onClick={() => setActiveCategoryId(product.categoryId)}
-                                                >
-                                                    <span>{product.categoryLabel}</span>
-                                                </button>
-                                            );
-                                        })}
+                            <div
+                                className="pmg-hero-catalog__visual-stage"
+                                role="tabpanel"
+                                id={`pmg-featured-panel-${activeCategoryId}`}
+                                aria-labelledby={`pmg-featured-tab-${activeCategoryId}`}
+                            >
+                                <div className="pmg-hero-catalog__visual-ring">
+                                    <div className="pmg-hero-catalog__visual-ring-inner">
+                                        <div className="pmg-hero-catalog__visual-halo" />
+                                        <div className="pmg-hero-catalog__visual-grid" />
+                                        <Image
+                                            src={activeFeaturedProduct.imageSrc}
+                                            alt={activeFeaturedProduct.imageAlt}
+                                            width={720}
+                                            height={720}
+                                            priority
+                                            className="pmg-hero-catalog__product-image"
+                                        />
                                     </div>
                                 </div>
-
-                                <div className="pmg-hero-commerce__product-stage">
-                                    <div className="pmg-hero-commerce__product-header">
-                                        <span className="pmg-hero-commerce__featured-label">Featured Product</span>
-                                        <h2 className="pmg-hero-commerce__product-title">
-                                            {activeProductDetails.title}
-                                        </h2>
-                                    </div>
-                                    <div className="pmg-hero-commerce__product-halo" />
-                                    <div className="pmg-hero-commerce__measure-guides" />
-                                    <Image
-                                        src={activeFeaturedProduct.imageSrc}
-                                        alt={activeFeaturedProduct.imageAlt}
-                                        width={720}
-                                        height={720}
-                                        priority
-                                        className="pmg-hero-commerce__product-image"
-                                    />
-                                </div>
-
-                                <div
-                                    className="pmg-hero-commerce__panel-details"
-                                    role="tabpanel"
-                                    id={`pmg-featured-panel-${activeCategoryId}`}
-                                    aria-labelledby={`pmg-featured-tab-${activeCategoryId}`}
-                                />
                             </div>
                         </div>
+                    </div>
+
+                    <div className="pmg-hero-catalog__rail" role="tablist" aria-label="Featured PMG product categories">
+                        {FEATURED_CATEGORY_PRODUCTS.map((product) => {
+                            const isActive = product.categoryId === activeCategoryId;
+
+                            return (
+                                <button
+                                    key={product.categoryId}
+                                    type="button"
+                                    role="tab"
+                                    id={`pmg-featured-tab-${product.categoryId}`}
+                                    aria-selected={isActive}
+                                    aria-controls={`pmg-featured-panel-${product.categoryId}`}
+                                    className={`pmg-hero-catalog__rail-item${isActive ? " pmg-hero-catalog__rail-item--active" : ""}`}
+                                    onClick={() => setActiveCategoryId(product.categoryId)}
+                                >
+                                    <span className="pmg-hero-catalog__rail-item-title">{product.categoryLabel}</span>
+                                    <span className="pmg-hero-catalog__rail-item-copy">{product.caption}</span>
+                                </button>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
 
+            <div className="pmg-hero-catalog__ruler" aria-hidden="true" />
+
             <style
                 dangerouslySetInnerHTML={{
                     __html: `
-                        .pmg-hero-commerce {
+                        .pmg-hero-catalog {
                             --pmg-hero-accent: ${HERO_ACCENT};
                             position: relative;
                             min-height: 100vh;
                             min-height: 100dvh;
-                            background:
-                                radial-gradient(circle at top left, rgba(255, 189, 105, 0.25), transparent 28%),
-                                linear-gradient(180deg, #f6f8fb 0%, #eef2f5 100%);
-                            color: #0f1111;
                             overflow: hidden;
+                            color: #121826;
+                            background:
+                                radial-gradient(circle at 0% 0%, rgba(255, 174, 102, 0.16), transparent 24%),
+                                linear-gradient(180deg, #fdf9f4 0%, #f3f5f8 100%);
                         }
 
-                        .pmg-hero-commerce__backdrop {
+                        .pmg-hero-catalog__backdrop {
                             position: absolute;
                             inset: 0;
                             z-index: 0;
                             pointer-events: none;
                         }
-                        .pmg-hero-commerce__mesh {
-                            position: absolute;
-                            inset: 0;
-                            background:
-                                linear-gradient(rgba(19, 25, 33, 0.04) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(19, 25, 33, 0.04) 1px, transparent 1px);
-                            background-size: 36px 36px;
-                            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), transparent 88%);
-                        }
-                        .pmg-hero-commerce__gradient {
+                        .pmg-hero-catalog__grid {
                             position: absolute;
                             inset: 0;
                             background-image:
-                                radial-gradient(circle at 85% 20%, rgba(255, 153, 0, 0.22), transparent 18%),
-                                radial-gradient(circle at 75% 65%, rgba(35, 47, 62, 0.1), transparent 24%);
+                                linear-gradient(rgba(18, 24, 38, 0.045) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(18, 24, 38, 0.045) 1px, transparent 1px);
+                            background-size: 40px 40px;
+                            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.46), transparent 92%);
                         }
-                        .pmg-hero-commerce__spotlight {
+                        .pmg-hero-catalog__glow,
+                        .pmg-hero-catalog__wash {
                             position: absolute;
-                            right: clamp(5%, 7vw, 10%);
-                            top: 14%;
-                            width: min(34vw, 420px);
-                            height: min(34vw, 420px);
-                            border-radius: 50%;
-                            background: radial-gradient(circle, rgba(255, 189, 105, 0.45) 0%, rgba(255, 189, 105, 0.12) 42%, transparent 72%);
-                            filter: blur(18px);
+                            border-radius: 999px;
+                        }
+                        .pmg-hero-catalog__glow--left {
+                            top: 16%;
+                            left: -8%;
+                            width: min(28vw, 340px);
+                            height: min(28vw, 340px);
+                            background: rgba(240, 70, 14, 0.11);
+                            filter: blur(16px);
+                        }
+                        .pmg-hero-catalog__glow--right {
+                            right: 4%;
+                            top: 8%;
+                            width: min(34vw, 440px);
+                            height: min(34vw, 440px);
+                            background: rgba(255, 198, 129, 0.2);
+                            filter: blur(14px);
+                        }
+                        .pmg-hero-catalog__wash {
+                            inset: auto -10% 12% auto;
+                            width: min(44vw, 560px);
+                            height: min(44vw, 560px);
+                            background: radial-gradient(circle, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.14) 62%, transparent 82%);
                         }
 
-                        .pmg-hero-commerce .container-fluid {
+                        .pmg-hero-catalog .container-fluid {
                             position: relative;
                             z-index: 1;
                         }
-                        .pmg-hero-commerce__shell {
+                        .pmg-hero-catalog__shell {
                             max-width: 1440px;
                             margin: 0 auto;
-                            padding: clamp(104px, 11vw, 136px) clamp(8px, 2vw, 20px) clamp(48px, 6vw, 72px);
+                            padding: clamp(96px, 9vw, 120px) clamp(8px, 2vw, 20px) clamp(78px, 7vw, 108px);
                         }
-
-                        .pmg-hero-commerce__layout {
+                        .pmg-hero-catalog__layout {
                             display: grid;
                             grid-template-columns: minmax(0, 1fr);
-                            gap: clamp(24px, 4vw, 48px);
+                            gap: clamp(24px, 3.6vw, 48px);
                             align-items: center;
+                            padding-top: 22px;
                         }
-                        .pmg-hero-commerce__copy {
+
+                        .pmg-hero-catalog__intro {
+                            display: grid;
+                            grid-template-columns: auto minmax(0, 1fr);
+                            gap: 18px;
+                            align-items: start;
                             min-width: 0;
                         }
-                        .pmg-hero-commerce__headline {
-                            margin-bottom: 20px;
+                        .pmg-hero-catalog__scale {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            width: 18px;
+                            min-height: 210px;
+                            padding: 10px 0;
+                            position: relative;
                         }
-                        .pmg-hero-commerce__eyebrow {
+                        .pmg-hero-catalog__scale::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 8px;
+                            width: 1px;
+                            background: rgba(17, 24, 39, 0.22);
+                        }
+                        .pmg-hero-catalog__scale span {
+                            position: relative;
+                            width: 100%;
+                            height: 1px;
+                            background: rgba(17, 24, 39, 0.3);
+                        }
+                        .pmg-hero-catalog__scale span:nth-child(odd) {
+                            width: 12px;
+                        }
+                        .pmg-hero-catalog__intro-copy {
+                            max-width: 500px;
+                        }
+                        .pmg-hero-catalog__eyebrow {
                             display: inline-flex;
                             align-items: center;
                             margin-bottom: 18px;
-                            padding: 8px 12px;
-                            border-radius: 10px;
-                            background: rgba(255, 153, 0, 0.12);
-                            color: #b56a00;
+                            padding: 8px 14px;
+                            border-radius: 999px;
+                            border: 1px solid rgba(240, 70, 14, 0.12);
+                            background: rgba(255, 255, 255, 0.76);
+                            color: #bf5a13;
                             font-size: 12px;
                             font-weight: 700;
                             letter-spacing: 0.08em;
                             text-transform: uppercase;
+                            box-shadow: 0 10px 24px rgba(18, 24, 38, 0.05);
                         }
-                        .pmg-hero-commerce__title {
+                        .pmg-hero-catalog__title {
                             margin: 0;
-                            font-size: clamp(3rem, 9vw, 7rem);
+                            font-size: clamp(2.9rem, 7vw, 5.4rem);
+                            line-height: 0.94;
+                            letter-spacing: -0.05em;
                             font-weight: 700;
-                            line-height: 0.92;
-                            letter-spacing: -0.04em;
                             text-transform: uppercase;
-                            color: #131921;
+                            color: #111827;
                         }
-                        .pmg-hero-commerce__title-line {
+                        .pmg-hero-catalog__title-line {
                             display: block;
                         }
-                        .pmg-hero-commerce__title-line--accent {
+                        .pmg-hero-catalog__title-line--accent {
                             color: var(--pmg-hero-accent);
                         }
-                        .pmg-hero-commerce__description {
-                            max-width: 38rem;
-                            margin: 0 0 28px;
-                            font-size: clamp(16px, 1.3vw, 18px);
+                        .pmg-hero-catalog__description {
+                            margin: 22px 0 0;
+                            max-width: 31rem;
+                            font-size: clamp(16px, 1.2vw, 17px);
                             line-height: 1.7;
-                            color: rgba(15, 17, 17, 0.72);
+                            color: rgba(17, 24, 39, 0.72);
                         }
-
-                        .pmg-hero-commerce__cta-row {
+                        .pmg-hero-catalog__cta-row {
                             display: flex;
                             flex-wrap: wrap;
-                            align-items: center;
                             gap: 12px;
-                            margin-bottom: 24px;
+                            margin-top: 28px;
                         }
-                        .pmg-hero-commerce__button {
+                        .pmg-hero-catalog__button {
                             display: inline-flex;
                             align-items: center;
                             justify-content: center;
                             gap: 12px;
                             min-height: 52px;
-                            padding: 14px 20px;
+                            padding: 14px 22px;
                             border-radius: 999px;
                             border: 1px solid transparent;
                             text-decoration: none;
@@ -447,252 +444,258 @@ export default function Section1() {
                                 background-color 0.2s ease,
                                 color 0.2s ease;
                         }
-                        .pmg-hero-commerce__button i {
+                        .pmg-hero-catalog__button i {
                             display: inline-flex;
                             line-height: 0;
                         }
-                        .pmg-hero-commerce__button:hover {
+                        .pmg-hero-catalog__button:hover {
                             transform: translateY(-2px);
                         }
-                        .pmg-hero-commerce__button--primary {
+                        .pmg-hero-catalog__button--primary {
                             background: var(--pmg-hero-accent);
-                            color: #ffffff;
-                            box-shadow: 0 18px 30px rgba(240, 70, 14, 0.26);
+                            color: #fff;
+                            box-shadow: 0 18px 36px rgba(240, 70, 14, 0.2);
                         }
-                        .pmg-hero-commerce__button--primary:hover {
-                            color: #ffffff;
+                        .pmg-hero-catalog__button--primary:hover {
+                            color: #fff;
                             background: #d83a08;
                         }
-                        .pmg-hero-commerce__button--secondary {
-                            background: rgba(255, 255, 255, 0.85);
-                            border-color: rgba(19, 25, 33, 0.12);
-                            color: #232f3e;
-                            box-shadow: 0 12px 24px rgba(19, 25, 33, 0.08);
+                        .pmg-hero-catalog__button--secondary {
+                            background: rgba(255, 255, 255, 0.8);
+                            border-color: rgba(17, 24, 39, 0.1);
+                            color: #111827;
+                            box-shadow: 0 14px 28px rgba(18, 24, 38, 0.06);
                         }
-                        .pmg-hero-commerce__button--secondary:hover {
-                            color: #131921;
-                            border-color: rgba(255, 153, 0, 0.35);
+                        .pmg-hero-catalog__button--secondary:hover {
+                            color: #111827;
+                            border-color: rgba(240, 70, 14, 0.2);
                         }
 
-                        .pmg-hero-commerce__category-list {
-                            display: grid;
-                            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-                            gap: 12px;
-                            margin-bottom: 24px;
+                        .pmg-hero-catalog__visual {
+                            position: relative;
+                            min-width: 0;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            padding-top: 28px;
                         }
-                        .pmg-hero-commerce__category-pill {
+                        .pmg-hero-catalog__visual-note {
                             display: flex;
                             flex-direction: column;
                             gap: 6px;
-                            min-height: 100%;
-                            padding: 16px 18px;
-                            border-radius: 18px;
-                            border: 1px solid rgba(15, 17, 17, 0.08);
-                            background: rgba(255, 255, 255, 0.9);
-                            text-decoration: none;
-                            box-shadow: 0 10px 24px rgba(15, 17, 17, 0.06);
-                            transition:
-                                transform 0.2s ease,
-                                box-shadow 0.2s ease,
-                                border-color 0.2s ease;
-                        }
-                        .pmg-hero-commerce__category-pill strong {
-                            color: #131921;
-                            font-size: 15px;
-                            font-weight: 700;
-                        }
-                        .pmg-hero-commerce__category-pill span {
-                            color: rgba(35, 47, 62, 0.7);
-                            font-size: 13px;
-                            line-height: 1.5;
-                        }
-                        .pmg-hero-commerce__category-pill:hover {
-                            transform: translateY(-4px);
-                            border-color: rgba(255, 153, 0, 0.25);
-                            box-shadow: 0 16px 36px rgba(15, 17, 17, 0.09);
-                        }
-
-                        .pmg-hero-commerce__stats {
-                            display: grid;
-                            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-                            gap: 14px;
-                        }
-                        .pmg-hero-commerce__stat {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 8px;
-                            padding: 22px 24px;
+                            margin-bottom: 12px;
+                            padding: 12px 14px;
+                            width: min(280px, 100%);
                             border-radius: 20px;
-                            background: linear-gradient(180deg, #232f3e 0%, #131921 100%);
-                            box-shadow: 0 20px 40px rgba(19, 25, 33, 0.16);
+                            border: 1px solid rgba(17, 24, 39, 0.08);
+                            background: rgba(255, 255, 255, 0.82);
+                            box-shadow: 0 18px 40px rgba(18, 24, 38, 0.08);
+                            backdrop-filter: blur(10px);
+                            text-align: center;
                         }
-                        .pmg-hero-commerce__stat-value {
-                            font-size: clamp(1.9rem, 3vw, 2.5rem);
-                            font-weight: 700;
-                            line-height: 1;
-                            letter-spacing: -0.03em;
-                            color: #ff9900;
-                        }
-                        .pmg-hero-commerce__stat-label {
-                            font-size: 14px;
-                            line-height: 1.6;
-                            color: rgba(255, 255, 255, 0.72);
-                        }
-
-                        .pmg-hero-commerce__visual {
-                            position: relative;
-                            min-width: 0;
-                        }
-                        .pmg-hero-commerce__product-panel {
-                            position: relative;
-                            padding: clamp(20px, 3vw, 28px);
-                            border-radius: 28px;
-                            border: 1px solid rgba(15, 17, 17, 0.08);
-                            background:
-                                linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(246, 248, 251, 0.96) 100%);
-                            box-shadow:
-                                0 18px 40px rgba(15, 17, 17, 0.08),
-                                0 2px 0 rgba(255, 255, 255, 0.65) inset;
-                        }
-                        .pmg-hero-commerce__panel-top {
-                            display: block;
-                            margin-bottom: 18px;
-                        }
-                        .pmg-hero-commerce__tablist {
-                            display: flex;
-                            flex-wrap: wrap;
-                            gap: 10px;
-                        }
-                        .pmg-hero-commerce__tab {
-                            display: inline-flex;
-                            align-items: center;
-                            justify-content: center;
-                            min-height: 42px;
-                            padding: 10px 14px;
-                            border: 1px solid rgba(19, 25, 33, 0.1);
-                            border-radius: 999px;
-                            background: rgba(255, 255, 255, 0.88);
-                            color: #232f3e;
-                            font-size: 13px;
-                            font-weight: 700;
-                            transition:
-                                background-color 0.2s ease,
-                                border-color 0.2s ease,
-                                color 0.2s ease,
-                                transform 0.2s ease;
-                        }
-                        .pmg-hero-commerce__tab:hover {
-                            transform: translateY(-1px);
-                            border-color: rgba(240, 70, 14, 0.3);
-                        }
-                        .pmg-hero-commerce__tab--active {
-                            background: #131921;
-                            border-color: #131921;
-                            color: #ffffff;
-                        }
-                        .pmg-hero-commerce__featured-label {
-                            display: inline-flex;
-                            align-items: center;
-                            margin-bottom: 10px;
+                        .pmg-hero-catalog__visual-label {
                             font-size: 11px;
                             font-weight: 700;
                             letter-spacing: 0.1em;
                             text-transform: uppercase;
                             color: var(--pmg-hero-accent);
                         }
-
-                        .pmg-hero-commerce__product-stage {
+                        .pmg-hero-catalog__visual-note strong {
+                            font-size: 1.05rem;
+                            color: #111827;
+                            line-height: 1.2;
+                        }
+                        .pmg-hero-catalog__visual-note span:last-child {
+                            font-size: 12px;
+                            line-height: 1.45;
+                            color: rgba(17, 24, 39, 0.66);
+                        }
+                        .pmg-hero-catalog__visual-stage {
                             position: relative;
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                            flex-direction: column;
-                            min-height: clamp(320px, 36vw, 520px);
-                            padding: clamp(20px, 4vw, 40px);
-                            border-radius: 24px;
-                            background:
-                                linear-gradient(180deg, rgba(244, 248, 251, 0.9) 0%, rgba(229, 237, 242, 0.96) 100%);
-                            overflow: hidden;
-                        }
-                        .pmg-hero-commerce__product-header {
-                            position: relative;
-                            z-index: 1;
+                            min-height: clamp(300px, 30vw, 420px);
                             width: 100%;
-                            margin-bottom: 8px;
-                            text-align: center;
                         }
-                        .pmg-hero-commerce__product-title {
-                            margin: 0;
-                            font-size: clamp(1.25rem, 2vw, 1.8rem);
-                            font-weight: 700;
-                            line-height: 1.2;
-                            color: #131921;
-                        }
-                        .pmg-hero-commerce__product-halo {
-                            position: absolute;
-                            inset: 16% 18%;
+                        .pmg-hero-catalog__visual-ring {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: min(100%, 430px);
+                            aspect-ratio: 1 / 1;
+                            padding: 14px;
                             border-radius: 50%;
-                            background: radial-gradient(circle, rgba(255, 153, 0, 0.28) 0%, rgba(255, 153, 0, 0.08) 42%, transparent 72%);
-                            filter: blur(6px);
+                            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 249, 252, 0.98) 100%);
+                            box-shadow:
+                                0 26px 60px rgba(18, 24, 38, 0.08),
+                                0 0 0 1px rgba(17, 24, 39, 0.06);
                         }
-                        .pmg-hero-commerce__measure-guides {
+                        .pmg-hero-catalog__visual-ring-inner {
+                            position: relative;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 50%;
+                            overflow: hidden;
+                            background:
+                                radial-gradient(circle at center, rgba(255, 255, 255, 0.96) 0%, rgba(238, 242, 247, 0.98) 100%);
+                        }
+                        .pmg-hero-catalog__visual-grid {
                             position: absolute;
                             inset: 0;
                             background-image:
-                                linear-gradient(rgba(19, 25, 33, 0.06) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(19, 25, 33, 0.06) 1px, transparent 1px);
+                                linear-gradient(rgba(17, 24, 39, 0.05) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(17, 24, 39, 0.05) 1px, transparent 1px);
                             background-size: 28px 28px;
-                            mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 35%, transparent 82%);
+                            mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.98) 34%, transparent 78%);
                         }
-                        .pmg-hero-commerce__product-image {
+                        .pmg-hero-catalog__visual-halo {
+                            position: absolute;
+                            inset: 18%;
+                            border-radius: 50%;
+                            background: radial-gradient(circle, rgba(255, 176, 104, 0.28) 0%, rgba(255, 176, 104, 0.08) 42%, transparent 74%);
+                            filter: blur(8px);
+                        }
+                        .pmg-hero-catalog__product-image {
                             position: relative;
                             z-index: 1;
-                            width: min(100%, 430px);
+                            width: min(100%, 320px);
                             height: auto;
                             object-fit: contain;
-                            filter: drop-shadow(0 26px 48px rgba(19, 25, 33, 0.22));
+                            filter: drop-shadow(0 26px 50px rgba(17, 24, 39, 0.2));
                             will-change: transform;
                         }
 
-                        .pmg-hero-commerce__panel-details {
-                            display: none;
+                        .pmg-hero-catalog__rail {
+                            display: grid;
+                            grid-template-columns: repeat(3, minmax(0, 1fr));
+                            gap: 0;
+                            margin-top: clamp(28px, 4vw, 40px);
+                            border-radius: 28px;
+                            overflow: hidden;
+                            border: 1px solid rgba(17, 24, 39, 0.12);
+                            background: rgba(255, 255, 255, 0.88);
+                            box-shadow: 0 18px 40px rgba(18, 24, 38, 0.08);
+                            backdrop-filter: blur(10px);
                         }
-                        .pmg-hero-commerce__trust-card {
+                        .pmg-hero-catalog__rail-item {
                             display: flex;
                             flex-direction: column;
+                            align-items: flex-start;
+                            justify-content: center;
                             gap: 6px;
-                            min-height: 100%;
-                            padding: 16px;
-                            border-radius: 18px;
-                            background: #fff;
-                            border: 1px solid rgba(15, 17, 17, 0.08);
+                            min-height: 112px;
+                            padding: 20px 22px;
+                            border: 0;
+                            background: transparent;
+                            color: rgba(17, 24, 39, 0.66);
+                            text-align: left;
+                            transition:
+                                background-color 0.2s ease,
+                                color 0.2s ease,
+                                box-shadow 0.2s ease;
                         }
-                        .pmg-hero-commerce__trust-title {
-                            font-size: 13px;
+                        .pmg-hero-catalog__rail-item + .pmg-hero-catalog__rail-item {
+                            border-left: 1px solid rgba(17, 24, 39, 0.08);
+                        }
+                        .pmg-hero-catalog__rail-item:hover {
+                            color: #111827;
+                            background: rgba(240, 70, 14, 0.05);
+                        }
+                        .pmg-hero-catalog__rail-item--active {
+                            background: linear-gradient(180deg, rgba(240, 70, 14, 0.1) 0%, rgba(255, 255, 255, 0.98) 100%);
+                            color: #111827;
+                            box-shadow: inset 0 3px 0 var(--pmg-hero-accent);
+                        }
+                        .pmg-hero-catalog__rail-item-title {
+                            font-size: 15px;
                             font-weight: 700;
-                            color: #131921;
+                            line-height: 1.3;
                         }
-                        .pmg-hero-commerce__trust-copy {
+                        .pmg-hero-catalog__rail-item-copy {
                             font-size: 12px;
-                            line-height: 1.6;
-                            color: rgba(35, 47, 62, 0.66);
+                            line-height: 1.55;
+                            opacity: 0.85;
                         }
 
-                        @media (min-width: 992px) {
-                            .pmg-hero-commerce__layout {
-                                grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+                        .pmg-hero-catalog__ruler {
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            height: 34px;
+                            border-top: 1px solid rgba(17, 24, 39, 0.08);
+                            background:
+                                linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(245, 247, 250, 0.96) 100%);
+                        }
+                        .pmg-hero-catalog__ruler::before {
+                            content: "";
+                            position: absolute;
+                            inset: 0;
+                            background:
+                                repeating-linear-gradient(
+                                    90deg,
+                                    rgba(17, 24, 39, 0.34) 0 1px,
+                                    transparent 1px 10px
+                                ),
+                                repeating-linear-gradient(
+                                    90deg,
+                                    rgba(17, 24, 39, 0.2) 0 1px,
+                                    transparent 1px 50px
+                                );
+                            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0 70%, transparent 70% 100%);
+                        }
+
+                        @media (min-width: 860px) {
+                            .pmg-hero-catalog__layout {
+                                grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
                             }
                         }
+
+                        @media (max-width: 991px) {
+                            .pmg-hero-catalog__visual {
+                                padding-top: 0;
+                            }
+                            .pmg-hero-catalog__visual-note {
+                                width: 100%;
+                                max-width: 360px;
+                            }
+                            .pmg-hero-catalog__rail {
+                                grid-template-columns: 1fr;
+                            }
+                            .pmg-hero-catalog__rail-item + .pmg-hero-catalog__rail-item {
+                                border-left: 0;
+                                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                            }
+                        }
+
                         @media (max-width: 767px) {
-                            .pmg-hero-commerce__shell {
-                                padding-top: 92px;
+                            .pmg-hero-catalog__shell {
+                                padding-top: 96px;
+                                padding-bottom: 90px;
                             }
-                            .pmg-hero-commerce__panel-top {
-                                flex-direction: column;
-                                align-items: stretch;
+                            .pmg-hero-catalog__layout {
+                                padding-top: 0;
                             }
-                            .pmg-hero-commerce__product-stage {
-                                min-height: 280px;
+                            .pmg-hero-catalog__intro {
+                                grid-template-columns: 1fr;
+                                gap: 14px;
+                            }
+                            .pmg-hero-catalog__scale {
+                                display: none;
+                            }
+                            .pmg-hero-catalog__title {
+                                font-size: clamp(2.6rem, 14vw, 4.2rem);
+                            }
+                            .pmg-hero-catalog__visual-stage {
+                                min-height: 300px;
+                            }
+                            .pmg-hero-catalog__rail-item {
+                                min-height: 92px;
                             }
                         }
                     `,

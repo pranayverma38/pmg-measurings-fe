@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PageContent from "@/components/shared/PageContent";
@@ -12,6 +12,18 @@ const ARROW_SVG = (
         <path
             d="M0.21967 9.40717C-0.0732232 9.70006 -0.0732232 10.1749 0.21967 10.4678C0.512563 10.7607 0.987437 10.7607 1.28033 10.4678L0.21967 9.40717ZM10.6875 0.75C10.6875 0.335786 10.3517 2.97145e-09 9.9375 1.50485e-07L3.1875 -2.70983e-07C2.77329 -2.70983e-07 2.4375 0.335786 2.4375 0.75C2.4375 1.16421 2.77329 1.5 3.1875 1.5H9.1875V7.5C9.1875 7.91421 9.52329 8.25 9.9375 8.25C10.3517 8.25 10.6875 7.91421 10.6875 7.5L10.6875 0.75ZM0.75 9.9375L1.28033 10.4678L10.4678 1.28033L9.9375 0.75L9.40717 0.21967L0.21967 9.40717L0.75 9.9375Z"
             fill="currentColor"
+        />
+    </svg>
+);
+
+const CAROUSEL_ARROW_SVG = (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path
+            d="M11.25 3.75L6 9L11.25 14.25"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         />
     </svg>
 );
@@ -78,6 +90,7 @@ export default function ProductDetailsView({
     const [isSwitching, setIsSwitching] = useState(false);
     const [selectedSize, setSelectedSize] = useState(sizes[0] ?? "");
     const [selectedColor, setSelectedColor] = useState(colors[0]?.hex ?? "");
+    const switchTimeoutRef = useRef<number | null>(null);
 
     const images = useMemo(() => {
         const sizeImages = imagesBySize[selectedSize] ?? [];
@@ -88,18 +101,53 @@ export default function ProductDetailsView({
         setActiveImage(0);
     }, [selectedSize]);
 
+    useEffect(() => () => {
+        if (switchTimeoutRef.current !== null) {
+            window.clearTimeout(switchTimeoutRef.current);
+        }
+    }, []);
+
     const quickSpecs = additionalInfo
         .filter(({ label }) => !/^Blade\b/i.test(label))
         .slice(0, 4);
 
     const selectImage = useCallback((index: number) => {
-        if (index === activeImage) return;
+        if (images.length <= 1 || index === activeImage) return;
+
+        if (switchTimeoutRef.current !== null) {
+            window.clearTimeout(switchTimeoutRef.current);
+        }
+
         setIsSwitching(true);
-        window.setTimeout(() => {
+
+        switchTimeoutRef.current = window.setTimeout(() => {
             setActiveImage(index);
             setIsSwitching(false);
+            switchTimeoutRef.current = null;
         }, 150);
-    }, [activeImage]);
+    }, [activeImage, images.length]);
+
+    const showPreviousImage = useCallback(() => {
+        if (images.length <= 1) return;
+        selectImage((activeImage - 1 + images.length) % images.length);
+    }, [activeImage, images.length, selectImage]);
+
+    const showNextImage = useCallback(() => {
+        if (images.length <= 1) return;
+        selectImage((activeImage + 1) % images.length);
+    }, [activeImage, images.length, selectImage]);
+
+    useEffect(() => {
+        if (images.length <= 1) return;
+
+        const intervalId = window.setInterval(() => {
+            setActiveImage((current) => (current + 1) % images.length);
+        }, 3000);
+
+        return () => {
+            window.clearInterval(intervalId);
+        };
+    }, [images.length]);
 
     const activeSrc = images[activeImage] ?? images[0];
 
@@ -120,6 +168,26 @@ export default function ProductDetailsView({
                             <div
                                 className={`pd-page__main-image${isSwitching ? " is-switching" : ""}`}
                             >
+                                {images.length > 1 && (
+                                    <>
+                                        <button
+                                            type="button"
+                                            className="pd-page__gallery-arrow pd-page__gallery-arrow--prev"
+                                            onClick={showPreviousImage}
+                                            aria-label="Show previous product image"
+                                        >
+                                            {CAROUSEL_ARROW_SVG}
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="pd-page__gallery-arrow pd-page__gallery-arrow--next"
+                                            onClick={showNextImage}
+                                            aria-label="Show next product image"
+                                        >
+                                            {CAROUSEL_ARROW_SVG}
+                                        </button>
+                                    </>
+                                )}
                                 {activeSrc && (
                                     <Image
                                         src={activeSrc}
@@ -130,28 +198,6 @@ export default function ProductDetailsView({
                                     />
                                 )}
                             </div>
-                            {images.length > 1 && (
-                                <div className="pd-page__thumbs" role="list" aria-label="Product images">
-                                    {images.map((src, index) => (
-                                        <button
-                                            key={src}
-                                            type="button"
-                                            role="listitem"
-                                            className={`pd-page__thumb${activeImage === index ? " is-active" : ""}`}
-                                            onClick={() => selectImage(index)}
-                                            aria-label={`View image ${index + 1}`}
-                                            aria-current={activeImage === index ? "true" : undefined}
-                                        >
-                                            <Image
-                                                src={src}
-                                                alt=""
-                                                fill
-                                                sizes="80px"
-                                            />
-                                        </button>
-                                    ))}
-                                </div>
-                            )}
                         </div>
 
                         <div className="pd-page__info pd-page__info-panel">

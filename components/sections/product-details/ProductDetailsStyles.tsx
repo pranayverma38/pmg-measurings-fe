@@ -40,7 +40,6 @@ export default function ProductDetailsStyles() {
 
                     .pd-page__gallery {
                         display: grid;
-                        gap: 16px;
                     }
                     .pd-page__main-image {
                         position: relative;
@@ -59,32 +58,41 @@ export default function ProductDetailsStyles() {
                         opacity: 0.6;
                         transform: scale(0.98);
                     }
-                    .pd-page__thumbs {
-                        display: grid;
-                        grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
-                        gap: 10px;
-                    }
-                    .pd-page__thumb {
-                        position: relative;
-                        aspect-ratio: 1 / 1;
+                    .pd-page__gallery-arrow {
+                        position: absolute;
+                        top: 50%;
+                        z-index: 2;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 44px;
+                        height: 44px;
                         padding: 0;
-                        background: #fff;
-                        border: 2px solid rgba(0, 0, 0, 0.08);
-                        border-radius: 10px;
-                        overflow: hidden;
+                        color: #111;
+                        background: rgba(255, 255, 255, 0.92);
+                        border: 1px solid rgba(0, 0, 0, 0.08);
+                        border-radius: 999px;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
                         cursor: pointer;
-                        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+                        transform: translateY(-50%);
+                        transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
                     }
-                    .pd-page__thumb:hover {
-                        border-color: rgba(0, 0, 0, 0.2);
+                    .pd-page__gallery-arrow:hover {
+                        background: #fff;
+                        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
                     }
-                    .pd-page__thumb.is-active {
-                        border-color: #111;
-                        box-shadow: 0 0 0 1px #111;
+                    .pd-page__gallery-arrow:focus-visible {
+                        outline: 2px solid #111;
+                        outline-offset: 2px;
                     }
-                    .pd-page__thumb img {
-                        object-fit: contain;
-                        padding: 8px;
+                    .pd-page__gallery-arrow--prev {
+                        left: 18px;
+                    }
+                    .pd-page__gallery-arrow--next {
+                        right: 18px;
+                    }
+                    .pd-page__gallery-arrow--next svg {
+                        transform: rotate(180deg);
                     }
 
                     .pd-page__info {
@@ -742,6 +750,16 @@ export default function ProductDetailsStyles() {
                     }
 
                     @media (max-width: 767px) {
+                        .pd-page__gallery-arrow {
+                            width: 40px;
+                            height: 40px;
+                        }
+                        .pd-page__gallery-arrow--prev {
+                            left: 12px;
+                        }
+                        .pd-page__gallery-arrow--next {
+                            right: 12px;
+                        }
                         .pd-page__quick-specs {
                             grid-template-columns: 1fr;
                         }
