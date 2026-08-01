@@ -28,8 +28,8 @@ const product: ProductDetails = {
     ],
     sizes: ["30cm"],
     colors: [
-        { hex: "#D32F2F", title: "Red" },
         { hex: "#F5C518", title: "Yellow" },
+        { hex: "#D32F2F", title: "Red" },
         { hex: "#1E4A8C", title: "Blue" },
     ],
 };

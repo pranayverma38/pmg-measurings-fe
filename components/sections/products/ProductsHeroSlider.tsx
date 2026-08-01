@@ -14,7 +14,7 @@ const SLIDES = [
     { src: productSrc("SIGNATURE SERIES", "IMG_8196.png"), alt: "PMG Signature Series measuring tape" },
     { src: productSrc("GLASS SERIES", "IMG_8075.png"), alt: "PMG Glass Series measuring tape" },
     { src: productSrc("LOCKLIINE SERIES", "IMG_8119.png"), alt: "PMG Lockline Series measuring tape" },
-    { src: productSrc("SPIRIT LEVEL", "IMG_8339.png"), alt: "PMG Spirit Level" },
+    { src: productSrc("SPIRIT LEVEL", "30cm/yellow/1.png"), alt: "PMG Spirit Level" },
 ];
 
 export default function ProductsHeroSlider() {

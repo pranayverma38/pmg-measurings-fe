@@ -160,6 +160,7 @@ export default function ProductDetailsStyles() {
                         font-size: 0.95rem;
                         font-weight: 600;
                         line-height: 1.4;
+                        text-transform: uppercase;
                         color: #111;
                     }
 

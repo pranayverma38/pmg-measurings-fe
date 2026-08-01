@@ -53,6 +53,10 @@ function listImageFiles(dir: string): string[] {
     return sortImageFiles(readImageFiles(dir));
 }
 
+function normalizeProductFolderName(value: string): string {
+    return value.trim().toLowerCase();
+}
+
 function getSizeFolders(seriesDir: string): string[] {
     if (!fs.existsSync(seriesDir)) {
         return [];
@@ -63,6 +67,43 @@ function getSizeFolders(seriesDir: string): string[] {
         .filter((entry) => entry.isDirectory())
         .map((entry) => entry.name)
         .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+}
+
+function orderFolders(series: string, parentSegments: string[], folders: string[]): string[] {
+    if (series === "SPIRIT LEVEL" && parentSegments.length === 1) {
+        return [...folders].sort((a, b) => {
+            const aScore = normalizeProductFolderName(a) === "yellow" ? 0 : 1;
+            const bScore = normalizeProductFolderName(b) === "yellow" ? 0 : 1;
+
+            if (aScore !== bScore) {
+                return aScore - bScore;
+            }
+
+            return a.localeCompare(b, undefined, { numeric: true });
+        });
+    }
+
+    return folders;
+}
+
+function listProductImageUrlsRecursively(
+    dir: string,
+    series: string,
+    parentSegments: string[] = []
+): string[] {
+    if (!fs.existsSync(dir)) {
+        return [];
+    }
+
+    const directImages = listImageFiles(dir).map((file) => productImageUrl(series, ...parentSegments, file));
+    const childFolders = orderFolders(series, parentSegments, getSizeFolders(dir));
+
+    return [
+        ...directImages,
+        ...childFolders.flatMap((folder) =>
+            listProductImageUrlsRecursively(path.join(dir, folder), series, [...parentSegments, folder])
+        ),
+    ];
 }
 
 export function isComingSoonSeries(series: string): boolean {
@@ -82,11 +123,34 @@ export function getProductImagesForSize(series: string, size: string): string[] 
     const sizeFolder = formatProductSize(size);
     const dir = path.join(PMG_PRODUCTS_DIR, imageSeries, sizeFolder);
 
-    return listImageFiles(dir).map((file) => productImageUrl(imageSeries, sizeFolder, file));
+    return listProductImageUrlsRecursively(dir, imageSeries, [sizeFolder]);
 }
 
 export function getProductImagesBySize(series: string, sizes: string[]): Record<string, string[]> {
     return Object.fromEntries(sizes.map((size) => [size, getProductImagesForSize(series, size)]));
+}
+
+export function getProductImagesForColor(series: string, size: string, color: string): string[] {
+    if (isComingSoonSeries(series)) {
+        return [PRODUCT_COMING_SOON_IMAGE];
+    }
+
+    const imageSeries = resolveProductImageSeries(series);
+    const sizeFolder = formatProductSize(size);
+    const colorFolder = normalizeProductFolderName(color);
+    const dir = path.join(PMG_PRODUCTS_DIR, imageSeries, sizeFolder, colorFolder);
+
+    return listProductImageUrlsRecursively(dir, imageSeries, [sizeFolder, colorFolder]);
+}
+
+export function getProductImagesByColor(
+    series: string,
+    size: string,
+    colors: string[]
+): Record<string, string[]> {
+    return Object.fromEntries(
+        colors.map((color) => [normalizeProductFolderName(color), getProductImagesForColor(series, size, color)])
+    );
 }
 
 export function getProductImages(series: string): string[] {
@@ -96,17 +160,7 @@ export function getProductImages(series: string): string[] {
 
     const imageSeries = resolveProductImageSeries(series);
     const dir = path.join(PMG_PRODUCTS_DIR, imageSeries);
-
-    const sizeFolders = getSizeFolders(dir);
-    if (sizeFolders.length > 0) {
-        return sizeFolders.flatMap((sizeFolder) =>
-            listImageFiles(path.join(dir, sizeFolder)).map((file) =>
-                productImageUrl(imageSeries, sizeFolder, file)
-            )
-        );
-    }
-
-    return listImageFiles(dir).map((file) => productImageUrl(imageSeries, file));
+    return listProductImageUrlsRecursively(dir, imageSeries);
 }
 
 export function getProductCoverImage(series: string): string | undefined {
@@ -114,22 +168,7 @@ export function getProductCoverImage(series: string): string | undefined {
         return PRODUCT_COMING_SOON_IMAGE;
     }
 
-    const imageSeries = resolveProductImageSeries(series);
-    const dir = path.join(PMG_PRODUCTS_DIR, imageSeries);
-
-    const sizeFolders = getSizeFolders(dir);
-    if (sizeFolders.length > 0) {
-        for (const sizeFolder of sizeFolders) {
-            const primaryFile = listImageFiles(path.join(dir, sizeFolder))[0];
-            if (primaryFile) {
-                return productImageUrl(imageSeries, sizeFolder, primaryFile);
-            }
-        }
-        return undefined;
-    }
-
-    const primaryFile = listImageFiles(dir)[0];
-    return primaryFile ? productImageUrl(imageSeries, primaryFile) : undefined;
+    return getProductImages(series)[0];
 }
 
 export function getProductCoverUrl(series: string): string {

@@ -72,9 +72,14 @@ export type RelatedProduct = {
     cover: string;
 };
 
+function getDefaultColorTitle(colors: ProductDetails["colors"]): string {
+    return colors.find(({ title }) => title.toLowerCase() === "yellow")?.title ?? colors[0]?.title ?? "";
+}
+
 type ProductDetailsViewProps = {
     details: ProductDetails;
     imagesBySize: Record<string, string[]>;
+    imagesByColor: Record<string, string[]>;
     fallbackImages: string[];
     relatedProducts: RelatedProduct[];
 };
@@ -82,6 +87,7 @@ type ProductDetailsViewProps = {
 export default function ProductDetailsView({
     details,
     imagesBySize,
+    imagesByColor,
     fallbackImages,
     relatedProducts,
 }: ProductDetailsViewProps) {
@@ -89,17 +95,19 @@ export default function ProductDetailsView({
     const [activeImage, setActiveImage] = useState(0);
     const [isSwitching, setIsSwitching] = useState(false);
     const [selectedSize, setSelectedSize] = useState(sizes[0] ?? "");
-    const [selectedColor, setSelectedColor] = useState(colors[0]?.hex ?? "");
+    const [selectedColor, setSelectedColor] = useState(() => getDefaultColorTitle(colors));
     const switchTimeoutRef = useRef<number | null>(null);
+    const isColorDrivenGallery = series === "SPIRIT LEVEL" && Object.keys(imagesByColor).length > 0;
 
     const images = useMemo(() => {
+        if (isColorDrivenGallery) {
+            const colorImages = imagesByColor[selectedColor.toLowerCase()] ?? [];
+            return colorImages.length > 0 ? colorImages : fallbackImages;
+        }
+
         const sizeImages = imagesBySize[selectedSize] ?? [];
         return sizeImages.length > 0 ? sizeImages : fallbackImages;
-    }, [imagesBySize, selectedSize, fallbackImages]);
-
-    useEffect(() => {
-        setActiveImage(0);
-    }, [selectedSize]);
+    }, [fallbackImages, imagesByColor, imagesBySize, isColorDrivenGallery, selectedColor, selectedSize]);
 
     useEffect(() => () => {
         if (switchTimeoutRef.current !== null) {
@@ -218,7 +226,7 @@ export default function ProductDetailsView({
                                 </div>
                             )}
 
-                            {sizes.length > 0 && (
+                            {sizes.length > 0 && !isColorDrivenGallery && (
                                 <div>
                                     <span className="pd-page__option-label">Available lengths</span>
                                     <div className="pd-page__sizes">
@@ -227,7 +235,10 @@ export default function ProductDetailsView({
                                                 key={size}
                                                 type="button"
                                                 className={`pd-page__size${selectedSize === size ? " is-active" : ""}`}
-                                                onClick={() => setSelectedSize(size)}
+                                                onClick={() => {
+                                                    setSelectedSize(size);
+                                                    setActiveImage(0);
+                                                }}
                                             >
                                                 {formatProductSize(size)}
                                             </button>
@@ -242,13 +253,16 @@ export default function ProductDetailsView({
                                     <div className="pd-page__colors">
                                         {colors.map(({ hex, title: colorTitle }) => (
                                             <button
-                                                key={hex}
+                                                key={colorTitle}
                                                 type="button"
-                                                className={`pd-page__color${selectedColor === hex ? " is-active" : ""}`}
+                                                className={`pd-page__color${selectedColor === colorTitle ? " is-active" : ""}`}
                                                 style={{ backgroundColor: hex }}
                                                 title={colorTitle}
                                                 aria-label={colorTitle}
-                                                onClick={() => setSelectedColor(hex)}
+                                                onClick={() => {
+                                                    setSelectedColor(colorTitle);
+                                                    setActiveImage(0);
+                                                }}
                                             />
                                         ))}
                                     </div>

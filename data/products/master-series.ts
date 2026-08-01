@@ -24,7 +24,6 @@ const product: ProductDetails = {
         { label: "Available Sizes", value: "3m (16mm), 5m (19mm)" },
         { label: "Case", value: "Strong ABS" },
         { label: "Hook", value: "Triple rivet" },
-        { label: "Lock Type", value: "Smooth retraction mechanism" },
         { label: "Series", value: "MASTER SERIES" },
     ],
     sizes: ["3m (16mm)", "5m (19mm)"],
