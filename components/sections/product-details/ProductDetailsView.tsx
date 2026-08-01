@@ -91,7 +91,7 @@ export default function ProductDetailsView({
     fallbackImages,
     relatedProducts,
 }: ProductDetailsViewProps) {
-    const { title, series, tagline, excerpt, description, highlights, additionalInfo, sizes, colors } = details;
+    const { title, series, tagline, description, highlights, additionalInfo, sizes, colors } = details;
     const [activeImage, setActiveImage] = useState(0);
     const [isSwitching, setIsSwitching] = useState(false);
     const [selectedSize, setSelectedSize] = useState(sizes[0] ?? "");
@@ -209,9 +209,8 @@ export default function ProductDetailsView({
                         </div>
 
                         <div className="pd-page__info pd-page__info-panel">
-                            {tagline && <p className="pd-page__tagline">{tagline}</p>}
                             <h1 className="pd-page__title">{title}</h1>
-                            <p className="pd-page__excerpt">{excerpt}</p>
+                            {tagline && <p className="pd-page__tagline">{tagline}</p>}
 
                             {quickSpecs.length > 0 && (
                                 <div className="pd-page__quick-specs">

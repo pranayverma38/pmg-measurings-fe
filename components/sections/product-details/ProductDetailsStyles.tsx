@@ -114,7 +114,7 @@ export default function ProductDetailsStyles() {
                         border-radius: 999px;
                     }
                     .pd-page__tagline {
-                        margin: 0 0 10px;
+                        margin: -18px 0 0;
                         font-size: 0.78rem;
                         font-weight: 600;
                         letter-spacing: 0.12em;
@@ -128,13 +128,6 @@ export default function ProductDetailsStyles() {
                         line-height: 1.12;
                         letter-spacing: -0.03em;
                         color: #111;
-                    }
-                    .pd-page__excerpt {
-                        margin: 0;
-                        font-size: 1.05rem;
-                        font-weight: 500;
-                        line-height: 1.65;
-                        color: rgba(0, 0, 0, 0.62);
                     }
                     .pd-page__quick-specs {
                         display: grid;
