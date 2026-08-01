@@ -248,7 +248,7 @@ export default function ProductsPage() {
                             display: flex;
                             flex-direction: column;
                             flex: 1;
-                            gap: 8px;
+                            gap: 10px;
                             padding: 18px 18px 20px;
                         }
                         .products-card__tag {
@@ -269,22 +269,10 @@ export default function ProductsPage() {
                             line-height: 1.35;
                             color: #111;
                         }
-                        .products-card__excerpt {
-                            display: -webkit-box;
-                            margin: 0;
-                            font-size: 0.875rem;
-                            line-height: 1.55;
-                            color: rgba(0, 0, 0, 0.58);
-                            -webkit-line-clamp: 2;
-                            -webkit-box-orient: vertical;
-                            overflow: hidden;
-                            flex: 1;
-                        }
                         .products-card__link {
                             display: inline-flex;
                             align-items: center;
                             gap: 8px;
-                            margin-top: 4px;
                             font-size: 0.85rem;
                             font-weight: 500;
                             color: #111;

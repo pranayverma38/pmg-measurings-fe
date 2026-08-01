@@ -71,7 +71,6 @@ function ProductCard({ product, categoryLabel }: { product: ProductCardData; cat
             <div className="products-card__body">
                 <span className="products-card__tag">{categoryLabel}</span>
                 <h3 className="products-card__title">{product.series}</h3>
-                <p className="products-card__excerpt">{product.details.excerpt}</p>
                 <span className="products-card__link">
                     View series
                     <span aria-hidden="true">{ARROW_SVG}</span>

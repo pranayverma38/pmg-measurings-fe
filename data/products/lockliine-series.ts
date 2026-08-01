@@ -32,7 +32,7 @@ const product: ProductDetails = {
         { hex: "#D32F2F", title: "Red" },
         { hex: "#2E7D32", title: "Green" },
         { hex: "#1E4A8C", title: "Blue" },
-        { hex: "#1E4A8C", secondaryHex: "#FFFFFF", title: "Blue & White" },
+        { hex: "#20B2AA", secondaryHex: "#FFFFFF", title: "Turquoise & White" },
     ],
 };
 

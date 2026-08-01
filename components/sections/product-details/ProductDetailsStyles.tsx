@@ -153,6 +153,7 @@ export default function ProductDetailsStyles() {
                         font-size: 0.95rem;
                         font-weight: 600;
                         line-height: 1.4;
+                        white-space: pre-line;
                         text-transform: uppercase;
                         color: #111;
                     }
@@ -308,47 +309,6 @@ export default function ProductDetailsStyles() {
                         font-size: 1.1rem;
                         color: #111;
                     }
-                    .pd-page__specs-card {
-                        padding: 32px;
-                        background: #fff;
-                        border: 1px solid rgba(0, 0, 0, 0.08);
-                        border-radius: 16px;
-                    }
-                    .pd-page__specs-title {
-                        margin: 0 0 24px;
-                        font-size: 1.25rem;
-                        font-weight: 600;
-                        color: #111;
-                    }
-                    .pd-page__specs-list {
-                        display: grid;
-                        gap: 0;
-                        margin: 0;
-                        padding: 0;
-                        list-style: none;
-                    }
-                    .pd-page__specs-item {
-                        display: grid;
-                        grid-template-columns: 1fr 1.2fr;
-                        gap: 16px;
-                        padding: 16px 0;
-                        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-                    }
-                    .pd-page__specs-item:last-child {
-                        border-bottom: none;
-                        padding-bottom: 0;
-                    }
-                    .pd-page__specs-item dt {
-                        font-size: 0.9rem;
-                        font-weight: 500;
-                        color: rgba(0, 0, 0, 0.52);
-                    }
-                    .pd-page__specs-item dd {
-                        margin: 0;
-                        font-size: 0.95rem;
-                        font-weight: 600;
-                        color: #111;
-                    }
 
                     .pd-page__highlights {
                         position: relative;
@@ -396,9 +356,6 @@ export default function ProductDetailsStyles() {
                         z-index: 1;
                         display: flex;
                         flex-wrap: wrap;
-                        align-items: flex-end;
-                        justify-content: space-between;
-                        gap: 32px;
                         margin-bottom: 48px;
                     }
                     .pd-page__highlights-header-copy {
@@ -436,34 +393,6 @@ export default function ProductDetailsStyles() {
                         font-weight: 500;
                         line-height: 1.65;
                         color: rgba(255, 255, 255, 0.58);
-                    }
-                    .pd-page__highlights-count {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-                        min-width: 112px;
-                        padding: 24px 28px;
-                        text-align: center;
-                        background: rgba(255, 255, 255, 0.04);
-                        border: 1px solid rgba(255, 255, 255, 0.1);
-                        border-radius: 16px;
-                        backdrop-filter: blur(12px);
-                    }
-                    .pd-page__highlights-count-value {
-                        font-size: 2.75rem;
-                        font-weight: 600;
-                        line-height: 1;
-                        letter-spacing: -0.04em;
-                        color: #fff;
-                    }
-                    .pd-page__highlights-count-label {
-                        margin-top: 6px;
-                        font-size: 0.72rem;
-                        font-weight: 600;
-                        letter-spacing: 0.1em;
-                        text-transform: uppercase;
-                        color: rgba(255, 255, 255, 0.45);
                     }
                     .pd-page__highlights-bento {
                         position: relative;
@@ -729,11 +658,6 @@ export default function ProductDetailsStyles() {
                             grid-template-columns: 1fr 1fr;
                             gap: 56px;
                         }
-                        .pd-page__details-grid {
-                            grid-template-columns: 1.1fr 0.9fr;
-                            gap: 64px;
-                            align-items: start;
-                        }
                         .pd-page__highlights-bento {
                             grid-template-columns: repeat(3, minmax(0, 1fr));
                             gap: 16px;
@@ -792,20 +716,6 @@ export default function ProductDetailsStyles() {
                         }
                         .pd-page__highlights-header {
                             margin-bottom: 36px;
-                        }
-                        .pd-page__highlights-count {
-                            width: 100%;
-                            flex-direction: row;
-                            justify-content: center;
-                            gap: 12px;
-                            padding: 18px 24px;
-                        }
-                        .pd-page__highlights-count-value {
-                            font-size: 2rem;
-                        }
-                        .pd-page__highlights-count-label {
-                            margin-top: 0;
-                            align-self: center;
                         }
                         .pd-page__related {
                             padding: 56px 0;

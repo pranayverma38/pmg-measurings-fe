@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PageContent from "@/components/shared/PageContent";
 import type { ProductDetails } from "@/data/products";
-import { formatProductSize, isAvailableSizeLabel } from "@/lib/formatProductSize";
+import { formatAvailableSizes, formatProductSize, isAvailableSizeLabel } from "@/lib/formatProductSize";
 
 const ARROW_SVG = (
     <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -226,7 +226,9 @@ export default function ProductDetailsView({
                                         <div key={label} className="pd-page__quick-spec">
                                             <span className="pd-page__quick-spec-label">{label}</span>
                                             <span className="pd-page__quick-spec-value">
-                                                {isAvailableSizeLabel(label) ? formatProductSize(value) : value}
+                                                {isAvailableSizeLabel(label)
+                                                    ? formatAvailableSizes(sizes.length > 0 ? sizes : value.split(/\s*,\s*/))
+                                                    : value}
                                             </span>
                                         </div>
                                     ))}
@@ -235,7 +237,7 @@ export default function ProductDetailsView({
 
                             {sizes.length > 0 && !isColorDrivenGallery && (
                                 <div>
-                                    <span className="pd-page__option-label">Available lengths</span>
+                                    <span className="pd-page__option-label">Available sizes</span>
                                     <div className="pd-page__sizes">
                                         {sizes.map((size) => (
                                             <button
@@ -302,17 +304,6 @@ export default function ProductDetailsView({
                                     ))}
                                 </div>
                             </div>
-                            <aside className="pd-page__specs-card">
-                                <h2 className="pd-page__specs-title">Technical specifications</h2>
-                                <dl className="pd-page__specs-list">
-                                    {additionalInfo.map(({ label, value }) => (
-                                        <div key={label} className="pd-page__specs-item">
-                                            <dt>{label}</dt>
-                                            <dd>{isAvailableSizeLabel(label) ? formatProductSize(value) : value}</dd>
-                                        </div>
-                                    ))}
-                                </dl>
-                            </aside>
                         </div>
                     </div>
                 </PageContent>
@@ -335,10 +326,6 @@ export default function ProductDetailsView({
                                 <p className="pd-page__highlights-subtitle">
                                     Precision engineering and job-site durability — the details that set this series apart.
                                 </p>
-                            </div>
-                            <div className="pd-page__highlights-count" aria-hidden="true">
-                                <span className="pd-page__highlights-count-value">{highlights.length}</span>
-                                <span className="pd-page__highlights-count-label">Features</span>
                             </div>
                         </header>
                         <div className="pd-page__highlights-bento">

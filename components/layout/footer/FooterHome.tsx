@@ -21,6 +21,10 @@ const NAV_LINKS_2 = [
 
 const SOCIAL_LINKS = [
     {
+        label: "Facebook",
+        href: "#",
+    },
+    {
         label: "Instagram",
         href: "https://www.instagram.com/pmg.tapes?igsh=MXEwMG1sMTQ4Y3h3bQ%3D%3D&utm_source=qr",
     },
