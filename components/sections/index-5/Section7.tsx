@@ -173,16 +173,13 @@ export default function Section7() {
                     </div>
                     <div className="col-xxl-5 col-md-8 ms-xxl-auto">
                         <div className="d-flex align-items-center gap-5 justify-content-xxl-end">
-                            <h6 className="fw-600">
-                                245 Fifth Avenue, Suite 1800 <br />
-                                New York, NY 10016, USA
-                            </h6>
+                            <h6 className="fw-600">New Delhi, India</h6>
                             <div>
                                 <h6 className="fw-600">
-                                    <Link href="tel:+2125557398">+212-555-7398</Link>
+                                    <Link href="tel:9202331313">9202331313</Link>
                                 </h6>
                                 <h6 className="fw-600">
-                                    <Link href="mailto:hello@orisa.com">hello@orisa.com</Link>
+                                    <Link href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</Link>
                                 </h6>
                             </div>
                         </div>

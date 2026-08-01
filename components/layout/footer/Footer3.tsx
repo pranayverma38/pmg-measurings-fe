@@ -98,19 +98,16 @@ export default function Footer3() {
                             <div className="d-flex flex-column gap-3">
                                 <span className="d-block fz-font-label neutral-0 opacity-50 text-uppercase">GET IN TOUCH</span>
                                 <h6 className="text-white mb-2 fw-medium">
-                                    <a href="tel:+2125557398" className="text-white text-decoration-none">+212-555-7398</a>
+                                    <a href="tel:9202331313" className="text-white text-decoration-none">9202331313</a>
                                 </h6>
                                 <h6 className="text-white mb-2">
-                                    <a href="mailto:hello@orisa.com" className="text-white text-decoration-none">hello@orisa.com</a>
+                                    <a href="mailto:pmgmeasuringtape@gmail.com" className="text-white text-decoration-none">pmgmeasuringtape@gmail.com</a>
                                 </h6>
                             </div>
                             <div className="d-flex flex-column gap-3 mt-60">
                                 <span className="d-block fz-font-label neutral-0 opacity-50 text-uppercase">OFFICE</span>
                                 <h6 className="text-white mb-2">
-                                    <a href="#" className="text-white text-decoration-none">
-                                        245 Fifth Avenue, Suite 1800 <br />
-                                        New York, NY 10016, USA
-                                    </a>
+                                    <a href="#" className="text-white text-decoration-none">New Delhi, India</a>
                                 </h6>
                             </div>
                         </div>

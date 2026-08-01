@@ -46,13 +46,14 @@ export default function Section2() {
                                 </div>
                                 <div>
                                     <h6 className="fw-600">
-                                        <Link href="tel:+2125557398" className="text-decoration-none">
-                                            +212 - 555-7398
+                                        <Link href="tel:9202331313" className="text-decoration-none">
+                                            9202331313
                                         </Link>
                                     </h6>
                                     <h4 className="mb-0 fw-medium text-decoration-underline">
-                                        <Link href="mailto:hello@orisa.com">hello@orisa.com</Link>
+                                        <Link href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</Link>
                                     </h4>
+                                    <p className="mb-0 mt-2 text-center">New Delhi, India</p>
                                 </div>
                             </div>
                         </div>

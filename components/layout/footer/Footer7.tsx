@@ -173,13 +173,13 @@ export default function Footer7() {
                         <div className="col-xxl-3 col-lg-4 col-md-6">
                             <div className="footer-7__contact">
                                 <p className="footer-7__contact-line mb-1 at_fade_anim" data-delay="0.1">
-                                    <Link href="tel:+12125557398">+212 - 555-7398</Link>
+                                    <Link href="tel:9202331313">9202331313</Link>
                                 </p>
                                 <p className="footer-7__contact-line mb-3 at_fade_anim" data-delay="0.2">
-                                    <Link href="mailto:hello@orisa.com">hello@orisa.com</Link>
+                                    <Link href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</Link>
                                 </p>
                                 <p className="footer-7__address mb-0 at_fade_anim" data-delay="0.3">
-                                    245 Fifth Avenue, Suite 1800<br />New York, NY 10016, USA
+                                    New Delhi, India
                                 </p>
 
                                 <div className="footer-7__hours mt-30 at_fade_anim" data-delay="0.4">

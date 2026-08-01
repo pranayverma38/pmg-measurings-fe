@@ -133,7 +133,7 @@ export default function Section6() {
                             </SwiperDynamic>
                         </div>
                         <div className="col-12 text-center pt-50 z-index-1">
-                            <Link href="mailto:hello@orisa.com" className="at-btn bg-transparent p-relative">
+                            <Link href="mailto:pmgmeasuringtape@gmail.com" className="at-btn bg-transparent p-relative">
                                 <Image
                                     className="badge-zoon-in"
                                     src="/assets/imgs/icons/badge-2.svg"

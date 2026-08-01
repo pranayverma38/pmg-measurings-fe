@@ -143,13 +143,13 @@ export default function Footer9() {
                         <div className="footer-9__contact-row">
                             <div className="footer-9__contact">
                                 <p className="footer-9__contact-line mb-0 at_fade_anim" data-delay="0.1">
-                                    <Link href="tel:+12125557398">+212 - 555-7398</Link>
+                                    <Link href="tel:9202331313">9202331313</Link>
                                 </p>
                                 <p className="footer-9__contact-line mb-0 at_fade_anim" data-delay="0.2">
-                                    <Link href="mailto:hello@orisa.com">hello@orisa.com</Link>
+                                    <Link href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</Link>
                                 </p>
                                 <p className="footer-9__address mb-0 at_fade_anim" data-delay="0.3">
-                                    245 Fifth Avenue, Suite 1800<br />New York, NY 10016, USA
+                                    New Delhi, India
                                 </p>
                             </div>
                             <div className="footer-9__hours">

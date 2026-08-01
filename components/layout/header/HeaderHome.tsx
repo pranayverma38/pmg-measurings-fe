@@ -11,9 +11,9 @@ const HEADER_LOGOS = {
         height: 867,
     },
     white: {
-        src: "/assets/imgs/logopmg/white.png",
-        width: 760,
-        height: 532,
+        src: "/assets/imgs/logopmg/white-removebg-preview.png",
+        width: 597,
+        height: 418,
     },
 } as const;
 

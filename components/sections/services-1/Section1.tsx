@@ -14,15 +14,16 @@ export default function Section1() {
                     </div>
                     <div className="col-lg-3 ms-auto text-lg-end">
                         <h5>
-                            <a href="mailto:hello@orisa.com" className="text-decoration-none">
-                                hello@orisa.com
+                            <a href="mailto:pmgmeasuringtape@gmail.com" className="text-decoration-none">
+                                pmgmeasuringtape@gmail.com
                             </a>
                         </h5>
                         <h6 className="fw-600">
-                            <a href="tel:+2125557398" className="text-decoration-none">
-                                (212) 555-7398
+                            <a href="tel:9202331313" className="text-decoration-none">
+                                9202331313
                             </a>
                         </h6>
+                        <p className="mb-0">New Delhi, India</p>
                     </div>
                 </div>
             </div>

@@ -75,33 +75,29 @@ export default function Section9() {
                                             <h6 className="fw-600">We are here</h6>
                                             <div className="d-flex flex-md-row flex-column gap-md-5 gap-4">
                                                 <span className="fz-font-md neutral-500">
-                                                    205 North Michigan Avenue, Suite 810
-                                                    <br className="d-block" />
-                                                    Chicago, 60601, USA
+                                                    New Delhi, India
                                                     <br className="d-block" />
                                                     Phone:{" "}
                                                     <span className="neutral-900">
-                                                        <a href="tel:+1234567890">+1234567890</a>
+                                                        <a href="tel:9202331313">9202331313</a>
                                                     </span>
                                                     <br className="d-block" />
                                                     Email:{" "}
                                                     <span className="neutral-900">
-                                                        <a href="mailto:hello@orisa.com">hello@orisa.com</a>
+                                                        <a href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</a>
                                                     </span>
                                                 </span>
                                                 <span className="fz-font-md neutral-500 ps-md-5">
-                                                    245 Fifth Avenue, Suite 1800
-                                                    <br className="d-block" />
-                                                    New York, NY 10016, USA
+                                                    New Delhi, India
                                                     <br className="d-block" />
                                                     Phone:{" "}
                                                     <span className="neutral-900">
-                                                        <a href="tel:+2125557398">+2125557398</a>
+                                                        <a href="tel:9202331313">9202331313</a>
                                                     </span>
                                                     <br className="d-block" />
                                                     Email:{" "}
                                                     <span className="neutral-900">
-                                                        <a href="mailto:sale@orisa.com">sale@orisa.com</a>
+                                                        <a href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</a>
                                                     </span>
                                                 </span>
                                             </div>

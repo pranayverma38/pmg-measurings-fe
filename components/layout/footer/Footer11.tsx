@@ -20,9 +20,7 @@ const NAV_LINKS_2 = [
 ];
 
 const LOCATIONS = [
-    { city: "Seoul", address: "12F, Gangnam-gu, Seoul 06012, KR" },
-    { city: "London", address: "Studio 4, Shoreditch, London EC2A 3NW, UK" },
-    { city: "New York", address: "245 Fifth Avenue, Suite 1800 New York, NY 10016, USA" },
+    { city: "India", address: "New Delhi, India" },
 ];
 
 const SOCIAL_LINKS = [
@@ -162,10 +160,10 @@ export default function Footer11() {
                             <div className="footer-11__contact-hours d-flex flex-column gap-4">
                                 <div className="footer-11__contact">
                                     <p className="footer-11__contact-line mb-1">
-                                        <Link href="tel:+12125557398">+212 - 555-7398</Link>
+                                        <Link href="tel:9202331313">9202331313</Link>
                                     </p>
                                     <p className="footer-11__contact-line mb-3">
-                                        <Link href="mailto:hello@orisa.com">hello@orisa.com</Link>
+                                        <Link href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</Link>
                                     </p>
                                 </div>
                                 <div className="footer-11__locations">

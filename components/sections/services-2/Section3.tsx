@@ -102,13 +102,14 @@ export default function Section3() {
                                 </div>
                                 <div>
                                     <h6 className="fw-600">
-                                        <a href="tel:+2125557398" className="text-decoration-none">
-                                            +212 - 555-7398
+                                        <a href="tel:9202331313" className="text-decoration-none">
+                                            9202331313
                                         </a>
                                     </h6>
                                     <h4 className="mb-0 fw-medium text-decoration-underline">
-                                        <a href="mailto:hello@orisa.com">hello@orisa.com</a>
+                                        <a href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</a>
                                     </h4>
+                                    <p className="mb-0 mt-2">New Delhi, India</p>
                                 </div>
                             </div>
                         </div>

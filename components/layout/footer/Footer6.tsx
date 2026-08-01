@@ -57,20 +57,17 @@ export default function Footer6() {
                         <div className="col-lg-3 col-md-6">
                             <div className="d-flex flex-column">
                                 <p className="h6 text-white mb-2 fw-medium">
-                                    <Link href="tel:+2125557398" className="text-white text-decoration-none">
-                                        +212-555-7398
+                                    <Link href="tel:9202331313" className="text-white text-decoration-none">
+                                        9202331313
                                     </Link>
                                 </p>
                                 <p className="h6 text-white mb-2">
-                                    <Link href="mailto:hello@orisa.com" className="text-white text-decoration-none">
-                                        hello@orisa.com
+                                    <Link href="mailto:pmgmeasuringtape@gmail.com" className="text-white text-decoration-none">
+                                        pmgmeasuringtape@gmail.com
                                     </Link>
                                 </p>
                                 <p className="h6 text-white mb-2">
-                                    <Link href="#" className="text-white text-decoration-none">
-                                        245 Fifth Avenue, Suite 1800 <br />
-                                        New York, NY 10016, USA
-                                    </Link>
+                                    <Link href="#" className="text-white text-decoration-none">New Delhi, India</Link>
                                 </p>
                             </div>
                         </div>

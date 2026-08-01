@@ -100,15 +100,14 @@ export default function SideBarServer() {
                         <h5 className="at-offcanvas-title sm">Get in touch</h5>
                         <ul>
                             <li>
-                                <a className="fz-font-lg" href="tel:(212) 555-7398">(212) 555-7398</a>
+                                <a className="fz-font-lg" href="tel:9202331313">9202331313</a>
                             </li>
                             <li>
-                                <a className="fz-font-lg" href="mailto:hello@orisa.com">hello@orisa.com</a>
+                                <a className="fz-font-lg" href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</a>
                             </li>
                             <li>
                                 <a className="fz-font-lg" href="#">
-                                    245 Fifth Avenue, Suite 1800 <br />
-                                    New York, NY 10016, USA
+                                    New Delhi, India
                                 </a>
                             </li>
                         </ul>

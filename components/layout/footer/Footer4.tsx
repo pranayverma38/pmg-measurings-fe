@@ -83,7 +83,7 @@ export default function Footer4() {
                         </div>
                         <div className="col-lg-5 col-md-6 d-flex flex-column justify-content-between gap-lg-5 gap-4">
                             <h4 className="text-white mb-5 fw-medium text-decoration-underline">
-                                <a href="mailto:hello@orisastudio.com">hello@orisastudio.com</a>
+                                <a href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</a>
                             </h4>
                             <div className="d-flex flex-wrap gap-lg-5 gap-4">
                                 <div className="d-flex flex-column">
@@ -92,8 +92,7 @@ export default function Footer4() {
                                     </span>
                                     <h6 className="text-white mb-2">
                                         <Link href="#" className="text-white text-decoration-none">
-                                            245 Fifth Avenue, Suite 1800 <br className="d-block" />
-                                            New York, NY 10016, USA
+                                            New Delhi, India
                                         </Link>
                                     </h6>
                                 </div>
@@ -102,13 +101,8 @@ export default function Footer4() {
                                         Tel
                                     </span>
                                     <h6 className="text-white mb-2">
-                                        <Link href="tel:+2125557398" className="text-white text-decoration-none">
-                                            +212 - 555-7398
-                                        </Link>
-                                    </h6>
-                                    <h6 className="text-white mb-2">
-                                        <Link href="tel:+2126667399" className="text-white text-decoration-none">
-                                            +212 - 666-7399
+                                        <Link href="tel:9202331313" className="text-white text-decoration-none">
+                                            9202331313
                                         </Link>
                                     </h6>
                                 </div>

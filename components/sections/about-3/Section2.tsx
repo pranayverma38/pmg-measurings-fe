@@ -166,19 +166,16 @@ export default function Section2() {
                         <div className="d-flex flex-md-row flex-column gap-md-5 gap-3 align-items-md-end justify-content-md-between">
                             <div>
                                 <h6 className="fw-600">
-                                    <Link href="tel:+2125557398" className="text-decoration-none">
-                                        +212 - 555-7398
+                                    <Link href="tel:9202331313" className="text-decoration-none">
+                                        9202331313
                                     </Link>
                                 </h6>
                                 <h4 className="mb-0 fw-medium text-decoration-underline">
-                                    <Link href="mailto:hello@orisa.com">hello@orisa.com</Link>
+                                    <Link href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</Link>
                                 </h4>
                             </div>
                             <h6 className="fw-600">
-                                <Link href="#" className="text-decoration-none fz-font-lg fw-500">
-                                    205 North Michigan Avenue, <br />
-                                    Suite 810, Chicago, 60601, USA
-                                </Link>
+                                <Link href="#" className="text-decoration-none fz-font-lg fw-500">New Delhi, India</Link>
                             </h6>
                         </div>
                     </div>

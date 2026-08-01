@@ -75,19 +75,16 @@ export default function Footer1() {
                                             Let&apos;s Shape <br />Your Next Idea
                                         </RevealText>
                                     </h4>
-                                    <p className="mb-0">
-                                        205 North Michigan Avenue, Suite 810 <br />
-                                        Chicago, 60601, USA
-                                    </p>
+                                    <p className="mb-0">New Delhi, India</p>
                                 </div>
                             </div>
                         </div>
                         <div className="col-xxl-3 col-lg-5 col-md-8 ms-lg-auto text-lg-end">
                             <div className="at-footer-title-wrap">
-                                <h6 className="text-white">(212) 555-7398</h6>
+                                <h6 className="text-white">9202331313</h6>
                                 <h4 className="text-white text-decoration-underline text-wrap">
-                                    <a href="mailto:hello@orisa.com" className="text-white text-decoration-underline">
-                                        hello@orisa.com
+                                    <a href="mailto:pmgmeasuringtape@gmail.com" className="text-white text-decoration-underline">
+                                        pmgmeasuringtape@gmail.com
                                     </a>
                                 </h4>
                                 <div className="at-footer-widget at-footer-link pt-50">

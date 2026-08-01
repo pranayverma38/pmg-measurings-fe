@@ -53,7 +53,7 @@ export default function RootLayout({
     const isWebsiteActive = process.env.WEBSITE_ACTIVE !== "false";
 
     return (
-        <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+        <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning style={{ colorScheme: "light" }}>
             <head>
                 {/* Vendor bundle path; matches original HTML template */}
                 {/* eslint-disable-next-line @next/next/no-css-tags */}

@@ -62,14 +62,14 @@ export default function Section4() {
                                     <div className="flex-grow-1 min-w-0">
                                         <h3 className="sec-4-home-7__loc-title h6 mb-3 at-char-animation">We are here</h3>
                                         <div className="sec-4-home-7__loc-body at_fade_anim">
-                                            <p className="mb-2">205 North Michigan Avenue, Suite 810<br />Chicago, 60601, USA</p>
+                                            <p className="mb-2">New Delhi, India</p>
                                             <p className="mb-2">
                                                 Phone:{" "}
-                                                <a href="tel:+11234567890" className="sec-4-home-7__loc-strong">(123) 456-7890</a>
+                                                <a href="tel:9202331313" className="sec-4-home-7__loc-strong">9202331313</a>
                                             </p>
                                             <p className="mb-0">
                                                 Email:{" "}
-                                                <a href="mailto:hello@orisa.com" className="sec-4-home-7__loc-strong">hello@orisa.com</a>
+                                                <a href="mailto:pmgmeasuringtape@gmail.com" className="sec-4-home-7__loc-strong">pmgmeasuringtape@gmail.com</a>
                                             </p>
                                         </div>
                                     </div>
@@ -77,14 +77,14 @@ export default function Section4() {
                             </div>
                             <div className="col-lg-6 col-12">
                                 <div className="sec-4-home-7__loc-body sec-4-home-7__loc-body--solo ps-lg-4 at_fade_anim">
-                                    <p className="mb-2">245 Fifth Avenue, Suite 1800<br />New York, NY 10016, USA</p>
+                                    <p className="mb-2">New Delhi, India</p>
                                     <p className="mb-2">
                                         Phone:{" "}
-                                        <a href="tel:+12125557398" className="sec-4-home-7__loc-strong">(212) 555-7398</a>
+                                        <a href="tel:9202331313" className="sec-4-home-7__loc-strong">9202331313</a>
                                     </p>
                                     <p className="mb-0">
                                         Email:{" "}
-                                        <a href="mailto:sale@orisa.com" className="sec-4-home-7__loc-strong">sale@orisa.com</a>
+                                        <a href="mailto:pmgmeasuringtape@gmail.com" className="sec-4-home-7__loc-strong">pmgmeasuringtape@gmail.com</a>
                                     </p>
                                 </div>
                             </div>

@@ -70,8 +70,9 @@ export default function Footer13() {
                         <div className="footer-13__col at_fade_anim" data-fade-from="bottom" data-delay=".4">
                             <p className="footer-13__col-title mb-0">CONTACT</p>
                             <ul className="footer-13__col-list list-unstyled mb-0">
-                                <li><a href="mailto:studio@orisa.architecture">studio@orisa.architecture</a></li>
-                                <li><a href="tel:+12125550142">+1 (212) 555-0142</a></li>
+                                <li><a href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</a></li>
+                                <li><a href="tel:9202331313">9202331313</a></li>
+                                <li>New Delhi, India</li>
                                 <li><Link href="/contact-1">Press inquiries</Link></li>
                                 <li><Link href="/contact-1">Schedule a visit</Link></li>
                                 <li><Link href="/contact-1">Job applications</Link></li>

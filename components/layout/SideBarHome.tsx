@@ -43,10 +43,13 @@ function GetInTouch() {
             <h5 className="at-offcanvas-title sm">Get in touch</h5>
             <ul>
                 <li>
-                    <a className="fz-font-lg" href="mailto:support@pmprecision.com">support@pmprecision.com</a>
+                    <a className="fz-font-lg" href="tel:9202331313">9202331313</a>
                 </li>
                 <li>
-                    <span className="fz-font-lg">123 Precision Way, Industrial District, London</span>
+                    <a className="fz-font-lg" href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</a>
+                </li>
+                <li>
+                    <span className="fz-font-lg">New Delhi, India</span>
                 </li>
             </ul>
         </div>

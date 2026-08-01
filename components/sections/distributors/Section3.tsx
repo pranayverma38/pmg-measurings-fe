@@ -63,8 +63,12 @@ export default function Section3({ classList = "" }: { classList?: string }) {
                                     <br className="d-block" />
                                     Email:{" "}
                                     <span className="neutral-900">
-                                        <Link href="mailto:partners@pmgprecision.com">partners@pmgprecision.com</Link>
+                                        <Link href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</Link>
                                     </span>
+                                    <br className="d-block" />
+                                    Phone: <span className="neutral-900"><Link href="tel:9202331313">9202331313</Link></span>
+                                    <br className="d-block" />
+                                    Address: <span className="neutral-900">New Delhi, India</span>
                                 </span>
                             </div>
                         </div>

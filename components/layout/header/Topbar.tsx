@@ -9,15 +9,15 @@ export default function Topbar() {
                         <div className="d-flex justify-content-between align-items-center">
                             <div className="date">
                                 <p className="fz-font-label text-white my-0">
-                                    66 avenue des Champs, 75008, Paris, France
+                                    New Delhi, India
                                 </p>
                             </div>
                             <div className="d-flex align-items-center gap-4">
-                                <Link href="#" className="fz-font-label fw-500 text-white">
-                                    <span>(+01) - 456 789</span>
+                                <Link href="tel:9202331313" className="fz-font-label fw-500 text-white">
+                                    <span>9202331313</span>
                                 </Link>
-                                <Link href="#" className="fz-font-body text-white fw-500">
-                                    <span>hello@orisa.com</span>
+                                <Link href="mailto:pmgmeasuringtape@gmail.com" className="fz-font-body text-white fw-500">
+                                    <span>pmgmeasuringtape@gmail.com</span>
                                 </Link>
                             </div>
                         </div>

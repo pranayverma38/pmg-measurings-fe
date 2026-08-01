@@ -49,14 +49,12 @@ export default function Footer2() {
                                     </Link>
                                 </div>
                                 <div className="d-flex flex-column gap-3">
-                                    <h6 className="text-white mb-2 fw-medium">+212-555-7398</h6>
+                                    <h6 className="text-white mb-2 fw-medium">9202331313</h6>
                                     <h6 className="text-white mb-2">
-                                        <a href="mailto:hello@orisa.com" className="text-white text-decoration-none">hello@orisa.com</a>
+                                        <a href="mailto:pmgmeasuringtape@gmail.com" className="text-white text-decoration-none">pmgmeasuringtape@gmail.com</a>
                                     </h6>
                                     <h6 className="text-white mb-0">
-                                        245 Fifth Avenue, Suite 1800
-                                        <br />
-                                        New York, NY 10016, USA
+                                        New Delhi, India
                                     </h6>
                                 </div>
                             </div>

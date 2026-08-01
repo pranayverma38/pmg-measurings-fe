@@ -107,9 +107,9 @@ export default function Footer15() {
                     <div className="footer-15__contact-row">
                         <p className="footer-15__intro mb-0">Orisa is a digital agency creating impactful digital experiences. We think like strategists and execute with clarity, creativity, and performance.</p>
                         <address className="footer-15__contact mb-0">
-                            <a className="footer-15__contact-line" href="tel:+2125557398">+212 &ndash; 555-7398</a>
-                            <a className="footer-15__contact-line" href="mailto:hello@orisa.com">hello@orisa.com</a>
-                            <span className="footer-15__contact-line">245 Fifth Avenue, Suite 1800<br />New York, NY 10016, USA</span>
+                            <a className="footer-15__contact-line" href="tel:9202331313">9202331313</a>
+                            <a className="footer-15__contact-line" href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</a>
+                            <span className="footer-15__contact-line">New Delhi, India</span>
                         </address>
                     </div>
                     <div className="footer-15__legal">

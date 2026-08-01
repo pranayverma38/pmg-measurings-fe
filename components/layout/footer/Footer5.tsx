@@ -76,8 +76,8 @@ export default function Footer5() {
                         <div className="col-12">
                             <div className="d-flex justify-content-between">
                                 <h6 className="fw-600">
-                                    <Link href="tel:+2125557398" className="text-decoration-none">
-                                        +212 - 555-7398
+                                    <Link href="tel:9202331313" className="text-decoration-none">
+                                        9202331313
                                     </Link>
                                 </h6>
                                 <span className="at-footer-copyright neutral-900 opacity-100">Orisa © 2026</span>
@@ -85,14 +85,12 @@ export default function Footer5() {
                         </div>
                         <div className="col-xxl-3 col-md-6">
                             <h4 className="mb-0 fw-medium text-decoration-underline">
-                                <a href="mailto:hello@orisa.com">hello@orisa.com</a>
+                                <a href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</a>
                             </h4>
                         </div>
                         <div className="col-xxl-3 col-lg-5 col-md-6">
                             <h6 className="fw-600">
-                                <Link href="#" className="text-decoration-none fz-font-lg fw-500">
-                                    205 North Michigan Avenue, Suite 810, Chicago, 60601, USA
-                                </Link>
+                                <Link href="#" className="text-decoration-none fz-font-lg fw-500">New Delhi, India</Link>
                             </h6>
                         </div>
                         <div className="col-xxl-3 col-lg-5 col-md-6 d-flex flex-column justify-content-between p-relative z-3">

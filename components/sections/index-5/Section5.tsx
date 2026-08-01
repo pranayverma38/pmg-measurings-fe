@@ -37,18 +37,16 @@ export default function Section5() {
                                 <h6 className="fw-600">I&apos;m here</h6>
                                 <div className="d-flex flex-wrap gap-md-5 gap-4">
                                     <span className="fz-font-md neutral-500">
-                                        205 North Michigan Avenue, Suite 810
-                                        <br className="d-block" />
-                                        Chicago, 60601, USA
+                                        New Delhi, India
                                         <br className="d-block" />
                                         Phone:{" "}
                                         <span className="neutral-900">
-                                            <Link href="tel:+1234567890">+1234567890</Link>
+                                            <Link href="tel:9202331313">9202331313</Link>
                                         </span>
                                         <br className="d-block" />
                                         Email:{" "}
                                         <span className="neutral-900">
-                                            <Link href="mailto:hello@orisa.com">hello@orisa.com</Link>
+                                            <Link href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</Link>
                                         </span>
                                     </span>
                                 </div>

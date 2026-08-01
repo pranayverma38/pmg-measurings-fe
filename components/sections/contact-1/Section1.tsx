@@ -152,21 +152,9 @@ export default function Section1() {
                                         {OFFICE_ICON_1}
                                     </div>
                                     <div>
-                                        <h6 className="fw-600">Ofice</h6>
+                                        <h6 className="fw-600">Office</h6>
                                         <span className="fz-font-md neutral-500">
-                                            205 North Michigan Avenue, Suite 810
-                                            <br className="d-block" />
-                                            Chicago, 60601, USA
-                                            <br className="d-block" />
-                                            Phone:{" "}
-                                            <span className="neutral-900">
-                                                <a href="tel:+1234567890">+1234567890</a>
-                                            </span>
-                                            <br className="d-block" />
-                                            Email:{" "}
-                                            <span className="neutral-900">
-                                                <a href="mailto:hello@orisa.com">hello@orisa.com</a>
-                                            </span>
+                                            New Delhi, India
                                         </span>
                                     </div>
                                 </div>
@@ -175,20 +163,16 @@ export default function Section1() {
                                         {OFFICE_ICON_2}
                                     </div>
                                     <div>
-                                        <h6 className="fw-600">Studio</h6>
+                                        <h6 className="fw-600">Contact</h6>
                                         <span className="fz-font-md neutral-500">
-                                            245 Fifth Avenue, Suite 1800
-                                            <br className="d-block" />
-                                            New York, NY 10016, USA
-                                            <br className="d-block" />
                                             Phone:{" "}
                                             <span className="neutral-900">
-                                                <a href="tel:+2125557398">+2125557398</a>
+                                                <a href="tel:9202331313">9202331313</a>
                                             </span>
                                             <br className="d-block" />
                                             Email:{" "}
                                             <span className="neutral-900">
-                                                <a href="mailto:sale@orisa.com">sale@orisa.com</a>
+                                                <a href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</a>
                                             </span>
                                         </span>
                                     </div>

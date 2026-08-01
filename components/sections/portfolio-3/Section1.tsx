@@ -122,7 +122,7 @@ export default function Section1() {
                             ))}
                         </div>
                         <h6 className="fw-500 fz-font-lg text-lg-end mt-3 mb-0">
-                            hello@orisa.com / (212) 555-7398
+                            pmgmeasuringtape@gmail.com / 9202331313 / New Delhi, India
                         </h6>
                     </div>
                     <div className="col-12">

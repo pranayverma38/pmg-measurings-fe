@@ -56,13 +56,14 @@ export default function Section4() {
                             We wil answer to you shortly! Meet our Support team
                         </p>
                         <h5 className="mt-40">
-                            <a href="mailto:hello@orisa.com">
-                                hello@orisa.com
+                            <a href="mailto:pmgmeasuringtape@gmail.com">
+                                pmgmeasuringtape@gmail.com
                             </a>
                         </h5>
                         <h6>
-                            <a href="tel:+2125557398">(212) 555-7398</a>
+                            <a href="tel:9202331313">9202331313</a>
                         </h6>
+                        <p className="mb-0">New Delhi, India</p>
                     </div>
                 </div>
             </div>

@@ -55,9 +55,9 @@ const OFFICES = [
     {
         icon: OFFICE_ICON_1,
         title: "Office",
-        address: "123 Precision Way, Industrial District, London",
-        email: "support@pmprecision.com",
-        emailHref: "mailto:support@pmprecision.com",
+        address: "New Delhi, India",
+        email: "pmgmeasuringtape@gmail.com",
+        emailHref: "mailto:pmgmeasuringtape@gmail.com",
     },
 ];
 
@@ -98,6 +98,11 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                                                     Email:{" "}
                                                     <span className="neutral-900">
                                                         <Link href={office.emailHref}>{office.email}</Link>
+                                                    </span>
+                                                    <br className="d-block" />
+                                                    Phone:{" "}
+                                                    <span className="neutral-900">
+                                                        <Link href={`tel:9202331313`}>{`9202331313`}</Link>
                                                     </span>
                                                 </span>
                                             </div>

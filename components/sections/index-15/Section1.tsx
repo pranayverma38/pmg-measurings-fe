@@ -20,9 +20,9 @@ export default function Section1() {
                                 <path d="M10 11.667a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" strokeWidth="1.5" />
                                 <path d="M10 18.333c3.333-3.333 6.667-6.318 6.667-10A6.667 6.667 0 0 0 3.333 8.333c0 3.682 3.334 6.667 6.667 10Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
-                            <span className="sec-1-home-15__coord-label text-scramble text-white">27.1127&deg; S, 109.3497&deg; W</span>
+                            <span className="sec-1-home-15__coord-label text-scramble text-white">New Delhi, India</span>
                         </span>
-                        <a className="sec-1-home-15__email at_fade_anim text-white" data-fade-from="top" data-delay=".3" href="mailto:hello@orisa.com">hello@orisa.com</a>
+                        <a className="sec-1-home-15__email at_fade_anim text-white" data-fade-from="top" data-delay=".3" href="mailto:pmgmeasuringtape@gmail.com">pmgmeasuringtape@gmail.com</a>
                     </div>
 
                     <span className="sec-1-home-15__scroll" aria-hidden="true">
@@ -54,7 +54,7 @@ export default function Section1() {
                 <div className="sec-1-home-15__title-block">
                     <h1 className="sec-1-home-15__title mb-3 at_fade_anim">Orisa Agency Portfolio</h1>
                     <div className="sec-1-home-15__title-meta">
-                        <span className="sec-1-home-15__title-side at_fade_anim" data-fade-from="left" data-delay=".4">Based in Kyoto</span>
+                        <span className="sec-1-home-15__title-side at_fade_anim" data-fade-from="left" data-delay=".4">Based in New Delhi</span>
                         <span className="sec-1-home-15__title-side at_fade_anim" data-fade-from="right" data-delay=".4">Since 2012</span>
                     </div>
                 </div>
