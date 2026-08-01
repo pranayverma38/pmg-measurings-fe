@@ -214,14 +214,69 @@ export default function ProductsPage() {
                             border-color: rgba(0, 0, 0, 0.16);
                             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
                         }
+                        .products-card:focus-visible {
+                            outline: 2px solid #F0460E;
+                            outline-offset: 3px;
+                            transform: translateY(-4px);
+                            border-color: rgba(0, 0, 0, 0.16);
+                            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+                        }
                         .products-card__media {
                             position: relative;
                             aspect-ratio: 1 / 1;
                             background: linear-gradient(180deg, #f7f7f7 0%, #efefef 100%);
+                            overflow: hidden;
                         }
                         .products-card__img {
                             object-fit: contain;
                             padding: 20px;
+                            transition: transform 0.3s ease, opacity 0.3s ease;
+                        }
+                        .products-card__overlay {
+                            position: absolute;
+                            inset: 0;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-end;
+                            gap: 12px;
+                            padding: 18px;
+                            color: #fff;
+                            background: rgba(1, 13, 33, 0.8);
+                            opacity: 0;
+                            transform: translateY(10px);
+                            transition: opacity 0.25s ease, transform 0.25s ease;
+                            pointer-events: none;
+                            z-index: 1;
+                        }
+                        .products-card__overlay-copy {
+                            display: grid;
+                            gap: 5px;
+                        }
+                        .products-card__overlay-list {
+                            display: grid;
+                            gap: 4px;
+                            margin: 0;
+                            padding: 0;
+                            list-style: none;
+                        }
+                        .products-card__overlay-label {
+                            font-size: 0.66rem;
+                            font-weight: 600;
+                            letter-spacing: 0.08em;
+                            text-transform: uppercase;
+                            color: rgba(255, 255, 255, 0.78);
+                        }
+                        .products-card__overlay-text {
+                            margin: 0;
+                            font-size: 0.78rem;
+                            font-weight: 500;
+                            line-height: 1.35;
+                            color: #fff;
+                        }
+                        .products-card__overlay-text--small {
+                            font-size: 0.72rem;
+                            font-weight: 400;
+                            color: rgba(255, 255, 255, 0.92);
                         }
                         .products-card__arrow {
                             position: absolute;
@@ -239,8 +294,20 @@ export default function ProductsPage() {
                             opacity: 0;
                             transform: translateY(6px);
                             transition: opacity 0.2s ease, transform 0.2s ease;
+                            z-index: 2;
                         }
-                        .products-card:hover .products-card__arrow {
+                        .products-card:hover .products-card__arrow,
+                        .products-card:focus-visible .products-card__arrow {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                        .products-card:hover .products-card__img,
+                        .products-card:focus-visible .products-card__img {
+                            transform: scale(1.04);
+                            opacity: 0.18;
+                        }
+                        .products-card:hover .products-card__overlay,
+                        .products-card:focus-visible .products-card__overlay {
                             opacity: 1;
                             transform: translateY(0);
                         }

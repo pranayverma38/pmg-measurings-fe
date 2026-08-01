@@ -54,6 +54,9 @@ type ProductsArchiveViewProps = {
 };
 
 function ProductCard({ product, categoryLabel }: { product: ProductCardData; categoryLabel: string }) {
+    const availableLengths = product.details.sizes.join(" / ");
+    const keyFeatures = product.details.highlights.slice(0, 4);
+
     return (
         <Link href={product.href} className="products-card">
             <div className="products-card__media">
@@ -64,6 +67,26 @@ function ProductCard({ product, categoryLabel }: { product: ProductCardData; cat
                     sizes="(max-width: 576px) 50vw, (max-width: 992px) 33vw, 25vw"
                     className="products-card__img"
                 />
+                <div className="products-card__overlay" aria-hidden="true">
+                    <div className="products-card__overlay-copy">
+                        <span className="products-card__overlay-label">Key features</span>
+                        <ul className="products-card__overlay-list">
+                            {keyFeatures.map((feature) => (
+                                <li key={feature} className="products-card__overlay-text">
+                                    {feature}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="products-card__overlay-copy">
+                        <span className="products-card__overlay-label">
+                            {product.details.sizes.length > 1 ? "Lengths" : "Length"}
+                        </span>
+                        <p className="products-card__overlay-text products-card__overlay-text--small">
+                            {availableLengths}
+                        </p>
+                    </div>
+                </div>
                 <span className="products-card__arrow" aria-hidden="true">
                     {ARROW_SVG}
                 </span>
