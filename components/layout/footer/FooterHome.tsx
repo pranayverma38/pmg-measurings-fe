@@ -34,8 +34,9 @@ const SOCIAL_LINKS = [
     },
 ];
 
-const CONTACT_EMAIL = "support@pmprecision.com";
-const CONTACT_ADDRESS = "123 Precision Way, Industrial District, London";
+const CONTACT_EMAIL = "pmgmeasuringtape@gmail.com";
+const CONTACT_PHONE = "9202331313";
+const CONTACT_ADDRESS = "New Delhi, India";
 
 const CTA_ARROW_SVG = (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15" fill="none">
@@ -159,6 +160,9 @@ export default function FooterHome() {
                         <div className="col-xl-4 col-lg-7 col-md-6">
                             <div className="footer-10__contact-hours d-flex flex-wrap gap-4 gap-xxl-5">
                                 <div className="footer-10__contact">
+                                    <p className="footer-10__contact-line mb-3">
+                                        <Link href={`tel:${CONTACT_PHONE}`}>{CONTACT_PHONE}</Link>
+                                    </p>
                                     <p className="footer-10__contact-line mb-3">
                                         <Link href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</Link>
                                     </p>

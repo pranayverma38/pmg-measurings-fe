@@ -1,6 +1,5 @@
 import Layout from "@/components/layout/Layout";
 import DistributorHero from "@/components/sections/distributors/Section1";
-import DistributorBenefits from "@/components/sections/distributors/Section2";
 import DistributorInquiry from "@/components/sections/distributors/Section3";
 import StatsStrip from "@/components/sections/distributors/StatsStrip";
 
@@ -10,7 +9,6 @@ export default function DistributorsPage() {
             <div className="distributors-page">
                 <DistributorHero />
                 <StatsStrip />
-                <DistributorBenefits />
                 <DistributorInquiry classList="bg-neutral-50" />
             </div>
             <style

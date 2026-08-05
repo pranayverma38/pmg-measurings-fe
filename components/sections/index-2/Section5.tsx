@@ -199,7 +199,11 @@ export default function Section5() {
                                                 alt={avatar.alt}
                                                 width={150}
                                                 height={150}
-                                                className="w-100 h-100 object-fit-contain p-2"
+                                                className="w-100 h-100 object-fit-contain"
+                                                style={{
+                                                    transform: "translateX(-25px) scale(1.18)",
+                                                    transformOrigin: "center",
+                                                }}
                                             />
                                         </div>
                                     </div>

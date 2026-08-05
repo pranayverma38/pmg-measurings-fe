@@ -298,7 +298,7 @@ export default function ProductDetailsStyles() {
                     .pd-page__description p {
                         margin: 0 0 18px;
                         font-size: 1rem;
-                        font-weight: 500;
+                        font-weight: 400;
                         line-height: 1.75;
                         color: rgba(0, 0, 0, 0.72);
                     }
@@ -306,8 +306,13 @@ export default function ProductDetailsStyles() {
                         margin-bottom: 0;
                     }
                     .pd-page__description p:first-child {
-                        font-size: 1.1rem;
-                        color: #111;
+                        font-size: 1rem;
+                        font-weight: 400;
+                        color: rgba(0, 0, 0, 0.72);
+                    }
+                    .pd-page__description strong,
+                    .pd-page__description b {
+                        font-weight: 400;
                     }
 
                     .pd-page__highlights {

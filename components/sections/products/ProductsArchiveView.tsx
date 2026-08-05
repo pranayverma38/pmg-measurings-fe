@@ -7,6 +7,7 @@ import RevealText from "@/components/effects/RevealText";
 import PageContent from "@/components/shared/PageContent";
 import InteractiveHeroSection from "@/components/shared/InteractiveHeroSection";
 import type { ProductDetails } from "@/data/products/types";
+import { formatProductSize } from "@/lib/formatProductSize";
 
 const ARROW_SVG = (
     <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +55,9 @@ type ProductsArchiveViewProps = {
 };
 
 function ProductCard({ product, categoryLabel }: { product: ProductCardData; categoryLabel: string }) {
-    const availableLengths = product.details.sizes.join(" / ");
+    const availableLengths = product.details.sizes
+        .map((size) => formatProductSize(size).replace(/mtr/gi, "MTR"))
+        .join(" / ");
     const keyFeatures = product.details.highlights.slice(0, 4);
 
     return (
