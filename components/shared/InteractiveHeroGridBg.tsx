@@ -143,8 +143,8 @@ export default function InteractiveHeroGridBg({ sectionRef }: InteractiveHeroGri
 
                         .interactive-hero__grid-drift--secondary {
                             background-image:
-                                linear-gradient(rgba(240, 70, 14, calc(0.022 + var(--hover) * 0.045)) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(240, 70, 14, calc(0.022 + var(--hover) * 0.045)) 1px, transparent 1px);
+                                linear-gradient(rgba(21, 98, 161, calc(0.022 + var(--hover) * 0.045)) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(21, 98, 161, calc(0.022 + var(--hover) * 0.045)) 1px, transparent 1px);
                             background-size: 24px 24px;
                             animation: interactive-hero-grid-drift-reverse 14s linear infinite;
                         }
@@ -160,8 +160,8 @@ export default function InteractiveHeroGridBg({ sectionRef }: InteractiveHeroGri
                             height: min(55vh, 480px);
                             background: radial-gradient(
                                 ellipse at 35% 40%,
-                                rgba(240, 70, 14, calc(0.05 + var(--hover) * 0.08)) 0%,
-                                rgba(240, 70, 14, 0.02) 40%,
+                                rgba(21, 98, 161, calc(0.05 + var(--hover) * 0.08)) 0%,
+                                rgba(21, 98, 161, 0.02) 40%,
                                 transparent 72%
                             );
                             animation: interactive-hero-glow-pulse 6s ease-in-out infinite;
@@ -184,8 +184,8 @@ export default function InteractiveHeroGridBg({ sectionRef }: InteractiveHeroGri
                             transform: translate(-50%, -50%);
                             background: radial-gradient(
                                 circle,
-                                rgba(240, 70, 14, calc(0.08 + var(--hover) * 0.16)) 0%,
-                                rgba(240, 70, 14, calc(0.03 + var(--hover) * 0.05)) 38%,
+                                rgba(21, 98, 161, calc(0.08 + var(--hover) * 0.16)) 0%,
+                                rgba(21, 98, 161, calc(0.03 + var(--hover) * 0.05)) 38%,
                                 transparent 70%
                             );
                             opacity: calc(0.25 + var(--hover) * 0.75);
@@ -206,9 +206,9 @@ export default function InteractiveHeroGridBg({ sectionRef }: InteractiveHeroGri
                             background: linear-gradient(
                                 90deg,
                                 transparent 0%,
-                                rgba(240, 70, 14, 0.3) 18%,
-                                rgba(240, 70, 14, 0.6) 50%,
-                                rgba(240, 70, 14, 0.3) 82%,
+                                rgba(21, 98, 161, 0.3) 18%,
+                                rgba(21, 98, 161, 0.6) 50%,
+                                rgba(21, 98, 161, 0.3) 82%,
                                 transparent 100%
                             );
                             transform: translateY(-50%);
@@ -221,9 +221,9 @@ export default function InteractiveHeroGridBg({ sectionRef }: InteractiveHeroGri
                             background: linear-gradient(
                                 180deg,
                                 transparent 0%,
-                                rgba(240, 70, 14, 0.3) 18%,
-                                rgba(240, 70, 14, 0.6) 50%,
-                                rgba(240, 70, 14, 0.3) 82%,
+                                rgba(21, 98, 161, 0.3) 18%,
+                                rgba(21, 98, 161, 0.6) 50%,
+                                rgba(21, 98, 161, 0.3) 82%,
                                 transparent 100%
                             );
                             transform: translateX(-50%);
@@ -251,7 +251,7 @@ export default function InteractiveHeroGridBg({ sectionRef }: InteractiveHeroGri
                         }
                         .interactive-hero__grid-scan:nth-child(8) {
                             left: 22%;
-                            background: linear-gradient(to bottom, transparent, rgba(240, 70, 14, 0.4), transparent);
+                            background: linear-gradient(to bottom, transparent, rgba(21, 98, 161, 0.4), transparent);
                             height: 22%;
                             animation-duration: 7.5s;
                             animation-delay: -2.1s;
@@ -265,7 +265,7 @@ export default function InteractiveHeroGridBg({ sectionRef }: InteractiveHeroGri
                         }
                         .interactive-hero__grid-scan:nth-child(10) {
                             left: 55%;
-                            background: linear-gradient(to bottom, transparent, rgba(240, 70, 14, 0.32), transparent);
+                            background: linear-gradient(to bottom, transparent, rgba(21, 98, 161, 0.32), transparent);
                             height: 26%;
                             animation-duration: 6.8s;
                             animation-delay: -3.6s;
@@ -279,7 +279,7 @@ export default function InteractiveHeroGridBg({ sectionRef }: InteractiveHeroGri
                         }
                         .interactive-hero__grid-scan:nth-child(12) {
                             left: 88%;
-                            background: linear-gradient(to bottom, transparent, rgba(240, 70, 14, 0.26), transparent);
+                            background: linear-gradient(to bottom, transparent, rgba(21, 98, 161, 0.26), transparent);
                             height: 18%;
                             animation-duration: 8.2s;
                             animation-delay: -4.4s;

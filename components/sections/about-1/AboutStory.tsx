@@ -233,8 +233,8 @@ export default function AboutStory() {
                             height: 28px;
                             background: repeating-linear-gradient(
                                 90deg,
-                                #F0460E 0px,
-                                #F0460E 2px,
+                                #1562A1 0px,
+                                #1562A1 2px,
                                 transparent 2px,
                                 transparent 12px,
                                 rgba(255,255,255,0.15) 12px,
@@ -269,7 +269,7 @@ export default function AboutStory() {
                             color: #fff;
                         }
                         .about-legacy__title-accent {
-                            color: #F0460E;
+                            color: #fff;
                             display: inline-block;
                         }
                         .about-legacy__lead {
@@ -312,7 +312,7 @@ export default function AboutStory() {
                             position: absolute;
                             inset: auto 10% -20% 10%;
                             height: 40%;
-                            background: radial-gradient(ellipse, rgba(240,70,14,0.45) 0%, transparent 70%);
+                            background: radial-gradient(ellipse, rgba(21,98,161,0.42) 0%, transparent 70%);
                             filter: blur(24px);
                             pointer-events: none;
                         }
@@ -339,7 +339,7 @@ export default function AboutStory() {
                             font-weight: 700;
                             line-height: 1;
                             letter-spacing: -0.02em;
-                            color: #F0460E;
+                            color: #1562A1;
                         }
                         .about-legacy__badge-label {
                             margin-top: 4px;
@@ -372,7 +372,7 @@ export default function AboutStory() {
                             transition: background 0.3s ease;
                         }
                         .about-legacy__highlight:hover {
-                            background: rgba(240,70,14,0.08);
+                            background: rgba(21,98,161,0.08);
                         }
                         .about-legacy__highlight-value {
                             font-size: clamp(1.5rem, 3vw, 2.25rem);
@@ -447,11 +447,11 @@ export default function AboutStory() {
                         .about-legacy__value-card:hover {
                             transform: translateY(-6px);
                             box-shadow: 0 24px 48px rgba(0,0,0,0.08);
-                            border-color: rgba(240,70,14,0.25);
+                            border-color: rgba(21,98,161,0.25);
                         }
-                        .about-legacy__value-card--1 { --card-accent: #F0460E; }
+                        .about-legacy__value-card--1 { --card-accent: #1562A1; }
                         .about-legacy__value-card--2 { --card-accent: #111; }
-                        .about-legacy__value-card--3 { --card-accent: #F0460E; }
+                        .about-legacy__value-card--3 { --card-accent: #1562A1; }
                         .about-legacy__value-card--4 { --card-accent: #111; }
 
                         .about-legacy__value-icon {
@@ -462,8 +462,8 @@ export default function AboutStory() {
                             height: 56px;
                             margin-bottom: 20px;
                             border-radius: 12px;
-                            background: rgba(240,70,14,0.08);
-                            color: #F0460E;
+                            background: rgba(21,98,161,0.08);
+                            color: #1562A1;
                             transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
                         }
                         .about-legacy__value-card--2 .about-legacy__value-icon,

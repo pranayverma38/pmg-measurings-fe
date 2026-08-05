@@ -16,7 +16,7 @@ const ARROW_DIAGONAL_SVG = (
     </svg>
 );
 
-const HERO_ACCENT = "#F0460E";
+const HERO_ACCENT = "#1562A1";
 
 type FeaturedCategoryProduct = {
     categoryId: string;
@@ -281,7 +281,7 @@ export default function Section1() {
                             overflow: hidden;
                             color: #121826;
                             background:
-                                radial-gradient(circle at 0% 0%, rgba(255, 174, 102, 0.16), transparent 24%),
+                                radial-gradient(circle at 0% 0%, rgba(96, 165, 250, 0.16), transparent 24%),
                                 linear-gradient(180deg, #fdf9f4 0%, #f3f5f8 100%);
                         }
 
@@ -310,7 +310,7 @@ export default function Section1() {
                             left: -8%;
                             width: min(28vw, 340px);
                             height: min(28vw, 340px);
-                            background: rgba(240, 70, 14, 0.11);
+                            background: rgba(21, 98, 161, 0.12);
                             filter: blur(16px);
                         }
                         .pmg-hero-catalog__glow--right {
@@ -318,7 +318,7 @@ export default function Section1() {
                             top: 8%;
                             width: min(34vw, 440px);
                             height: min(34vw, 440px);
-                            background: rgba(255, 198, 129, 0.2);
+                            background: rgba(96, 165, 250, 0.2);
                             filter: blur(14px);
                         }
                         .pmg-hero-catalog__wash {
@@ -388,9 +388,9 @@ export default function Section1() {
                             margin-bottom: 18px;
                             padding: 8px 14px;
                             border-radius: 999px;
-                            border: 1px solid rgba(240, 70, 14, 0.12);
+                            border: 1px solid rgba(21, 98, 161, 0.14);
                             background: rgba(255, 255, 255, 0.76);
-                            color: #bf5a13;
+                            color: #1562A1;
                             font-size: 12px;
                             font-weight: 700;
                             letter-spacing: 0.08em;
@@ -454,11 +454,11 @@ export default function Section1() {
                         .pmg-hero-catalog__button--primary {
                             background: var(--pmg-hero-accent);
                             color: #fff;
-                            box-shadow: 0 18px 36px rgba(240, 70, 14, 0.2);
+                            box-shadow: 0 18px 36px rgba(21, 98, 161, 0.22);
                         }
                         .pmg-hero-catalog__button--primary:hover {
                             color: #fff;
-                            background: #d83a08;
+                            background: #0F548B;
                         }
                         .pmg-hero-catalog__button--secondary {
                             background: rgba(255, 255, 255, 0.8);
@@ -468,7 +468,7 @@ export default function Section1() {
                         }
                         .pmg-hero-catalog__button--secondary:hover {
                             color: #111827;
-                            border-color: rgba(240, 70, 14, 0.2);
+                            border-color: rgba(21, 98, 161, 0.22);
                         }
 
                         .pmg-hero-catalog__visual {
@@ -557,7 +557,7 @@ export default function Section1() {
                             position: absolute;
                             inset: 18%;
                             border-radius: 50%;
-                            background: radial-gradient(circle, rgba(255, 176, 104, 0.28) 0%, rgba(255, 176, 104, 0.08) 42%, transparent 74%);
+                            background: radial-gradient(circle, rgba(21, 98, 161, 0.22) 0%, rgba(96, 165, 250, 0.08) 42%, transparent 74%);
                             filter: blur(8px);
                         }
                         .pmg-hero-catalog__product-image {
@@ -604,10 +604,10 @@ export default function Section1() {
                         }
                         .pmg-hero-catalog__rail-item:hover {
                             color: #111827;
-                            background: rgba(240, 70, 14, 0.05);
+                            background: rgba(21, 98, 161, 0.06);
                         }
                         .pmg-hero-catalog__rail-item--active {
-                            background: linear-gradient(180deg, rgba(240, 70, 14, 0.1) 0%, rgba(255, 255, 255, 0.98) 100%);
+                            background: linear-gradient(180deg, rgba(21, 98, 161, 0.12) 0%, rgba(255, 255, 255, 0.98) 100%);
                             color: #111827;
                             box-shadow: inset 0 3px 0 var(--pmg-hero-accent);
                         }

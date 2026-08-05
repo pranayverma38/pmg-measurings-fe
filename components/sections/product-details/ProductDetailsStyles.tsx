@@ -119,7 +119,7 @@ export default function ProductDetailsStyles() {
                         font-weight: 600;
                         letter-spacing: 0.12em;
                         text-transform: uppercase;
-                        color: var(--at-theme-primary, #f0460e);
+                        color: var(--at-theme-primary, #1562a1);
                     }
                     .pd-page__title {
                         margin: 0;
@@ -338,7 +338,7 @@ export default function ProductDetailsStyles() {
                         left: -80px;
                         width: 420px;
                         height: 420px;
-                        background: radial-gradient(circle, rgba(240, 70, 14, 0.35) 0%, transparent 70%);
+                        background: radial-gradient(circle, rgba(21, 98, 161, 0.35) 0%, transparent 70%);
                     }
                     .pd-page__highlights-glow--2 {
                         right: -100px;
@@ -375,14 +375,14 @@ export default function ProductDetailsStyles() {
                         font-weight: 600;
                         letter-spacing: 0.14em;
                         text-transform: uppercase;
-                        color: var(--at-theme-primary, #f0460e);
+                        color: var(--at-theme-primary, #1562a1);
                     }
                     .pd-page__highlights-label::before {
                         content: "";
                         display: block;
                         width: 28px;
                         height: 1px;
-                        background: var(--at-theme-primary, #f0460e);
+                        background: var(--at-theme-primary, #1562a1);
                     }
                     .pd-page__highlights-title {
                         margin: 0 0 14px;
@@ -427,7 +427,7 @@ export default function ProductDetailsStyles() {
                         padding: 1px;
                         background: linear-gradient(
                             135deg,
-                            rgba(240, 70, 14, 0.45) 0%,
+                            rgba(21, 98, 161, 0.45) 0%,
                             rgba(255, 255, 255, 0.08) 40%,
                             transparent 70%
                         );
@@ -440,10 +440,10 @@ export default function ProductDetailsStyles() {
                     .pd-page__highlight-card:hover {
                         transform: translateY(-6px);
                         background: rgba(255, 255, 255, 0.06);
-                        border-color: rgba(240, 70, 14, 0.35);
+                        border-color: rgba(21, 98, 161, 0.35);
                         box-shadow:
                             0 24px 48px rgba(0, 0, 0, 0.35),
-                            0 0 0 1px rgba(240, 70, 14, 0.12);
+                            0 0 0 1px rgba(21, 98, 161, 0.12);
                     }
                     .pd-page__highlight-card:hover::before {
                         opacity: 1;
@@ -451,12 +451,12 @@ export default function ProductDetailsStyles() {
                     .pd-page__highlight-card.is-featured {
                         min-height: 200px;
                         padding: 32px 28px;
-                        background: linear-gradient(145deg, rgba(240, 70, 14, 0.14) 0%, rgba(255, 255, 255, 0.04) 55%);
-                        border-color: rgba(240, 70, 14, 0.28);
+                        background: linear-gradient(145deg, rgba(21, 98, 161, 0.14) 0%, rgba(255, 255, 255, 0.04) 55%);
+                        border-color: rgba(21, 98, 161, 0.28);
                     }
                     .pd-page__highlight-card.is-featured .pd-page__highlight-num {
                         font-size: clamp(3.5rem, 8vw, 5rem);
-                        color: rgba(240, 70, 14, 0.22);
+                        color: rgba(21, 98, 161, 0.22);
                     }
                     .pd-page__highlight-card.is-featured .pd-page__highlight-title {
                         font-size: clamp(1.15rem, 2vw, 1.35rem);
@@ -474,7 +474,7 @@ export default function ProductDetailsStyles() {
                         transition: color 0.35s ease, transform 0.35s ease;
                     }
                     .pd-page__highlight-card:hover .pd-page__highlight-num {
-                        color: rgba(240, 70, 14, 0.18);
+                        color: rgba(21, 98, 161, 0.18);
                         transform: scale(1.05);
                     }
                     .pd-page__highlight-card-body {
@@ -493,14 +493,14 @@ export default function ProductDetailsStyles() {
                         width: 52px;
                         height: 52px;
                         color: #fff;
-                        background: linear-gradient(145deg, rgba(240, 70, 14, 0.9) 0%, rgba(255, 120, 50, 0.75) 100%);
+                        background: linear-gradient(145deg, rgba(21, 98, 161, 0.9) 0%, rgba(74, 144, 200, 0.75) 100%);
                         border-radius: 14px;
-                        box-shadow: 0 8px 24px rgba(240, 70, 14, 0.28);
+                        box-shadow: 0 8px 24px rgba(21, 98, 161, 0.28);
                         transition: transform 0.35s ease, box-shadow 0.35s ease;
                     }
                     .pd-page__highlight-card:hover .pd-page__highlight-icon {
                         transform: scale(1.08) rotate(-3deg);
-                        box-shadow: 0 12px 32px rgba(240, 70, 14, 0.4);
+                        box-shadow: 0 12px 32px rgba(21, 98, 161, 0.4);
                     }
                     .pd-page__highlight-title {
                         margin: 0;

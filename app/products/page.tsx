@@ -69,9 +69,9 @@ export default function ProductsPage() {
                             display: inline-flex;
                             justify-content: center;
                             width: 100%;
-                            background: #F0460E !important;
+                            background: #1562A1 !important;
                             color: #fff !important;
-                            border: 1px solid #F0460E;
+                            border: 1px solid #1562A1;
                         }
 
                         .products-stats {
@@ -215,7 +215,7 @@ export default function ProductsPage() {
                             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
                         }
                         .products-card:focus-visible {
-                            outline: 2px solid #F0460E;
+                            outline: 2px solid #1562A1;
                             outline-offset: 3px;
                             transform: translateY(-4px);
                             border-color: rgba(0, 0, 0, 0.16);

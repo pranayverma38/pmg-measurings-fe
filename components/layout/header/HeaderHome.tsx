@@ -218,7 +218,7 @@ export default function HeaderHome({ style, textStyle = "light", logoVariant = "
                             top: 2px;
                             right: 0;
                             flex-shrink: 0;
-                            color: var(--at-theme-primary, #F0460E);
+                            color: var(--at-theme-primary, #1562A1);
                             opacity: 0;
                             transform: translate(-4px, 4px);
                             transition: opacity 0.3s ease, transform 0.3s ease;
@@ -283,13 +283,13 @@ export default function HeaderHome({ style, textStyle = "light", logoVariant = "
                             width: 2px;
                             height: 0;
                             border-radius: 2px;
-                            background: var(--at-theme-primary, #F0460E);
+                            background: var(--at-theme-primary, #1562A1);
                             transform: translateY(-50%);
                             transition: height 0.25s ease;
                         }
                         .header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__list li a:hover {
                             color: var(--at-common-black, #0f0f0f);
-                            background: rgba(240, 70, 14, 0.06);
+                            background: rgba(21, 98, 161, 0.06);
                             padding-left: 18px;
                         }
                         .header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__list li a:hover::before {
@@ -331,9 +331,9 @@ export default function HeaderHome({ style, textStyle = "light", logoVariant = "
                         }
                         .header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__footer-link:hover {
                             color: #fff;
-                            background: var(--at-theme-primary, #F0460E);
+                            background: var(--at-theme-primary, #1562A1);
                             transform: translateY(-1px);
-                            box-shadow: 0 8px 20px -6px rgba(240, 70, 14, 0.45);
+                            box-shadow: 0 8px 20px -6px rgba(21, 98, 161, 0.42);
                         }
                         .header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__footer-link:hover svg {
                             transform: translate(2px, -2px);
