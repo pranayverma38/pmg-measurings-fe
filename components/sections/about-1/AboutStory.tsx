@@ -95,87 +95,92 @@ const VALUES = [
 ];
 
 type AboutStoryProps = {
+    showHero?: boolean;
     showProductRange?: boolean;
 };
 
-export default function AboutStory({ showProductRange = true }: AboutStoryProps) {
+export default function AboutStory({ showHero = true, showProductRange = true }: AboutStoryProps) {
     return (
         <section className="about-legacy p-relative overflow-hidden">
-            {/* ── Hero band ── */}
-            <div className="about-legacy__hero">
-                <div className="about-legacy__grid-bg" aria-hidden="true" />
-                <div className="about-legacy__tape about-legacy__tape--top" aria-hidden="true" />
-                <div className="about-legacy__tape about-legacy__tape--bottom" aria-hidden="true" />
+            {showHero ? (
+                <>
+                    {/* ── Hero band ── */}
+                    <div className="about-legacy__hero">
+                        <div className="about-legacy__grid-bg" aria-hidden="true" />
+                        <div className="about-legacy__tape about-legacy__tape--top" aria-hidden="true" />
+                        <div className="about-legacy__tape about-legacy__tape--bottom" aria-hidden="true" />
 
-                <PageContent className="p-relative z-1">
-                    <div className="about-legacy__hero-inner">
-                        <div className="about-legacy__hero-copy">
-                            <span className="at-btn text-white bg-transparent mb-10 rounded-0 p-0">
-                                <span className="text-uppercase text-white">
-                                    <span className="text-1">Our story</span>
-                                    <span className="text-2">Our story</span>
-                                </span>
-                                <i>
-                                    {ARROW_SVG}
-                                    {ARROW_SVG}
-                                </i>
-                            </span>
+                        <PageContent className="p-relative z-1">
+                            <div className="about-legacy__hero-inner">
+                                <div className="about-legacy__hero-copy">
+                                    <span className="at-btn text-white bg-transparent mb-10 rounded-0 p-0">
+                                        <span className="text-uppercase text-white">
+                                            <span className="text-1">Our story</span>
+                                            <span className="text-2">Our story</span>
+                                        </span>
+                                        <i>
+                                            {ARROW_SVG}
+                                            {ARROW_SVG}
+                                        </i>
+                                    </span>
 
-                            <h2 className="about-legacy__title reveal-text mb-0">
-                                <RevealText>Legacy of</RevealText>
-                                <br />
-                                <span className="about-legacy__title-accent">
-                                    <RevealText>precision</RevealText>
-                                </span>
-                            </h2>
+                                    <h2 className="about-legacy__title reveal-text mb-0">
+                                        <RevealText>Legacy of</RevealText>
+                                        <br />
+                                        <span className="about-legacy__title-accent">
+                                            <RevealText>precision</RevealText>
+                                        </span>
+                                    </h2>
 
-                            <p className="about-legacy__lead mb-0">
-                                PMG was founded on a singular mission: to redefine the standards of industrial
-                                measurement. From a specialized manufacturer to a global leader in hand tools, we
-                                deliver excellence to the most demanding markets worldwide.
-                            </p>
+                                    <p className="about-legacy__lead mb-0">
+                                        PMG was founded on a singular mission: to redefine the standards of industrial
+                                        measurement. From a specialized manufacturer to a global leader in hand tools, we
+                                        deliver excellence to the most demanding markets worldwide.
+                                    </p>
 
-                            <Link href="/products" className="at-btn about-legacy__cta flex-shrink-0">
-                                <span>
-                                    <span className="text-1 text-capitalize">Explore products</span>
-                                    <span className="text-2 text-capitalize">Explore products</span>
-                                </span>
-                                <i>
-                                    {ARROW_SVG}
-                                    {ARROW_SVG}
-                                </i>
-                            </Link>
-                        </div>
+                                    <Link href="/products" className="at-btn about-legacy__cta flex-shrink-0">
+                                        <span>
+                                            <span className="text-1 text-capitalize">Explore products</span>
+                                            <span className="text-2 text-capitalize">Explore products</span>
+                                        </span>
+                                        <i>
+                                            {ARROW_SVG}
+                                            {ARROW_SVG}
+                                        </i>
+                                    </Link>
+                                </div>
 
-                        <div className="about-legacy__hero-visual">
-                            <div className="about-legacy__image-frame">
-                                <Image
-                                    src={getProductCoverUrl("SIGNATURE SERIES")}
-                                    alt="PMG Signature Series measuring tape"
-                                    width={520}
-                                    height={640}
-                                    className="about-legacy__image"
-                                    priority
-                                />
-                                <div className="about-legacy__image-glow" aria-hidden="true" />
+                                <div className="about-legacy__hero-visual">
+                                    <div className="about-legacy__image-frame">
+                                        <Image
+                                            src={getProductCoverUrl("SIGNATURE SERIES")}
+                                            alt="PMG Signature Series measuring tape"
+                                            width={520}
+                                            height={640}
+                                            className="about-legacy__image"
+                                            priority
+                                        />
+                                        <div className="about-legacy__image-glow" aria-hidden="true" />
+                                    </div>
+                                    <div className="about-legacy__badge" aria-hidden="true">
+                                        <span className="about-legacy__badge-value">±0.5</span>
+                                        <span className="about-legacy__badge-label">mm accuracy</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="about-legacy__badge" aria-hidden="true">
-                                <span className="about-legacy__badge-value">±0.5</span>
-                                <span className="about-legacy__badge-label">mm accuracy</span>
+
+                            <div className="about-legacy__highlights">
+                                {HIGHLIGHTS.map((item) => (
+                                    <div key={item.label} className="about-legacy__highlight">
+                                        <span className="about-legacy__highlight-value">{item.value}</span>
+                                        <span className="about-legacy__highlight-label">{item.label}</span>
+                                    </div>
+                                ))}
                             </div>
-                        </div>
+                        </PageContent>
                     </div>
-
-                    <div className="about-legacy__highlights">
-                        {HIGHLIGHTS.map((item) => (
-                            <div key={item.label} className="about-legacy__highlight">
-                                <span className="about-legacy__highlight-value">{item.value}</span>
-                                <span className="about-legacy__highlight-label">{item.label}</span>
-                            </div>
-                        ))}
-                    </div>
-                </PageContent>
-            </div>
+                </>
+            ) : null}
 
             {/* ── Values bento grid ── */}
             <div className="about-legacy__values">

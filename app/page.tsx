@@ -13,7 +13,7 @@ export default function HomePage() {
             <Section5 />
             <HomeProductRangeSection />
             {/* <HomeTestimonialsGrid /> */}
-            <AboutStory showProductRange={false} />
+            <AboutStory showHero={false} showProductRange={false} />
         </HomeLayout>
     );
 }
