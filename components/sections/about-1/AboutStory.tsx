@@ -94,7 +94,11 @@ const VALUES = [
     },
 ];
 
-export default function AboutStory() {
+type AboutStoryProps = {
+    showProductRange?: boolean;
+};
+
+export default function AboutStory({ showProductRange = true }: AboutStoryProps) {
     return (
         <section className="about-legacy p-relative overflow-hidden">
             {/* ── Hero band ── */}
@@ -185,7 +189,9 @@ export default function AboutStory() {
                         </p>
                     </div>
 
-                    <div className="about-legacy__values-grid">
+                    <div
+                        className={`about-legacy__values-grid${showProductRange ? " about-legacy__values-grid--with-products" : ""}`}
+                    >
                         {VALUES.map((value, index) => (
                             <article
                                 key={value.number}
@@ -200,9 +206,11 @@ export default function AboutStory() {
                         ))}
                     </div>
 
-                    <div className="about-legacy__products">
-                        <AboutProductRange products={ABOUT_PRODUCTS} />
-                    </div>
+                    {showProductRange ? (
+                        <div className="about-legacy__products">
+                            <AboutProductRange products={ABOUT_PRODUCTS} />
+                        </div>
+                    ) : null}
                 </PageContent>
             </div>
 
@@ -419,6 +427,8 @@ export default function AboutStory() {
                             display: grid;
                             grid-template-columns: 1fr;
                             gap: 16px;
+                        }
+                        .about-legacy__values-grid--with-products {
                             margin-bottom: clamp(64px, 8vw, 100px);
                         }
                         @media (min-width: 768px) {

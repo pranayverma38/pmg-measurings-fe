@@ -78,123 +78,184 @@ export default function Section4({ classList = "" }: { classList?: string }) {
     return (
         <section className={`sec-4-about pt-80 pb-100 ${classList}`.trim()}>
             <PageContent>
-                <span className="at-btn common-black bg-transparent mb-10 rounded-0 p-0">
-                    <span className="text-uppercase">
-                        <span className="text-1">Contact us</span>
-                        <span className="text-2">Contact us</span>
-                    </span>
-                    <i>
-                        {ARROW_SVG}
-                        {ARROW_SVG}
-                    </i>
-                </span>
-                <div className="row g-5 align-items-start">
-                    <div className="col-lg-5 sec-4-about__info">
-                        <h2 className="alt-section-title fz-ds-1 lh-1 fw-500 mb-20 reveal-text">
+                <div className="about-contact">
+                    <div className="about-contact__intro">
+                        <h2 className="alt-section-title fz-ds-1 lh-1 fw-500 mb-20 reveal-text about-contact__title">
                             <RevealText>Get in touch</RevealText>
                         </h2>
-                        <p className="fz-font-md neutral-600 mb-40">
-                            Have a question about our products or want to discuss a partnership? Reach out
-                            and our team will respond within 1–2 business days.
+                        <p className="fz-font-md neutral-600 mb-0 about-contact__lead">
+                            Whether you&apos;re exploring a product, a retail partnership, or a custom
+                            requirement, share a few details and our team will get back within 1-2
+                            business days.
                         </p>
-                        <div className="row g-4">
+                    </div>
+
+                    <div className="about-contact__layout">
+                        <div className="about-contact__stack">
                             {OFFICES.map((office, i) => (
-                                <div key={i} className="col-lg-12 col-md-6">
-                                    <div className="sec-4-about__office d-flex gap-4">
-                                        <div className="icon">{office.icon}</div>
+                                <div key={i} className="about-contact__card about-contact__card--contact">
+                                    <div className="about-contact__contact-head">
+                                        <div className="about-contact__icon" aria-hidden="true">
+                                            {office.icon}
+                                        </div>
                                         <div>
-                                            <h6 className="fw-600">{office.title}</h6>
-                                            <div className="d-flex flex-wrap gap-md-5 gap-4">
-                                                <span className="fz-font-md neutral-500">
-                                                    {office.address}
-                                                    <br className="d-block" />
-                                                    Email:{" "}
-                                                    <span className="neutral-900">
-                                                        <Link href={office.emailHref}>{office.email}</Link>
-                                                    </span>
-                                                    <br className="d-block" />
-                                                    Phone:{" "}
-                                                    <span className="neutral-900">
-                                                        <Link href={`tel:9202331313`}>{`9202331313`}</Link>
-                                                    </span>
-                                                </span>
-                                            </div>
+                                            <span className="about-contact__eyebrow">Direct support</span>
+                                            <h6 className="about-contact__card-title mb-1">{office.title}</h6>
+                                            <p className="about-contact__card-copy mb-0">
+                                                Reach the PMG team for product questions, dealership
+                                                conversations, and order-related assistance.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="about-contact__contact-list">
+                                        <div className="about-contact__contact-item">
+                                            <span className="about-contact__contact-label">Email</span>
+                                            <Link href={office.emailHref} className="about-contact__contact-link">
+                                                {office.email}
+                                            </Link>
+                                        </div>
+                                        <div className="about-contact__contact-item">
+                                            <span className="about-contact__contact-label">Phone</span>
+                                            <Link href="tel:9202331313" className="about-contact__contact-link">
+                                                9202331313
+                                            </Link>
+                                        </div>
+                                        <div className="about-contact__contact-item">
+                                            <span className="about-contact__contact-label">Location</span>
+                                            <span className="about-contact__contact-value">{office.address}</span>
                                         </div>
                                     </div>
                                 </div>
                             ))}
+
+                            <div className="about-contact__card">
+                                <span className="about-contact__eyebrow about-contact__eyebrow--muted">
+                                    Why reach out
+                                </span>
+                                <ul className="about-contact__highlights mb-0">
+                                    <li className="about-contact__highlights-item">
+                                        <span className="about-contact__highlights-icon" aria-hidden="true">
+                                            {ARROW_SVG}
+                                        </span>
+                                        <span>Request product information, catalogs, or sampling support.</span>
+                                    </li>
+                                    <li className="about-contact__highlights-item">
+                                        <span className="about-contact__highlights-icon" aria-hidden="true">
+                                            {ARROW_SVG}
+                                        </span>
+                                        <span>Start a dealership, distribution, or B2B sourcing conversation.</span>
+                                    </li>
+                                </ul>
+
+                                <ul className="about-contact__social-list list-unstyled mb-0">
+                                    {SOCIAL_ITEMS.map((item, i) => (
+                                        <li key={i}>
+                                            <Link
+                                                href={item.href}
+                                                className="about-contact__social-link"
+                                                aria-label={item.ariaLabel}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <span className="about-contact__social-icon" aria-hidden="true">
+                                                    {item.icon}
+                                                </span>
+                                                <span className="visually-hidden">{item.label}</span>
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
-                        <ul className="at-social-list list-unstyled d-flex flex-wrap gap-md-4 gap-3 pt-50 sec-4-about__social">
-                            {SOCIAL_ITEMS.map((item, i) => (
-                                <li key={i}>
-                                    <Link
-                                        href={item.href}
-                                        className="at-social__link d-flex align-items-center gap-2"
-                                        aria-label={item.ariaLabel}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        {item.icon}
-                                        <span className="fw-500">{item.label}</span>
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div className="col-lg-7">
-                        <div className="sec-4-about-form-wrap">
-                            <form className="sec-4-about-form sec-4-about-form--boxed" action="#" method="post">
-                                <div className="sec-4-about-form__header">
-                                    <h4 className="sec-4-about-form__title mb-0">Send us a message</h4>
-                                    <p className="sec-4-about-form__subtitle mb-0">
-                                        Tell us about your project and we&apos;ll reply within 1–2 business days.
+
+                        <div className="about-contact__form-shell">
+                            <form className="about-contact__form" action="#" method="post">
+                                <div className="about-contact__form-header">
+                                    <div>
+                                        <span className="about-contact__form-kicker">General inquiry</span>
+                                        <h4 className="about-contact__form-title mb-0">
+                                            Tell us what you need
+                                        </h4>
+                                    </div>
+                                    <p className="about-contact__form-subtitle mb-0">
+                                        Share your details and message below. We&apos;ll route it to the
+                                        right PMG team and follow up shortly.
                                     </p>
                                 </div>
 
-                                <div className="sec-4-about-form__grid">
-                                    <div className="sec-4-about-form__field">
-                                        <label className="sec-4-about-form__label" htmlFor="about-name">
+                                <div className="about-contact__form-grid">
+                                    <div className="about-contact__field">
+                                        <label className="about-contact__label" htmlFor="about-name">
                                             Full name
                                         </label>
                                         <input
                                             id="about-name"
                                             type="text"
-                                            className="sec-4-about-form__input"
+                                            className="about-contact__input"
                                             name="name"
                                             placeholder="John Doe"
+                                            autoComplete="name"
                                             required
                                         />
                                     </div>
-                                    <div className="sec-4-about-form__field">
-                                        <label className="sec-4-about-form__label" htmlFor="about-email">
+                                    <div className="about-contact__field">
+                                        <label className="about-contact__label" htmlFor="about-email">
                                             Email address
                                         </label>
                                         <input
                                             id="about-email"
                                             type="email"
-                                            className="sec-4-about-form__input"
+                                            className="about-contact__input"
                                             name="email"
                                             placeholder="you@company.com"
+                                            autoComplete="email"
                                             required
                                         />
                                     </div>
-                                    <div className="sec-4-about-form__field sec-4-about-form__field--full">
-                                        <label className="sec-4-about-form__label" htmlFor="about-message">
+                                    <div className="about-contact__field">
+                                        <label className="about-contact__label" htmlFor="about-phone">
+                                            Phone number
+                                        </label>
+                                        <input
+                                            id="about-phone"
+                                            type="tel"
+                                            className="about-contact__input"
+                                            name="phone"
+                                            placeholder="+91 98765 43210"
+                                            autoComplete="tel"
+                                        />
+                                    </div>
+                                    <div className="about-contact__field">
+                                        <label className="about-contact__label" htmlFor="about-subject">
+                                            Subject
+                                        </label>
+                                        <input
+                                            id="about-subject"
+                                            type="text"
+                                            className="about-contact__input"
+                                            name="subject"
+                                            placeholder="Product inquiry, partnership, support"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="about-contact__field about-contact__field--full">
+                                        <label className="about-contact__label" htmlFor="about-message">
                                             Message
                                         </label>
                                         <textarea
                                             id="about-message"
-                                            className="sec-4-about-form__input sec-4-about-form__textarea"
+                                            className="about-contact__input about-contact__textarea"
                                             name="message"
-                                            placeholder="How can we help you?"
-                                            rows={5}
+                                            placeholder="Tell us a little about your requirement, product interest, or business inquiry."
+                                            rows={6}
                                             required
                                         />
                                     </div>
                                 </div>
 
-                                <div className="sec-4-about-form__actions">
-                                    <button type="submit" className="sec-4-about-form__btn at-btn">
+                                <div className="about-contact__actions">
+                                    <button type="submit" className="at-btn about-contact__submit">
                                         <span>
                                             <span className="text-1 text-capitalize">Send Message</span>
                                             <span className="text-2 text-capitalize">Send Message</span>
@@ -205,22 +266,293 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                                         </i>
                                     </button>
                                 </div>
-                                <p className="sec-4-about-form__disclaimer">
-                                    By submitting, you agree to our{" "}
-                                    <Link href="#" className="sec-4-about-form__link">
-                                        Terms
-                                    </Link>{" "}
-                                    and{" "}
-                                    <Link href="#" className="sec-4-about-form__link">
-                                        Privacy Policy
-                                    </Link>
-                                    .
-                                </p>
+
                             </form>
                         </div>
                     </div>
                 </div>
             </PageContent>
+            <style
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        .sec-4-about {
+                            background:
+                                radial-gradient(circle at top left, rgba(21, 98, 161, 0.08), transparent 28%),
+                                linear-gradient(180deg, #fff 0%, #fbf9f6 100%);
+                        }
+                        .about-contact__intro {
+                            max-width: 56rem;
+                            margin-bottom: clamp(24px, 4vw, 40px);
+                        }
+                        .about-contact__title {
+                            letter-spacing: -0.04em;
+                        }
+                        .about-contact__lead {
+                            max-width: 40rem;
+                            line-height: 1.65;
+                        }
+                        .about-contact__layout {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            gap: 20px;
+                            align-items: start;
+                        }
+                        .about-contact__stack {
+                            display: grid;
+                            gap: 16px;
+                        }
+                        .about-contact__card,
+                        .about-contact__form {
+                            position: relative;
+                            overflow: hidden;
+                            border-radius: 24px;
+                            border: 1px solid rgba(17, 17, 17, 0.08);
+                            background: rgba(255, 255, 255, 0.92);
+                            box-shadow: 0 18px 50px rgba(17, 17, 17, 0.06);
+                        }
+                        .about-contact__card {
+                            padding: 24px;
+                        }
+                        .about-contact__eyebrow,
+                        .about-contact__form-kicker {
+                            display: inline-flex;
+                            align-items: center;
+                            padding: 8px 12px;
+                            border-radius: 999px;
+                            font-size: 0.75rem;
+                            font-weight: 600;
+                            letter-spacing: 0.08em;
+                            text-transform: uppercase;
+                        }
+                        .about-contact__eyebrow {
+                            margin-bottom: 14px;
+                            background: rgba(21, 98, 161, 0.1);
+                            color: #1562a1;
+                        }
+                        .about-contact__eyebrow--muted {
+                            background: rgba(17, 17, 17, 0.06);
+                            color: rgba(17, 17, 17, 0.72);
+                        }
+                        .about-contact__contact-head {
+                            display: flex;
+                            gap: 16px;
+                            align-items: flex-start;
+                            margin-bottom: 18px;
+                        }
+                        .about-contact__icon {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 56px;
+                            height: 56px;
+                            border-radius: 18px;
+                            background: #111;
+                            color: #fff;
+                            flex-shrink: 0;
+                        }
+                        .about-contact__icon svg {
+                            width: 28px;
+                            height: 28px;
+                        }
+                        .about-contact__card-title {
+                            font-size: 1.15rem;
+                            color: #111;
+                        }
+                        .about-contact__card-copy {
+                            max-width: 28rem;
+                            font-size: 0.95rem;
+                            line-height: 1.7;
+                            color: rgba(17, 17, 17, 0.62);
+                        }
+                        .about-contact__contact-list {
+                            display: grid;
+                            gap: 12px;
+                        }
+                        .about-contact__contact-item {
+                            display: grid;
+                            gap: 4px;
+                            padding-top: 12px;
+                            border-top: 1px solid rgba(17, 17, 17, 0.08);
+                        }
+                        .about-contact__contact-label {
+                            font-size: 0.75rem;
+                            font-weight: 600;
+                            letter-spacing: 0.08em;
+                            text-transform: uppercase;
+                            color: rgba(17, 17, 17, 0.45);
+                        }
+                        .about-contact__contact-link,
+                        .about-contact__contact-value {
+                            color: #111;
+                            font-size: 0.96rem;
+                            font-weight: 500;
+                            text-decoration: none;
+                            word-break: break-word;
+                        }
+                        .about-contact__contact-link:hover,
+                        .about-contact__social-link:hover {
+                            color: #1562a1;
+                        }
+                        .about-contact__highlights {
+                            display: grid;
+                            gap: 10px;
+                            padding: 0;
+                            list-style: none;
+                        }
+                        .about-contact__highlights-item {
+                            display: grid;
+                            grid-template-columns: auto 1fr;
+                            gap: 12px;
+                            align-items: start;
+                            padding: 10px 0;
+                            border-top: 1px solid rgba(17, 17, 17, 0.08);
+                            font-size: 0.93rem;
+                            line-height: 1.55;
+                            color: rgba(17, 17, 17, 0.7);
+                        }
+                        .about-contact__highlights-item:first-child {
+                            padding-top: 0;
+                            border-top: none;
+                        }
+                        .about-contact__highlights-icon {
+                            display: inline-flex;
+                            margin-top: 3px;
+                            color: #1562a1;
+                        }
+                        .about-contact__social-list {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 12px;
+                            margin-top: 20px;
+                            padding-top: 20px;
+                            border-top: 1px solid rgba(17, 17, 17, 0.08);
+                        }
+                        .about-contact__social-link {
+                            display: inline-flex;
+                            align-items: center;
+                            color: #111;
+                            text-decoration: none;
+                            transition: color 0.2s ease;
+                        }
+                        .about-contact__social-icon {
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 42px;
+                            height: 42px;
+                            border-radius: 50%;
+                            background: #f5f3ef;
+                            transition: background 0.2s ease, transform 0.2s ease;
+                        }
+                        .about-contact__social-link:hover .about-contact__social-icon {
+                            background: #eef4fa;
+                            transform: translateY(-1px);
+                        }
+                        .about-contact__form-shell {
+                            min-width: 0;
+                        }
+                        .about-contact__form {
+                            padding: clamp(22px, 3vw, 30px);
+                        }
+                        .about-contact__form-header {
+                            display: grid;
+                            gap: 14px;
+                            margin-bottom: 22px;
+                            padding-bottom: 18px;
+                            border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+                        }
+                        .about-contact__form-kicker {
+                            margin-bottom: 14px;
+                            background: rgba(32, 140, 86, 0.12);
+                            color: #1e7a4e;
+                        }
+                        .about-contact__form-title {
+                            font-size: clamp(1.55rem, 2.2vw, 2rem);
+                            line-height: 1.1;
+                            letter-spacing: -0.03em;
+                            color: #111;
+                        }
+                        .about-contact__form-subtitle {
+                            max-width: 28rem;
+                            font-size: 0.93rem;
+                            line-height: 1.6;
+                            color: rgba(17, 17, 17, 0.62);
+                        }
+                        .about-contact__form-grid {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            gap: 14px;
+                        }
+                        .about-contact__field {
+                            min-width: 0;
+                        }
+                        .about-contact__label {
+                            display: inline-block;
+                            margin-bottom: 8px;
+                            font-size: 0.79rem;
+                            font-weight: 600;
+                            letter-spacing: 0.08em;
+                            text-transform: uppercase;
+                            color: rgba(17, 17, 17, 0.58);
+                        }
+                        .about-contact__input {
+                            width: 100%;
+                            min-width: 0;
+                            min-height: 52px;
+                            padding: 0 16px;
+                            border: 1px solid rgba(17, 17, 17, 0.1);
+                            border-radius: 16px;
+                            background: #f7f6f3;
+                            font-size: 0.94rem;
+                            color: #111;
+                            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+                        }
+                        .about-contact__input::placeholder {
+                            color: rgba(17, 17, 17, 0.38);
+                        }
+                        .about-contact__input:hover {
+                            background: #f3f1ee;
+                        }
+                        .about-contact__input:focus {
+                            outline: none;
+                            border-color: rgba(21, 98, 161, 0.5);
+                            background: #fff;
+                            box-shadow: 0 0 0 4px rgba(21, 98, 161, 0.12);
+                        }
+                        .about-contact__textarea {
+                            min-height: 148px;
+                            padding: 14px 16px;
+                            resize: vertical;
+                        }
+                        .about-contact__actions {
+                            display: flex;
+                            align-items: center;
+                            margin-top: 20px;
+                        }
+                        .about-contact__submit {
+                            display: inline-flex;
+                        }
+                        @media (min-width: 768px) {
+                            .about-contact__form-grid {
+                                grid-template-columns: repeat(2, minmax(0, 1fr));
+                            }
+                            .about-contact__field--full {
+                                grid-column: 1 / -1;
+                            }
+                        }
+                        @media (min-width: 992px) {
+                            .about-contact__layout {
+                                grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+                                gap: 32px;
+                            }
+                            .about-contact__form-shell {
+                                position: sticky;
+                                top: 24px;
+                            }
+                        }
+                    `,
+                }}
+            />
         </section>
     );
 }

@@ -1,6 +1,6 @@
 ﻿import HomeLayout from "@/components/layout/HomeLayout";
+import AboutStory from "@/components/sections/about-1/AboutStory";
 import HomeProductRangeSection from "@/components/sections/home/HomeProductRangeSection";
-import HomeSection8 from "@/components/sections/home/HomeSection8";
 import HomeTestimonials from "@/components/sections/home/HomeTestimonials";
 // import HomeTestimonialsGrid from "@/components/sections/home/HomeTestimonialsGrid";
 import Section1 from "@/components/sections/index-6/Section1";
@@ -13,7 +13,7 @@ export default function HomePage() {
             <Section5 />
             <HomeProductRangeSection />
             {/* <HomeTestimonialsGrid /> */}
-            <HomeSection8 />
+            <AboutStory showProductRange={false} />
         </HomeLayout>
     );
 }

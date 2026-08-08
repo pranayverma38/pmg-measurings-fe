@@ -43,10 +43,13 @@ export default function About_1() {
                             background: #fff;
                         }
                         .about-hero-slider__slide.swiper-slide img {
-                            inset: 36px !important;
-                            width: calc(100% - 72px) !important;
-                            height: calc(100% - 72px) !important;
+                            inset: 20px !important;
+                            width: calc(100% - 40px) !important;
+                            height: calc(100% - 40px) !important;
                             object-fit: contain !important;
+                            object-position: left center !important;
+                            transform: translateX(-98px) scale(1.12);
+                            transform-origin: center;
                         }
                         .about-legacy__products .team-card-image {
                             border-radius: 12px;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import RevealText from "@/components/effects/RevealText";
@@ -17,141 +17,225 @@ const ARROW_SVG = (
     </svg>
 );
 
-const INITIAL_VISIBLE = 4;
+const VISIBLE_PRODUCTS = 6;
 
 type ProductCardItem = {
     series: ProductSeries;
     img: string;
 };
 
-const HIGHLIGHTS = [
-    { value: "20+", label: "Product series" },
-    { value: "3", label: "Core categories" },
-    { value: "25+", label: "Years of expertise" },
-];
+type ProductFilter = "all" | (typeof PRODUCT_CATEGORIES)[number]["id"];
+
+function formatCount(value: number, singular: string, plural = `${singular}s`) {
+    return `${value} ${value === 1 ? singular : plural}`;
+}
 
 function ProductCard({
     series,
     img,
+    featured = false,
 }: {
     series: ProductSeries;
     img: string;
+    featured?: boolean;
 }) {
     const category = getCategoryForSeries(series);
     const details = getProductDetailsBySeries(series);
 
     return (
-        <Link href={productHref(series)} className="home-product-range__card">
+        <Link href={productHref(series)} className={`home-product-range__card${featured ? " is-featured" : ""}`}>
             <div className="home-product-range__card-media">
                 <Image
                     src={img}
                     alt={series}
                     fill
-                    sizes="(max-width: 576px) 50vw, 260px"
+                    sizes={
+                        featured
+                            ? "(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 540px"
+                            : "(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 320px"
+                    }
                     className="home-product-range__card-img"
                 />
+                <div className="home-product-range__card-gradient" aria-hidden="true" />
                 <span className="home-product-range__card-arrow" aria-hidden="true">
                     {ARROW_SVG}
                 </span>
             </div>
             <div className="home-product-range__card-body">
-                {category && <span className="home-product-range__card-tag">{category.shortLabel}</span>}
+                <div className="home-product-range__card-meta">
+                    {category && <span className="home-product-range__card-tag">{category.shortLabel}</span>}
+                    <span className="home-product-range__card-index">Featured series</span>
+                </div>
                 <h3 className="home-product-range__card-title">{series}</h3>
                 <p className="home-product-range__card-excerpt">{details.excerpt}</p>
+                <span className="home-product-range__card-link">
+                    Explore series
+                    <i>{ARROW_SVG}</i>
+                </span>
             </div>
         </Link>
     );
 }
 
 export default function HomeProductRange({ products }: { products: ProductCardItem[] }) {
-    const [expanded, setExpanded] = useState(false);
-    const visibleProducts = expanded ? products : products.slice(0, INITIAL_VISIBLE);
-    const hasMore = products.length > INITIAL_VISIBLE;
+    const [activeCategory, setActiveCategory] = useState<ProductFilter>("all");
+
+    const filteredProducts = useMemo(() => {
+        if (activeCategory === "all") {
+            return products;
+        }
+
+        return products.filter((item) => getCategoryForSeries(item.series)?.id === activeCategory);
+    }, [activeCategory, products]);
+
+    const visibleProducts = filteredProducts.slice(0, VISIBLE_PRODUCTS);
+    const activeCategoryMeta =
+        activeCategory === "all"
+            ? null
+            : PRODUCT_CATEGORIES.find((category) => category.id === activeCategory);
+
+    const overviewItems = [
+        { value: String(products.length), label: "Series in catalogue" },
+        { value: String(PRODUCT_CATEGORIES.length), label: "Core tool categories" },
+        { value: "Professional", label: "Built for industrial use" },
+    ];
 
     return (
         <section className="home-product-range changeless" aria-label="PMG product range">
             <div className="home-product-range__shell">
-                <div className="home-product-range__box">
-                    <div className="home-product-range__glow" aria-hidden="true" />
+                <div className="home-product-range__hero">
+                    <div className="home-product-range__hero-copy">
+                        <h2 className="home-product-range__title reveal-text">
+                            <RevealText>
+                                Precision tools with a{" "}
+                                <span className="home-product-range__title-accent">premium product story</span>
+                            </RevealText>
+                        </h2>
+                        <p className="home-product-range__lead">
+                            Explore PMG&apos;s measuring tapes, fibreglass tapes, and spirit levels through a cleaner,
+                            more curated catalogue built for contractors, distributors, and industrial buyers.
+                        </p>
 
-                    <header className="home-product-range__header">
-                        <div className="home-product-range__intro">
-                            <span className="home-product-range__eyebrow">
-                                <span className="home-product-range__eyebrow-dot" aria-hidden="true" />
-                                Product range
-                            </span>
-                            <h2 className="home-product-range__title reveal-text">
-                                <RevealText>
-                                    Engineered for{" "}
-                                    <span className="home-product-range__title-accent">every trade</span>
-                                </RevealText>
-                            </h2>
-                            <p className="home-product-range__lead">
-                                Measuring tapes, fiberglass tapes, and spirit levels —
-                                precision tools built for contractors, distributors, and tradespeople worldwide.
-                            </p>
+                        <div className="home-product-range__hero-actions">
+                            <Link href="/products" className="at-btn home-product-range__primary-btn">
+                                <span>
+                                    <span className="text-1 text-capitalize">View full catalogue</span>
+                                    <span className="text-2 text-capitalize">View full catalogue</span>
+                                </span>
+                                <i>
+                                    {ARROW_SVG}
+                                    {ARROW_SVG}
+                                </i>
+                            </Link>
+                            <Link href="/products#measuring-tapes" className="home-product-range__secondary-btn">
+                                Browse categories
+                            </Link>
                         </div>
 
-                        <div className="home-product-range__meta">
-                            <ul className="home-product-range__stats">
-                                {HIGHLIGHTS.map((item) => (
-                                    <li key={item.label} className="home-product-range__stat">
-                                        <span className="home-product-range__stat-value">{item.value}</span>
-                                        <span className="home-product-range__stat-label">{item.label}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="home-product-range__pills">
+                        <ul className="home-product-range__overview">
+                            {overviewItems.map((item) => (
+                                <li key={item.label} className="home-product-range__overview-card">
+                                    <span className="home-product-range__overview-value">{item.value}</span>
+                                    <span className="home-product-range__overview-label">{item.label}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="home-product-range__hero-panel">
+                        <div className="home-product-range__hero-panel-inner">
+                            <div className="home-product-range__hero-panel-top">
+                                <span className="home-product-range__panel-label">Curated collections</span>
+                                <p className="home-product-range__panel-copy">
+                                    Select a category to surface the most relevant PMG series in a more focused way.
+                                </p>
+                            </div>
+
+                            <div className="home-product-range__category-list" role="tablist" aria-label="Product categories">
+                                <button
+                                    type="button"
+                                    className={`home-product-range__category-tab${
+                                        activeCategory === "all" ? " is-active" : ""
+                                    }`}
+                                    onClick={() => setActiveCategory("all")}
+                                >
+                                    <span className="home-product-range__category-tab-title">All products</span>
+                                    <span className="home-product-range__category-tab-meta">
+                                        {formatCount(products.length, "series")}
+                                    </span>
+                                </button>
+
                                 {PRODUCT_CATEGORIES.map((category) => (
-                                    <Link
+                                    <button
                                         key={category.id}
-                                        href={`/products#${category.id}`}
-                                        className="home-product-range__pill"
+                                        type="button"
+                                        className={`home-product-range__category-tab${
+                                            activeCategory === category.id ? " is-active" : ""
+                                        }`}
+                                        onClick={() => setActiveCategory(category.id)}
                                     >
-                                        {category.shortLabel}
-                                    </Link>
+                                        <span className="home-product-range__category-tab-title">{category.label}</span>
+                                        <span className="home-product-range__category-tab-meta">
+                                            {formatCount(category.series.length, "series")}
+                                        </span>
+                                    </button>
                                 ))}
                             </div>
+
+                            <div className="home-product-range__panel-footer">
+                                <p className="home-product-range__panel-description">
+                                    {activeCategoryMeta
+                                        ? activeCategoryMeta.description
+                                        : "A complete cross-section of PMG's product line, from compact trade tapes to long-distance measurement tools and levels."}
+                                </p>
+                                <Link
+                                    href={activeCategoryMeta ? `/products#${activeCategoryMeta.id}` : "/products"}
+                                    className="home-product-range__panel-link"
+                                >
+                                    {activeCategoryMeta ? `Browse ${activeCategoryMeta.shortLabel}` : "Browse all products"}
+                                </Link>
+                            </div>
                         </div>
-                    </header>
+                    </div>
+                </div>
+
+                <div className="home-product-range__catalogue">
+                    <div className="home-product-range__catalogue-head">
+                        <div>
+                            <span className="home-product-range__catalogue-label">
+                                {activeCategoryMeta ? activeCategoryMeta.shortLabel : "Featured series"}
+                            </span>
+                            <h3 className="home-product-range__catalogue-title">
+                                {activeCategoryMeta
+                                    ? `${activeCategoryMeta.label} collection`
+                                    : "A polished view of the PMG catalogue"}
+                            </h3>
+                        </div>
+                        <p className="home-product-range__catalogue-copy">
+                            Showing {visibleProducts.length} of {filteredProducts.length} series
+                            {activeCategoryMeta ? ` in ${activeCategoryMeta.shortLabel}.` : " across PMG's range."}
+                        </p>
+                    </div>
 
                     <div className="home-product-range__grid">
-                        {visibleProducts.map((item) => (
-                            <ProductCard key={item.series} series={item.series} img={item.img} />
+                        {visibleProducts.map((item, index) => (
+                            <ProductCard
+                                key={item.series}
+                                series={item.series}
+                                img={item.img}
+                                featured={index === 0 && visibleProducts.length > 2}
+                            />
                         ))}
                     </div>
 
-                    {hasMore && (
-                        <div className="home-product-range__actions">
-                            {!expanded ? (
-                                <button
-                                    type="button"
-                                    className="at-btn home-product-range__btn"
-                                    onClick={() => setExpanded(true)}
-                                >
-                                    <span>
-                                        <span className="text-1 text-capitalize">Show more series</span>
-                                        <span className="text-2 text-capitalize">Show more series</span>
-                                    </span>
-                                    <i>
-                                        {ARROW_SVG}
-                                        {ARROW_SVG}
-                                    </i>
-                                </button>
-                            ) : (
-                                <Link href="/products" className="at-btn home-product-range__btn">
-                                    <span>
-                                        <span className="text-1 text-capitalize">View full catalogue</span>
-                                        <span className="text-2 text-capitalize">View full catalogue</span>
-                                    </span>
-                                    <i>
-                                        {ARROW_SVG}
-                                        {ARROW_SVG}
-                                    </i>
-                                </Link>
-                            )}
-                        </div>
-                    )}
+                    <div className="home-product-range__footer">
+                        <p className="home-product-range__footer-copy">
+                            Need the complete product line-up with specifications, variants, and individual detail pages?
+                        </p>
+                        <Link href="/products" className="home-product-range__footer-link">
+                            Explore the full catalogue
+                        </Link>
+                    </div>
                 </div>
             </div>
 
@@ -160,31 +244,59 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                     __html: `
                         .home-product-range {
                             position: relative;
-                            padding: clamp(72px, 9vw, 110px) 0;
+                            overflow: hidden;
+                            padding: clamp(80px, 9vw, 120px) 0;
                             background:
-                                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(21, 98, 161, 0.08) 0%, transparent 70%),
-                                var(--at-neutral-50, #f7f7f7);
+                                radial-gradient(circle at 12% 14%, rgba(90, 175, 244, 0.24), transparent 30%),
+                                radial-gradient(circle at 88% 8%, rgba(54, 113, 191, 0.24), transparent 32%),
+                                radial-gradient(circle at 50% 100%, rgba(72, 147, 223, 0.16), transparent 38%),
+                                linear-gradient(180deg, #081426 0%, #0d1f39 48%, #10294a 100%);
                         }
 
                         .home-product-range__shell {
-                            max-width: 1100px;
+                            position: relative;
+                            z-index: 1;
+                            max-width: 1240px;
                             margin: 0 auto;
-                            padding: 0 18px;
+                            padding: 0 20px;
                         }
 
-                        .home-product-range__box {
+                        .home-product-range__hero {
+                            display: grid;
+                            gap: 24px;
+                            margin-bottom: clamp(28px, 4vw, 40px);
+                        }
+
+                        @media (min-width: 992px) {
+                            .home-product-range__hero {
+                                grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+                                align-items: stretch;
+                            }
+                        }
+
+                        .home-product-range__hero-copy,
+                        .home-product-range__hero-panel,
+                        .home-product-range__catalogue {
                             position: relative;
-                            padding: clamp(28px, 4.5vw, 52px);
-                            background: #fff;
-                            border: 1px solid rgba(0, 0, 0, 0.08);
-                            border-radius: 20px;
-                            box-shadow:
-                                0 1px 0 rgba(255, 255, 255, 0.9) inset,
-                                0 24px 64px rgba(15, 15, 15, 0.07);
+                            border-radius: 28px;
                             overflow: hidden;
                         }
 
-                        .home-product-range__box::before {
+                        .home-product-range__hero-copy {
+                            padding: clamp(28px, 5vw, 56px);
+                            color: #fff;
+                            background:
+                                linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+                                linear-gradient(180deg, rgba(13, 32, 56, 0.94), rgba(7, 17, 31, 0.98));
+                            border: 1px solid rgba(255, 255, 255, 0.1);
+                            box-shadow:
+                                inset 0 1px 0 rgba(255, 255, 255, 0.08),
+                                0 30px 80px rgba(2, 8, 20, 0.28);
+                        }
+
+                        .home-product-range__hero-copy::before,
+                        .home-product-range__hero-panel::before,
+                        .home-product-range__catalogue::before {
                             content: "";
                             position: absolute;
                             top: 0;
@@ -193,157 +305,330 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             height: 3px;
                             background: linear-gradient(
                                 90deg,
-                                var(--at-theme-primary, #1562a1) 0%,
-                                #4a90c8 55%,
-                                rgba(21, 98, 161, 0.2) 100%
+                                rgba(117, 196, 255, 0.2) 0%,
+                                rgba(117, 196, 255, 0.9) 48%,
+                                rgba(117, 196, 255, 0.15) 100%
                             );
                         }
 
-                        .home-product-range__glow {
+                        .home-product-range__hero-copy::after {
+                            content: "";
                             position: absolute;
-                            top: -120px;
-                            right: -80px;
-                            width: 280px;
-                            height: 280px;
+                            right: -120px;
+                            bottom: -120px;
+                            width: 320px;
+                            height: 320px;
                             border-radius: 50%;
-                            background: radial-gradient(circle, rgba(21, 98, 161, 0.12) 0%, transparent 70%);
+                            background: radial-gradient(circle, rgba(68, 163, 245, 0.18), transparent 72%);
                             pointer-events: none;
                         }
 
-                        .home-product-range__header {
-                            display: grid;
-                            grid-template-columns: 1fr;
-                            gap: clamp(24px, 4vw, 40px);
-                            margin-bottom: clamp(28px, 4vw, 40px);
+                        .home-product-range__hero-panel {
+                            padding: 1px;
+                            background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06));
+                            box-shadow: 0 26px 70px rgba(2, 8, 20, 0.24);
                         }
 
-                        @media (min-width: 768px) {
-                            .home-product-range__header {
-                                grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-                                align-items: end;
-                            }
+                        .home-product-range__hero-panel-inner {
+                            display: flex;
+                            flex-direction: column;
+                            height: 100%;
+                            padding: clamp(24px, 4vw, 32px);
+                            background:
+                                linear-gradient(180deg, rgba(13, 22, 38, 0.96), rgba(12, 20, 35, 0.92)),
+                                #0c1523;
+                            color: #fff;
                         }
 
                         .home-product-range__eyebrow {
                             display: inline-flex;
                             align-items: center;
                             gap: 10px;
-                            margin-bottom: 16px;
+                            margin-bottom: 20px;
                             font-size: 0.72rem;
                             font-weight: 600;
                             letter-spacing: 0.14em;
                             text-transform: uppercase;
-                            color: rgba(0, 0, 0, 0.5);
+                            color: rgba(255, 255, 255, 0.65);
                         }
 
                         .home-product-range__eyebrow-dot {
                             width: 8px;
                             height: 8px;
                             border-radius: 50%;
-                            background: var(--at-theme-primary, #1562a1);
-                            box-shadow: 0 0 0 4px rgba(21, 98, 161, 0.15);
+                            background: #75c4ff;
+                            box-shadow: 0 0 0 4px rgba(117, 196, 255, 0.16);
                         }
 
                         .home-product-range__title {
-                            margin: 0 0 14px;
-                            font-size: clamp(2rem, 5vw, 3.25rem);
+                            max-width: 15ch;
+                            margin: 0 0 18px;
+                            font-size: clamp(1.95rem, 4.2vw, 3.45rem);
                             font-weight: 600;
-                            line-height: 1.05;
+                            line-height: 0.98;
                             letter-spacing: -0.03em;
-                            color: #111;
+                            color: #fff;
                         }
 
                         .home-product-range__title-accent {
-                            color: var(--at-theme-primary, #1562a1);
+                            display: inline-block;
+                            color: #75c4ff;
                         }
 
                         .home-product-range__lead {
-                            max-width: 36rem;
+                            max-width: 40rem;
                             margin: 0;
-                            font-size: clamp(0.95rem, 1.4vw, 1.05rem);
-                            line-height: 1.65;
-                            color: rgba(0, 0, 0, 0.62);
+                            font-size: clamp(1rem, 1.45vw, 1.1rem);
+                            line-height: 1.75;
+                            color: rgba(255, 255, 255, 0.72);
                         }
 
-                        .home-product-range__meta {
+                        .home-product-range__hero-actions {
                             display: flex;
-                            flex-direction: column;
-                            gap: 18px;
+                            flex-wrap: wrap;
+                            gap: 14px;
+                            margin-top: 30px;
                         }
 
-                        .home-product-range__stats {
+                        .home-product-range__primary-btn {
+                            min-width: 220px;
+                            color: #111 !important;
+                            background: #fff !important;
+                            border-color: #fff !important;
+                            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
+                        }
+
+                        .home-product-range__primary-btn:hover {
+                            color: #111 !important;
+                            background: #f4f7fb !important;
+                            border-color: #f4f7fb !important;
+                        }
+
+                        .home-product-range__secondary-btn {
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            min-height: 54px;
+                            padding: 0 22px;
+                            border-radius: 999px;
+                            border: 1px solid rgba(255, 255, 255, 0.14);
+                            color: #fff;
+                            text-decoration: none;
+                            background: rgba(255, 255, 255, 0.04);
+                            transition:
+                                background 0.2s ease,
+                                border-color 0.2s ease,
+                                transform 0.2s ease;
+                        }
+
+                        .home-product-range__secondary-btn:hover {
+                            color: #fff;
+                            background: rgba(255, 255, 255, 0.08);
+                            border-color: rgba(117, 196, 255, 0.4);
+                            transform: translateY(-1px);
+                        }
+
+                        .home-product-range__overview {
                             display: grid;
-                            grid-template-columns: repeat(3, minmax(0, 1fr));
-                            gap: 10px;
-                            margin: 0;
+                            grid-template-columns: repeat(1, minmax(0, 1fr));
+                            gap: 14px;
+                            margin: 34px 0 0;
                             padding: 0;
                             list-style: none;
                         }
 
-                        .home-product-range__stat {
-                            padding: 14px 12px;
-                            text-align: center;
-                            background: linear-gradient(180deg, #fafafa 0%, #f3f3f3 100%);
-                            border: 1px solid rgba(0, 0, 0, 0.06);
-                            border-radius: 12px;
+                        @media (min-width: 768px) {
+                            .home-product-range__overview {
+                                grid-template-columns: repeat(3, minmax(0, 1fr));
+                            }
                         }
 
-                        .home-product-range__stat-value {
+                        .home-product-range__overview-card {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 6px;
+                            padding: 18px 18px 16px;
+                            border-radius: 20px;
+                            background: rgba(255, 255, 255, 0.05);
+                            border: 1px solid rgba(255, 255, 255, 0.08);
+                            backdrop-filter: blur(8px);
+                        }
+
+                        .home-product-range__overview-value {
                             display: block;
-                            font-size: 1.35rem;
+                            font-size: 1.4rem;
                             font-weight: 700;
                             line-height: 1.1;
                             letter-spacing: -0.02em;
-                            color: #111;
+                            color: #fff;
                         }
 
-                        .home-product-range__stat-label {
+                        .home-product-range__overview-label {
                             display: block;
-                            margin-top: 4px;
-                            font-size: 0.68rem;
+                            font-size: 0.78rem;
                             font-weight: 500;
-                            letter-spacing: 0.04em;
+                            letter-spacing: 0.03em;
                             text-transform: uppercase;
-                            color: rgba(0, 0, 0, 0.48);
+                            color: rgba(255, 255, 255, 0.58);
                         }
 
-                        .home-product-range__pills {
-                            display: flex;
-                            flex-wrap: wrap;
-                            gap: 8px;
+                        .home-product-range__hero-panel-top {
+                            margin-bottom: 20px;
                         }
 
-                        .home-product-range__pill {
-                            padding: 8px 14px;
-                            font-size: 0.7rem;
+                        .home-product-range__panel-label {
+                            display: inline-block;
+                            margin-bottom: 12px;
+                            font-size: 0.72rem;
                             font-weight: 600;
-                            letter-spacing: 0.06em;
+                            letter-spacing: 0.14em;
                             text-transform: uppercase;
-                            text-decoration: none;
-                            color: rgba(0, 0, 0, 0.62);
-                            background: #fff;
-                            border: 1px solid rgba(0, 0, 0, 0.1);
-                            border-radius: 999px;
-                            transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+                            color: rgba(255, 255, 255, 0.55);
                         }
 
-                        .home-product-range__pill:hover {
-                            color: var(--at-theme-primary, #1562a1);
-                            border-color: rgba(21, 98, 161, 0.35);
-                            background: rgba(21, 98, 161, 0.06);
+                        .home-product-range__panel-copy {
+                            margin: 0;
+                            font-size: 1rem;
+                            line-height: 1.7;
+                            color: rgba(255, 255, 255, 0.72);
+                        }
+
+                        .home-product-range__category-list {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 12px;
+                        }
+
+                        .home-product-range__category-tab {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            gap: 16px;
+                            width: 100%;
+                            padding: 18px 18px;
+                            text-align: left;
+                            border: 1px solid rgba(255, 255, 255, 0.08);
+                            border-radius: 18px;
+                            background: rgba(255, 255, 255, 0.03);
+                            color: #fff;
+                            transition:
+                                transform 0.2s ease,
+                                border-color 0.2s ease,
+                                background 0.2s ease,
+                                box-shadow 0.2s ease;
+                        }
+
+                        .home-product-range__category-tab:hover,
+                        .home-product-range__category-tab.is-active {
                             transform: translateY(-1px);
+                            border-color: rgba(117, 196, 255, 0.4);
+                            background: rgba(117, 196, 255, 0.08);
+                            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.16);
+                        }
+
+                        .home-product-range__category-tab-title {
+                            display: block;
+                            font-size: 0.98rem;
+                            font-weight: 600;
+                            line-height: 1.4;
+                        }
+
+                        .home-product-range__category-tab-meta {
+                            flex-shrink: 0;
+                            font-size: 0.74rem;
+                            font-weight: 600;
+                            letter-spacing: 0.08em;
+                            text-transform: uppercase;
+                            color: rgba(255, 255, 255, 0.55);
+                        }
+
+                        .home-product-range__panel-footer {
+                            margin-top: auto;
+                            padding-top: 24px;
+                        }
+
+                        .home-product-range__panel-description {
+                            margin: 0 0 14px;
+                            font-size: 0.94rem;
+                            line-height: 1.75;
+                            color: rgba(255, 255, 255, 0.68);
+                        }
+
+                        .home-product-range__panel-link {
+                            color: #75c4ff;
+                            font-weight: 600;
+                            text-decoration: none;
+                        }
+
+                        .home-product-range__panel-link:hover {
+                            color: #9bd4ff;
+                        }
+
+                        .home-product-range__catalogue {
+                            padding: clamp(26px, 4vw, 36px);
+                            background:
+                                linear-gradient(180deg, rgba(246, 250, 255, 0.96) 0%, rgba(227, 238, 252, 0.92) 100%);
+                            border: 1px solid rgba(130, 182, 235, 0.24);
+                            box-shadow: 0 28px 80px rgba(5, 15, 31, 0.18);
+                        }
+
+                        .home-product-range__catalogue-head {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 14px;
+                            margin-bottom: 24px;
+                        }
+
+                        @media (min-width: 992px) {
+                            .home-product-range__catalogue-head {
+                                flex-direction: row;
+                                align-items: end;
+                                justify-content: space-between;
+                            }
+                        }
+
+                        .home-product-range__catalogue-label {
+                            display: inline-block;
+                            margin-bottom: 10px;
+                            font-size: 0.72rem;
+                            font-weight: 700;
+                            letter-spacing: 0.14em;
+                            text-transform: uppercase;
+                            color: var(--at-theme-primary, #1562a1);
+                        }
+
+                        .home-product-range__catalogue-title {
+                            margin: 0;
+                            font-size: clamp(1.7rem, 3vw, 2.5rem);
+                            font-weight: 600;
+                            line-height: 1.05;
+                            letter-spacing: -0.03em;
+                            color: #111827;
+                        }
+
+                        .home-product-range__catalogue-copy {
+                            max-width: 28rem;
+                            margin: 0;
+                            font-size: 0.95rem;
+                            line-height: 1.75;
+                            color: rgba(17, 24, 39, 0.6);
                         }
 
                         .home-product-range__grid {
                             display: grid;
-                            grid-template-columns: repeat(2, minmax(0, 1fr));
-                            gap: 14px;
+                            grid-template-columns: 1fr;
+                            gap: 18px;
                         }
 
                         @media (min-width: 768px) {
                             .home-product-range__grid {
-                                grid-template-columns: repeat(4, minmax(0, 1fr));
-                                gap: 16px;
+                                grid-template-columns: repeat(2, minmax(0, 1fr));
+                            }
+                        }
+
+                        @media (min-width: 1200px) {
+                            .home-product-range__grid {
+                                grid-template-columns: repeat(3, minmax(0, 1fr));
                             }
                         }
 
@@ -354,50 +639,76 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             color: inherit;
                             text-decoration: none;
                             background: #fff;
-                            border: 1px solid rgba(0, 0, 0, 0.08);
-                            border-radius: 14px;
+                            border: 1px solid rgba(17, 24, 39, 0.08);
+                            border-radius: 24px;
                             overflow: hidden;
-                            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+                            transition:
+                                transform 0.28s ease,
+                                box-shadow 0.28s ease,
+                                border-color 0.28s ease;
                         }
 
                         .home-product-range__card:hover {
-                            transform: translateY(-4px);
+                            transform: translateY(-6px);
                             border-color: rgba(21, 98, 161, 0.22);
-                            box-shadow: 0 18px 40px rgba(15, 15, 15, 0.1);
+                            box-shadow: 0 24px 54px rgba(10, 16, 28, 0.12);
+                        }
+
+                        @media (min-width: 1200px) {
+                            .home-product-range__card.is-featured {
+                                grid-column: span 2;
+                            }
                         }
 
                         .home-product-range__card-media {
                             position: relative;
-                            aspect-ratio: 1 / 1;
-                            background: linear-gradient(160deg, #f8f8f8 0%, #ececec 100%);
+                            aspect-ratio: 1.05 / 0.84;
+                            background:
+                                radial-gradient(circle at 20% 20%, rgba(117, 196, 255, 0.14), transparent 30%),
+                                linear-gradient(160deg, #f9fbff 0%, #eef2f7 100%);
+                        }
+
+                        .home-product-range__card.is-featured .home-product-range__card-media {
+                            aspect-ratio: 1.5 / 0.9;
                         }
 
                         .home-product-range__card-img {
                             object-fit: contain;
-                            padding: 16px;
+                            padding: 24px;
                             transition: transform 0.35s ease;
                         }
 
                         .home-product-range__card:hover .home-product-range__card-img {
-                            transform: scale(1.04);
+                            transform: scale(1.05);
+                        }
+
+                        .home-product-range__card-gradient {
+                            position: absolute;
+                            inset: auto 0 0;
+                            height: 42%;
+                            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(7, 17, 31, 0.08) 100%);
                         }
 
                         .home-product-range__card-arrow {
                             position: absolute;
-                            top: 12px;
-                            right: 12px;
+                            top: 16px;
+                            right: 16px;
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                            width: 34px;
-                            height: 34px;
+                            width: 40px;
+                            height: 40px;
                             color: #111;
-                            background: #fff;
-                            border: 1px solid rgba(0, 0, 0, 0.08);
+                            background: rgba(255, 255, 255, 0.92);
+                            border: 1px solid rgba(17, 24, 39, 0.08);
                             border-radius: 50%;
                             opacity: 0;
-                            transform: translateY(6px);
-                            transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+                            transform: translateY(8px);
+                            transition:
+                                opacity 0.2s ease,
+                                transform 0.2s ease,
+                                background 0.2s ease,
+                                color 0.2s ease;
                         }
 
                         .home-product-range__card:hover .home-product-range__card-arrow {
@@ -412,51 +723,106 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             display: flex;
                             flex-direction: column;
                             flex: 1;
-                            gap: 6px;
-                            padding: 14px 14px 16px;
+                            gap: 12px;
+                            padding: 22px 22px 24px;
+                        }
+
+                        .home-product-range__card-meta {
+                            display: flex;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            justify-content: space-between;
+                            gap: 10px;
                         }
 
                         .home-product-range__card-tag {
                             align-self: flex-start;
-                            padding: 3px 9px;
+                            padding: 5px 10px;
                             font-size: 0.62rem;
                             font-weight: 600;
-                            letter-spacing: 0.06em;
+                            letter-spacing: 0.08em;
                             text-transform: uppercase;
-                            color: rgba(0, 0, 0, 0.52);
-                            background: #f4f4f4;
+                            color: rgba(17, 24, 39, 0.55);
+                            background: #f3f6fb;
                             border-radius: 999px;
+                        }
+
+                        .home-product-range__card-index {
+                            font-size: 0.72rem;
+                            font-weight: 600;
+                            letter-spacing: 0.08em;
+                            text-transform: uppercase;
+                            color: rgba(17, 24, 39, 0.4);
                         }
 
                         .home-product-range__card-title {
                             margin: 0;
-                            font-size: 0.82rem;
+                            font-size: clamp(1rem, 1.8vw, 1.35rem);
                             font-weight: 600;
-                            line-height: 1.35;
-                            color: #111;
+                            line-height: 1.2;
+                            color: #111827;
                         }
 
                         .home-product-range__card-excerpt {
                             display: -webkit-box;
                             margin: 0;
-                            font-size: 0.76rem;
-                            line-height: 1.5;
-                            color: rgba(0, 0, 0, 0.52);
-                            -webkit-line-clamp: 2;
+                            font-size: 0.9rem;
+                            line-height: 1.7;
+                            color: rgba(17, 24, 39, 0.58);
+                            -webkit-line-clamp: 3;
                             -webkit-box-orient: vertical;
                             overflow: hidden;
                         }
 
-                        .home-product-range__actions {
+                        .home-product-range__card-link {
                             display: flex;
-                            justify-content: center;
-                            margin-top: clamp(28px, 4vw, 36px);
-                            padding-top: clamp(24px, 3vw, 32px);
-                            border-top: 1px solid rgba(0, 0, 0, 0.06);
+                            align-items: center;
+                            gap: 8px;
+                            margin-top: auto;
+                            font-size: 0.86rem;
+                            font-weight: 600;
+                            color: var(--at-theme-primary, #1562a1);
                         }
 
-                        .home-product-range__btn {
-                            min-width: 200px;
+                        .home-product-range__card-link i {
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        .home-product-range__footer {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 14px;
+                            margin-top: 24px;
+                            padding-top: 22px;
+                            border-top: 1px solid rgba(17, 24, 39, 0.08);
+                        }
+
+                        @media (min-width: 768px) {
+                            .home-product-range__footer {
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: space-between;
+                            }
+                        }
+
+                        .home-product-range__footer-copy {
+                            margin: 0;
+                            max-width: 40rem;
+                            font-size: 0.94rem;
+                            line-height: 1.75;
+                            color: rgba(17, 24, 39, 0.58);
+                        }
+
+                        .home-product-range__footer-link {
+                            color: #111827;
+                            font-weight: 600;
+                            text-decoration: none;
+                        }
+
+                        .home-product-range__footer-link:hover {
+                            color: var(--at-theme-primary, #1562a1);
                         }
                     `,
                 }}

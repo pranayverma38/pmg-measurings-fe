@@ -111,12 +111,39 @@ export default function StatsStrip() {
                             margin-bottom: 20px;
                             color: #111;
                         }
+                        .distributors-stats__icon svg {
+                            animation: distributors-icon-float 6s ease-in-out infinite;
+                            transform-origin: center;
+                            will-change: transform;
+                        }
+                        .distributors-stats__item:nth-child(2) .distributors-stats__icon svg {
+                            animation-duration: 7s;
+                            animation-delay: -1.5s;
+                        }
+                        .distributors-stats__item:nth-child(3) .distributors-stats__icon svg {
+                            animation-duration: 6.5s;
+                            animation-delay: -3s;
+                        }
                         .distributors-stats__label {
                             max-width: 15rem;
                             font-size: 0.95rem;
                             font-weight: 500;
                             line-height: 1.6;
                             color: rgba(0, 0, 0, 0.62);
+                        }
+                        @keyframes distributors-icon-float {
+                            0%,
+                            100% {
+                                transform: translate3d(0, 0, 0) rotate(0deg);
+                            }
+                            50% {
+                                transform: translate3d(0, -8px, 0) rotate(1.5deg);
+                            }
+                        }
+                        @media (prefers-reduced-motion: reduce) {
+                            .distributors-stats__icon svg {
+                                animation: none;
+                            }
                         }
                         @media (min-width: 768px) {
                             .distributors-stats__grid {

@@ -44,7 +44,7 @@ const FEATURED_CATEGORY_PRODUCTS: FeaturedCategoryProduct[] = [
     {
         categoryId: "spirit-levels",
         categoryLabel: "Spirit Levels",
-        imageSrc: "/assets/imgs/pmgproducts/SPIRIT%20LEVEL/30cm/1.png",
+        imageSrc: "/assets/imgs/pmgproducts/SPIRIT%20LEVEL/30cm/yellow/1.png",
         imageAlt: "PMG spirit level",
         caption: "Clean alignment tools for finishing, fitting, and install work.",
     },
@@ -81,7 +81,7 @@ export default function Section1() {
                 }
             ).context(() => {
                 const introNodes = section.querySelectorAll(
-                    ".pmg-hero-catalog__intro-copy > *, .pmg-hero-catalog__rail, .pmg-hero-catalog__visual-note"
+                    ".pmg-hero-catalog__intro-copy > *, .pmg-hero-catalog__visual-meta, .pmg-hero-catalog__rail"
                 );
                 const stage = section.querySelector<HTMLElement>(".pmg-hero-catalog__visual-stage");
                 const image = section.querySelector<HTMLElement>(".pmg-hero-catalog__product-image");
@@ -113,9 +113,9 @@ export default function Section1() {
                         const offsetY = (event.clientY - rect.top) / rect.height - 0.5;
 
                         gsap.to(stage, {
-                            rotateY: offsetX * 5,
-                            rotateX: offsetY * -5,
-                            x: offsetX * 8,
+                            rotateY: offsetX * 4,
+                            rotateX: offsetY * -4,
+                            x: offsetX * 6,
                             y: offsetY * 6,
                             duration: 0.35,
                             ease: "power2.out",
@@ -170,66 +170,64 @@ export default function Section1() {
 
             <div className="container-fluid">
                 <div className="pmg-hero-catalog__shell">
-                    <div className="pmg-hero-catalog__layout">
-                        <div className="pmg-hero-catalog__intro">
-                            <div className="pmg-hero-catalog__scale" aria-hidden="true">
-                                <span />
-                                <span />
-                                <span />
-                                <span />
-                                <span />
-                                <span />
-                                <span />
-                                <span />
-                            </div>
-
+                    <div className="pmg-hero-catalog__panel">
+                        <div className="pmg-hero-catalog__layout">
                             <div className="pmg-hero-catalog__intro-copy">
                                 <span className="pmg-hero-catalog__eyebrow">PMG precision measuring tools</span>
 
                                 <h1 className="pmg-hero-catalog__title">
                                     <span className="pmg-hero-catalog__title-line">
-                                        <RevealText>New Vision</RevealText>
+                                        <RevealText>NEW VISION</RevealText>
                                     </span>
                                     <span className="pmg-hero-catalog__title-line pmg-hero-catalog__title-line--accent">
-                                        <RevealText>New Inches</RevealText>
+                                        <RevealText>NEW INCHES</RevealText>
                                     </span>
                                 </h1>
 
                                 <p className="pmg-hero-catalog__description">
-                                    A cleaner, sharper PMG showcase for measuring tapes, fiberglass tapes,
-                                    and spirit levels.
+                                    Precision measuring tools built for accuracy, durability, and everyday trade use.
                                 </p>
 
                                 <div className="pmg-hero-catalog__cta-row">
-                                    <Link className="pmg-hero-catalog__button pmg-hero-catalog__button--primary" href="/products">
+                                    <Link
+                                        className="pmg-hero-catalog__button pmg-hero-catalog__button--primary"
+                                        href="/products"
+                                    >
                                         <span>Explore products</span>
                                         <i>{ARROW_DIAGONAL_SVG}</i>
                                     </Link>
-                                    <Link className="pmg-hero-catalog__button pmg-hero-catalog__button--secondary" href="/contact-1">
-                                        <span>Request a quote</span>
+                                    <Link
+                                        className="pmg-hero-catalog__button pmg-hero-catalog__button--secondary"
+                                        href="/contact-1"
+                                    >
+                                        <span>Contact sales</span>
                                         <i>{ARROW_DIAGONAL_SVG}</i>
                                     </Link>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div className="pmg-hero-catalog__visual">
-                            <div className="pmg-hero-catalog__visual-note">
-                                <span className="pmg-hero-catalog__visual-label">Category focus</span>
-                                <strong>{activeFeaturedProduct.categoryLabel}</strong>
-                                <span>{activeFeaturedProduct.caption}</span>
+                                <div className="pmg-hero-catalog__micro-list" aria-label="Key PMG categories">
+                                    <span>Measuring Tapes</span>
+                                    <span>Fiberglass Tapes</span>
+                                    <span>Spirit Levels</span>
+                                </div>
                             </div>
 
-                            <div
-                                className="pmg-hero-catalog__visual-stage"
-                                role="tabpanel"
-                                id={`pmg-featured-panel-${activeCategoryId}`}
-                                aria-labelledby={`pmg-featured-tab-${activeCategoryId}`}
-                            >
-                                <div className="pmg-hero-catalog__visual-ring">
-                                    <div className="pmg-hero-catalog__visual-ring-inner">
-                                        <div className="pmg-hero-catalog__visual-halo" />
-                                        <div className="pmg-hero-catalog__visual-grid" />
+                            <div className="pmg-hero-catalog__visual">
+                                <div className="pmg-hero-catalog__visual-meta">
+                                    <span className="pmg-hero-catalog__visual-label">Featured</span>
+                                    <strong>{activeFeaturedProduct.categoryLabel}</strong>
+                                    <p>{activeFeaturedProduct.caption}</p>
+                                </div>
+
+                                <div
+                                    className="pmg-hero-catalog__visual-stage"
+                                    role="tabpanel"
+                                    id={`pmg-featured-panel-${activeCategoryId}`}
+                                    aria-labelledby={`pmg-featured-tab-${activeCategoryId}`}
+                                >
+                                    <div className="pmg-hero-catalog__visual-orbit" aria-hidden="true" />
+                                    <div className="pmg-hero-catalog__visual-card">
+                                        <span className="pmg-hero-catalog__visual-badge">TRADE READY</span>
                                         <Image
                                             src={activeFeaturedProduct.imageSrc}
                                             alt={activeFeaturedProduct.imageAlt}
@@ -240,30 +238,33 @@ export default function Section1() {
                                         />
                                     </div>
                                 </div>
+
+                                <div
+                                    className="pmg-hero-catalog__rail"
+                                    role="tablist"
+                                    aria-label="Featured PMG product categories"
+                                >
+                                    {FEATURED_CATEGORY_PRODUCTS.map((product) => {
+                                        const isActive = product.categoryId === activeCategoryId;
+
+                                        return (
+                                            <button
+                                                key={product.categoryId}
+                                                type="button"
+                                                role="tab"
+                                                id={`pmg-featured-tab-${product.categoryId}`}
+                                                aria-selected={isActive}
+                                                aria-controls={`pmg-featured-panel-${product.categoryId}`}
+                                                className={`pmg-hero-catalog__rail-item${isActive ? " pmg-hero-catalog__rail-item--active" : ""}`}
+                                                onClick={() => setActiveCategoryId(product.categoryId)}
+                                            >
+                                                <span className="pmg-hero-catalog__rail-item-title">{product.categoryLabel}</span>
+                                            </button>
+                                        );
+                                    })}
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div className="pmg-hero-catalog__rail" role="tablist" aria-label="Featured PMG product categories">
-                        {FEATURED_CATEGORY_PRODUCTS.map((product) => {
-                            const isActive = product.categoryId === activeCategoryId;
-
-                            return (
-                                <button
-                                    key={product.categoryId}
-                                    type="button"
-                                    role="tab"
-                                    id={`pmg-featured-tab-${product.categoryId}`}
-                                    aria-selected={isActive}
-                                    aria-controls={`pmg-featured-panel-${product.categoryId}`}
-                                    className={`pmg-hero-catalog__rail-item${isActive ? " pmg-hero-catalog__rail-item--active" : ""}`}
-                                    onClick={() => setActiveCategoryId(product.categoryId)}
-                                >
-                                    <span className="pmg-hero-catalog__rail-item-title">{product.categoryLabel}</span>
-                                    <span className="pmg-hero-catalog__rail-item-copy">{product.caption}</span>
-                                </button>
-                            );
-                        })}
                     </div>
                 </div>
             </div>
@@ -276,13 +277,12 @@ export default function Section1() {
                         .pmg-hero-catalog {
                             --pmg-hero-accent: ${HERO_ACCENT};
                             position: relative;
-                            min-height: 100vh;
-                            min-height: 100dvh;
                             overflow: hidden;
-                            color: #121826;
+                            color: #0f172a;
                             background:
-                                radial-gradient(circle at 0% 0%, rgba(96, 165, 250, 0.16), transparent 24%),
-                                linear-gradient(180deg, #fdf9f4 0%, #f3f5f8 100%);
+                                radial-gradient(circle at 10% 12%, rgba(21, 98, 161, 0.16), transparent 24%),
+                                radial-gradient(circle at 88% 10%, rgba(96, 165, 250, 0.16), transparent 28%),
+                                linear-gradient(135deg, #f8fbff 0%, #edf2f8 50%, #f7f2eb 100%);
                         }
 
                         .pmg-hero-catalog__backdrop {
@@ -291,146 +291,133 @@ export default function Section1() {
                             z-index: 0;
                             pointer-events: none;
                         }
+
                         .pmg-hero-catalog__grid {
                             position: absolute;
                             inset: 0;
                             background-image:
-                                linear-gradient(rgba(18, 24, 38, 0.045) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(18, 24, 38, 0.045) 1px, transparent 1px);
-                            background-size: 40px 40px;
+                                linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+                            background-size: 44px 44px;
                             mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.46), transparent 92%);
                         }
+
                         .pmg-hero-catalog__glow,
                         .pmg-hero-catalog__wash {
                             position: absolute;
                             border-radius: 999px;
                         }
+
                         .pmg-hero-catalog__glow--left {
                             top: 16%;
                             left: -8%;
-                            width: min(28vw, 340px);
-                            height: min(28vw, 340px);
-                            background: rgba(21, 98, 161, 0.12);
-                            filter: blur(16px);
+                            width: min(26vw, 320px);
+                            height: min(26vw, 320px);
+                            background: rgba(21, 98, 161, 0.1);
+                            filter: blur(28px);
                         }
+
                         .pmg-hero-catalog__glow--right {
                             right: 4%;
-                            top: 8%;
+                            top: 10%;
                             width: min(34vw, 440px);
                             height: min(34vw, 440px);
-                            background: rgba(96, 165, 250, 0.2);
-                            filter: blur(14px);
+                            background: rgba(96, 165, 250, 0.18);
+                            filter: blur(30px);
                         }
+
                         .pmg-hero-catalog__wash {
-                            inset: auto -10% 12% auto;
-                            width: min(44vw, 560px);
-                            height: min(44vw, 560px);
-                            background: radial-gradient(circle, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.14) 62%, transparent 82%);
+                            inset: auto -10% 8% auto;
+                            width: min(40vw, 480px);
+                            height: min(40vw, 480px);
+                            background: radial-gradient(circle, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.06) 68%, transparent 82%);
                         }
 
                         .pmg-hero-catalog .container-fluid {
                             position: relative;
                             z-index: 1;
                         }
+
                         .pmg-hero-catalog__shell {
                             max-width: 1440px;
                             margin: 0 auto;
-                            padding: clamp(96px, 9vw, 120px) clamp(8px, 2vw, 20px) clamp(78px, 7vw, 108px);
+                            padding: clamp(90px, 8vw, 110px) clamp(8px, 2vw, 20px) clamp(44px, 5vw, 64px);
                         }
+
+                        .pmg-hero-catalog__panel {
+                            position: relative;
+                            border-radius: 34px;
+                            border: 1px solid rgba(148, 163, 184, 0.18);
+                            background: rgba(255, 255, 255, 0.68);
+                            box-shadow:
+                                0 24px 70px rgba(15, 23, 42, 0.08),
+                                inset 0 1px 0 rgba(255, 255, 255, 0.85);
+                            backdrop-filter: blur(14px);
+                        }
+
                         .pmg-hero-catalog__layout {
                             display: grid;
                             grid-template-columns: minmax(0, 1fr);
-                            gap: clamp(24px, 3.6vw, 48px);
+                            gap: clamp(26px, 4vw, 44px);
                             align-items: center;
-                            padding-top: 22px;
+                            padding: clamp(28px, 4vw, 40px);
                         }
 
-                        .pmg-hero-catalog__intro {
-                            display: grid;
-                            grid-template-columns: auto minmax(0, 1fr);
-                            gap: 18px;
-                            align-items: start;
-                            min-width: 0;
-                        }
-                        .pmg-hero-catalog__scale {
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: space-between;
-                            width: 18px;
-                            min-height: 210px;
-                            padding: 10px 0;
-                            position: relative;
-                        }
-                        .pmg-hero-catalog__scale::before {
-                            content: "";
-                            position: absolute;
-                            top: 0;
-                            bottom: 0;
-                            left: 8px;
-                            width: 1px;
-                            background: rgba(17, 24, 39, 0.22);
-                        }
-                        .pmg-hero-catalog__scale span {
-                            position: relative;
-                            width: 100%;
-                            height: 1px;
-                            background: rgba(17, 24, 39, 0.3);
-                        }
-                        .pmg-hero-catalog__scale span:nth-child(odd) {
-                            width: 12px;
-                        }
-                        .pmg-hero-catalog__intro-copy {
-                            max-width: 500px;
-                        }
                         .pmg-hero-catalog__eyebrow {
                             display: inline-flex;
                             align-items: center;
                             margin-bottom: 18px;
-                            padding: 8px 14px;
+                            padding: 8px 13px;
                             border-radius: 999px;
                             border: 1px solid rgba(21, 98, 161, 0.14);
-                            background: rgba(255, 255, 255, 0.76);
-                            color: #1562A1;
+                            background: rgba(255, 255, 255, 0.84);
+                            color: var(--pmg-hero-accent);
                             font-size: 12px;
                             font-weight: 700;
                             letter-spacing: 0.08em;
                             text-transform: uppercase;
-                            box-shadow: 0 10px 24px rgba(18, 24, 38, 0.05);
+                            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
                         }
+
                         .pmg-hero-catalog__title {
                             margin: 0;
-                            font-size: clamp(2.9rem, 7vw, 5.4rem);
-                            line-height: 0.94;
-                            letter-spacing: -0.05em;
+                            font-size: clamp(3rem, 8vw, 6.2rem);
+                            line-height: 0.88;
+                            letter-spacing: -0.055em;
                             font-weight: 700;
                             text-transform: uppercase;
-                            color: #111827;
+                            color: #0f172a;
                         }
+
                         .pmg-hero-catalog__title-line {
                             display: block;
                         }
+
                         .pmg-hero-catalog__title-line--accent {
                             color: var(--pmg-hero-accent);
                         }
+
                         .pmg-hero-catalog__description {
-                            margin: 22px 0 0;
+                            margin: 20px 0 0;
                             max-width: 31rem;
-                            font-size: clamp(16px, 1.2vw, 17px);
+                            font-size: clamp(15px, 1.1vw, 18px);
                             line-height: 1.7;
-                            color: rgba(17, 24, 39, 0.72);
+                            color: rgba(15, 23, 42, 0.68);
                         }
+
                         .pmg-hero-catalog__cta-row {
                             display: flex;
                             flex-wrap: wrap;
                             gap: 12px;
-                            margin-top: 28px;
+                            margin-top: 26px;
                         }
+
                         .pmg-hero-catalog__button {
                             display: inline-flex;
                             align-items: center;
                             justify-content: center;
                             gap: 12px;
-                            min-height: 52px;
+                            min-height: 54px;
                             padding: 14px 22px;
                             border-radius: 999px;
                             border: 1px solid transparent;
@@ -444,31 +431,57 @@ export default function Section1() {
                                 background-color 0.2s ease,
                                 color 0.2s ease;
                         }
+
                         .pmg-hero-catalog__button i {
                             display: inline-flex;
                             line-height: 0;
                         }
+
                         .pmg-hero-catalog__button:hover {
                             transform: translateY(-2px);
                         }
+
                         .pmg-hero-catalog__button--primary {
-                            background: var(--pmg-hero-accent);
+                            background: linear-gradient(135deg, var(--pmg-hero-accent) 0%, #0f548b 100%);
                             color: #fff;
                             box-shadow: 0 18px 36px rgba(21, 98, 161, 0.22);
                         }
+
                         .pmg-hero-catalog__button--primary:hover {
                             color: #fff;
-                            background: #0F548B;
                         }
+
                         .pmg-hero-catalog__button--secondary {
-                            background: rgba(255, 255, 255, 0.8);
-                            border-color: rgba(17, 24, 39, 0.1);
-                            color: #111827;
-                            box-shadow: 0 14px 28px rgba(18, 24, 38, 0.06);
+                            background: rgba(255, 255, 255, 0.82);
+                            border-color: rgba(15, 23, 42, 0.1);
+                            color: #0f172a;
+                            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.06);
                         }
+
                         .pmg-hero-catalog__button--secondary:hover {
-                            color: #111827;
+                            color: #0f172a;
                             border-color: rgba(21, 98, 161, 0.22);
+                        }
+
+                        .pmg-hero-catalog__micro-list {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 10px;
+                            margin-top: 24px;
+                        }
+
+                        .pmg-hero-catalog__micro-list span {
+                            display: inline-flex;
+                            align-items: center;
+                            min-height: 36px;
+                            padding: 8px 14px;
+                            border-radius: 999px;
+                            background: rgba(15, 23, 42, 0.05);
+                            color: rgba(15, 23, 42, 0.72);
+                            font-size: 12px;
+                            font-weight: 700;
+                            letter-spacing: 0.04em;
+                            text-transform: uppercase;
                         }
 
                         .pmg-hero-catalog__visual {
@@ -478,22 +491,22 @@ export default function Section1() {
                             flex-direction: column;
                             align-items: center;
                             justify-content: center;
-                            padding-top: 28px;
                         }
-                        .pmg-hero-catalog__visual-note {
+
+                        .pmg-hero-catalog__visual-meta {
                             display: flex;
                             flex-direction: column;
-                            gap: 6px;
-                            margin-bottom: 12px;
-                            padding: 12px 14px;
-                            width: min(280px, 100%);
+                            gap: 5px;
+                            margin-bottom: 14px;
+                            padding: 14px 16px;
+                            width: min(260px, 100%);
                             border-radius: 20px;
-                            border: 1px solid rgba(17, 24, 39, 0.08);
-                            background: rgba(255, 255, 255, 0.82);
-                            box-shadow: 0 18px 40px rgba(18, 24, 38, 0.08);
+                            background: rgba(255, 255, 255, 0.88);
+                            border: 1px solid rgba(148, 163, 184, 0.16);
+                            box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
                             backdrop-filter: blur(10px);
-                            text-align: center;
                         }
+
                         .pmg-hero-catalog__visual-label {
                             font-size: 11px;
                             font-weight: 700;
@@ -501,125 +514,131 @@ export default function Section1() {
                             text-transform: uppercase;
                             color: var(--pmg-hero-accent);
                         }
-                        .pmg-hero-catalog__visual-note strong {
+
+                        .pmg-hero-catalog__visual-meta strong {
                             font-size: 1.05rem;
-                            color: #111827;
+                            color: #0f172a;
                             line-height: 1.2;
                         }
-                        .pmg-hero-catalog__visual-note span:last-child {
+
+                        .pmg-hero-catalog__visual-meta p {
+                            margin: 0;
                             font-size: 12px;
-                            line-height: 1.45;
-                            color: rgba(17, 24, 39, 0.66);
+                            line-height: 1.5;
+                            color: rgba(15, 23, 42, 0.66);
                         }
+
                         .pmg-hero-catalog__visual-stage {
                             position: relative;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            min-height: clamp(300px, 30vw, 420px);
                             width: 100%;
-                        }
-                        .pmg-hero-catalog__visual-ring {
+                            max-width: 520px;
+                            min-height: clamp(280px, 34vw, 420px);
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                            width: min(100%, 430px);
-                            aspect-ratio: 1 / 1;
-                            padding: 14px;
-                            border-radius: 50%;
-                            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 249, 252, 0.98) 100%);
-                            box-shadow:
-                                0 26px 60px rgba(18, 24, 38, 0.08),
-                                0 0 0 1px rgba(17, 24, 39, 0.06);
+                            will-change: transform;
                         }
-                        .pmg-hero-catalog__visual-ring-inner {
+
+                        .pmg-hero-catalog__visual-orbit {
                             position: relative;
+                            position: absolute;
+                            inset: 8% 10%;
+                            border-radius: 50%;
+                            border: 1px solid rgba(21, 98, 161, 0.14);
+                            background: radial-gradient(circle, rgba(21, 98, 161, 0.08) 0%, transparent 70%);
+                        }
+
+                        .pmg-hero-catalog__visual-card {
+                            position: absolute;
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                            width: 100%;
-                            height: 100%;
-                            border-radius: 50%;
-                            overflow: hidden;
-                            background:
-                                radial-gradient(circle at center, rgba(255, 255, 255, 0.96) 0%, rgba(238, 242, 247, 0.98) 100%);
+                            width: min(100%, 380px);
+                            aspect-ratio: 1 / 1;
+                            padding: 20px;
+                            border-radius: 36px;
+                            background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 246, 251, 0.98) 100%);
+                            box-shadow:
+                                0 28px 70px rgba(15, 23, 42, 0.1),
+                                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+                            border: 1px solid rgba(148, 163, 184, 0.18);
                         }
-                        .pmg-hero-catalog__visual-grid {
+
+                        .pmg-hero-catalog__visual-badge {
                             position: absolute;
-                            inset: 0;
-                            background-image:
-                                linear-gradient(rgba(17, 24, 39, 0.05) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(17, 24, 39, 0.05) 1px, transparent 1px);
-                            background-size: 28px 28px;
-                            mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.98) 34%, transparent 78%);
+                            top: 18px;
+                            left: 18px;
+                            display: inline-flex;
+                            align-items: center;
+                            min-height: 32px;
+                            padding: 6px 12px;
+                            border-radius: 999px;
+                            background: rgba(15, 23, 42, 0.06);
+                            color: rgba(15, 23, 42, 0.7);
+                            font-size: 11px;
+                            font-weight: 700;
+                            letter-spacing: 0.08em;
+                            text-transform: uppercase;
                         }
-                        .pmg-hero-catalog__visual-halo {
-                            position: absolute;
-                            inset: 18%;
-                            border-radius: 50%;
-                            background: radial-gradient(circle, rgba(21, 98, 161, 0.22) 0%, rgba(96, 165, 250, 0.08) 42%, transparent 74%);
-                            filter: blur(8px);
-                        }
+
                         .pmg-hero-catalog__product-image {
                             position: relative;
                             z-index: 1;
-                            width: min(100%, 320px);
+                            width: min(100%, 300px);
                             height: auto;
                             object-fit: contain;
-                            filter: drop-shadow(0 26px 50px rgba(17, 24, 39, 0.2));
+                            filter: drop-shadow(0 24px 48px rgba(15, 23, 42, 0.18));
                             will-change: transform;
                         }
 
                         .pmg-hero-catalog__rail {
-                            display: grid;
-                            grid-template-columns: repeat(3, minmax(0, 1fr));
-                            gap: 0;
-                            margin-top: clamp(28px, 4vw, 40px);
-                            border-radius: 28px;
-                            overflow: hidden;
-                            border: 1px solid rgba(17, 24, 39, 0.12);
-                            background: rgba(255, 255, 255, 0.88);
-                            box-shadow: 0 18px 40px rgba(18, 24, 38, 0.08);
-                            backdrop-filter: blur(10px);
-                        }
-                        .pmg-hero-catalog__rail-item {
                             display: flex;
-                            flex-direction: column;
-                            align-items: flex-start;
+                            flex-wrap: wrap;
+                            gap: 10px;
                             justify-content: center;
-                            gap: 6px;
-                            min-height: 112px;
-                            padding: 20px 22px;
-                            border: 0;
-                            background: transparent;
-                            color: rgba(17, 24, 39, 0.66);
-                            text-align: left;
+                            margin-top: 18px;
+                        }
+
+                        .pmg-hero-catalog__rail-item {
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            min-height: 44px;
+                            padding: 10px 16px;
+                            border: 1px solid rgba(148, 163, 184, 0.18);
+                            border-radius: 999px;
+                            background: rgba(255, 255, 255, 0.78);
+                            color: rgba(15, 23, 42, 0.68);
+                            text-align: center;
+                            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.05);
                             transition:
+                                transform 0.2s ease,
+                                border-color 0.2s ease,
                                 background-color 0.2s ease,
-                                color 0.2s ease,
-                                box-shadow 0.2s ease;
+                                box-shadow 0.2s ease,
+                                color 0.2s ease;
                         }
-                        .pmg-hero-catalog__rail-item + .pmg-hero-catalog__rail-item {
-                            border-left: 1px solid rgba(17, 24, 39, 0.08);
-                        }
+
                         .pmg-hero-catalog__rail-item:hover {
-                            color: #111827;
-                            background: rgba(21, 98, 161, 0.06);
+                            transform: translateY(-2px);
+                            color: #0f172a;
+                            border-color: rgba(21, 98, 161, 0.22);
+                            background: rgba(255, 255, 255, 0.92);
                         }
+
                         .pmg-hero-catalog__rail-item--active {
-                            background: linear-gradient(180deg, rgba(21, 98, 161, 0.12) 0%, rgba(255, 255, 255, 0.98) 100%);
-                            color: #111827;
-                            box-shadow: inset 0 3px 0 var(--pmg-hero-accent);
+                            color: #0f172a;
+                            background: linear-gradient(180deg, rgba(21, 98, 161, 0.14) 0%, rgba(255, 255, 255, 0.98) 100%);
+                            border-color: rgba(21, 98, 161, 0.22);
+                            box-shadow: 0 16px 34px rgba(15, 23, 42, 0.08);
                         }
+
                         .pmg-hero-catalog__rail-item-title {
-                            font-size: 15px;
+                            font-size: 13px;
                             font-weight: 700;
                             line-height: 1.3;
-                        }
-                        .pmg-hero-catalog__rail-item-copy {
-                            font-size: 12px;
-                            line-height: 1.55;
-                            opacity: 0.85;
+                            letter-spacing: 0.03em;
+                            text-transform: uppercase;
                         }
 
                         .pmg-hero-catalog__ruler {
@@ -628,10 +647,10 @@ export default function Section1() {
                             right: 0;
                             bottom: 0;
                             height: 34px;
-                            border-top: 1px solid rgba(17, 24, 39, 0.08);
-                            background:
-                                linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(245, 247, 250, 0.96) 100%);
+                            border-top: 1px solid rgba(15, 23, 42, 0.08);
+                            background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(244, 247, 251, 0.96) 100%);
                         }
+
                         .pmg-hero-catalog__ruler::before {
                             content: "";
                             position: absolute;
@@ -639,63 +658,63 @@ export default function Section1() {
                             background:
                                 repeating-linear-gradient(
                                     90deg,
-                                    rgba(17, 24, 39, 0.34) 0 1px,
+                                    rgba(15, 23, 42, 0.32) 0 1px,
                                     transparent 1px 10px
                                 ),
                                 repeating-linear-gradient(
                                     90deg,
-                                    rgba(17, 24, 39, 0.2) 0 1px,
+                                    rgba(15, 23, 42, 0.18) 0 1px,
                                     transparent 1px 50px
                                 );
                             mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0 70%, transparent 70% 100%);
                         }
 
-                        @media (min-width: 860px) {
+                        @media (min-width: 980px) {
                             .pmg-hero-catalog__layout {
-                                grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+                                grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
                             }
                         }
 
                         @media (max-width: 991px) {
-                            .pmg-hero-catalog__visual {
-                                padding-top: 0;
-                            }
-                            .pmg-hero-catalog__visual-note {
-                                width: 100%;
-                                max-width: 360px;
-                            }
-                            .pmg-hero-catalog__rail {
-                                grid-template-columns: 1fr;
-                            }
-                            .pmg-hero-catalog__rail-item + .pmg-hero-catalog__rail-item {
-                                border-left: 0;
-                                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                            .pmg-hero-catalog__visual-stage {
+                                max-width: 100%;
                             }
                         }
 
                         @media (max-width: 767px) {
                             .pmg-hero-catalog__shell {
                                 padding-top: 96px;
-                                padding-bottom: 90px;
+                                padding-bottom: 54px;
                             }
-                            .pmg-hero-catalog__layout {
-                                padding-top: 0;
-                            }
-                            .pmg-hero-catalog__intro {
-                                grid-template-columns: 1fr;
-                                gap: 14px;
-                            }
-                            .pmg-hero-catalog__scale {
-                                display: none;
-                            }
+
                             .pmg-hero-catalog__title {
-                                font-size: clamp(2.6rem, 14vw, 4.2rem);
+                                font-size: clamp(2.7rem, 14vw, 4.3rem);
                             }
+
+                            .pmg-hero-catalog__layout {
+                                padding: 24px 18px;
+                            }
+
                             .pmg-hero-catalog__visual-stage {
-                                min-height: 300px;
+                                min-height: 260px;
                             }
-                            .pmg-hero-catalog__rail-item {
-                                min-height: 92px;
+                        }
+
+                        @media (max-width: 575px) {
+                            .pmg-hero-catalog__button {
+                                width: 100%;
+                            }
+
+                            .pmg-hero-catalog__visual-meta {
+                                width: 100%;
+                            }
+
+                            .pmg-hero-catalog__micro-list {
+                                gap: 8px;
+                            }
+
+                            .pmg-hero-catalog__product-image {
+                                width: min(100%, 240px);
                             }
                         }
                     `,
