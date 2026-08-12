@@ -7,7 +7,7 @@ import StatsStrip from "@/components/sections/distributors/StatsStrip";
 
 export default function About_1() {
     return (
-        <Layout headerStyle={16} footerStyle={16} headerProps={{ textStyle: "dark" }}>
+        <Layout headerStyle={16} footerStyle={16} headerProps={{ textStyle: "light" }}>
             <div className="about-page">
                 <Section1 />
                 <StatsStrip />
@@ -39,8 +39,8 @@ export default function About_1() {
                             flex-shrink: 0;
                             width: clamp(280px, 42vw, 520px);
                             height: 420px;
-                            border: 1px solid rgba(0, 0, 0, 0.08);
-                            background: #fff;
+                            border: 1px solid rgba(255, 255, 255, 0.08);
+                            background: #1a1a1a;
                         }
                         .about-hero-slider__slide.swiper-slide img {
                             inset: 20px !important;
@@ -54,7 +54,7 @@ export default function About_1() {
                         .about-legacy__products .team-card-image {
                             border-radius: 12px;
                             overflow: hidden;
-                            border: 1px solid rgba(137, 62, 62, 0.08);
+                            border: 1px solid rgba(255, 255, 255, 0.08);
                         }
                         .about-legacy__products .team-card-icon {
                             opacity: 0;

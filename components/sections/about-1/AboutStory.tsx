@@ -246,8 +246,8 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
                             height: 28px;
                             background: repeating-linear-gradient(
                                 90deg,
-                                #1562A1 0px,
-                                #1562A1 2px,
+                                #ed431c 0px,
+                                #ed431c 2px,
                                 transparent 2px,
                                 transparent 12px,
                                 rgba(255,255,255,0.15) 12px,
@@ -255,7 +255,7 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
                                 transparent 14px,
                                 transparent 24px
                             );
-                            opacity: 0.35;
+                            opacity: 0.4;
                             pointer-events: none;
                         }
                         .about-legacy__tape--top { top: 0; }
@@ -352,7 +352,7 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
                             font-weight: 700;
                             line-height: 1;
                             letter-spacing: -0.02em;
-                            color: #1562A1;
+                            color: #ed431c;
                         }
                         .about-legacy__badge-label {
                             margin-top: 4px;
@@ -385,7 +385,7 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
                             transition: background 0.3s ease;
                         }
                         .about-legacy__highlight:hover {
-                            background: rgba(21,98,161,0.08);
+                            background: rgba(237,67,28,0.08);
                         }
                         .about-legacy__highlight-value {
                             font-size: clamp(1.5rem, 3vw, 2.25rem);
@@ -402,7 +402,7 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
 
                         .about-legacy__values {
                             padding: clamp(64px, 8vw, 100px) 0 clamp(48px, 6vw, 80px);
-                            background: #fafafa;
+                            background: #080808;
                         }
                         .about-legacy__values-header {
                             display: flex;
@@ -451,8 +451,8 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
                         .about-legacy__value-card {
                             position: relative;
                             padding: 32px 28px 36px;
-                            background: #fff;
-                            border: 1px solid rgba(0,0,0,0.08);
+                            background: #111111;
+                            border: 1px solid rgba(255,255,255,0.07);
                             border-radius: 16px;
                             overflow: hidden;
                             transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
@@ -461,13 +461,13 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
                         }
                         .about-legacy__value-card:hover {
                             transform: translateY(-6px);
-                            box-shadow: 0 24px 48px rgba(0,0,0,0.08);
-                            border-color: rgba(21,98,161,0.25);
+                            box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+                            border-color: rgba(237,67,28,0.3);
                         }
-                        .about-legacy__value-card--1 { --card-accent: #1562A1; }
-                        .about-legacy__value-card--2 { --card-accent: #111; }
-                        .about-legacy__value-card--3 { --card-accent: #1562A1; }
-                        .about-legacy__value-card--4 { --card-accent: #111; }
+                        .about-legacy__value-card--1 { --card-accent: #ed431c; }
+                        .about-legacy__value-card--2 { --card-accent: #ffffff; }
+                        .about-legacy__value-card--3 { --card-accent: #ed431c; }
+                        .about-legacy__value-card--4 { --card-accent: #ffffff; }
 
                         .about-legacy__value-icon {
                             display: flex;
@@ -477,14 +477,14 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
                             height: 56px;
                             margin-bottom: 20px;
                             border-radius: 12px;
-                            background: rgba(21,98,161,0.08);
-                            color: #1562A1;
+                            background: rgba(237,67,28,0.1);
+                            color: #ed431c;
                             transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
                         }
                         .about-legacy__value-card--2 .about-legacy__value-icon,
                         .about-legacy__value-card--4 .about-legacy__value-icon {
-                            background: rgba(0,0,0,0.05);
-                            color: #111;
+                            background: rgba(255,255,255,0.06);
+                            color: rgba(255,255,255,0.75);
                         }
                         .about-legacy__value-card:hover .about-legacy__value-icon {
                             background: var(--card-accent);
@@ -496,18 +496,19 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
                             font-size: 0.75rem;
                             font-weight: 700;
                             letter-spacing: 0.12em;
-                            color: rgba(0,0,0,0.25);
+                            color: rgba(255,255,255,0.22);
                             margin-bottom: 8px;
                         }
                         .about-legacy__value-title {
                             font-size: 1.125rem;
                             letter-spacing: -0.01em;
                             margin-bottom: 12px;
+                            color: #ffffff;
                         }
                         .about-legacy__value-desc {
                             font-size: 0.9375rem;
                             line-height: 1.65;
-                            color: rgba(0,0,0,0.55);
+                            color: rgba(255,255,255,0.55);
                         }
                         .about-legacy__value-line {
                             position: absolute;
@@ -526,7 +527,7 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
 
                         .about-legacy__products {
                             padding-top: 16px;
-                            border-top: 1px solid rgba(0,0,0,0.08);
+                            border-top: 1px solid rgba(255,255,255,0.07);
                         }
                     `,
                 }}

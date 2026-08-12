@@ -83,9 +83,9 @@ export default function StatsStrip() {
                 dangerouslySetInnerHTML={{
                     __html: `
                         .distributors-stats {
-                            background: #fff;
-                            border-top: 1px solid rgba(0, 0, 0, 0.08);
-                            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+                            background: #0d0d0d;
+                            border-top: 1px solid rgba(255, 255, 255, 0.07);
+                            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
                         }
                         .distributors-stats__grid {
                             display: grid;
@@ -102,14 +102,14 @@ export default function StatsStrip() {
                             padding: 32px 24px;
                         }
                         .distributors-stats__item + .distributors-stats__item {
-                            border-top: 1px solid rgba(0, 0, 0, 0.08);
+                            border-top: 1px solid rgba(255, 255, 255, 0.07);
                         }
                         .distributors-stats__icon {
                             display: flex;
                             align-items: center;
                             justify-content: center;
                             margin-bottom: 20px;
-                            color: #111;
+                            color: #ed431c;
                         }
                         .distributors-stats__icon svg {
                             animation: distributors-icon-float 6s ease-in-out infinite;
@@ -129,7 +129,7 @@ export default function StatsStrip() {
                             font-size: 0.95rem;
                             font-weight: 500;
                             line-height: 1.6;
-                            color: rgba(0, 0, 0, 0.62);
+                            color: rgba(255, 255, 255, 0.58);
                         }
                         @keyframes distributors-icon-float {
                             0%,
@@ -155,7 +155,7 @@ export default function StatsStrip() {
                             }
                             .distributors-stats__item + .distributors-stats__item {
                                 border-top: none;
-                                border-left: 1px solid rgba(0, 0, 0, 0.08);
+                                border-left: 1px solid rgba(255, 255, 255, 0.07);
                             }
                         }
                     `,

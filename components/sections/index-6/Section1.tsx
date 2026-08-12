@@ -16,7 +16,7 @@ const ARROW_DIAGONAL_SVG = (
     </svg>
 );
 
-const HERO_ACCENT = "#1562A1";
+const HERO_ACCENT = "#ed431c";
 
 type FeaturedCategoryProduct = {
     categoryId: string;
@@ -278,11 +278,11 @@ export default function Section1() {
                             --pmg-hero-accent: ${HERO_ACCENT};
                             position: relative;
                             overflow: hidden;
-                            color: #0f172a;
+                            color: #ffffff;
                             background:
-                                radial-gradient(circle at 10% 12%, rgba(21, 98, 161, 0.16), transparent 24%),
-                                radial-gradient(circle at 88% 10%, rgba(96, 165, 250, 0.16), transparent 28%),
-                                linear-gradient(135deg, #f8fbff 0%, #edf2f8 50%, #f7f2eb 100%);
+                                radial-gradient(circle at 10% 12%, rgba(237, 67, 28, 0.12), transparent 28%),
+                                radial-gradient(circle at 88% 10%, rgba(237, 67, 28, 0.07), transparent 32%),
+                                linear-gradient(135deg, #080808 0%, #0f0f0f 50%, #080808 100%);
                         }
 
                         .pmg-hero-catalog__backdrop {
@@ -296,10 +296,10 @@ export default function Section1() {
                             position: absolute;
                             inset: 0;
                             background-image:
-                                linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+                                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
                             background-size: 44px 44px;
-                            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.46), transparent 92%);
+                            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent 92%);
                         }
 
                         .pmg-hero-catalog__glow,
@@ -313,7 +313,7 @@ export default function Section1() {
                             left: -8%;
                             width: min(26vw, 320px);
                             height: min(26vw, 320px);
-                            background: rgba(21, 98, 161, 0.1);
+                            background: rgba(237, 67, 28, 0.14);
                             filter: blur(28px);
                         }
 
@@ -322,7 +322,7 @@ export default function Section1() {
                             top: 10%;
                             width: min(34vw, 440px);
                             height: min(34vw, 440px);
-                            background: rgba(96, 165, 250, 0.18);
+                            background: rgba(237, 67, 28, 0.08);
                             filter: blur(30px);
                         }
 
@@ -330,7 +330,7 @@ export default function Section1() {
                             inset: auto -10% 8% auto;
                             width: min(40vw, 480px);
                             height: min(40vw, 480px);
-                            background: radial-gradient(circle, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.06) 68%, transparent 82%);
+                            background: radial-gradient(circle, rgba(237, 67, 28, 0.06) 0%, rgba(237, 67, 28, 0.01) 68%, transparent 82%);
                         }
 
                         .pmg-hero-catalog .container-fluid {
@@ -347,12 +347,13 @@ export default function Section1() {
                         .pmg-hero-catalog__panel {
                             position: relative;
                             border-radius: 34px;
-                            border: 1px solid rgba(148, 163, 184, 0.18);
-                            background: rgba(255, 255, 255, 0.68);
+                            border: 1px solid rgba(255, 255, 255, 0.07);
+                            background: rgba(18, 18, 18, 0.72);
                             box-shadow:
-                                0 24px 70px rgba(15, 23, 42, 0.08),
-                                inset 0 1px 0 rgba(255, 255, 255, 0.85);
+                                0 24px 70px rgba(0, 0, 0, 0.5),
+                                inset 0 1px 0 rgba(255, 255, 255, 0.06);
                             backdrop-filter: blur(14px);
+                            -webkit-backdrop-filter: blur(14px);
                         }
 
                         .pmg-hero-catalog__layout {
@@ -369,14 +370,14 @@ export default function Section1() {
                             margin-bottom: 18px;
                             padding: 8px 13px;
                             border-radius: 999px;
-                            border: 1px solid rgba(21, 98, 161, 0.14);
-                            background: rgba(255, 255, 255, 0.84);
+                            border: 1px solid rgba(237, 67, 28, 0.25);
+                            background: rgba(237, 67, 28, 0.08);
                             color: var(--pmg-hero-accent);
                             font-size: 12px;
                             font-weight: 700;
                             letter-spacing: 0.08em;
                             text-transform: uppercase;
-                            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+                            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
                         }
 
                         .pmg-hero-catalog__title {
@@ -386,7 +387,7 @@ export default function Section1() {
                             letter-spacing: -0.055em;
                             font-weight: 700;
                             text-transform: uppercase;
-                            color: #0f172a;
+                            color: #ffffff;
                         }
 
                         .pmg-hero-catalog__title-line {
@@ -402,7 +403,7 @@ export default function Section1() {
                             max-width: 31rem;
                             font-size: clamp(15px, 1.1vw, 18px);
                             line-height: 1.7;
-                            color: rgba(15, 23, 42, 0.68);
+                            color: rgba(255, 255, 255, 0.65);
                         }
 
                         .pmg-hero-catalog__cta-row {
@@ -442,25 +443,27 @@ export default function Section1() {
                         }
 
                         .pmg-hero-catalog__button--primary {
-                            background: linear-gradient(135deg, var(--pmg-hero-accent) 0%, #0f548b 100%);
+                            background: linear-gradient(135deg, #ed431c 0%, #c43516 100%);
                             color: #fff;
-                            box-shadow: 0 18px 36px rgba(21, 98, 161, 0.22);
+                            box-shadow: 0 18px 36px rgba(237, 67, 28, 0.3);
                         }
 
                         .pmg-hero-catalog__button--primary:hover {
                             color: #fff;
+                            box-shadow: 0 18px 36px rgba(237, 67, 28, 0.45);
                         }
 
                         .pmg-hero-catalog__button--secondary {
-                            background: rgba(255, 255, 255, 0.82);
-                            border-color: rgba(15, 23, 42, 0.1);
-                            color: #0f172a;
-                            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.06);
+                            background: rgba(255, 255, 255, 0.06);
+                            border-color: rgba(255, 255, 255, 0.14);
+                            color: #ffffff;
+                            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
                         }
 
                         .pmg-hero-catalog__button--secondary:hover {
-                            color: #0f172a;
-                            border-color: rgba(21, 98, 161, 0.22);
+                            color: #ffffff;
+                            background: rgba(255, 255, 255, 0.1);
+                            border-color: rgba(255, 255, 255, 0.24);
                         }
 
                         .pmg-hero-catalog__micro-list {
@@ -476,8 +479,8 @@ export default function Section1() {
                             min-height: 36px;
                             padding: 8px 14px;
                             border-radius: 999px;
-                            background: rgba(15, 23, 42, 0.05);
-                            color: rgba(15, 23, 42, 0.72);
+                            background: rgba(255, 255, 255, 0.06);
+                            color: rgba(255, 255, 255, 0.65);
                             font-size: 12px;
                             font-weight: 700;
                             letter-spacing: 0.04em;
@@ -501,10 +504,11 @@ export default function Section1() {
                             padding: 14px 16px;
                             width: min(260px, 100%);
                             border-radius: 20px;
-                            background: rgba(255, 255, 255, 0.88);
-                            border: 1px solid rgba(148, 163, 184, 0.16);
-                            box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+                            background: rgba(26, 26, 26, 0.88);
+                            border: 1px solid rgba(255, 255, 255, 0.08);
+                            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
                             backdrop-filter: blur(10px);
+                            -webkit-backdrop-filter: blur(10px);
                         }
 
                         .pmg-hero-catalog__visual-label {
@@ -517,7 +521,7 @@ export default function Section1() {
 
                         .pmg-hero-catalog__visual-meta strong {
                             font-size: 1.05rem;
-                            color: #0f172a;
+                            color: #ffffff;
                             line-height: 1.2;
                         }
 
@@ -525,7 +529,7 @@ export default function Section1() {
                             margin: 0;
                             font-size: 12px;
                             line-height: 1.5;
-                            color: rgba(15, 23, 42, 0.66);
+                            color: rgba(255, 255, 255, 0.6);
                         }
 
                         .pmg-hero-catalog__visual-stage {
@@ -544,8 +548,8 @@ export default function Section1() {
                             position: absolute;
                             inset: 8% 10%;
                             border-radius: 50%;
-                            border: 1px solid rgba(21, 98, 161, 0.14);
-                            background: radial-gradient(circle, rgba(21, 98, 161, 0.08) 0%, transparent 70%);
+                            border: 1px solid rgba(237, 67, 28, 0.14);
+                            background: radial-gradient(circle, rgba(237, 67, 28, 0.06) 0%, transparent 70%);
                         }
 
                         .pmg-hero-catalog__visual-card {
@@ -557,11 +561,11 @@ export default function Section1() {
                             aspect-ratio: 1 / 1;
                             padding: 20px;
                             border-radius: 36px;
-                            background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 246, 251, 0.98) 100%);
+                            background: linear-gradient(180deg, rgba(24, 24, 24, 0.96) 0%, rgba(16, 16, 16, 0.98) 100%);
                             box-shadow:
-                                0 28px 70px rgba(15, 23, 42, 0.1),
-                                inset 0 1px 0 rgba(255, 255, 255, 0.9);
-                            border: 1px solid rgba(148, 163, 184, 0.18);
+                                0 28px 70px rgba(0, 0, 0, 0.5),
+                                inset 0 1px 0 rgba(255, 255, 255, 0.06);
+                            border: 1px solid rgba(255, 255, 255, 0.07);
                         }
 
                         .pmg-hero-catalog__visual-badge {
@@ -573,8 +577,8 @@ export default function Section1() {
                             min-height: 32px;
                             padding: 6px 12px;
                             border-radius: 999px;
-                            background: rgba(15, 23, 42, 0.06);
-                            color: rgba(15, 23, 42, 0.7);
+                            background: rgba(237, 67, 28, 0.12);
+                            color: rgba(237, 67, 28, 0.9);
                             font-size: 11px;
                             font-weight: 700;
                             letter-spacing: 0.08em;
@@ -605,12 +609,12 @@ export default function Section1() {
                             justify-content: center;
                             min-height: 44px;
                             padding: 10px 16px;
-                            border: 1px solid rgba(148, 163, 184, 0.18);
+                            border: 1px solid rgba(255, 255, 255, 0.1);
                             border-radius: 999px;
-                            background: rgba(255, 255, 255, 0.78);
-                            color: rgba(15, 23, 42, 0.68);
+                            background: rgba(255, 255, 255, 0.04);
+                            color: rgba(255, 255, 255, 0.6);
                             text-align: center;
-                            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.05);
+                            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
                             transition:
                                 transform 0.2s ease,
                                 border-color 0.2s ease,
@@ -621,16 +625,16 @@ export default function Section1() {
 
                         .pmg-hero-catalog__rail-item:hover {
                             transform: translateY(-2px);
-                            color: #0f172a;
-                            border-color: rgba(21, 98, 161, 0.22);
-                            background: rgba(255, 255, 255, 0.92);
+                            color: #ffffff;
+                            border-color: rgba(237, 67, 28, 0.3);
+                            background: rgba(237, 67, 28, 0.08);
                         }
 
                         .pmg-hero-catalog__rail-item--active {
-                            color: #0f172a;
-                            background: linear-gradient(180deg, rgba(21, 98, 161, 0.14) 0%, rgba(255, 255, 255, 0.98) 100%);
-                            border-color: rgba(21, 98, 161, 0.22);
-                            box-shadow: 0 16px 34px rgba(15, 23, 42, 0.08);
+                            color: #ffffff;
+                            background: rgba(237, 67, 28, 0.15);
+                            border-color: rgba(237, 67, 28, 0.4);
+                            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
                         }
 
                         .pmg-hero-catalog__rail-item-title {
@@ -647,8 +651,8 @@ export default function Section1() {
                             right: 0;
                             bottom: 0;
                             height: 34px;
-                            border-top: 1px solid rgba(15, 23, 42, 0.08);
-                            background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(244, 247, 251, 0.96) 100%);
+                            border-top: 1px solid rgba(255, 255, 255, 0.06);
+                            background: linear-gradient(180deg, rgba(14, 14, 14, 0.9) 0%, rgba(8, 8, 8, 0.98) 100%);
                         }
 
                         .pmg-hero-catalog__ruler::before {
@@ -658,12 +662,12 @@ export default function Section1() {
                             background:
                                 repeating-linear-gradient(
                                     90deg,
-                                    rgba(15, 23, 42, 0.32) 0 1px,
+                                    rgba(237, 67, 28, 0.4) 0 1px,
                                     transparent 1px 10px
                                 ),
                                 repeating-linear-gradient(
                                     90deg,
-                                    rgba(15, 23, 42, 0.18) 0 1px,
+                                    rgba(237, 67, 28, 0.22) 0 1px,
                                     transparent 1px 50px
                                 );
                             mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0 70%, transparent 70% 100%);

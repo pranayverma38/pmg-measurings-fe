@@ -12,13 +12,13 @@ interface HomeLayoutProps {
 
 export default function HomeLayout({
     children,
-    mainClass = "bg-neutral-50",
+    mainClass = "bg-neutral-0",
 }: HomeLayoutProps) {
     return (
         <MobileMenuCloneProvider>
             <ServerEffects />
             <div id="top" />
-            <HeaderHome textStyle="dark" logoVariant="white" />
+            <HeaderHome textStyle="light" logoVariant="white" />
             <div id="smooth-wrapper">
                 <div id="smooth-content" className="z-index-3">
                     <main className={mainClass}>{children}</main>

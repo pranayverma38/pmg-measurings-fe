@@ -172,8 +172,8 @@ export default function FooterHome() {
                             overflow: hidden;
                             color: #f5f0df;
                             background:
-                                radial-gradient(circle at top left, rgba(21, 98, 161, 0.18) 0, rgba(21, 98, 161, 0) 30%),
-                                radial-gradient(circle at right center, rgba(67, 145, 206, 0.12) 0, rgba(67, 145, 206, 0) 24%),
+                                radial-gradient(circle at top left, rgba(237, 67, 28, 0.12) 0, rgba(237, 67, 28, 0) 30%),
+                                radial-gradient(circle at right center, rgba(237, 67, 28, 0.07) 0, rgba(237, 67, 28, 0) 24%),
                                 linear-gradient(180deg, #050505 0%, #0a0a0a 48%, #020202 100%);
                         }
                         .pmg-footer-home::before {
@@ -199,12 +199,12 @@ export default function FooterHome() {
                         .pmg-footer-home__glow--left {
                             top: -14rem;
                             left: -10rem;
-                            background: rgba(21, 98, 161, 0.2);
+                            background: rgba(237, 67, 28, 0.18);
                         }
                         .pmg-footer-home__glow--right {
                             right: -12rem;
                             bottom: -16rem;
-                            background: rgba(67, 145, 206, 0.14);
+                            background: rgba(237, 67, 28, 0.1);
                         }
                         .pmg-footer-home__shell {
                             position: relative;
@@ -230,7 +230,7 @@ export default function FooterHome() {
                             text-transform: uppercase;
                         }
                         .pmg-footer-home__eyebrow {
-                            color: rgba(96, 175, 255, 0.88);
+                            color: rgba(237, 67, 28, 0.9);
                         }
                         .pmg-footer-home__lead {
                             max-width: 42rem;
@@ -262,10 +262,10 @@ export default function FooterHome() {
                             transform: translateY(-2px);
                         }
                         .pmg-footer-home__btn--primary {
-                            color: #f7fbff;
-                            background: #1562a1;
-                            border: 1px solid #1562a1;
-                            box-shadow: 0 16px 34px rgba(21, 98, 161, 0.24);
+                            color: #ffffff;
+                            background: #ed431c;
+                            border: 1px solid #ed431c;
+                            box-shadow: 0 16px 34px rgba(237, 67, 28, 0.28);
                         }
                         .pmg-footer-home__btn--secondary {
                             color: #fff;
@@ -273,9 +273,9 @@ export default function FooterHome() {
                             background: rgba(255, 255, 255, 0.04);
                         }
                         .pmg-footer-home__btn--secondary:hover {
-                            color: #f7fbff;
-                            background: #1e4f79;
-                            border-color: #1e4f79;
+                            color: #ffffff;
+                            background: rgba(237, 67, 28, 0.15);
+                            border-color: rgba(237, 67, 28, 0.4);
                         }
                         .pmg-footer-home__grid {
                             display: grid;
@@ -294,12 +294,12 @@ export default function FooterHome() {
                         }
                         .pmg-footer-home__panel--accent {
                             background:
-                                linear-gradient(180deg, rgba(21, 98, 161, 0.14) 0%, rgba(21, 98, 161, 0.04) 100%),
+                                linear-gradient(180deg, rgba(237, 67, 28, 0.1) 0%, rgba(237, 67, 28, 0.03) 100%),
                                 rgba(255, 255, 255, 0.02);
-                            border-color: rgba(78, 165, 255, 0.16);
+                            border-color: rgba(237, 67, 28, 0.2);
                         }
                         .pmg-footer-home__panel-label {
-                            color: rgba(96, 175, 255, 0.86);
+                            color: rgba(237, 67, 28, 0.9);
                         }
                         .pmg-footer-home__links,
                         .pmg-footer-home__support-links,
@@ -329,8 +329,8 @@ export default function FooterHome() {
                         .pmg-footer-home__social-link:hover {
                             color: #fff;
                             transform: translateX(4px);
-                            border-color: rgba(78, 165, 255, 0.28);
-                            background: rgba(78, 165, 255, 0.08);
+                            border-color: rgba(237, 67, 28, 0.35);
+                            background: rgba(237, 67, 28, 0.08);
                         }
                         .pmg-footer-home__info-block {
                             display: grid;
@@ -354,9 +354,9 @@ export default function FooterHome() {
                             padding-bottom: 2px;
                             font-size: 0.92rem;
                             font-weight: 500;
-                            color: rgba(96, 175, 255, 0.94);
+                            color: rgba(237, 67, 28, 0.9);
                             text-decoration: none;
-                            border-bottom: 1px solid rgba(78, 165, 255, 0.24);
+                            border-bottom: 1px solid rgba(237, 67, 28, 0.28);
                             transition: color 0.2s ease, border-color 0.2s ease;
                         }
                         .pmg-footer-home__mini-link:hover {
@@ -389,8 +389,8 @@ export default function FooterHome() {
                             font-weight: 700;
                             letter-spacing: 0.14em;
                             text-transform: uppercase;
-                            color: #f7fbff;
-                            background: #1562a1;
+                            color: #ffffff;
+                            background: #ed431c;
                         }
                         .pmg-footer-home__tape-line {
                             display: grid;
@@ -401,8 +401,8 @@ export default function FooterHome() {
                             padding: 12px 10px 10px;
                             border-radius: 16px;
                             background:
-                                linear-gradient(180deg, rgba(21, 98, 161, 0.24) 0%, rgba(21, 98, 161, 0.08) 100%);
-                            border: 1px solid rgba(78, 165, 255, 0.16);
+                                linear-gradient(180deg, rgba(237, 67, 28, 0.18) 0%, rgba(237, 67, 28, 0.05) 100%);
+                            border: 1px solid rgba(237, 67, 28, 0.2);
                         }
                         .pmg-footer-home__tape-tick {
                             position: relative;
@@ -420,9 +420,9 @@ export default function FooterHome() {
                             display: block;
                             width: 2px;
                             height: 18px;
-                            background: #69b5ff;
+                            background: rgba(237, 67, 28, 0.55);
                             border-radius: 999px;
-                            box-shadow: 0 0 0 rgba(105, 181, 255, 0);
+                            box-shadow: 0 0 0 rgba(237, 67, 28, 0);
                             transition:
                                 height 0.2s ease,
                                 background 0.2s ease,
@@ -436,8 +436,8 @@ export default function FooterHome() {
                         .pmg-footer-home__tape-tick:focus-visible .pmg-footer-home__tape-tick-bar,
                         .pmg-footer-home__tape-tick.is-active .pmg-footer-home__tape-tick-bar {
                             height: 42px;
-                            background: #a9d4ff;
-                            box-shadow: 0 0 16px rgba(96, 175, 255, 0.38);
+                            background: #ed431c;
+                            box-shadow: 0 0 16px rgba(237, 67, 28, 0.45);
                             transform: translateY(-2px);
                         }
                         .pmg-footer-home__tape-tick-label {
@@ -450,10 +450,10 @@ export default function FooterHome() {
                             font-weight: 700;
                             letter-spacing: 0.08em;
                             line-height: 1;
-                            color: #f7fbff;
+                            color: #ffffff;
                             white-space: nowrap;
-                            background: rgba(21, 98, 161, 0.92);
-                            border: 1px solid rgba(122, 187, 255, 0.28);
+                            background: rgba(237, 67, 28, 0.92);
+                            border: 1px solid rgba(237, 67, 28, 0.4);
                             opacity: 0;
                             transform: translate(-50%, 6px);
                             pointer-events: none;
@@ -467,7 +467,7 @@ export default function FooterHome() {
                         }
                         .pmg-footer-home__tape-tick:focus-visible {
                             border-radius: 10px;
-                            box-shadow: inset 0 0 0 1px rgba(122, 187, 255, 0.4);
+                            box-shadow: inset 0 0 0 1px rgba(237, 67, 28, 0.45);
                         }
                         .pmg-footer-home__tape-copy {
                             font-size: 0.95rem;

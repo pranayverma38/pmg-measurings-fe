@@ -230,8 +230,8 @@ export default function Section3({ classList = "" }: { classList?: string }) {
                             padding-top: 72px !important;
                             padding-bottom: 80px !important;
                             background:
-                                radial-gradient(circle at top left, rgba(21, 98, 161, 0.08), transparent 28%),
-                                linear-gradient(180deg, #fff 0%, #fbf9f6 100%);
+                                radial-gradient(circle at top left, rgba(237, 67, 28, 0.07), transparent 28%),
+                                linear-gradient(180deg, #080808 0%, #0d0d0d 100%);
                         }
                         .distributor-inquiry__intro {
                             max-width: 52rem;
@@ -260,16 +260,16 @@ export default function Section3({ classList = "" }: { classList?: string }) {
                             position: relative;
                             overflow: hidden;
                             border-radius: 24px;
-                            border: 1px solid rgba(17, 17, 17, 0.08);
-                            background: rgba(255, 255, 255, 0.92);
-                            box-shadow: 0 18px 50px rgba(17, 17, 17, 0.06);
+                            border: 1px solid rgba(255, 255, 255, 0.08);
+                            background: rgba(17, 17, 17, 0.9);
+                            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
                         }
                         .distributor-inquiry__card {
                             padding: 24px;
                         }
                         .distributor-inquiry__card--accent {
-                            background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
-                            border-color: rgba(17, 17, 17, 0.96);
+                            background: linear-gradient(180deg, #1a1a1a 0%, #111 100%);
+                            border-color: rgba(237, 67, 28, 0.2);
                             color: #fff;
                         }
                         .distributor-inquiry__card--accent::after {
@@ -279,7 +279,7 @@ export default function Section3({ classList = "" }: { classList?: string }) {
                             width: 220px;
                             height: 220px;
                             border-radius: 50%;
-                            background: rgba(21, 98, 161, 0.22);
+                            background: rgba(237, 67, 28, 0.12);
                             filter: blur(20px);
                             pointer-events: none;
                         }
@@ -326,8 +326,8 @@ export default function Section3({ classList = "" }: { classList?: string }) {
                             width: 56px;
                             height: 56px;
                             border-radius: 18px;
-                            background: #111;
-                            color: #fff;
+                            background: rgba(237, 67, 28, 0.12);
+                            color: #ed431c;
                             flex-shrink: 0;
                         }
                         .distributor-inquiry__icon svg {
@@ -337,12 +337,12 @@ export default function Section3({ classList = "" }: { classList?: string }) {
                         .distributor-inquiry__contact-title,
                         .distributor-inquiry__list-title {
                             font-size: 1.15rem;
-                            color: #111;
+                            color: #ffffff;
                         }
                         .distributor-inquiry__contact-copy {
                             font-size: 0.95rem;
                             line-height: 1.7;
-                            color: rgba(17, 17, 17, 0.62);
+                            color: rgba(255, 255, 255, 0.6);
                         }
                         .distributor-inquiry__contact-list {
                             display: grid;
@@ -352,25 +352,25 @@ export default function Section3({ classList = "" }: { classList?: string }) {
                             display: grid;
                             gap: 4px;
                             padding-top: 12px;
-                            border-top: 1px solid rgba(17, 17, 17, 0.08);
+                            border-top: 1px solid rgba(255, 255, 255, 0.08);
                         }
                         .distributor-inquiry__contact-label {
                             font-size: 0.75rem;
                             font-weight: 600;
                             letter-spacing: 0.08em;
                             text-transform: uppercase;
-                            color: rgba(17, 17, 17, 0.45);
+                            color: rgba(255, 255, 255, 0.4);
                         }
                         .distributor-inquiry__contact-link,
                         .distributor-inquiry__contact-value {
-                            color: #111;
+                            color: #ffffff;
                             font-size: 0.96rem;
                             font-weight: 500;
                             text-decoration: none;
                             word-break: break-word;
                         }
                         .distributor-inquiry__contact-link:hover {
-                            color: #1562A1;
+                            color: #ed431c;
                         }
                         .distributor-inquiry__requirements {
                             display: grid;
@@ -384,10 +384,10 @@ export default function Section3({ classList = "" }: { classList?: string }) {
                             gap: 12px;
                             align-items: start;
                             padding: 10px 0;
-                            border-top: 1px solid rgba(17, 17, 17, 0.08);
+                            border-top: 1px solid rgba(255, 255, 255, 0.08);
                             font-size: 0.93rem;
                             line-height: 1.5;
-                            color: rgba(17, 17, 17, 0.7);
+                            color: rgba(255, 255, 255, 0.65);
                         }
                         .distributor-inquiry__requirements-item:first-child {
                             padding-top: 0;
@@ -396,7 +396,7 @@ export default function Section3({ classList = "" }: { classList?: string }) {
                         .distributor-inquiry__requirements-icon {
                             display: inline-flex;
                             margin-top: 3px;
-                            color: #1562A1;
+                            color: #ed431c;
                         }
                         .distributor-inquiry__form-shell {
                             min-width: 0;
@@ -409,24 +409,24 @@ export default function Section3({ classList = "" }: { classList?: string }) {
                             gap: 14px;
                             margin-bottom: 22px;
                             padding-bottom: 18px;
-                            border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+                            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
                         }
                         .distributor-inquiry__form-kicker {
                             margin-bottom: 14px;
-                            background: rgba(32, 140, 86, 0.12);
-                            color: #1E7A4E;
+                            background: rgba(237, 67, 28, 0.12);
+                            color: #ed431c;
                         }
                         .distributor-inquiry__form-title {
                             font-size: clamp(1.55rem, 2.2vw, 2rem);
                             line-height: 1.1;
                             letter-spacing: -0.03em;
-                            color: #111;
+                            color: #ffffff;
                         }
                         .distributor-inquiry__form-subtitle {
                             max-width: 28rem;
                             font-size: 0.93rem;
                             line-height: 1.6;
-                            color: rgba(17, 17, 17, 0.62);
+                            color: rgba(255, 255, 255, 0.58);
                         }
                         .distributor-inquiry__form-grid {
                             display: grid;
@@ -443,31 +443,32 @@ export default function Section3({ classList = "" }: { classList?: string }) {
                             font-weight: 600;
                             letter-spacing: 0.08em;
                             text-transform: uppercase;
-                            color: rgba(17, 17, 17, 0.58);
+                            color: rgba(255, 255, 255, 0.52);
                         }
                         .distributor-inquiry__input {
                             width: 100%;
                             min-width: 0;
                             min-height: 52px;
                             padding: 0 16px;
-                            border: 1px solid rgba(17, 17, 17, 0.1);
+                            border: 1px solid rgba(255, 255, 255, 0.1);
                             border-radius: 16px;
-                            background: #f7f6f3;
+                            background: #1a1a1a;
                             font-size: 0.94rem;
-                            color: #111;
+                            color: #ffffff;
                             transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
                         }
                         .distributor-inquiry__input::placeholder {
-                            color: rgba(17, 17, 17, 0.38);
+                            color: rgba(255, 255, 255, 0.3);
                         }
                         .distributor-inquiry__input:hover {
-                            background: #f3f1ee;
+                            background: #1e1e1e;
+                            border-color: rgba(255, 255, 255, 0.15);
                         }
                         .distributor-inquiry__input:focus {
                             outline: none;
-                            border-color: rgba(21, 98, 161, 0.5);
-                            background: #fff;
-                            box-shadow: 0 0 0 4px rgba(21, 98, 161, 0.12);
+                            border-color: rgba(237, 67, 28, 0.55);
+                            background: #1e1e1e;
+                            box-shadow: 0 0 0 4px rgba(237, 67, 28, 0.12);
                         }
                         .distributor-inquiry__textarea {
                             min-height: 144px;
@@ -487,18 +488,18 @@ export default function Section3({ classList = "" }: { classList?: string }) {
                         .distributor-inquiry__disclaimer {
                             font-size: 0.9rem;
                             line-height: 1.7;
-                            color: rgba(17, 17, 17, 0.55);
+                            color: rgba(255, 255, 255, 0.45);
                         }
                         .distributor-inquiry__disclaimer {
                             margin-top: 14px;
                         }
                         .distributor-inquiry__inline-link {
-                            color: #111;
+                            color: rgba(255, 255, 255, 0.7);
                             text-decoration: underline;
                             text-underline-offset: 3px;
                         }
                         .distributor-inquiry__inline-link:hover {
-                            color: #1562A1;
+                            color: #ed431c;
                         }
                         @media (min-width: 768px) {
                             .distributor-inquiry__form-grid {

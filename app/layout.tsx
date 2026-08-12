@@ -9,6 +9,7 @@ import "@/public/assets/css/vendors/spacing.css";
 
 import "@/public/assets/css/main.css";
 import "@/public/assets/css/sticky-cards.css";
+import "@/public/assets/css/darktheme.css";
 
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
@@ -53,7 +54,7 @@ export default function RootLayout({
     const isWebsiteActive = process.env.WEBSITE_ACTIVE !== "false";
 
     return (
-        <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning style={{ colorScheme: "light" }}>
+        <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning style={{ colorScheme: "dark" }}>
             <head>
                 {/* Vendor bundle path; matches original HTML template */}
                 {/* eslint-disable-next-line @next/next/no-css-tags */}

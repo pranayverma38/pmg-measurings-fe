@@ -1,0 +1,179 @@
+/* ===================================================================
+   PMG Dark Theme
+   Primary: #080808  |  Secondary: #ffffff  |  Accent: #ed431c
+   Forced dark regardless of OS color scheme preference
+   =================================================================== */
+
+/* ── Force dark color scheme ──────────────────────────────────────── */
+html {
+  color-scheme: dark !important;
+}
+
+/* ── CSS variable overrides ───────────────────────────────────────── */
+:root {
+  --at-neutral-0:          #080808;
+  --at-neutral-0-rgb:      8, 8, 8;
+  --at-neutral-50:         #111111;
+  --at-neutral-50-rgb:     17, 17, 17;
+  --at-neutral-100:        rgba(255, 255, 255, 0.09);
+  --at-neutral-200:        rgba(255, 255, 255, 0.14);
+  --at-neutral-300:        rgba(255, 255, 255, 0.22);
+  --at-neutral-500:        #9a9a9a;
+  --at-neutral-700:        #cccccc;
+  --at-neutral-800:        #e4e4e4;
+  --at-neutral-900:        #ffffff;
+  --at-theme-primary:      #ed431c;
+  --at-common-black:       #ffffff;
+  --at-common-black-rgb:   255, 255, 255;
+  --at-grey-2:             #1a1a1a;
+  --at-grey-4:             #141414;
+}
+
+/* ── Body ─────────────────────────────────────────────────────────── */
+body {
+  background-color: #080808 !important;
+  color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+}
+
+/* ── Header: always dark background + white text ─────────────────── */
+.header-home.at-header-area {
+  background: rgba(8, 8, 8, 0.94) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Force white nav links in dark mode regardless of textStyle prop */
+.header-home .at-main-menu nav > ul > li > a,
+.header-home--dark .at-main-menu nav > ul > li > a,
+.header-home--dark .at-main-menu nav > ul > li > a:hover,
+.header-home--dark .at-main-menu nav > ul > li:hover.has-dropdown > a,
+.header-home--dark .at-main-menu nav > ul > li.has-dropdown > a {
+  color: #ffffff !important;
+}
+
+.header-home--dark .at-main-menu nav > ul > li.has-dropdown > a::after {
+  filter: invert(1) !important;
+}
+
+/* Logo + mobile burger white */
+.header-home--dark .at-header-logo a,
+.header-home--dark .at-header-sidebar-btn {
+  color: #ffffff !important;
+}
+
+/* ── Dropdown submenus dark ───────────────────────────────────────── */
+.at-main-menu nav ul li .submenu {
+  background: #111111 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7) !important;
+}
+.at-main-menu nav ul li .submenu li a {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+.at-main-menu nav ul li .submenu li:hover > a {
+  color: #ffffff !important;
+}
+
+/* ── Products mega-menu dark ──────────────────────────────────────── */
+.header-home .at-main-menu nav ul li .products-megamenu.at-megamenu {
+  background: linear-gradient(180deg, #121212 0%, #0d0d0d 100%) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.5), 0 24px 48px -12px rgba(0,0,0,0.8) !important;
+}
+.header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__title { color: #ffffff !important; }
+.header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__desc { color: rgba(255,255,255,0.52) !important; }
+.header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__list li a { color: rgba(255,255,255,0.68) !important; }
+.header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__list li a:hover {
+  color: #ffffff !important;
+  background: rgba(237, 67, 28, 0.08) !important;
+}
+.header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__list li a::before { background: #ed431c !important; }
+.header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__title-wrap { border-bottom-color: rgba(255,255,255,0.08) !important; }
+.header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__title-wrap svg { color: #ed431c !important; }
+.header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__footer { border-top-color: rgba(255,255,255,0.08) !important; }
+.header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__footer-text { color: rgba(255,255,255,0.52) !important; }
+.header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__footer-link { background: #ed431c !important; }
+.header-home .at-main-menu nav ul li .products-megamenu .products-megamenu__footer-link:hover {
+  background: #d93a17 !important;
+  box-shadow: 0 8px 20px -6px rgba(237, 67, 28, 0.5) !important;
+}
+
+/* ── Hamburger sticky (floating menu button) ──────────────────────── */
+.hamburger-sticky-menu {
+  color: #ffffff !important;
+  background: rgba(8, 8, 8, 0.94) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+.hamburger-sticky-menu.header-sticky {
+  background: rgba(8, 8, 8, 0.98) !important;
+}
+
+/* ── Mobile offcanvas sidebar dark ───────────────────────────────── */
+.at-offcanvas-2-area { background: #080808 !important; color: #ffffff !important; }
+.at-offcanvas-2-wrapper { background: #080808 !important; }
+.at-offcanvas-2-area .at-header-logo a { color: #ffffff !important; }
+.at-offcanvas-2-area .at-main-menu nav > ul > li > a { color: rgba(255,255,255,0.85) !important; }
+.at-offcanvas-2-area .at-main-menu nav ul li .submenu { background: #111111 !important; }
+.at-offcanvas-2-area .at-main-menu nav ul li .submenu li a { color: rgba(255,255,255,0.72) !important; }
+
+/* ── Interactive hero (about, distributors hero section bg) ──────── */
+.interactive-hero { background-color: #080808 !important; }
+
+/* ── Common layout classes ────────────────────────────────────────── */
+.bg-white { background-color: #111111 !important; }
+.at-btn.common-black { color: #ffffff !important; }
+
+/* ── About hero slider slides ────────────────────────────────────── */
+.about-hero-slider__slide.swiper-slide {
+  background: #1a1a1a !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ── Distributor stats strip ──────────────────────────────────────── */
+.distributors-stats {
+  border-top-color:    rgba(255, 255, 255, 0.08) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+.distributors-stats__item + .distributors-stats__item {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+@media (min-width: 768px) {
+  .distributors-stats__item + .distributors-stats__item {
+    border-left-color: rgba(255, 255, 255, 0.08) !important;
+    border-top-color: transparent !important;
+  }
+}
+
+/* ── Section5 home (testimonials / quote section) ────────────────── */
+.sec-5-home-2 { background-color: #080808; }
+.sec-5-home-2 .avatar-thumbnail { border-color: rgba(255,255,255,0.1) !important; }
+
+/* ── Back to top ──────────────────────────────────────────────────── */
+.back-to-top-wrapper a {
+  background: #1a1a1a !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.12) !important;
+}
+
+/* ── Form inputs global ───────────────────────────────────────────── */
+input, textarea, select {
+  color: #ffffff !important;
+  background-color: #1a1a1a !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.32) !important; }
+input:focus, textarea:focus {
+  background-color: #1e1e1e !important;
+  border-color: rgba(237, 67, 28, 0.5) !important;
+  box-shadow: 0 0 0 4px rgba(237, 67, 28, 0.12) !important;
+  outline: none !important;
+}
+
+/* ── Pop-up search dark ───────────────────────────────────────────── */
+.at-search-area { background: rgba(8, 8, 8, 0.97) !important; }
+.at-search-input { background: #111 !important; color: #fff !important; border-color: rgba(255,255,255,0.12) !important; }

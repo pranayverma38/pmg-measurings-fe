@@ -5,7 +5,7 @@ import StatsStrip from "@/components/sections/distributors/StatsStrip";
 
 export default function DistributorsPage() {
     return (
-        <Layout headerStyle={16} footerStyle={16} headerProps={{ textStyle: "dark" }}>
+        <Layout headerStyle={16} footerStyle={16} headerProps={{ textStyle: "light" }}>
             <div className="distributors-page">
                 <DistributorHero />
                 <StatsStrip />

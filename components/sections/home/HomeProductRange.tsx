@@ -247,10 +247,10 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             overflow: hidden;
                             padding: clamp(80px, 9vw, 120px) 0;
                             background:
-                                radial-gradient(circle at 12% 14%, rgba(90, 175, 244, 0.24), transparent 30%),
-                                radial-gradient(circle at 88% 8%, rgba(54, 113, 191, 0.24), transparent 32%),
-                                radial-gradient(circle at 50% 100%, rgba(72, 147, 223, 0.16), transparent 38%),
-                                linear-gradient(180deg, #081426 0%, #0d1f39 48%, #10294a 100%);
+                                radial-gradient(circle at 12% 14%, rgba(237, 67, 28, 0.12), transparent 30%),
+                                radial-gradient(circle at 88% 8%, rgba(237, 67, 28, 0.07), transparent 32%),
+                                radial-gradient(circle at 50% 100%, rgba(237, 67, 28, 0.05), transparent 38%),
+                                linear-gradient(180deg, #080808 0%, #0d0d0d 48%, #080808 100%);
                         }
 
                         .home-product-range__shell {
@@ -305,9 +305,9 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             height: 3px;
                             background: linear-gradient(
                                 90deg,
-                                rgba(117, 196, 255, 0.2) 0%,
-                                rgba(117, 196, 255, 0.9) 48%,
-                                rgba(117, 196, 255, 0.15) 100%
+                                rgba(237, 67, 28, 0.15) 0%,
+                                rgba(237, 67, 28, 0.85) 48%,
+                                rgba(237, 67, 28, 0.12) 100%
                             );
                         }
 
@@ -319,7 +319,7 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             width: 320px;
                             height: 320px;
                             border-radius: 50%;
-                            background: radial-gradient(circle, rgba(68, 163, 245, 0.18), transparent 72%);
+                            background: radial-gradient(circle, rgba(237, 67, 28, 0.1), transparent 72%);
                             pointer-events: none;
                         }
 
@@ -372,7 +372,7 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
 
                         .home-product-range__title-accent {
                             display: inline-block;
-                            color: #75c4ff;
+                            color: #ed431c;
                         }
 
                         .home-product-range__lead {
@@ -521,9 +521,9 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                         .home-product-range__category-tab:hover,
                         .home-product-range__category-tab.is-active {
                             transform: translateY(-1px);
-                            border-color: rgba(117, 196, 255, 0.4);
-                            background: rgba(117, 196, 255, 0.08);
-                            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.16);
+                            border-color: rgba(237, 67, 28, 0.4);
+                            background: rgba(237, 67, 28, 0.08);
+                            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.3);
                         }
 
                         .home-product-range__category-tab-title {
@@ -555,21 +555,21 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                         }
 
                         .home-product-range__panel-link {
-                            color: #75c4ff;
+                            color: #ed431c;
                             font-weight: 600;
                             text-decoration: none;
                         }
 
                         .home-product-range__panel-link:hover {
-                            color: #9bd4ff;
+                            color: #ff6644;
                         }
 
                         .home-product-range__catalogue {
                             padding: clamp(26px, 4vw, 36px);
                             background:
-                                linear-gradient(180deg, rgba(246, 250, 255, 0.96) 0%, rgba(227, 238, 252, 0.92) 100%);
-                            border: 1px solid rgba(130, 182, 235, 0.24);
-                            box-shadow: 0 28px 80px rgba(5, 15, 31, 0.18);
+                                linear-gradient(180deg, rgba(20, 20, 20, 0.96) 0%, rgba(14, 14, 14, 0.98) 100%);
+                            border: 1px solid rgba(255, 255, 255, 0.07);
+                            box-shadow: 0 28px 80px rgba(0, 0, 0, 0.4);
                         }
 
                         .home-product-range__catalogue-head {
@@ -594,7 +594,7 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             font-weight: 700;
                             letter-spacing: 0.14em;
                             text-transform: uppercase;
-                            color: var(--at-theme-primary, #1562a1);
+                            color: #ed431c;
                         }
 
                         .home-product-range__catalogue-title {
@@ -603,7 +603,7 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             font-weight: 600;
                             line-height: 1.05;
                             letter-spacing: -0.03em;
-                            color: #111827;
+                            color: #ffffff;
                         }
 
                         .home-product-range__catalogue-copy {
@@ -611,7 +611,7 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             margin: 0;
                             font-size: 0.95rem;
                             line-height: 1.75;
-                            color: rgba(17, 24, 39, 0.6);
+                            color: rgba(255, 255, 255, 0.6);
                         }
 
                         .home-product-range__grid {
@@ -638,8 +638,8 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             height: 100%;
                             color: inherit;
                             text-decoration: none;
-                            background: #fff;
-                            border: 1px solid rgba(17, 24, 39, 0.08);
+                            background: #111111;
+                            border: 1px solid rgba(255, 255, 255, 0.07);
                             border-radius: 24px;
                             overflow: hidden;
                             transition:
@@ -650,8 +650,8 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
 
                         .home-product-range__card:hover {
                             transform: translateY(-6px);
-                            border-color: rgba(21, 98, 161, 0.22);
-                            box-shadow: 0 24px 54px rgba(10, 16, 28, 0.12);
+                            border-color: rgba(237, 67, 28, 0.3);
+                            box-shadow: 0 24px 54px rgba(0, 0, 0, 0.4);
                         }
 
                         @media (min-width: 1200px) {
@@ -664,8 +664,8 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             position: relative;
                             aspect-ratio: 1.05 / 0.84;
                             background:
-                                radial-gradient(circle at 20% 20%, rgba(117, 196, 255, 0.14), transparent 30%),
-                                linear-gradient(160deg, #f9fbff 0%, #eef2f7 100%);
+                                radial-gradient(circle at 20% 20%, rgba(237, 67, 28, 0.06), transparent 30%),
+                                linear-gradient(160deg, #1a1a1a 0%, #141414 100%);
                         }
 
                         .home-product-range__card.is-featured .home-product-range__card-media {
@@ -698,9 +698,9 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             justify-content: center;
                             width: 40px;
                             height: 40px;
-                            color: #111;
-                            background: rgba(255, 255, 255, 0.92);
-                            border: 1px solid rgba(17, 24, 39, 0.08);
+                            color: #fff;
+                            background: rgba(237, 67, 28, 0.15);
+                            border: 1px solid rgba(237, 67, 28, 0.25);
                             border-radius: 50%;
                             opacity: 0;
                             transform: translateY(8px);
@@ -714,7 +714,7 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                         .home-product-range__card:hover .home-product-range__card-arrow {
                             opacity: 1;
                             transform: translateY(0);
-                            background: var(--at-theme-primary, #1562a1);
+                            background: #ed431c;
                             color: #fff;
                             border-color: transparent;
                         }
@@ -742,8 +742,8 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             font-weight: 600;
                             letter-spacing: 0.08em;
                             text-transform: uppercase;
-                            color: rgba(17, 24, 39, 0.55);
-                            background: #f3f6fb;
+                            color: rgba(255, 255, 255, 0.5);
+                            background: rgba(255, 255, 255, 0.07);
                             border-radius: 999px;
                         }
 
@@ -752,7 +752,7 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             font-weight: 600;
                             letter-spacing: 0.08em;
                             text-transform: uppercase;
-                            color: rgba(17, 24, 39, 0.4);
+                            color: rgba(255, 255, 255, 0.38);
                         }
 
                         .home-product-range__card-title {
@@ -760,7 +760,7 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             font-size: clamp(1rem, 1.8vw, 1.35rem);
                             font-weight: 600;
                             line-height: 1.2;
-                            color: #111827;
+                            color: #ffffff;
                         }
 
                         .home-product-range__card-excerpt {
@@ -768,7 +768,7 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             margin: 0;
                             font-size: 0.9rem;
                             line-height: 1.7;
-                            color: rgba(17, 24, 39, 0.58);
+                            color: rgba(255, 255, 255, 0.55);
                             -webkit-line-clamp: 3;
                             -webkit-box-orient: vertical;
                             overflow: hidden;
@@ -781,7 +781,7 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             margin-top: auto;
                             font-size: 0.86rem;
                             font-weight: 600;
-                            color: var(--at-theme-primary, #1562a1);
+                            color: #ed431c;
                         }
 
                         .home-product-range__card-link i {
@@ -796,7 +796,7 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             gap: 14px;
                             margin-top: 24px;
                             padding-top: 22px;
-                            border-top: 1px solid rgba(17, 24, 39, 0.08);
+                            border-top: 1px solid rgba(255, 255, 255, 0.07);
                         }
 
                         @media (min-width: 768px) {
@@ -812,17 +812,17 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
                             max-width: 40rem;
                             font-size: 0.94rem;
                             line-height: 1.75;
-                            color: rgba(17, 24, 39, 0.58);
+                            color: rgba(255, 255, 255, 0.55);
                         }
 
                         .home-product-range__footer-link {
-                            color: #111827;
+                            color: #ffffff;
                             font-weight: 600;
                             text-decoration: none;
                         }
 
                         .home-product-range__footer-link:hover {
-                            color: var(--at-theme-primary, #1562a1);
+                            color: #ed431c;
                         }
                     `,
                 }}
