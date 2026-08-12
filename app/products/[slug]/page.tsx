@@ -22,7 +22,7 @@ export default async function ProductSeriesPage({ params }: ProductSeriesPagePro
     }
 
     return (
-        <Layout headerStyle={16} footerStyle={16} headerProps={{ textStyle: "dark" }}>
+        <Layout headerStyle={16} footerStyle={16} headerProps={{ textStyle: "light" }}>
             <ProductDetailsSection series={series} />
         </Layout>
     );

@@ -325,7 +325,7 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
                             position: absolute;
                             inset: auto 10% -20% 10%;
                             height: 40%;
-                            background: radial-gradient(ellipse, rgba(21,98,161,0.42) 0%, transparent 70%);
+                            background: radial-gradient(ellipse, rgba(237,67,28,0.3) 0%, transparent 70%);
                             filter: blur(24px);
                             pointer-events: none;
                         }
@@ -336,10 +336,11 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
                             display: flex;
                             flex-direction: column;
                             padding: 16px 20px;
-                            background: #fff;
-                            color: #0a0a0a;
+                            background: #1a1a1a;
+                            color: #ffffff;
                             border-radius: 12px;
-                            box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+                            border: 1px solid rgba(255,255,255,0.1);
+                            box-shadow: 0 16px 48px rgba(0,0,0,0.5);
                         }
                         @media (min-width: 992px) {
                             .about-legacy__badge {

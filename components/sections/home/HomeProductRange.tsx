@@ -392,16 +392,16 @@ export default function HomeProductRange({ products }: { products: ProductCardIt
 
                         .home-product-range__primary-btn {
                             min-width: 220px;
-                            color: #111 !important;
-                            background: #fff !important;
-                            border-color: #fff !important;
-                            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
+                            color: #fff !important;
+                            background: #ed431c !important;
+                            border-color: #ed431c !important;
+                            box-shadow: 0 14px 34px rgba(237, 67, 28, 0.3);
                         }
 
                         .home-product-range__primary-btn:hover {
-                            color: #111 !important;
-                            background: #f4f7fb !important;
-                            border-color: #f4f7fb !important;
+                            color: #fff !important;
+                            background: #d93a17 !important;
+                            border-color: #d93a17 !important;
                         }
 
                         .home-product-range__secondary-btn {

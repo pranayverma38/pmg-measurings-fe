@@ -277,8 +277,8 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                     __html: `
                         .sec-4-about {
                             background:
-                                radial-gradient(circle at top left, rgba(21, 98, 161, 0.08), transparent 28%),
-                                linear-gradient(180deg, #fff 0%, #fbf9f6 100%);
+                                radial-gradient(circle at top left, rgba(237, 67, 28, 0.07), transparent 28%),
+                                linear-gradient(180deg, #080808 0%, #0d0d0d 100%);
                         }
                         .about-contact__intro {
                             max-width: 56rem;
@@ -306,9 +306,9 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                             position: relative;
                             overflow: hidden;
                             border-radius: 24px;
-                            border: 1px solid rgba(17, 17, 17, 0.08);
-                            background: rgba(255, 255, 255, 0.92);
-                            box-shadow: 0 18px 50px rgba(17, 17, 17, 0.06);
+                            border: 1px solid rgba(255, 255, 255, 0.08);
+                            background: rgba(17, 17, 17, 0.9);
+                            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
                         }
                         .about-contact__card {
                             padding: 24px;
@@ -326,12 +326,12 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                         }
                         .about-contact__eyebrow {
                             margin-bottom: 14px;
-                            background: rgba(21, 98, 161, 0.1);
-                            color: #1562a1;
+                            background: rgba(237, 67, 28, 0.12);
+                            color: #ed431c;
                         }
                         .about-contact__eyebrow--muted {
-                            background: rgba(17, 17, 17, 0.06);
-                            color: rgba(17, 17, 17, 0.72);
+                            background: rgba(255, 255, 255, 0.07);
+                            color: rgba(255, 255, 255, 0.65);
                         }
                         .about-contact__contact-head {
                             display: flex;
@@ -346,8 +346,8 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                             width: 56px;
                             height: 56px;
                             border-radius: 18px;
-                            background: #111;
-                            color: #fff;
+                            background: rgba(237, 67, 28, 0.12);
+                            color: #ed431c;
                             flex-shrink: 0;
                         }
                         .about-contact__icon svg {
@@ -356,13 +356,13 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                         }
                         .about-contact__card-title {
                             font-size: 1.15rem;
-                            color: #111;
+                            color: #ffffff;
                         }
                         .about-contact__card-copy {
                             max-width: 28rem;
                             font-size: 0.95rem;
                             line-height: 1.7;
-                            color: rgba(17, 17, 17, 0.62);
+                            color: rgba(255, 255, 255, 0.6);
                         }
                         .about-contact__contact-list {
                             display: grid;
@@ -372,18 +372,18 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                             display: grid;
                             gap: 4px;
                             padding-top: 12px;
-                            border-top: 1px solid rgba(17, 17, 17, 0.08);
+                            border-top: 1px solid rgba(255, 255, 255, 0.08);
                         }
                         .about-contact__contact-label {
                             font-size: 0.75rem;
                             font-weight: 600;
                             letter-spacing: 0.08em;
                             text-transform: uppercase;
-                            color: rgba(17, 17, 17, 0.45);
+                            color: rgba(255, 255, 255, 0.4);
                         }
                         .about-contact__contact-link,
                         .about-contact__contact-value {
-                            color: #111;
+                            color: #ffffff;
                             font-size: 0.96rem;
                             font-weight: 500;
                             text-decoration: none;
@@ -391,7 +391,7 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                         }
                         .about-contact__contact-link:hover,
                         .about-contact__social-link:hover {
-                            color: #1562a1;
+                            color: #ed431c;
                         }
                         .about-contact__highlights {
                             display: grid;
@@ -405,10 +405,10 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                             gap: 12px;
                             align-items: start;
                             padding: 10px 0;
-                            border-top: 1px solid rgba(17, 17, 17, 0.08);
+                            border-top: 1px solid rgba(255, 255, 255, 0.08);
                             font-size: 0.93rem;
                             line-height: 1.55;
-                            color: rgba(17, 17, 17, 0.7);
+                            color: rgba(255, 255, 255, 0.65);
                         }
                         .about-contact__highlights-item:first-child {
                             padding-top: 0;
@@ -417,7 +417,7 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                         .about-contact__highlights-icon {
                             display: inline-flex;
                             margin-top: 3px;
-                            color: #1562a1;
+                            color: #ed431c;
                         }
                         .about-contact__social-list {
                             display: flex;
@@ -425,12 +425,12 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                             gap: 12px;
                             margin-top: 20px;
                             padding-top: 20px;
-                            border-top: 1px solid rgba(17, 17, 17, 0.08);
+                            border-top: 1px solid rgba(255, 255, 255, 0.08);
                         }
                         .about-contact__social-link {
                             display: inline-flex;
                             align-items: center;
-                            color: #111;
+                            color: #ffffff;
                             text-decoration: none;
                             transition: color 0.2s ease;
                         }
@@ -441,11 +441,11 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                             width: 42px;
                             height: 42px;
                             border-radius: 50%;
-                            background: #f5f3ef;
+                            background: rgba(255, 255, 255, 0.07);
                             transition: background 0.2s ease, transform 0.2s ease;
                         }
                         .about-contact__social-link:hover .about-contact__social-icon {
-                            background: #eef4fa;
+                            background: rgba(237, 67, 28, 0.12);
                             transform: translateY(-1px);
                         }
                         .about-contact__form-shell {
@@ -459,24 +459,24 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                             gap: 14px;
                             margin-bottom: 22px;
                             padding-bottom: 18px;
-                            border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+                            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
                         }
                         .about-contact__form-kicker {
                             margin-bottom: 14px;
-                            background: rgba(32, 140, 86, 0.12);
-                            color: #1e7a4e;
+                            background: rgba(237, 67, 28, 0.12);
+                            color: #ed431c;
                         }
                         .about-contact__form-title {
                             font-size: clamp(1.55rem, 2.2vw, 2rem);
                             line-height: 1.1;
                             letter-spacing: -0.03em;
-                            color: #111;
+                            color: #ffffff;
                         }
                         .about-contact__form-subtitle {
                             max-width: 28rem;
                             font-size: 0.93rem;
                             line-height: 1.6;
-                            color: rgba(17, 17, 17, 0.62);
+                            color: rgba(255, 255, 255, 0.58);
                         }
                         .about-contact__form-grid {
                             display: grid;
@@ -493,31 +493,32 @@ export default function Section4({ classList = "" }: { classList?: string }) {
                             font-weight: 600;
                             letter-spacing: 0.08em;
                             text-transform: uppercase;
-                            color: rgba(17, 17, 17, 0.58);
+                            color: rgba(255, 255, 255, 0.52);
                         }
                         .about-contact__input {
                             width: 100%;
                             min-width: 0;
                             min-height: 52px;
                             padding: 0 16px;
-                            border: 1px solid rgba(17, 17, 17, 0.1);
+                            border: 1px solid rgba(255, 255, 255, 0.1);
                             border-radius: 16px;
-                            background: #f7f6f3;
+                            background: #1a1a1a;
                             font-size: 0.94rem;
-                            color: #111;
+                            color: #ffffff;
                             transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
                         }
                         .about-contact__input::placeholder {
-                            color: rgba(17, 17, 17, 0.38);
+                            color: rgba(255, 255, 255, 0.3);
                         }
                         .about-contact__input:hover {
-                            background: #f3f1ee;
+                            background: #1e1e1e;
+                            border-color: rgba(255, 255, 255, 0.15);
                         }
                         .about-contact__input:focus {
                             outline: none;
-                            border-color: rgba(21, 98, 161, 0.5);
-                            background: #fff;
-                            box-shadow: 0 0 0 4px rgba(21, 98, 161, 0.12);
+                            border-color: rgba(237, 67, 28, 0.55);
+                            background: #1e1e1e;
+                            box-shadow: 0 0 0 4px rgba(237, 67, 28, 0.12);
                         }
                         .about-contact__textarea {
                             min-height: 148px;
