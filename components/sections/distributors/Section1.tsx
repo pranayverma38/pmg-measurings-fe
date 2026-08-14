@@ -14,37 +14,41 @@ const HIGHLIGHTS = [
     "Marketing & merchandising assets",
 ];
 
-const PARTNER_ITEMS = [
-    { label: "Quality", value: "ISO-grade tools" },
-    { label: "Territory", value: "Exclusive zones" },
-    { label: "Support", value: "Dedicated team" },
-    { label: "Coverage", value: "Pan-India & Export" },
-];
-
 export default function Section1() {
     return (
         <InteractiveHeroSection className="dh-sec">
 
-            <div className="dh-layout">
+            <div className="dh-wrap">
 
-                {/* ── Left ─────────────────────────────── */}
-                <div className="dh-content">
+                {/* ── Top bar ─── */}
+                <div className="dh-topbar">
+                    <LiquidGlassBadge cornerRadius={999} style={{ display: "inline-flex" }}>
+                        <span className="dh-pill">Partner with PMG {ARROW_SVG}</span>
+                    </LiquidGlassBadge>
+                    <span className="dh-index" aria-hidden="true">02</span>
+                </div>
 
-                    <div className="dh-meta">
-                        <LiquidGlassBadge cornerRadius={999} style={{ display: "inline-flex" }}>
-                            <span className="dh-pill">Partner with PMG {ARROW_SVG}</span>
-                        </LiquidGlassBadge>
-                        <span className="dh-num" aria-hidden="true">02</span>
-                    </div>
-
-                    <h1 className="dh-title">
-                        Expand your hardware network with a{" "}
-                        <span className="dh-accent">precision tools</span>{" "}
-                        brand built for growth
+                {/* ── Giant headline ─── */}
+                <div className="dh-headline-wrap">
+                    <h1 className="dh-headline">
+                        <span className="dh-hl-line dh-hl-line--1">Expand your hardware network</span>
+                        <span className="dh-hl-line dh-hl-line--2">with a</span>
+                        <span className="dh-hl-line dh-hl-line--3">
+                            <em className="dh-hl-accent">precision tools</em>
+                        </span>
+                        <span className="dh-hl-line dh-hl-line--4">brand built for growth</span>
                     </h1>
+                </div>
 
-                    <div className="dh-divider" aria-hidden="true" />
+                {/* ── Rule ─── */}
+                <div className="dh-rule" aria-hidden="true">
+                    <span className="dh-rule-line" />
+                    <span className="dh-rule-dot" />
+                    <span className="dh-rule-line dh-rule-line--faint" />
+                </div>
 
+                {/* ── Bottom: desc + highlights ─── */}
+                <div className="dh-bottom">
                     <p className="dh-lead">
                         Join PMG&apos;s global distributor network and bring industry-leading measuring tapes,
                         spirit levels, and hand tools to your market. We partner with established wholesalers,
@@ -52,321 +56,180 @@ export default function Section1() {
                     </p>
 
                     <ul className="dh-list">
-                        {HIGHLIGHTS.map((item) => (
-                            <li key={item} className="dh-list-item">
+                        {HIGHLIGHTS.map((item, i) => (
+                            <li key={item} className="dh-list-item" style={{ animationDelay: `${0.45 + i * 0.08}s` }}>
                                 <span className="dh-list-dot" aria-hidden="true" />
                                 {item}
                             </li>
                         ))}
                     </ul>
-
                 </div>
-
-                {/* ── Right panel ───────────────────────── */}
-                <aside className="dh-panel" aria-hidden="true">
-
-                    <div className="dh-panel-top">
-                        <span className="dh-panel-label">Partner network</span>
-                        <span className="dh-status">
-                            <span className="dh-pulse" />
-                            Active
-                        </span>
-                    </div>
-
-                    <div className="dh-nodes">
-                        {PARTNER_ITEMS.map((item, i) => (
-                            <div key={item.label} className="dh-node" style={{ animationDelay: `${i * 0.1}s` }}>
-                                <span className="dh-node-label">{item.label}</span>
-                                <span className="dh-node-value">{item.value}</span>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="dh-connector">
-                        <div className="dh-connector-bar" />
-                        <div className="dh-connector-pulse" />
-                    </div>
-
-                    <div className="dh-callout">
-                        <span className="dh-callout-k">Distribution reach</span>
-                        <span className="dh-callout-v">Pan-India + Export</span>
-                    </div>
-
-                    <div className="dh-mark">PMG</div>
-
-                </aside>
 
             </div>
 
             <style dangerouslySetInnerHTML={{ __html: `
-                /* Section */
                 .dh-sec { position: relative; }
 
-                /* Two-column flex layout */
-                .dh-layout {
-                    display: flex;
-                    flex-direction: column;
-                    min-height: 100svh;
-                }
-                @media (min-width: 1060px) {
-                    .dh-layout {
-                        flex-direction: row;
-                        align-items: stretch;
-                    }
-                }
-
-                /* Left content */
-                .dh-content {
-                    flex: 1 1 0;
-                    min-width: 0;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    gap: 28px;
-                    padding: clamp(110px, 12vw, 150px) clamp(24px, 5vw, 72px) clamp(56px, 6vw, 80px);
-                }
-
-                /* Right panel */
-                .dh-panel {
-                    flex: 0 0 380px;
-                    display: none;
-                    flex-direction: column;
-                    justify-content: center;
-                    gap: 24px;
-                    padding: 48px 36px;
-                    border-left: 1px solid rgba(255,255,255,0.07);
-                    background:
-                        linear-gradient(160deg, rgba(237,67,28,0.05) 0%, transparent 50%),
-                        rgba(10,10,10,0.7);
+                .dh-wrap {
                     position: relative;
-                    overflow: hidden;
-                }
-                @media (min-width: 1060px) { .dh-panel { display: flex; } }
-                .dh-panel::before {
-                    content: "";
-                    position: absolute;
-                    top: 0; left: 0; right: 0;
-                    height: 1px;
-                    background: linear-gradient(90deg, transparent, rgba(237,67,28,0.5), transparent);
+                    z-index: 1;
+                    display: flex;
+                    flex-direction: column;
+                    padding: clamp(110px, 11vw, 148px) clamp(24px, 6vw, 96px) clamp(52px, 6vw, 80px);
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    min-height: 92svh;
+                    justify-content: center;
                 }
 
-                /* Meta */
-                .dh-meta {
+                .dh-topbar {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    gap: 16px;
+                    margin-bottom: 32px;
                 }
                 .dh-pill {
                     display: inline-flex;
                     align-items: center;
-                    gap: 8px;
-                    padding: 10px 18px;
-                    font-size: 0.7rem;
+                    gap: 9px;
+                    padding: 10px 20px;
+                    font-size: 0.68rem;
                     font-weight: 700;
-                    letter-spacing: 0.15em;
+                    letter-spacing: 0.18em;
                     text-transform: uppercase;
                     color: #ed431c;
                     white-space: nowrap;
                 }
-                .dh-num {
-                    font-size: clamp(3rem, 8vw, 7rem);
-                    font-weight: 800;
+                .dh-index {
+                    font-size: clamp(4rem, 10vw, 9rem);
+                    font-weight: 900;
                     line-height: 1;
                     letter-spacing: -0.07em;
                     color: transparent;
-                    -webkit-text-stroke: 1px rgba(255,255,255,0.08);
+                    -webkit-text-stroke: 1.5px rgba(255,255,255,0.07);
                     user-select: none;
+                    pointer-events: none;
                 }
 
-                /* Title */
-                .dh-title {
+                .dh-headline-wrap { margin-bottom: 36px; overflow: hidden; }
+                .dh-headline {
                     margin: 0;
-                    font-size: clamp(2.4rem, 4.8vw, 4.2rem);
-                    font-weight: 700;
-                    line-height: 1.06;
-                    letter-spacing: -0.04em;
-                    color: #fff;
-                    max-width: 700px;
-                    animation: dh-rise 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s both;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0;
                 }
-                @keyframes dh-rise {
-                    from { opacity: 0; transform: translateY(20px); }
+                .dh-hl-line {
+                    display: block;
+                    font-weight: 700;
+                    line-height: 1.03;
+                    letter-spacing: -0.045em;
+                    color: #ffffff;
+                    animation: dhl-up 0.72s cubic-bezier(0.22,1,0.36,1) both;
+                }
+                .dh-hl-line--1 {
+                    font-size: clamp(2rem, 4.8vw, 4.2rem);
+                    color: rgba(255,255,255,0.55);
+                    animation-delay: 0.05s;
+                }
+                .dh-hl-line--2 {
+                    font-size: clamp(2rem, 4.8vw, 4.2rem);
+                    color: rgba(255,255,255,0.42);
+                    animation-delay: 0.13s;
+                }
+                .dh-hl-line--3 {
+                    font-size: clamp(3.8rem, 9.5vw, 8.5rem);
+                    line-height: 0.95;
+                    margin: 4px 0;
+                    animation-delay: 0.22s;
+                }
+                .dh-hl-line--4 {
+                    font-size: clamp(2rem, 4.8vw, 4.2rem);
+                    animation-delay: 0.3s;
+                }
+                .dh-hl-accent {
+                    font-style: normal;
+                    color: #ed431c;
+                    position: relative;
+                    display: inline-block;
+                }
+                .dh-hl-accent::after {
+                    content: "";
+                    position: absolute;
+                    left: 0; right: 0;
+                    bottom: 6px;
+                    height: 3px;
+                    background: #ed431c;
+                    opacity: 0.35;
+                    border-radius: 999px;
+                }
+                @keyframes dhl-up {
+                    from { opacity: 0; transform: translateY(28px); }
                     to   { opacity: 1; transform: translateY(0); }
                 }
-                .dh-accent { color: #ed431c; }
 
-                /* Divider */
-                .dh-divider {
+                .dh-rule {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin-bottom: 36px;
+                    animation: dhl-up 0.6s ease 0.4s both;
+                }
+                .dh-rule-line {
                     height: 1px;
-                    background: linear-gradient(90deg, #ed431c 0%, rgba(237,67,28,0.15) 60%, transparent 100%);
-                    max-width: 280px;
+                    flex: 0 0 80px;
+                    background: #ed431c;
+                    opacity: 0.8;
+                }
+                .dh-rule-dot {
+                    width: 5px; height: 5px;
+                    border-radius: 50%;
+                    background: #ed431c;
+                    flex-shrink: 0;
+                }
+                .dh-rule-line--faint {
+                    flex: 1;
+                    opacity: 0.12;
+                    background: rgba(255,255,255,0.5);
                 }
 
-                /* Lead */
+                .dh-bottom {
+                    display: grid;
+                    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+                    gap: 32px 64px;
+                    align-items: start;
+                    animation: dhl-up 0.6s ease 0.5s both;
+                }
+                @media (max-width: 768px) { .dh-bottom { grid-template-columns: 1fr; } }
                 .dh-lead {
                     margin: 0;
-                    font-size: 1rem;
+                    font-size: 1.02rem;
                     line-height: 1.78;
-                    color: rgba(255,255,255,0.65);
-                    max-width: 540px;
+                    color: rgba(255,255,255,0.62);
                 }
-
-                /* List */
                 .dh-list {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
-                    gap: 10px 32px;
+                    gap: 12px 24px;
                     margin: 0; padding: 0; list-style: none;
                 }
-                @media (max-width: 640px) { .dh-list { grid-template-columns: 1fr; } }
+                @media (max-width: 560px) { .dh-list { grid-template-columns: 1fr; } }
                 .dh-list-item {
                     display: flex;
                     align-items: flex-start;
                     gap: 10px;
-                    font-size: 0.88rem;
+                    font-size: 0.86rem;
                     font-weight: 500;
-                    color: rgba(255,255,255,0.72);
+                    color: rgba(255,255,255,0.7);
                     line-height: 1.5;
+                    animation: dhl-up 0.5s ease both;
                 }
                 .dh-list-dot {
                     flex-shrink: 0;
-                    width: 6px; height: 6px;
+                    width: 5px; height: 5px;
                     border-radius: 50%;
                     background: #ed431c;
-                    margin-top: 5px;
-                    box-shadow: 0 0 6px rgba(237,67,28,0.5);
-                }
-
-                /* Panel internals */
-                .dh-panel-top {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                }
-                .dh-panel-label {
-                    font-size: 0.62rem;
-                    font-weight: 700;
-                    letter-spacing: 0.18em;
-                    text-transform: uppercase;
-                    color: rgba(237,67,28,0.8);
-                }
-                .dh-status {
-                    display: flex;
-                    align-items: center;
-                    gap: 6px;
-                    font-size: 0.62rem;
-                    font-weight: 600;
-                    letter-spacing: 0.1em;
-                    text-transform: uppercase;
-                    color: rgba(255,255,255,0.4);
-                }
-                .dh-pulse {
-                    width: 7px; height: 7px;
-                    border-radius: 50%;
-                    background: #ed431c;
-                    box-shadow: 0 0 8px rgba(237,67,28,0.6);
-                    animation: dh-blink 2.4s ease-in-out infinite;
-                }
-                @keyframes dh-blink {
-                    0%,100% { opacity: 1; transform: scale(1); }
-                    50% { opacity: 0.3; transform: scale(0.65); }
-                }
-
-                /* Partner nodes */
-                .dh-nodes {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 10px;
-                }
-                .dh-node {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 4px;
-                    padding: 16px 14px;
-                    border: 1px solid rgba(255,255,255,0.07);
-                    border-radius: 14px;
-                    background: rgba(255,255,255,0.02);
-                    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-                    animation: dh-nodein 0.5s ease both;
-                }
-                @keyframes dh-nodein {
-                    from { opacity: 0; transform: translateY(10px); }
-                    to { opacity: 1; transform: translateY(0); }
-                }
-                .dh-node:hover {
-                    background: rgba(237,67,28,0.06);
-                    border-color: rgba(237,67,28,0.22);
-                    transform: translateY(-2px);
-                }
-                .dh-node-label {
-                    font-size: 0.98rem;
-                    font-weight: 700;
-                    color: #fff;
-                    letter-spacing: -0.01em;
-                }
-                .dh-node-value {
-                    font-size: 0.72rem;
-                    font-weight: 500;
-                    color: rgba(255,255,255,0.4);
-                    letter-spacing: 0.02em;
-                }
-
-                /* Connector */
-                .dh-connector {
-                    position: relative;
-                    height: 2px;
-                    background: rgba(255,255,255,0.06);
-                    border-radius: 1px;
-                    overflow: hidden;
-                }
-                .dh-connector-bar { width: 100%; height: 100%; background: rgba(255,255,255,0.04); }
-                .dh-connector-pulse {
-                    position: absolute;
-                    top: 0; left: -30%;
-                    width: 30%;
-                    height: 100%;
-                    background: linear-gradient(90deg, transparent, #ed431c, transparent);
-                    animation: dh-slide 2.5s ease-in-out infinite;
-                }
-                @keyframes dh-slide {
-                    from { left: -30%; }
-                    to { left: 130%; }
-                }
-
-                /* Callout */
-                .dh-callout {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    padding: 13px 16px;
-                    border: 1px solid rgba(237,67,28,0.16);
-                    border-radius: 12px;
-                    background: rgba(237,67,28,0.05);
-                }
-                .dh-callout-k {
-                    font-size: 0.7rem;
-                    font-weight: 700;
-                    letter-spacing: 0.08em;
-                    text-transform: uppercase;
-                    color: rgba(255,255,255,0.36);
-                }
-                .dh-callout-v {
-                    font-size: 0.88rem;
-                    font-weight: 700;
-                    color: #fff;
-                }
-
-                /* Ghost wordmark */
-                .dh-mark {
-                    font-size: 5rem;
-                    font-weight: 900;
-                    letter-spacing: -0.08em;
-                    color: transparent;
-                    -webkit-text-stroke: 1px rgba(255,255,255,0.06);
-                    text-align: right;
-                    line-height: 1;
-                    user-select: none;
+                    margin-top: 6px;
+                    box-shadow: 0 0 6px rgba(237,67,28,0.6);
                 }
             `}} />
         </InteractiveHeroSection>

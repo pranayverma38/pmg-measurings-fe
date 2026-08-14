@@ -25,26 +25,37 @@ export default function Section1() {
     return (
         <InteractiveHeroSection className="ah-sec">
 
-            <div className="ah-layout">
+            <div className="ah-wrap">
 
-                {/* ── Left ─────────────────────────────── */}
-                <div className="ah-content">
+                {/* ── Top bar ─── */}
+                <div className="ah-topbar">
+                    <LiquidGlassBadge cornerRadius={999} style={{ display: "inline-flex" }}>
+                        <span className="ah-pill">About PMG {ARROW_SVG}</span>
+                    </LiquidGlassBadge>
+                    <span className="ah-index" aria-hidden="true">01</span>
+                </div>
 
-                    <div className="ah-meta">
-                        <LiquidGlassBadge cornerRadius={999} style={{ display: "inline-flex" }}>
-                            <span className="ah-pill">About PMG {ARROW_SVG}</span>
-                        </LiquidGlassBadge>
-                        <span className="ah-num" aria-hidden="true">01</span>
-                    </div>
-
-                    <h1 className="ah-title">
-                        Crafting durable and{" "}
-                        <span className="ah-accent">accurate</span>{" "}
-                        measuring solutions for professionals worldwide
+                {/* ── Giant headline ─── */}
+                <div className="ah-headline-wrap">
+                    <h1 className="ah-headline">
+                        <span className="ah-hl-line ah-hl-line--1">Crafting durable and</span>
+                        <span className="ah-hl-line ah-hl-line--2">
+                            <em className="ah-hl-accent">accurate</em>
+                        </span>
+                        <span className="ah-hl-line ah-hl-line--3">measuring solutions</span>
+                        <span className="ah-hl-line ah-hl-line--4">for professionals worldwide</span>
                     </h1>
+                </div>
 
-                    <div className="ah-divider" aria-hidden="true" />
+                {/* ── Rule ─── */}
+                <div className="ah-rule" aria-hidden="true">
+                    <span className="ah-rule-line" />
+                    <span className="ah-rule-dot" />
+                    <span className="ah-rule-line ah-rule-line--faint" />
+                </div>
 
+                {/* ── Bottom: desc + highlights ─── */}
+                <div className="ah-bottom">
                     <p className="ah-lead">
                         We are a precision tools brand dedicated to engineering hand tools that tradespeople
                         can rely on — from measuring tapes and spirit levels to specialty hardware built for
@@ -52,279 +63,191 @@ export default function Section1() {
                     </p>
 
                     <ul className="ah-list">
-                        {HIGHLIGHTS.map((item) => (
-                            <li key={item} className="ah-list-item">
+                        {HIGHLIGHTS.map((item, i) => (
+                            <li key={item} className="ah-list-item" style={{ animationDelay: `${0.45 + i * 0.08}s` }}>
                                 <span className="ah-list-dot" aria-hidden="true" />
                                 {item}
                             </li>
                         ))}
                     </ul>
-
                 </div>
-
-                {/* ── Right panel ───────────────────────── */}
-                <aside className="ah-panel" aria-hidden="true">
-
-                    <div className="ah-panel-top">
-                        <span className="ah-panel-label">Precision specs</span>
-                        <span className="ah-pulse" />
-                    </div>
-
-                    <div className="ah-specs">
-                        {[
-                            ["Accuracy", "±0.5mm"],
-                            ["Range", "3–50 mtr"],
-                            ["Products", "50+ series"],
-                            ["Markets", "Global"],
-                        ].map(([k, v]) => (
-                            <div key={k} className="ah-spec">
-                                <span className="ah-spec-k">{k}</span>
-                                <span className="ah-spec-v">{v}</span>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="ah-ruler">
-                        {Array.from({ length: 20 }, (_, i) => (
-                            <span key={i} className={`ah-tick${i % 5 === 0 ? " ah-tick--major" : ""}`} />
-                        ))}
-                    </div>
-
-                    <div className="ah-mark">PMG</div>
-
-                </aside>
 
             </div>
 
             <AboutHeroSlider slides={HERO_SLIDES} />
 
             <style dangerouslySetInnerHTML={{ __html: `
-                /* Section */
+                /* ── Section ─────────────────────────────────────────── */
                 .ah-sec { position: relative; }
 
-                /* Two-column layout — flex, no fr overflow bug */
-                .ah-layout {
-                    display: flex;
-                    flex-direction: column;
-                    min-height: 100svh;
-                }
-                @media (min-width: 1060px) {
-                    .ah-layout {
-                        flex-direction: row;
-                        align-items: stretch;
-                    }
-                }
-
-                /* Left content */
-                .ah-content {
-                    flex: 1 1 0;
-                    min-width: 0;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    gap: 28px;
-                    padding: clamp(110px, 12vw, 150px) clamp(24px, 5vw, 72px) clamp(56px, 6vw, 80px);
-                }
-
-                /* Right panel */
-                .ah-panel {
-                    flex: 0 0 380px;
-                    display: none;
-                    flex-direction: column;
-                    justify-content: center;
-                    gap: 24px;
-                    padding: 48px 36px;
-                    border-left: 1px solid rgba(255,255,255,0.07);
-                    background:
-                        linear-gradient(160deg, rgba(237,67,28,0.05) 0%, transparent 50%),
-                        rgba(10,10,10,0.7);
+                /* ── Outer wrapper ───────────────────────────────────── */
+                .ah-wrap {
                     position: relative;
-                    overflow: hidden;
+                    z-index: 1;
+                    display: flex;
+                    flex-direction: column;
+                    padding: clamp(110px, 11vw, 148px) clamp(24px, 6vw, 96px) clamp(52px, 6vw, 80px);
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    min-height: 92svh;
+                    justify-content: center;
+                    gap: 0;
                 }
-                @media (min-width: 1060px) { .ah-panel { display: flex; } }
 
-                .ah-panel::before {
-                    content: "";
-                    position: absolute;
-                    top: 0; left: 0; right: 0;
-                    height: 1px;
-                    background: linear-gradient(90deg, transparent, rgba(237,67,28,0.5), transparent);
-                }
-
-                /* Meta row */
-                .ah-meta {
+                /* ── Top bar: pill + index ───────────────────────────── */
+                .ah-topbar {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    gap: 16px;
+                    margin-bottom: 32px;
                 }
                 .ah-pill {
                     display: inline-flex;
                     align-items: center;
-                    gap: 8px;
-                    padding: 10px 18px;
-                    font-size: 0.7rem;
+                    gap: 9px;
+                    padding: 10px 20px;
+                    font-size: 0.68rem;
                     font-weight: 700;
-                    letter-spacing: 0.15em;
+                    letter-spacing: 0.18em;
                     text-transform: uppercase;
                     color: #ed431c;
                     white-space: nowrap;
                 }
-                .ah-num {
-                    font-size: clamp(3rem, 8vw, 7rem);
-                    font-weight: 800;
+                .ah-index {
+                    font-size: clamp(4rem, 10vw, 9rem);
+                    font-weight: 900;
                     line-height: 1;
                     letter-spacing: -0.07em;
                     color: transparent;
-                    -webkit-text-stroke: 1px rgba(255,255,255,0.08);
+                    -webkit-text-stroke: 1.5px rgba(255,255,255,0.07);
                     user-select: none;
+                    pointer-events: none;
                 }
 
-                /* Title */
-                .ah-title {
+                /* ── Headline ────────────────────────────────────────── */
+                .ah-headline-wrap { margin-bottom: 36px; overflow: hidden; }
+                .ah-headline {
                     margin: 0;
-                    font-size: clamp(2.4rem, 4.8vw, 4.2rem);
-                    font-weight: 700;
-                    line-height: 1.06;
-                    letter-spacing: -0.04em;
-                    color: #fff;
-                    max-width: 700px;
-                    animation: ah-rise 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s both;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0;
                 }
-                @keyframes ah-rise {
-                    from { opacity: 0; transform: translateY(20px); }
+                .ah-hl-line {
+                    display: block;
+                    font-weight: 700;
+                    line-height: 1.03;
+                    letter-spacing: -0.045em;
+                    color: #ffffff;
+                    animation: ahl-up 0.72s cubic-bezier(0.22,1,0.36,1) both;
+                }
+                .ah-hl-line--1 {
+                    font-size: clamp(2rem, 4.8vw, 4.2rem);
+                    color: rgba(255,255,255,0.55);
+                    animation-delay: 0.05s;
+                }
+                .ah-hl-line--2 {
+                    font-size: clamp(3.8rem, 9.5vw, 8.5rem);
+                    line-height: 0.95;
+                    margin: 4px 0;
+                    animation-delay: 0.15s;
+                }
+                .ah-hl-line--3 {
+                    font-size: clamp(2rem, 4.8vw, 4.2rem);
+                    animation-delay: 0.25s;
+                }
+                .ah-hl-line--4 {
+                    font-size: clamp(1.5rem, 3.4vw, 3rem);
+                    color: rgba(255,255,255,0.42);
+                    animation-delay: 0.32s;
+                }
+                .ah-hl-accent {
+                    font-style: normal;
+                    color: #ed431c;
+                    position: relative;
+                    display: inline-block;
+                }
+                .ah-hl-accent::after {
+                    content: "";
+                    position: absolute;
+                    left: 0; right: 0;
+                    bottom: 6px;
+                    height: 3px;
+                    background: #ed431c;
+                    opacity: 0.35;
+                    border-radius: 999px;
+                }
+                @keyframes ahl-up {
+                    from { opacity: 0; transform: translateY(28px); }
                     to   { opacity: 1; transform: translateY(0); }
                 }
-                .ah-accent { color: #ed431c; }
 
-                /* Divider */
-                .ah-divider {
+                /* ── Rule ────────────────────────────────────────────── */
+                .ah-rule {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin-bottom: 36px;
+                    animation: ahl-up 0.6s ease 0.4s both;
+                }
+                .ah-rule-line {
                     height: 1px;
-                    background: linear-gradient(90deg, #ed431c 0%, rgba(237,67,28,0.15) 60%, transparent 100%);
-                    max-width: 280px;
+                    flex: 0 0 80px;
+                    background: #ed431c;
+                    opacity: 0.8;
+                }
+                .ah-rule-dot {
+                    width: 5px; height: 5px;
+                    border-radius: 50%;
+                    background: #ed431c;
+                    flex-shrink: 0;
+                }
+                .ah-rule-line--faint {
+                    flex: 1;
+                    opacity: 0.12;
+                    background: rgba(255,255,255,0.5);
                 }
 
-                /* Lead */
+                /* ── Bottom ──────────────────────────────────────────── */
+                .ah-bottom {
+                    display: grid;
+                    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+                    gap: 32px 64px;
+                    align-items: start;
+                    animation: ahl-up 0.6s ease 0.5s both;
+                }
+                @media (max-width: 768px) {
+                    .ah-bottom { grid-template-columns: 1fr; }
+                }
                 .ah-lead {
                     margin: 0;
-                    font-size: 1rem;
+                    font-size: 1.02rem;
                     line-height: 1.78;
-                    color: rgba(255,255,255,0.65);
-                    max-width: 540px;
+                    color: rgba(255,255,255,0.62);
                 }
-
-                /* List */
                 .ah-list {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
-                    gap: 10px 32px;
+                    gap: 12px 24px;
                     margin: 0; padding: 0; list-style: none;
                 }
-                @media (max-width: 640px) { .ah-list { grid-template-columns: 1fr; } }
+                @media (max-width: 560px) { .ah-list { grid-template-columns: 1fr; } }
                 .ah-list-item {
                     display: flex;
                     align-items: flex-start;
                     gap: 10px;
-                    font-size: 0.88rem;
+                    font-size: 0.86rem;
                     font-weight: 500;
-                    color: rgba(255,255,255,0.72);
+                    color: rgba(255,255,255,0.7);
                     line-height: 1.5;
+                    animation: ahl-up 0.5s ease both;
                 }
                 .ah-list-dot {
                     flex-shrink: 0;
-                    width: 6px; height: 6px;
+                    width: 5px; height: 5px;
                     border-radius: 50%;
                     background: #ed431c;
-                    margin-top: 5px;
-                    box-shadow: 0 0 6px rgba(237,67,28,0.5);
-                }
-
-                /* Right panel internals */
-                .ah-panel-top {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                }
-                .ah-panel-label {
-                    font-size: 0.62rem;
-                    font-weight: 700;
-                    letter-spacing: 0.18em;
-                    text-transform: uppercase;
-                    color: rgba(237,67,28,0.8);
-                }
-                .ah-pulse {
-                    width: 8px; height: 8px;
-                    border-radius: 50%;
-                    background: #ed431c;
-                    box-shadow: 0 0 8px rgba(237,67,28,0.6);
-                    animation: ah-blink 2.4s ease-in-out infinite;
-                }
-                @keyframes ah-blink {
-                    0%,100% { opacity: 1; transform: scale(1); }
-                    50% { opacity: 0.3; transform: scale(0.65); }
-                }
-
-                .ah-specs {
-                    display: flex;
-                    flex-direction: column;
-                    border: 1px solid rgba(255,255,255,0.07);
-                    border-radius: 14px;
-                    overflow: hidden;
-                }
-                .ah-spec {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    padding: 13px 18px;
-                    border-bottom: 1px solid rgba(255,255,255,0.05);
-                    transition: background 0.2s ease;
-                }
-                .ah-spec:last-child { border-bottom: none; }
-                .ah-spec:hover { background: rgba(237,67,28,0.05); }
-                .ah-spec-k {
-                    font-size: 0.73rem;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    letter-spacing: 0.06em;
-                    color: rgba(255,255,255,0.38);
-                }
-                .ah-spec-v {
-                    font-size: 0.98rem;
-                    font-weight: 700;
-                    color: #fff;
-                    letter-spacing: -0.01em;
-                    font-variant-numeric: tabular-nums;
-                }
-
-                /* Ruler */
-                .ah-ruler {
-                    display: flex;
-                    align-items: flex-end;
-                    gap: 5px;
-                    padding-bottom: 8px;
-                    border-bottom: 1px solid rgba(255,255,255,0.07);
-                }
-                .ah-tick {
-                    flex: 1;
-                    height: 8px;
-                    border-radius: 1px;
-                    background: rgba(237,67,28,0.3);
-                    transition: height 0.15s, background 0.15s;
-                    cursor: default;
-                }
-                .ah-tick:hover { height: 20px; background: #ed431c; }
-                .ah-tick--major { height: 20px; background: rgba(237,67,28,0.6); }
-
-                /* Ghost wordmark */
-                .ah-mark {
-                    font-size: 5rem;
-                    font-weight: 900;
-                    letter-spacing: -0.08em;
-                    color: transparent;
-                    -webkit-text-stroke: 1px rgba(255,255,255,0.06);
-                    text-align: right;
-                    line-height: 1;
-                    user-select: none;
+                    margin-top: 6px;
+                    box-shadow: 0 0 6px rgba(237,67,28,0.6);
                 }
             `}} />
         </InteractiveHeroSection>

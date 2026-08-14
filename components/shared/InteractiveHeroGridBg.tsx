@@ -292,9 +292,9 @@ export default function InteractiveHeroGridBg({ sectionRef }: InteractiveHeroGri
                             inset: 0;
                             background: radial-gradient(
                                 ellipse 85% 65% at calc(var(--mx) * 100%) calc(var(--my) * 100%),
-                                transparent 22%,
-                                rgba(8, 8, 8, calc(0.45 + var(--hover) * 0.2)) 58%,
-                                #080808 80%
+                                transparent 30%,
+                                rgba(8, 8, 8, calc(var(--hover) * 0.22)) 62%,
+                                rgba(8, 8, 8, calc(var(--hover) * 0.38)) 85%
                             );
                             pointer-events: none;
                         }
