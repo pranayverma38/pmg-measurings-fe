@@ -11,6 +11,12 @@ const AVATARS = [
     "avatar-14",
 ];
 
+const SIDEBAR_LOGO = {
+    src: "/assets/imgs/logopmg/IMG_4842.jpeg",
+    width: 1228,
+    height: 867,
+} as const;
+
 function CloseIconSvg() {
     return (
         <svg width="37" height="38" viewBox="0 0 37 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,9 +101,9 @@ export default function SideBarHome() {
                         <div className="at-offcanvas-logo">
                             <Link href="/home" className="text-decoration-none">
                                 <Image
-                                    width={1109}
-                                    height={290}
-                                    src="/assets/imgs/logopmg/pmglogo.png"
+                                    width={SIDEBAR_LOGO.width}
+                                    height={SIDEBAR_LOGO.height}
+                                    src={SIDEBAR_LOGO.src}
                                     alt="PMG"
                                     className="sidebar-home__logo"
                                 />
@@ -152,9 +158,9 @@ export default function SideBarHome() {
                         <div className="at-header-logo d-flex justify-content-between align-items-center mb-50">
                             <Link href="/home" className="text-decoration-none">
                                 <Image
-                                    width={1109}
-                                    height={290}
-                                    src="/assets/imgs/logopmg/pmglogo.png"
+                                    width={SIDEBAR_LOGO.width}
+                                    height={SIDEBAR_LOGO.height}
+                                    src={SIDEBAR_LOGO.src}
                                     alt="PMG"
                                     className="sidebar-home__logo sidebar-home__logo--mobile"
                                 />

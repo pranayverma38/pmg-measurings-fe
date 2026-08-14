@@ -4,17 +4,15 @@ import MainMenuHome from "@/components/layout/MainMenuHome";
 import SideBarHome from "@/components/layout/SideBarHome";
 import HeaderInteractive from "./HeaderInteractive";
 
+const SHARED_HEADER_LOGO = {
+    src: "/assets/imgs/logopmg/IMG_4842.jpeg",
+    width: 1228,
+    height: 867,
+} as const;
+
 const HEADER_LOGOS = {
-    home: {
-        src: "/assets/imgs/logopmg/IMG_4842.jpeg",
-        width: 1228,
-        height: 867,
-    },
-    white: {
-        src: "/assets/imgs/logopmg/white-removebg-preview.png",
-        width: 597,
-        height: 418,
-    },
+    home: SHARED_HEADER_LOGO,
+    white: SHARED_HEADER_LOGO,
 } as const;
 
 interface HeaderHomeProps {
