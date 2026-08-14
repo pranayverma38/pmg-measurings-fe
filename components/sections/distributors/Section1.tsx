@@ -15,13 +15,10 @@ export default function Section1() {
 
             <div className="dh-wrap">
 
-                <p className="dh-kicker">Partner with PMG</p>
-
                 <h1 className="dh-headline">
-                    <span className="dh-hl dh-hl--muted">Expand your hardware network</span>
-                    <span className="dh-hl dh-hl--muted2">with a</span>
-                    <span className="dh-hl dh-hl--accent">precision tools</span>
-                    <span className="dh-hl dh-hl--bright">brand built for growth</span>
+                    <span className="dh-hl">Expand your hardware network</span>
+                    <span className="dh-hl">with a precision tools</span>
+                    <span className="dh-hl">brand built for growth</span>
                 </h1>
 
                 <div className="dh-rule" aria-hidden="true">
@@ -38,7 +35,7 @@ export default function Section1() {
 
                 <ul className="dh-list">
                     {HIGHLIGHTS.map((item, i) => (
-                        <li key={item} className="dh-item" style={{ animationDelay: `${0.5 + i * 0.07}s` }}>
+                        <li key={item} className="dh-item" style={{ animationDelay: `${0.45 + i * 0.07}s` }}>
                             <span className="dh-dot" aria-hidden="true" />
                             {item}
                         </li>
@@ -52,14 +49,14 @@ export default function Section1() {
 
                 .dh-glow {
                     position: absolute;
-                    top: 18%;
+                    top: 20%;
                     left: 50%;
                     transform: translateX(-50%);
-                    width: min(900px, 90vw);
-                    height: 360px;
+                    width: min(800px, 90vw);
+                    height: 320px;
                     border-radius: 50%;
-                    background: radial-gradient(ellipse, rgba(237,67,28,0.13) 0%, transparent 68%);
-                    filter: blur(40px);
+                    background: radial-gradient(ellipse, rgba(237,67,28,0.09) 0%, transparent 70%);
+                    filter: blur(48px);
                     pointer-events: none;
                     z-index: 0;
                 }
@@ -72,19 +69,8 @@ export default function Section1() {
                     align-items: center;
                     text-align: center;
                     padding: clamp(92px, 9vw, 120px) clamp(20px, 5vw, 80px) clamp(48px, 5vw, 72px);
-                    max-width: 1300px;
+                    max-width: 1200px;
                     margin: 0 auto;
-                }
-
-                .dh-kicker {
-                    margin: 0 0 28px;
-                    font-size: 0.68rem;
-                    font-weight: 700;
-                    letter-spacing: 0.22em;
-                    text-transform: uppercase;
-                    color: #ed431c;
-                    opacity: 0;
-                    animation: dh-in 0.5s ease 0.05s forwards;
                 }
 
                 .dh-headline {
@@ -92,42 +78,25 @@ export default function Section1() {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    gap: 0;
+                    gap: 4px;
                     width: 100%;
                 }
                 .dh-hl {
                     display: block;
-                    font-weight: 800;
-                    letter-spacing: -0.045em;
-                    line-height: 1.02;
+                    font-size: clamp(2.4rem, 6vw, 5.4rem);
+                    font-weight: 700;
+                    letter-spacing: -0.04em;
+                    line-height: 1.08;
+                    color: #ffffff;
                     opacity: 0;
                     animation: dh-rise 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
                 }
-                .dh-hl--muted {
-                    font-size: clamp(1.8rem, 4.2vw, 3.8rem);
-                    color: rgba(255,255,255,0.38);
-                    animation-delay: 0.08s;
-                }
-                .dh-hl--muted2 {
-                    font-size: clamp(1.4rem, 3vw, 2.8rem);
-                    color: rgba(255,255,255,0.28);
-                    font-weight: 700;
-                    animation-delay: 0.14s;
-                }
-                .dh-hl--accent {
-                    font-size: clamp(4rem, 11vw, 10rem);
-                    line-height: 0.9;
-                    color: #ed431c;
-                    margin: 6px 0;
-                    animation-delay: 0.22s;
-                }
-                .dh-hl--bright {
-                    font-size: clamp(1.8rem, 4.2vw, 3.8rem);
-                    color: #ffffff;
-                    animation-delay: 0.3s;
-                }
+                .dh-hl:nth-child(1) { animation-delay: 0.05s; }
+                .dh-hl:nth-child(2) { animation-delay: 0.14s; }
+                .dh-hl:nth-child(3) { animation-delay: 0.22s; }
+
                 @keyframes dh-rise {
-                    from { opacity: 0; transform: translateY(24px); }
+                    from { opacity: 0; transform: translateY(20px); }
                     to   { opacity: 1; transform: translateY(0); }
                 }
                 @keyframes dh-in {
@@ -139,34 +108,34 @@ export default function Section1() {
                     display: flex;
                     align-items: center;
                     gap: 12px;
-                    width: min(560px, 90%);
-                    margin-bottom: 32px;
+                    width: min(480px, 90%);
+                    margin-bottom: 28px;
                     opacity: 0;
-                    animation: dh-in 0.5s ease 0.44s forwards;
+                    animation: dh-in 0.5s ease 0.32s forwards;
                 }
                 .dh-rule-edge {
                     flex: 1;
                     height: 1px;
-                    background: linear-gradient(to right, transparent, rgba(255,255,255,0.12));
+                    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1));
                 }
                 .dh-rule-edge:last-child {
-                    background: linear-gradient(to left, transparent, rgba(255,255,255,0.12));
+                    background: linear-gradient(to left, transparent, rgba(255,255,255,0.1));
                 }
                 .dh-rule-center {
-                    flex: 0 0 48px;
+                    flex: 0 0 44px;
                     height: 1px;
                     background: #ed431c;
                     opacity: 0.7;
                 }
 
                 .dh-lead {
-                    margin: 0 0 32px;
-                    max-width: 520px;
+                    margin: 0 0 28px;
+                    max-width: 500px;
                     font-size: 1rem;
                     line-height: 1.8;
-                    color: rgba(255,255,255,0.55);
+                    color: rgba(255,255,255,0.52);
                     opacity: 0;
-                    animation: dh-in 0.5s ease 0.52s forwards;
+                    animation: dh-in 0.5s ease 0.4s forwards;
                 }
 
                 .dh-list {
@@ -174,8 +143,10 @@ export default function Section1() {
                     grid-template-columns: 1fr 1fr;
                     gap: 10px 40px;
                     margin: 0; padding: 0; list-style: none;
-                    max-width: 680px;
+                    max-width: 640px;
                     width: 100%;
+                    opacity: 0;
+                    animation: dh-in 0.5s ease 0.48s forwards;
                 }
                 @media (max-width: 560px) { .dh-list { grid-template-columns: 1fr; } }
                 .dh-item {
@@ -184,11 +155,9 @@ export default function Section1() {
                     gap: 10px;
                     font-size: 0.86rem;
                     font-weight: 500;
-                    color: rgba(255,255,255,0.65);
+                    color: rgba(255,255,255,0.62);
                     line-height: 1.5;
                     text-align: left;
-                    opacity: 0;
-                    animation: dh-in 0.5s ease forwards;
                 }
                 .dh-dot {
                     flex-shrink: 0;
@@ -196,7 +165,7 @@ export default function Section1() {
                     border-radius: 50%;
                     background: #ed431c;
                     margin-top: 6px;
-                    box-shadow: 0 0 8px rgba(237,67,28,0.55);
+                    box-shadow: 0 0 8px rgba(237,67,28,0.5);
                 }
             `}} />
         </InteractiveHeroSection>

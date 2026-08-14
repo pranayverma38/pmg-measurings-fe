@@ -23,9 +23,6 @@ export default function Section1() {
 
             <div className="ah-wrap">
 
-                {/* ── Kicker ─── */}
-                <p className="ah-kicker">About PMG</p>
-
                 {/* ── Centered headline ─── */}
                 <h1 className="ah-headline">
                     <span className="ah-hl ah-hl--muted">Crafting durable and</span>
@@ -91,18 +88,6 @@ export default function Section1() {
                     padding: clamp(92px, 9vw, 120px) clamp(20px, 5vw, 80px) clamp(48px, 5vw, 72px);
                     max-width: 1300px;
                     margin: 0 auto;
-                }
-
-                /* Kicker */
-                .ah-kicker {
-                    margin: 0 0 28px;
-                    font-size: 0.68rem;
-                    font-weight: 700;
-                    letter-spacing: 0.22em;
-                    text-transform: uppercase;
-                    color: #ed431c;
-                    opacity: 0;
-                    animation: ah-in 0.5s ease 0.05s forwards;
                 }
 
                 /* Headline */
