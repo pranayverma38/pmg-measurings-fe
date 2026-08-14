@@ -451,6 +451,8 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
 
                         .about-legacy__value-card {
                             position: relative;
+                            --card-accent: #ed431c;
+                            --card-icon-hover-color: #ffffff;
                             padding: 32px 28px 36px;
                             background: #111111;
                             border: 1px solid rgba(255,255,255,0.07);
@@ -466,9 +468,15 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
                             border-color: rgba(237,67,28,0.3);
                         }
                         .about-legacy__value-card--1 { --card-accent: #ed431c; }
-                        .about-legacy__value-card--2 { --card-accent: #ffffff; }
+                        .about-legacy__value-card--2 {
+                            --card-accent: rgba(255,255,255,0.92);
+                            --card-icon-hover-color: #111111;
+                        }
                         .about-legacy__value-card--3 { --card-accent: #ed431c; }
-                        .about-legacy__value-card--4 { --card-accent: #ffffff; }
+                        .about-legacy__value-card--4 {
+                            --card-accent: rgba(255,255,255,0.92);
+                            --card-icon-hover-color: #111111;
+                        }
 
                         .about-legacy__value-icon {
                             display: flex;
@@ -489,7 +497,7 @@ export default function AboutStory({ showHero = true, showProductRange = true }:
                         }
                         .about-legacy__value-card:hover .about-legacy__value-icon {
                             background: var(--card-accent);
-                            color: #fff;
+                            color: var(--card-icon-hover-color);
                             transform: scale(1.05);
                         }
                         .about-legacy__value-number {
