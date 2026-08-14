@@ -23,9 +23,7 @@ export default function Section1() {
             <div className="ah-wrap">
 
                 <h1 className="ah-headline">
-                    <span className="ah-hl">Crafting durable and</span>
-                    <span className="ah-hl">accurate measuring solutions</span>
-                    <span className="ah-hl">for professionals worldwide</span>
+                    Crafting durable and accurate measuring solutions for professionals worldwide
                 </h1>
 
                 <div className="ah-rule" aria-hidden="true">
@@ -84,25 +82,16 @@ export default function Section1() {
 
                 .ah-headline {
                     margin: 0 0 36px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 4px;
-                    width: 100%;
-                }
-                .ah-hl {
-                    display: block;
-                    font-size: clamp(2.4rem, 6vw, 5.4rem);
+                    font-size: clamp(2.2rem, 5vw, 4.8rem);
                     font-weight: 700;
                     letter-spacing: -0.04em;
-                    line-height: 1.08;
+                    line-height: 1.1;
                     color: #ffffff;
+                    text-wrap: balance;
+                    max-width: 1100px;
                     opacity: 0;
-                    animation: ah-rise 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+                    animation: ah-rise 0.7s cubic-bezier(0.22,1,0.36,1) 0.05s forwards;
                 }
-                .ah-hl:nth-child(1) { animation-delay: 0.05s; }
-                .ah-hl:nth-child(2) { animation-delay: 0.14s; }
-                .ah-hl:nth-child(3) { animation-delay: 0.22s; }
 
                 @keyframes ah-rise {
                     from { opacity: 0; transform: translateY(20px); }

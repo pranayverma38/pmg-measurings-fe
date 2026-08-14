@@ -16,9 +16,7 @@ export default function Section1() {
             <div className="dh-wrap">
 
                 <h1 className="dh-headline">
-                    <span className="dh-hl">Expand your hardware network</span>
-                    <span className="dh-hl">with a precision tools</span>
-                    <span className="dh-hl">brand built for growth</span>
+                    Expand your hardware network with a precision tools brand built for growth
                 </h1>
 
                 <div className="dh-rule" aria-hidden="true">
@@ -75,25 +73,16 @@ export default function Section1() {
 
                 .dh-headline {
                     margin: 0 0 36px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 4px;
-                    width: 100%;
-                }
-                .dh-hl {
-                    display: block;
-                    font-size: clamp(2.4rem, 6vw, 5.4rem);
+                    font-size: clamp(2.2rem, 5vw, 4.8rem);
                     font-weight: 700;
                     letter-spacing: -0.04em;
-                    line-height: 1.08;
+                    line-height: 1.1;
                     color: #ffffff;
+                    text-wrap: balance;
+                    max-width: 1100px;
                     opacity: 0;
-                    animation: dh-rise 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+                    animation: dh-rise 0.7s cubic-bezier(0.22,1,0.36,1) 0.05s forwards;
                 }
-                .dh-hl:nth-child(1) { animation-delay: 0.05s; }
-                .dh-hl:nth-child(2) { animation-delay: 0.14s; }
-                .dh-hl:nth-child(3) { animation-delay: 0.22s; }
 
                 @keyframes dh-rise {
                     from { opacity: 0; transform: translateY(20px); }
