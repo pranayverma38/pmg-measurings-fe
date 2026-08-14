@@ -1,10 +1,8 @@
-import RevealText from "@/components/effects/RevealText";
-import DistributorsContent from "@/components/sections/distributors/DistributorsContent";
 import InteractiveHeroSection from "@/components/shared/InteractiveHeroSection";
 import LiquidGlassBadge from "@/components/shared/LiquidGlassBadge";
 
 const ARROW_SVG = (
-    <svg width="10" height="10" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="10" height="10" viewBox="0 0 11 11" fill="none">
         <path d="M0.21967 9.40717C-0.0732232 9.70006 -0.0732232 10.1749 0.21967 10.4678C0.512563 10.7607 0.987437 10.7607 1.28033 10.4678L0.21967 9.40717ZM10.6875 0.75C10.6875 0.335786 10.3517 2.97145e-09 9.9375 1.50485e-07L3.1875 -2.70983e-07C2.77329 -2.70983e-07 2.4375 0.335786 2.4375 0.75C2.4375 1.16421 2.77329 1.5 3.1875 1.5H9.1875V7.5C9.1875 7.91421 9.52329 8.25 9.9375 8.25C10.3517 8.25 10.6875 7.91421 10.6875 7.5L10.6875 0.75ZM0.75 9.9375L1.28033 10.4678L10.4678 1.28033L9.9375 0.75L9.40717 0.21967L0.21967 9.40717L0.75 9.9375Z" fill="currentColor"/>
     </svg>
 );
@@ -16,392 +14,359 @@ const HIGHLIGHTS = [
     "Marketing & merchandising assets",
 ];
 
-const PARTNER_NODES = [
-    { label: "Quality", sub: "ISO-grade tools" },
-    { label: "Territory", sub: "Exclusive zones" },
-    { label: "Support", sub: "Dedicated team" },
-    { label: "Growth", sub: "Co-marketing" },
+const PARTNER_ITEMS = [
+    { label: "Quality", value: "ISO-grade tools" },
+    { label: "Territory", value: "Exclusive zones" },
+    { label: "Support", value: "Dedicated team" },
+    { label: "Coverage", value: "Pan-India & Export" },
 ];
 
 export default function Section1() {
     return (
-        <InteractiveHeroSection className="pmg-dist-hero sec-1-distributors">
+        <InteractiveHeroSection className="dh-sec">
 
-            <div className="pmg-dist-hero__tape pmg-dist-hero__tape--top" aria-hidden="true" />
+            <div className="dh-layout">
 
-            <DistributorsContent className="pmg-dist-hero__body z-1">
+                {/* ── Left ─────────────────────────────── */}
+                <div className="dh-content">
 
-                {/* ── Left column ─────────────────────────────────────── */}
-                <div className="pmg-dist-hero__left">
-
-                    <div className="pmg-dist-hero__eyebrow-row">
+                    <div className="dh-meta">
                         <LiquidGlassBadge cornerRadius={999} style={{ display: "inline-flex" }}>
-                            <span className="pmg-dist-hero__eyebrow-pill">
-                                Partner with PMG
-                                <span className="pmg-dist-hero__eyebrow-arrow">{ARROW_SVG}</span>
-                            </span>
+                            <span className="dh-pill">Partner with PMG {ARROW_SVG}</span>
                         </LiquidGlassBadge>
-                        <span className="pmg-dist-hero__index" aria-hidden="true">02</span>
+                        <span className="dh-num" aria-hidden="true">02</span>
                     </div>
 
-                    <h1 className="pmg-dist-hero__title reveal-text">
-                        <RevealText>
-                            Expand your hardware network with a{" "}
-                            <em className="pmg-dist-hero__title-accent">precision tools</em>{" "}
-                            brand built for growth
-                        </RevealText>
+                    <h1 className="dh-title">
+                        Expand your hardware network with a{" "}
+                        <span className="dh-accent">precision tools</span>{" "}
+                        brand built for growth
                     </h1>
 
-                    <p className="pmg-dist-hero__lead">
+                    <div className="dh-divider" aria-hidden="true" />
+
+                    <p className="dh-lead">
                         Join PMG&apos;s global distributor network and bring industry-leading measuring tapes,
                         spirit levels, and hand tools to your market. We partner with established wholesalers,
                         retailers, and trade suppliers who share our commitment to quality and reliability.
                     </p>
 
-                    <ul className="pmg-dist-hero__highlights">
+                    <ul className="dh-list">
                         {HIGHLIGHTS.map((item) => (
-                            <li key={item} className="pmg-dist-hero__highlight">
-                                <span className="pmg-dist-hero__highlight-icon" aria-hidden="true">{ARROW_SVG}</span>
-                                <span>{item}</span>
+                            <li key={item} className="dh-list-item">
+                                <span className="dh-list-dot" aria-hidden="true" />
+                                {item}
                             </li>
                         ))}
                     </ul>
 
                 </div>
 
-                {/* ── Right column — partner network panel ─────────────── */}
-                <div className="pmg-dist-hero__right" aria-hidden="true">
-                    <div className="pmg-dist-hero__panel">
-                        <div className="pmg-dist-hero__panel-glow" />
+                {/* ── Right panel ───────────────────────── */}
+                <aside className="dh-panel" aria-hidden="true">
 
-                        <div className="pmg-dist-hero__panel-header">
-                            <span className="pmg-dist-hero__panel-label">Partner network</span>
-                            <span className="pmg-dist-hero__panel-live">
-                                <span className="pmg-dist-hero__panel-dot" />
-                                Active
-                            </span>
-                        </div>
-
-                        {/* Network nodes grid */}
-                        <div className="pmg-dist-hero__nodes">
-                            {PARTNER_NODES.map((node, i) => (
-                                <div key={node.label} className="pmg-dist-hero__node" style={{ animationDelay: `${i * 0.15}s` }}>
-                                    <div className="pmg-dist-hero__node-ring" />
-                                    <span className="pmg-dist-hero__node-label">{node.label}</span>
-                                    <span className="pmg-dist-hero__node-sub">{node.sub}</span>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Connecting line */}
-                        <div className="pmg-dist-hero__connector" aria-hidden="true">
-                            <div className="pmg-dist-hero__connector-line" />
-                            <div className="pmg-dist-hero__connector-pulse" />
-                        </div>
-
-                        {/* Bottom callout */}
-                        <div className="pmg-dist-hero__callout">
-                            <span className="pmg-dist-hero__callout-label">Coverage</span>
-                            <span className="pmg-dist-hero__callout-value">Pan-India + Export</span>
-                        </div>
-
-                        <div className="pmg-dist-hero__wordmark">PMG</div>
+                    <div className="dh-panel-top">
+                        <span className="dh-panel-label">Partner network</span>
+                        <span className="dh-status">
+                            <span className="dh-pulse" />
+                            Active
+                        </span>
                     </div>
-                </div>
 
-            </DistributorsContent>
+                    <div className="dh-nodes">
+                        {PARTNER_ITEMS.map((item, i) => (
+                            <div key={item.label} className="dh-node" style={{ animationDelay: `${i * 0.1}s` }}>
+                                <span className="dh-node-label">{item.label}</span>
+                                <span className="dh-node-value">{item.value}</span>
+                            </div>
+                        ))}
+                    </div>
 
-            <div className="pmg-dist-hero__tape pmg-dist-hero__tape--bottom" aria-hidden="true" />
+                    <div className="dh-connector">
+                        <div className="dh-connector-bar" />
+                        <div className="dh-connector-pulse" />
+                    </div>
+
+                    <div className="dh-callout">
+                        <span className="dh-callout-k">Distribution reach</span>
+                        <span className="dh-callout-v">Pan-India + Export</span>
+                    </div>
+
+                    <div className="dh-mark">PMG</div>
+
+                </aside>
+
+            </div>
 
             <style dangerouslySetInnerHTML={{ __html: `
-                .pmg-dist-hero {
-                    position: relative;
-                    min-height: 100svh;
+                /* Section */
+                .dh-sec { position: relative; }
+
+                /* Two-column flex layout */
+                .dh-layout {
                     display: flex;
                     flex-direction: column;
-                    justify-content: center;
+                    min-height: 100svh;
                 }
-                .pmg-dist-hero__tape {
-                    position: relative;
-                    height: 3px;
-                    background: linear-gradient(90deg, transparent 0%, #ed431c 20%, #ed431c 80%, transparent 100%);
-                    opacity: 0.7;
-                    flex-shrink: 0;
-                }
-                .pmg-dist-hero__tape::before {
-                    content: "";
-                    position: absolute;
-                    inset: -2px 0;
-                    background: inherit;
-                    filter: blur(6px);
-                    opacity: 0.5;
-                }
-                .pmg-dist-hero__body {
-                    display: grid;
-                    grid-template-columns: 1fr;
-                    gap: 48px;
-                    padding-top: clamp(80px, 10vw, 130px);
-                    padding-bottom: clamp(60px, 7vw, 96px);
-                }
-                @media (min-width: 1024px) {
-                    .pmg-dist-hero__body {
-                        grid-template-columns: 1.1fr 0.9fr;
-                        gap: 64px;
-                        align-items: center;
+                @media (min-width: 1060px) {
+                    .dh-layout {
+                        flex-direction: row;
+                        align-items: stretch;
                     }
                 }
 
-                /* ── Left ─── */
-                .pmg-dist-hero__left { display: flex; flex-direction: column; gap: 28px; }
-                .pmg-dist-hero__eyebrow-row {
+                /* Left content */
+                .dh-content {
+                    flex: 1 1 0;
+                    min-width: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 28px;
+                    padding: clamp(110px, 12vw, 150px) clamp(24px, 5vw, 72px) clamp(56px, 6vw, 80px);
+                }
+
+                /* Right panel */
+                .dh-panel {
+                    flex: 0 0 380px;
+                    display: none;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 24px;
+                    padding: 48px 36px;
+                    border-left: 1px solid rgba(255,255,255,0.07);
+                    background:
+                        linear-gradient(160deg, rgba(237,67,28,0.05) 0%, transparent 50%),
+                        rgba(10,10,10,0.7);
+                    position: relative;
+                    overflow: hidden;
+                }
+                @media (min-width: 1060px) { .dh-panel { display: flex; } }
+                .dh-panel::before {
+                    content: "";
+                    position: absolute;
+                    top: 0; left: 0; right: 0;
+                    height: 1px;
+                    background: linear-gradient(90deg, transparent, rgba(237,67,28,0.5), transparent);
+                }
+
+                /* Meta */
+                .dh-meta {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    gap: 16px;
                 }
-                .pmg-dist-hero__eyebrow-pill {
+                .dh-pill {
                     display: inline-flex;
                     align-items: center;
                     gap: 8px;
-                    padding: 9px 16px;
-                    font-size: 0.72rem;
+                    padding: 10px 18px;
+                    font-size: 0.7rem;
                     font-weight: 700;
-                    letter-spacing: 0.14em;
+                    letter-spacing: 0.15em;
                     text-transform: uppercase;
                     color: #ed431c;
+                    white-space: nowrap;
                 }
-                .pmg-dist-hero__eyebrow-arrow { display: inline-flex; opacity: 0.7; }
-                .pmg-dist-hero__index {
-                    font-size: clamp(4rem, 10vw, 8rem);
+                .dh-num {
+                    font-size: clamp(3rem, 8vw, 7rem);
                     font-weight: 800;
                     line-height: 1;
-                    letter-spacing: -0.06em;
+                    letter-spacing: -0.07em;
                     color: transparent;
-                    -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+                    -webkit-text-stroke: 1px rgba(255,255,255,0.08);
                     user-select: none;
                 }
-                .pmg-dist-hero__title {
+
+                /* Title */
+                .dh-title {
                     margin: 0;
-                    font-size: clamp(2.4rem, 5vw, 4.2rem);
+                    font-size: clamp(2.4rem, 4.8vw, 4.2rem);
                     font-weight: 700;
-                    line-height: 1.05;
+                    line-height: 1.06;
                     letter-spacing: -0.04em;
-                    color: #ffffff;
+                    color: #fff;
+                    max-width: 700px;
+                    animation: dh-rise 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s both;
                 }
-                .pmg-dist-hero__title-accent {
-                    font-style: normal;
-                    color: #ed431c;
+                @keyframes dh-rise {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to   { opacity: 1; transform: translateY(0); }
                 }
-                .pmg-dist-hero__lead {
+                .dh-accent { color: #ed431c; }
+
+                /* Divider */
+                .dh-divider {
+                    height: 1px;
+                    background: linear-gradient(90deg, #ed431c 0%, rgba(237,67,28,0.15) 60%, transparent 100%);
+                    max-width: 280px;
+                }
+
+                /* Lead */
+                .dh-lead {
                     margin: 0;
-                    max-width: 38rem;
                     font-size: 1rem;
-                    line-height: 1.75;
-                    color: rgba(255, 255, 255, 0.6);
+                    line-height: 1.78;
+                    color: rgba(255,255,255,0.65);
+                    max-width: 540px;
                 }
-                .pmg-dist-hero__highlights {
+
+                /* List */
+                .dh-list {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
-                    gap: 12px 24px;
+                    gap: 10px 32px;
                     margin: 0; padding: 0; list-style: none;
                 }
-                @media (max-width: 600px) {
-                    .pmg-dist-hero__highlights { grid-template-columns: 1fr; }
-                }
-                .pmg-dist-hero__highlight {
+                @media (max-width: 640px) { .dh-list { grid-template-columns: 1fr; } }
+                .dh-list-item {
                     display: flex;
                     align-items: flex-start;
                     gap: 10px;
                     font-size: 0.88rem;
                     font-weight: 500;
-                    line-height: 1.45;
-                    color: rgba(255,255,255,0.78);
-                    padding: 14px 16px;
-                    background: rgba(255,255,255,0.03);
-                    border: 1px solid rgba(255,255,255,0.07);
-                    border-radius: 12px;
-                    transition: background 0.2s ease, border-color 0.2s ease;
+                    color: rgba(255,255,255,0.72);
+                    line-height: 1.5;
                 }
-                .pmg-dist-hero__highlight:hover {
-                    background: rgba(237,67,28,0.06);
-                    border-color: rgba(237,67,28,0.2);
-                }
-                .pmg-dist-hero__highlight-icon { flex-shrink: 0; color: #ed431c; margin-top: 2px; }
-
-                /* ── Right panel ─── */
-                .pmg-dist-hero__right { display: none; }
-                @media (min-width: 1024px) { .pmg-dist-hero__right { display: block; } }
-
-                .pmg-dist-hero__panel {
-                    position: relative;
-                    padding: 32px;
-                    background:
-                        linear-gradient(135deg, rgba(237,67,28,0.06) 0%, rgba(255,255,255,0.02) 60%),
-                        rgba(12,12,12,0.9);
-                    border: 1px solid rgba(255,255,255,0.08);
-                    border-radius: 24px;
-                    overflow: hidden;
-                    backdrop-filter: blur(12px);
-                    -webkit-backdrop-filter: blur(12px);
-                }
-                .pmg-dist-hero__panel::before {
-                    content: "";
-                    position: absolute;
-                    top: 0; left: 0; right: 0;
-                    height: 2px;
-                    background: linear-gradient(90deg, transparent, #ed431c 50%, transparent);
-                    opacity: 0.8;
-                }
-                .pmg-dist-hero__panel-glow {
-                    position: absolute;
-                    top: -60px; right: -60px;
-                    width: 220px; height: 220px;
+                .dh-list-dot {
+                    flex-shrink: 0;
+                    width: 6px; height: 6px;
                     border-radius: 50%;
-                    background: radial-gradient(circle, rgba(237,67,28,0.18) 0%, transparent 70%);
-                    filter: blur(30px);
-                    pointer-events: none;
+                    background: #ed431c;
+                    margin-top: 5px;
+                    box-shadow: 0 0 6px rgba(237,67,28,0.5);
                 }
-                .pmg-dist-hero__panel-header {
+
+                /* Panel internals */
+                .dh-panel-top {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    margin-bottom: 28px;
                 }
-                .pmg-dist-hero__panel-label {
-                    font-size: 0.68rem;
+                .dh-panel-label {
+                    font-size: 0.62rem;
                     font-weight: 700;
-                    letter-spacing: 0.16em;
+                    letter-spacing: 0.18em;
                     text-transform: uppercase;
-                    color: rgba(237,67,28,0.85);
+                    color: rgba(237,67,28,0.8);
                 }
-                .pmg-dist-hero__panel-live {
+                .dh-status {
                     display: flex;
                     align-items: center;
                     gap: 6px;
-                    font-size: 0.68rem;
+                    font-size: 0.62rem;
                     font-weight: 600;
                     letter-spacing: 0.1em;
                     text-transform: uppercase;
-                    color: rgba(255,255,255,0.45);
+                    color: rgba(255,255,255,0.4);
                 }
-                .pmg-dist-hero__panel-dot {
+                .dh-pulse {
                     width: 7px; height: 7px;
                     border-radius: 50%;
                     background: #ed431c;
                     box-shadow: 0 0 8px rgba(237,67,28,0.6);
-                    animation: pmg-dist-pulse 2.4s ease-in-out infinite;
+                    animation: dh-blink 2.4s ease-in-out infinite;
                 }
-                @keyframes pmg-dist-pulse {
+                @keyframes dh-blink {
                     0%,100% { opacity: 1; transform: scale(1); }
-                    50% { opacity: 0.4; transform: scale(0.7); }
+                    50% { opacity: 0.3; transform: scale(0.65); }
                 }
 
-                /* Nodes */
-                .pmg-dist-hero__nodes {
+                /* Partner nodes */
+                .dh-nodes {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
-                    gap: 12px;
-                    margin-bottom: 24px;
+                    gap: 10px;
                 }
-                .pmg-dist-hero__node {
-                    position: relative;
+                .dh-node {
                     display: flex;
                     flex-direction: column;
                     gap: 4px;
-                    padding: 18px 16px;
-                    background: rgba(255,255,255,0.03);
-                    border: 1px solid rgba(255,255,255,0.08);
-                    border-radius: 16px;
-                    overflow: hidden;
-                    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
-                    animation: pmg-node-in 0.6s ease both;
+                    padding: 16px 14px;
+                    border: 1px solid rgba(255,255,255,0.07);
+                    border-radius: 14px;
+                    background: rgba(255,255,255,0.02);
+                    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+                    animation: dh-nodein 0.5s ease both;
                 }
-                @keyframes pmg-node-in {
-                    from { opacity: 0; transform: translateY(12px); }
+                @keyframes dh-nodein {
+                    from { opacity: 0; transform: translateY(10px); }
                     to { opacity: 1; transform: translateY(0); }
                 }
-                .pmg-dist-hero__node:hover {
-                    background: rgba(237,67,28,0.07);
-                    border-color: rgba(237,67,28,0.25);
+                .dh-node:hover {
+                    background: rgba(237,67,28,0.06);
+                    border-color: rgba(237,67,28,0.22);
                     transform: translateY(-2px);
                 }
-                .pmg-dist-hero__node-ring {
-                    position: absolute;
-                    top: -20px; right: -20px;
-                    width: 60px; height: 60px;
-                    border-radius: 50%;
-                    border: 1px solid rgba(237,67,28,0.15);
-                    pointer-events: none;
-                }
-                .pmg-dist-hero__node-label {
-                    font-size: 0.95rem;
+                .dh-node-label {
+                    font-size: 0.98rem;
                     font-weight: 700;
-                    color: #ffffff;
+                    color: #fff;
                     letter-spacing: -0.01em;
                 }
-                .pmg-dist-hero__node-sub {
+                .dh-node-value {
                     font-size: 0.72rem;
                     font-weight: 500;
-                    color: rgba(255,255,255,0.42);
-                    letter-spacing: 0.03em;
+                    color: rgba(255,255,255,0.4);
+                    letter-spacing: 0.02em;
                 }
 
                 /* Connector */
-                .pmg-dist-hero__connector {
+                .dh-connector {
                     position: relative;
                     height: 2px;
                     background: rgba(255,255,255,0.06);
                     border-radius: 1px;
-                    margin-bottom: 24px;
                     overflow: hidden;
                 }
-                .pmg-dist-hero__connector-pulse {
+                .dh-connector-bar { width: 100%; height: 100%; background: rgba(255,255,255,0.04); }
+                .dh-connector-pulse {
                     position: absolute;
                     top: 0; left: -30%;
                     width: 30%;
                     height: 100%;
                     background: linear-gradient(90deg, transparent, #ed431c, transparent);
-                    animation: pmg-connector-slide 2.8s ease-in-out infinite;
+                    animation: dh-slide 2.5s ease-in-out infinite;
                 }
-                @keyframes pmg-connector-slide {
+                @keyframes dh-slide {
                     from { left: -30%; }
                     to { left: 130%; }
                 }
 
                 /* Callout */
-                .pmg-dist-hero__callout {
+                .dh-callout {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    padding: 14px 18px;
-                    margin-bottom: 24px;
-                    background: rgba(237,67,28,0.07);
-                    border: 1px solid rgba(237,67,28,0.18);
+                    padding: 13px 16px;
+                    border: 1px solid rgba(237,67,28,0.16);
                     border-radius: 12px;
+                    background: rgba(237,67,28,0.05);
                 }
-                .pmg-dist-hero__callout-label {
-                    font-size: 0.72rem;
+                .dh-callout-k {
+                    font-size: 0.7rem;
                     font-weight: 700;
-                    letter-spacing: 0.1em;
+                    letter-spacing: 0.08em;
                     text-transform: uppercase;
-                    color: rgba(255,255,255,0.4);
+                    color: rgba(255,255,255,0.36);
                 }
-                .pmg-dist-hero__callout-value {
-                    font-size: 0.9rem;
+                .dh-callout-v {
+                    font-size: 0.88rem;
                     font-weight: 700;
-                    color: #ffffff;
-                    letter-spacing: -0.01em;
+                    color: #fff;
                 }
 
                 /* Ghost wordmark */
-                .pmg-dist-hero__wordmark {
-                    font-size: 4.5rem;
+                .dh-mark {
+                    font-size: 5rem;
                     font-weight: 900;
-                    letter-spacing: -0.06em;
-                    line-height: 1;
+                    letter-spacing: -0.08em;
                     color: transparent;
-                    -webkit-text-stroke: 1px rgba(255,255,255,0.07);
-                    user-select: none;
+                    -webkit-text-stroke: 1px rgba(255,255,255,0.06);
                     text-align: right;
+                    line-height: 1;
+                    user-select: none;
                 }
             `}} />
         </InteractiveHeroSection>
