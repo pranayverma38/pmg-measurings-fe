@@ -18,37 +18,31 @@ export default function Section1() {
     return (
         <InteractiveHeroSection className="ah-sec">
 
-            {/* Ambient glow behind the accent word */}
             <div className="ah-glow" aria-hidden="true" />
 
             <div className="ah-wrap">
 
-                {/* ── Centered headline ─── */}
                 <h1 className="ah-headline">
-                    <span className="ah-hl ah-hl--muted">Crafting durable and</span>
-                    <span className="ah-hl ah-hl--accent">accurate</span>
-                    <span className="ah-hl ah-hl--bright">measuring solutions</span>
-                    <span className="ah-hl ah-hl--dim">for professionals worldwide</span>
+                    <span className="ah-hl">Crafting durable and</span>
+                    <span className="ah-hl">accurate measuring solutions</span>
+                    <span className="ah-hl">for professionals worldwide</span>
                 </h1>
 
-                {/* ── Decorative rule ─── */}
                 <div className="ah-rule" aria-hidden="true">
                     <span className="ah-rule-edge" />
                     <span className="ah-rule-center" />
                     <span className="ah-rule-edge" />
                 </div>
 
-                {/* ── Description ─── */}
                 <p className="ah-lead">
                     We are a precision tools brand dedicated to engineering hand tools that tradespeople
                     can rely on — from measuring tapes and spirit levels to specialty hardware built for
                     accuracy, longevity, and performance on every job.
                 </p>
 
-                {/* ── Highlights ─── */}
                 <ul className="ah-list">
                     {HIGHLIGHTS.map((item, i) => (
-                        <li key={item} className="ah-item" style={{ animationDelay: `${0.5 + i * 0.07}s` }}>
+                        <li key={item} className="ah-item" style={{ animationDelay: `${0.45 + i * 0.07}s` }}>
                             <span className="ah-dot" aria-hidden="true" />
                             {item}
                         </li>
@@ -62,22 +56,20 @@ export default function Section1() {
             <style dangerouslySetInnerHTML={{ __html: `
                 .ah-sec { position: relative; overflow: hidden; }
 
-                /* Ambient glow */
                 .ah-glow {
                     position: absolute;
-                    top: 18%;
+                    top: 20%;
                     left: 50%;
                     transform: translateX(-50%);
-                    width: min(900px, 90vw);
-                    height: 360px;
+                    width: min(800px, 90vw);
+                    height: 320px;
                     border-radius: 50%;
-                    background: radial-gradient(ellipse, rgba(237,67,28,0.13) 0%, transparent 68%);
-                    filter: blur(40px);
+                    background: radial-gradient(ellipse, rgba(237,67,28,0.09) 0%, transparent 70%);
+                    filter: blur(48px);
                     pointer-events: none;
                     z-index: 0;
                 }
 
-                /* Wrapper */
                 .ah-wrap {
                     position: relative;
                     z-index: 1;
@@ -86,62 +78,34 @@ export default function Section1() {
                     align-items: center;
                     text-align: center;
                     padding: clamp(92px, 9vw, 120px) clamp(20px, 5vw, 80px) clamp(48px, 5vw, 72px);
-                    max-width: 1300px;
+                    max-width: 1200px;
                     margin: 0 auto;
                 }
 
-                /* Headline */
                 .ah-headline {
                     margin: 0 0 36px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    gap: 0;
+                    gap: 4px;
                     width: 100%;
                 }
                 .ah-hl {
                     display: block;
-                    font-weight: 800;
-                    letter-spacing: -0.045em;
-                    line-height: 1.02;
+                    font-size: clamp(2.4rem, 6vw, 5.4rem);
+                    font-weight: 700;
+                    letter-spacing: -0.04em;
+                    line-height: 1.08;
+                    color: #ffffff;
                     opacity: 0;
                     animation: ah-rise 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
                 }
-                .ah-hl--muted {
-                    font-size: clamp(1.8rem, 4.2vw, 3.8rem);
-                    color: rgba(255,255,255,0.38);
-                    animation-delay: 0.08s;
-                }
-                .ah-hl--accent {
-                    font-size: clamp(5rem, 13vw, 12rem);
-                    line-height: 0.9;
-                    color: #ed431c;
-                    margin: 6px 0;
-                    position: relative;
-                    animation-delay: 0.18s;
-                }
-                .ah-hl--accent::before {
-                    content: attr(data-text);
-                    position: absolute;
-                    inset: 0;
-                    color: #ed431c;
-                    filter: blur(28px);
-                    opacity: 0.25;
-                    pointer-events: none;
-                }
-                .ah-hl--bright {
-                    font-size: clamp(1.8rem, 4.2vw, 3.8rem);
-                    color: #ffffff;
-                    animation-delay: 0.28s;
-                }
-                .ah-hl--dim {
-                    font-size: clamp(1.3rem, 2.8vw, 2.5rem);
-                    color: rgba(255,255,255,0.3);
-                    font-weight: 600;
-                    animation-delay: 0.36s;
-                }
+                .ah-hl:nth-child(1) { animation-delay: 0.05s; }
+                .ah-hl:nth-child(2) { animation-delay: 0.14s; }
+                .ah-hl:nth-child(3) { animation-delay: 0.22s; }
+
                 @keyframes ah-rise {
-                    from { opacity: 0; transform: translateY(24px); }
+                    from { opacity: 0; transform: translateY(20px); }
                     to   { opacity: 1; transform: translateY(0); }
                 }
                 @keyframes ah-in {
@@ -149,50 +113,49 @@ export default function Section1() {
                     to   { opacity: 1; transform: translateY(0); }
                 }
 
-                /* Decorative rule */
                 .ah-rule {
                     display: flex;
                     align-items: center;
                     gap: 12px;
-                    width: min(560px, 90%);
-                    margin-bottom: 32px;
+                    width: min(480px, 90%);
+                    margin-bottom: 28px;
                     opacity: 0;
-                    animation: ah-in 0.5s ease 0.44s forwards;
+                    animation: ah-in 0.5s ease 0.32s forwards;
                 }
                 .ah-rule-edge {
                     flex: 1;
                     height: 1px;
-                    background: linear-gradient(to right, transparent, rgba(255,255,255,0.12));
+                    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1));
                 }
                 .ah-rule-edge:last-child {
-                    background: linear-gradient(to left, transparent, rgba(255,255,255,0.12));
+                    background: linear-gradient(to left, transparent, rgba(255,255,255,0.1));
                 }
                 .ah-rule-center {
-                    flex: 0 0 48px;
+                    flex: 0 0 44px;
                     height: 1px;
                     background: #ed431c;
                     opacity: 0.7;
                 }
 
-                /* Lead */
                 .ah-lead {
-                    margin: 0 0 32px;
-                    max-width: 520px;
+                    margin: 0 0 28px;
+                    max-width: 500px;
                     font-size: 1rem;
                     line-height: 1.8;
-                    color: rgba(255,255,255,0.55);
+                    color: rgba(255,255,255,0.52);
                     opacity: 0;
-                    animation: ah-in 0.5s ease 0.52s forwards;
+                    animation: ah-in 0.5s ease 0.4s forwards;
                 }
 
-                /* Highlights */
                 .ah-list {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     gap: 10px 40px;
                     margin: 0; padding: 0; list-style: none;
-                    max-width: 680px;
+                    max-width: 640px;
                     width: 100%;
+                    opacity: 0;
+                    animation: ah-in 0.5s ease 0.48s forwards;
                 }
                 @media (max-width: 560px) { .ah-list { grid-template-columns: 1fr; } }
                 .ah-item {
@@ -201,11 +164,9 @@ export default function Section1() {
                     gap: 10px;
                     font-size: 0.86rem;
                     font-weight: 500;
-                    color: rgba(255,255,255,0.65);
+                    color: rgba(255,255,255,0.62);
                     line-height: 1.5;
                     text-align: left;
-                    opacity: 0;
-                    animation: ah-in 0.5s ease forwards;
                 }
                 .ah-dot {
                     flex-shrink: 0;
@@ -213,7 +174,7 @@ export default function Section1() {
                     border-radius: 50%;
                     background: #ed431c;
                     margin-top: 6px;
-                    box-shadow: 0 0 8px rgba(237,67,28,0.55);
+                    box-shadow: 0 0 8px rgba(237,67,28,0.5);
                 }
             `}} />
         </InteractiveHeroSection>
