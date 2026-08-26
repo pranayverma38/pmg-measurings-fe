@@ -1,10 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState } from "react";
-
-const PigeonMap = dynamic(() => import("pigeon-maps").then((mod) => mod.Map), { ssr: false });
-const PigeonOverlay = dynamic(() => import("pigeon-maps").then((mod) => mod.Overlay), { ssr: false });
 
 type NetworkRegion = "all" | "north" | "west" | "south" | "east";
 type PartnerType = "Distributor" | "Dealer";
@@ -29,6 +25,9 @@ type MapFocus = {
     center: [number, number];
     zoom: number;
 };
+
+type PigeonMapsModule = typeof import("pigeon-maps");
+type LoadedPigeonMaps = Pick<PigeonMapsModule, "Map" | "Overlay">;
 
 const REGION_CARDS: RegionCard[] = [
     {
@@ -85,17 +84,38 @@ const REGION_VIEWS: Record<NetworkRegion, MapFocus> = {
     east: { center: [24.1, 87.8], zoom: 5.05 },
 };
 
-const MAP_TILE_PROVIDER = (x: number, y: number, z: number, dpr: number) => {
-    const scale = dpr >= 2 ? "@2x" : "";
+const MAP_TILE_PROVIDER = (x: number, y: number, z: number, dpr?: number) => {
+    const scale = (dpr ?? 1) >= 2 ? "@2x" : "";
     const subdomain = ["a", "b", "c"][(x + y) % 3];
 
     return `https://${subdomain}.basemaps.cartocdn.com/light_all/${z}/${x}/${y}${scale}.png`;
 };
 
 export default function HomeIndiaNetworkSection() {
+    const [pigeonMaps, setPigeonMaps] = useState<LoadedPigeonMaps | null>(null);
     const [activeRegion, setActiveRegion] = useState<NetworkRegion>("all");
     const [activeLocationId, setActiveLocationId] = useState<string>("delhi");
     const [mapHeight, setMapHeight] = useState<number>(320);
+
+    useEffect(() => {
+        let isMounted = true;
+
+        import("pigeon-maps")
+            .then((mod) => {
+                if (isMounted) {
+                    setPigeonMaps({ Map: mod.Map, Overlay: mod.Overlay });
+                }
+            })
+            .catch(() => {
+                if (isMounted) {
+                    setPigeonMaps(null);
+                }
+            });
+
+        return () => {
+            isMounted = false;
+        };
+    }, []);
 
     const visibleLocations = useMemo(() => {
         if (activeRegion === "all") {
@@ -111,6 +131,8 @@ export default function HomeIndiaNetworkSection() {
         visibleLocations[0] ??
         PARTNER_LOCATIONS[0];
 
+    const PigeonMap = pigeonMaps?.Map;
+    const PigeonOverlay = pigeonMaps?.Overlay;
     const activeView = REGION_VIEWS[activeRegion];
     const desktopPanelHeight = mapHeight + 24;
 
@@ -154,46 +176,50 @@ export default function HomeIndiaNetworkSection() {
                         <div className="pmg-network__map-card">
                             <div className="pmg-network__map-surface">
                                 <div className="pmg-network__map-frame">
-                                    <PigeonMap
-                                        provider={MAP_TILE_PROVIDER}
-                                        center={activeView.center}
-                                        zoom={activeView.zoom}
-                                        minZoom={4}
-                                        maxZoom={7}
-                                        animate
-                                        metaWheelZoom={false}
-                                        mouseEvents
-                                        attribution={false}
-                                        twoFingerDrag={false}
-                                        height={mapHeight}
-                                        defaultCenter={[22.9734, 78.6569]}
-                                        defaultZoom={4.45}
-                                    >
-                                        {visibleLocations.map((location) => {
-                                            const isActive = location.id === activeLocation.id;
+                                    {PigeonMap && PigeonOverlay ? (
+                                        <PigeonMap
+                                            provider={MAP_TILE_PROVIDER}
+                                            center={activeView.center}
+                                            zoom={activeView.zoom}
+                                            minZoom={4}
+                                            maxZoom={7}
+                                            animate
+                                            metaWheelZoom={false}
+                                            mouseEvents
+                                            attribution={false}
+                                            twoFingerDrag={false}
+                                            height={mapHeight}
+                                            defaultCenter={[22.9734, 78.6569]}
+                                            defaultZoom={4.45}
+                                        >
+                                            {visibleLocations.map((location) => {
+                                                const isActive = location.id === activeLocation.id;
 
-                                            return (
-                                                <PigeonOverlay
-                                                    key={location.id}
-                                                    anchor={[location.lat, location.lng]}
-                                                    offset={[16, 16]}
-                                                >
-                                                    <button
-                                                        type="button"
-                                                        className={`pmg-network__marker pmg-network__marker--${location.type.toLowerCase()}${
-                                                            isActive ? " is-active" : ""
-                                                        }`}
-                                                        onMouseEnter={() => setActiveLocationId(location.id)}
-                                                        onFocus={() => setActiveLocationId(location.id)}
-                                                        onClick={() => setActiveLocationId(location.id)}
-                                                        aria-label={`${location.city}, ${location.state} ${location.type}`}
+                                                return (
+                                                    <PigeonOverlay
+                                                        key={location.id}
+                                                        anchor={[location.lat, location.lng]}
+                                                        offset={[16, 16]}
                                                     >
-                                                        <span className="pmg-network__marker-core" />
-                                                    </button>
-                                                </PigeonOverlay>
-                                            );
-                                        })}
-                                    </PigeonMap>
+                                                        <button
+                                                            type="button"
+                                                            className={`pmg-network__marker pmg-network__marker--${location.type.toLowerCase()}${
+                                                                isActive ? " is-active" : ""
+                                                            }`}
+                                                            onMouseEnter={() => setActiveLocationId(location.id)}
+                                                            onFocus={() => setActiveLocationId(location.id)}
+                                                            onClick={() => setActiveLocationId(location.id)}
+                                                            aria-label={`${location.city}, ${location.state} ${location.type}`}
+                                                        >
+                                                            <span className="pmg-network__marker-core" />
+                                                        </button>
+                                                    </PigeonOverlay>
+                                                );
+                                            })}
+                                        </PigeonMap>
+                                    ) : (
+                                        <div className="pmg-network__map-loading" aria-hidden="true" />
+                                    )}
 
                                     {activeLocation && (
                                         <div className="pmg-network__map-info">
@@ -404,6 +430,14 @@ export default function HomeIndiaNetworkSection() {
                             position: relative;
                             height: 100%;
                             min-height: 320px;
+                        }
+
+                        .pmg-network__map-loading {
+                            height: 100%;
+                            min-height: inherit;
+                            background:
+                                radial-gradient(circle at 20% 20%, rgba(196, 37, 41, 0.08), transparent 22%),
+                                linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(240, 243, 246, 0.9));
                         }
 
                         .pmg-network__map-frame :global(.pigeon-overlays) {
